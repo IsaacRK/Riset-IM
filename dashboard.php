@@ -29,47 +29,131 @@
 		background-color: #e0e2e1
 	}
 	
-	login-container{
-		height: 100%;
-		width: 100%;
+	color-dblue{
+		color: #1064AE;
+	}
+	
+	div.content{
+		margin-left: 200px;
+		padding: 1px;
 	}
 	
 	.sidebar{
 		position: fixed;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		padding: 58px 0 0;
+		margin: 0;
+		padding: 0;
+		width: 200px;
+		height: 100%;
 		box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
-		width: 240px;
-		z-index: 600;
+		overflow: auto;
+		background-color: #fff;
+		
 	}
 	
-	.container-padding{
-		padding-left: 10%;
+	div.open-menu{
+		position: relative;
+		display: none;
+	}
+	
+	.sidebar a{
+		display:block;
+		padding: 16px;
+		text-decoration: none;
+	}
+	
+	/*screen less than 767px*/
+	@media screen and (max-width: 767px){
+		.sidebar{
+			position: fixed;
+			z-index:10;
+			display: none;
+		}
+		
+		div.content{
+			margin-left: 0;
+			position: relative;
+			z-index: 1;
+		}
+		
+		div.open-menu{
+			display: block;
+		}
+		div.open-menu a{
+			position: fixed;
+			top: .5em;
+			left: .5em;
+			z-index: 15;
+			font-family: 'Nanum Gothic', sans-serif;
+			font-size: 30px;
+			font-weight: 700;
+			width: 40px;
+			height: 40px;
+			line-height: .9em;
+			text-align: center;
+			border: .2em solid #888;
+			background-color: #fff;
+			border-radius: 3em;
+			color: #888!important;
+		}
+		
+		.close-menu{
+			display: none;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background: rgba(0, 0, 0, .3) 1px 1px repeat;
+			z-index: 9;
+		}
 	}
 	</style>
 </head>
 
 <body>
+<!--
+<div class="bg-white sidebar">
+	<div class="list-group list-group-flush mx-3 mt-4">
+		<a href="" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+			<span class="fas fs-chart-area fa-fw me-3">dashbooard</span>
+		</a>
+		<a href="" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">dashbooard</a>
+		<a href="" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">dashbooard</a>
+		<a href="" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">dashbooard</a>
+		<a href="" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">dashbooard</a>
+		<a href="" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">dashbooard</a>
+		<a href="" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">dashbooard</a>
+	</div>
+</div>
+-->
 
-<nav class="collapse d-lg-block collapse bg-white sidebar">
-	<div class="position-sticky">
-		<div class="list-group list-group-flush mx-3 mt-4">
-			<a href="" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
-				<span class="fas fs-chart-area fa-fw me-3">dashbooard</span>
-			</a>
-			<a href="" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">dashbooard</a>
-			<a href="" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">dashbooard</a>
-			<a href="" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">dashbooard</a>
-			<a href="" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">dashbooard</a>
-			<a href="" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">dashbooard</a>
-			<a href="" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">dashbooard</a>
+<div class="open-menu" id="openMenu">
+	<p><a>≡</a></p>
+</div>
+
+<div class="close-menu" id="closeMenu"></div>
+
+<div class="sidebar" id="sidebar">
+	<div class="list-group-item list-group-item-action flex-column align-items-start">
+		<div class="row">
+			<div class="col-sm">
+				<div class="border border-dark rounded-circle m-0" style="width:40px;height:40px;"></div>
+			</div>
+			<div class="col-sm">
+				<p>Username</p>
+			</div>
 		</div>
 	</div>
-</nav>
+	</br>
+	<a href="" class="list-group-item-action ripple" aria-current="true">Home</a>
+	<a href="" class="list-group-item-action ripple" aria-current="true">Stock Input</a>
+	<a href="" class="list-group-item-action ripple" aria-current="true">Stock Output</a>
+	<a href="" class="list-group-item-action ripple" aria-current="true">Production Planning</a>
+	<a href="" class="list-group-item-action ripple" aria-current="true">Setting</a>
+</div>
 
-<div class="container container-padding mr-0">
+<div class="content">
+<div class="container mr-0">
 
 	<div class="p-1">
 		<div class="mb-3">
@@ -167,6 +251,7 @@
 				
 				<h4 class="card-title">Activity Record</h4>
 				
+				<div class="table-responsive">
 				<table class="table table-striped">
 					<thead>
 					<tr>
@@ -197,13 +282,40 @@
 					</tr>
 					</tbody>
 				</table>
+				</div>
 			
 			</div>
 			</div>
 		</div>
 	</div>
 </div>
+</div>
 
+<script>
+	document.getElementById("openMenu").onclick = function() {buttonSidebarShow()};
+	document.getElementById("closeMenu").onclick = function() {sidebarHide()};
+
+	function buttonSidebarShow(){
+		var x = document.getElementById("sidebar");
+		x.style.display = "block";
+		
+		var x = document.getElementById("closeMenu");
+		x.style.display = "block";
+		
+		var x = document.getElementById("openMenu");
+		x.style.display = "none";
+	}
+	
+	function sidebarHide(){
+		var x = document.getElementById("sidebar");
+		x.style.display = "none";
+		
+		var x = document.getElementById("closeMenu");
+		x.style.display = "none";
+		
+		var x = document.getElementById("openMenu");
+		x.style.display = "block";
+	}
+</script>
 </body>
-
 </html>
