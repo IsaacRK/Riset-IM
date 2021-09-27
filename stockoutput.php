@@ -1,4 +1,9 @@
-<?php?>
+<?php
+
+require 'backend/conn.php';
+require 'backend/usersession.php';
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -22,14 +27,21 @@
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="col">
-			<input class="" style="" required type="text" name="user" id=""/>
+	<div class="row mb-2 ml-2">
+		<div class="col-5">
+			<div class="row border border-dark rounded">
+				<div class="col-2">
+					<img class="m-1" src="img/icons/search.svg" width="25" height="25"/>
+				</div>
+				<div class="col-10">
+					<input class="form-control border border-0" style="" type="text" placeholder="Nama Komponen" name="user" id=""/>
+				</div>
+			</div>
 		</div>
-		<div class="col mx-auto">
+		<div class="col-2">
 			<input class="btn btn-primary btn-block" type="submit" name="submit" value="Search"/>
 		</div>
-		<div class="col mx-auto">
+		<div class="col-5">
 			<input class="btn btn-primary btn-block" type="submit" name="submit" value="Barcode Scanner"/>
 		</div>
 	</div>
