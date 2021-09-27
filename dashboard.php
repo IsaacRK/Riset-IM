@@ -1,156 +1,23 @@
 <?php
 
-//require 'backend/conn.php';
-//require 'backend/usersession.php';
+require 'backend/conn.php';
+require 'backend/usersession.php';
 
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	
-	<meta name="keywords" content="" />
-	<meta name="description" content="" />
-	<meta name="author" content="" />
-	<link rel="shortcut icon" href="images/favicon.png" type="">
-	
 	<title>Dashboard</title>
+	<?php include"layout/header.php"?>
 	
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-	<link href="css/responsive.css" rel="stylesheet" />
-	<script src="js/propper.min.js"></script>
-	<script src="js/bootstrap.bundle.min.js"></script>
-	
-	<style>
-	body{
-		background-color: #e0e2e1
-	}
-	
-	color-dblue{
-		color: #1064AE;
-	}
-	
-	div.content{
-		margin-left: 200px;
-		padding: 1px;
-	}
-	
-	.sidebar{
-		position: fixed;
-		margin: 0;
-		padding: 0;
-		width: 200px;
-		height: 100%;
-		box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
-		overflow: auto;
-		background-color: #fff;
-		
-	}
-	
-	div.open-menu{
-		position: relative;
-		display: none;
-	}
-	
-	.sidebar a{
-		display:block;
-		padding: 16px;
-		text-decoration: none;
-	}
-	
-	/*screen less than 767px*/
-	@media screen and (max-width: 767px){
-		.sidebar{
-			position: fixed;
-			z-index:10;
-			display: none;
-		}
-		
-		div.content{
-			margin-left: 0;
-			position: relative;
-			z-index: 1;
-		}
-		
-		div.open-menu{
-			display: block;
-		}
-		div.open-menu a{
-			position: fixed;
-			top: .5em;
-			left: .5em;
-			z-index: 15;
-			font-family: 'Nanum Gothic', sans-serif;
-			font-size: 30px;
-			font-weight: 700;
-			width: 40px;
-			height: 40px;
-			line-height: .9em;
-			text-align: center;
-			border: .2em solid #888;
-			background-color: #fff;
-			border-radius: 3em;
-			color: #888!important;
-		}
-		
-		.close-menu{
-			display: none;
-			position: fixed;
-			width: 100%;
-			height: 100%;
-			top: 0;
-			left: 0;
-			background: rgba(0, 0, 0, .3) 1px 1px repeat;
-			z-index: 9;
-		}
-	}
-	</style>
 </head>
 
 <body>
-<!--
-<div class="bg-white sidebar">
-	<div class="list-group list-group-flush mx-3 mt-4">
-		<a href="" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
-			<span class="fas fs-chart-area fa-fw me-3">dashbooard</span>
-		</a>
-		<a href="" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">dashbooard</a>
-		<a href="" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">dashbooard</a>
-		<a href="" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">dashbooard</a>
-		<a href="" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">dashbooard</a>
-		<a href="" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">dashbooard</a>
-		<a href="" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">dashbooard</a>
-	</div>
-</div>
--->
 
-<div class="open-menu" id="openMenu">
-	<p><a>≡</a></p>
-</div>
-
-<div class="close-menu" id="closeMenu"></div>
-
-<div class="sidebar" id="sidebar">
-	<div class="list-group-item list-group-item-action flex-column align-items-start">
-		<div class="row">
-			<div class="col-sm">
-				<div class="border border-dark rounded-circle m-0" style="width:40px;height:40px;"></div>
-			</div>
-			<div class="col-sm">
-				<p>Username</p>
-			</div>
-		</div>
-	</div>
-	</br>
-	<a href="" class="list-group-item-action ripple" aria-current="true">Home</a>
-	<a href="" class="list-group-item-action ripple" aria-current="true">Stock Input</a>
-	<a href="" class="list-group-item-action ripple" aria-current="true">Stock Output</a>
-	<a href="" class="list-group-item-action ripple" aria-current="true">Production Planning</a>
-	<a href="" class="list-group-item-action ripple" aria-current="true">Setting</a>
-</div>
+<?php
+	include"layout/sidebar.php";
+?>
 
 <div class="content">
 <div class="container mr-0">
@@ -178,10 +45,76 @@
 				</div>
 			
 				</br>
-			
+				
 				<div class="card">
-					<div class="card-body" style="height:250px;">
-					
+					<div class="card-body" style="">
+						<div class="row">
+						<div class="container mx-5 overflow-auto">
+						<div class="row">
+							<div class="col p-1 d-flex justify-content-center">
+								<div class="shadow-sm border rounded rak-box color-tertiary"></div>
+							</div>
+							<div class="col p-1 d-flex justify-content-center">
+								<div class="shadow-sm border rounded rak-box color-tertiary"></div>
+							</div>
+							<div class="col p-1 d-flex justify-content-center">
+								<div class="shadow-sm border rounded rak-box color-tertiary"></div>
+							</div>
+							<div class="col p-1 d-flex justify-content-center">
+								<div class="shadow-sm border rounded rak-box color-tertiary"></div>
+							</div>
+							<div class="col p-1 d-flex justify-content-center">
+								<div class="shadow-sm border rounded rak-box color-tertiary"></div>
+							</div>
+						
+							<div class="w-100"></div>
+							
+							<div class="col p-1 d-flex justify-content-center">
+								<div class="shadow-sm border rounded rak-box color-tertiary"></div>
+							</div>
+							<div class="col p-1 d-flex justify-content-center">
+								<div class="shadow-sm border rounded rak-box color-tertiary"></div>
+							</div>
+							<div class="col p-1 d-flex justify-content-center">
+								<div class="shadow-sm border rounded rak-box color-tertiary"></div>
+							</div>
+							<div class="col p-1 d-flex justify-content-center">
+								<div class="shadow-sm border rounded rak-box color-tertiary"></div>
+							</div>
+							<div class="col p-1 d-flex justify-content-center">
+								<div class="shadow-sm border rounded rak-box color-tertiary"></div>
+							</div>
+						</div>
+						</div>
+						</div>
+
+						<div class="row">
+						<div class="container mx-5">
+						<div class="row">
+							<div class="col">
+								<div class="row mt-2">
+								<div class="col pr-0 d-flex justify-content-center">
+									<div class="shadow-sm border rounded rak-box color-tertiary m-0"></div>
+								</div>
+								<div class="col pl-0">
+									<p class="align-middle m-0 pt-2">Free Space</p>
+								</div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="row mt-2">
+								<div class="col pr-0 d-flex justify-content-center">
+									<div class="shadow-sm border rounded rak-box color-primary m-0"></div>
+								</div>
+								<div class="col pl-0">
+									<p class="align-middle m-0 pt-2">Full</p>
+								</div>
+								</div>
+							</div>
+						</div>
+						</div>
+						</div>
+						
 					</div>
 				</div>
 				
@@ -245,7 +178,7 @@
 			
 				<div class="card">
 					<div class="card-body" style="height:250px;">
-					
+						<canvas id="line-chart" style=""></canvas>
 					</div>
 				</div>
 				
@@ -291,31 +224,9 @@
 </div>
 </div>
 
-<script>
-	document.getElementById("openMenu").onclick = function() {buttonSidebarShow()};
-	document.getElementById("closeMenu").onclick = function() {sidebarHide()};
+<?php
+	include"layout/js.php";
+?>
 
-	function buttonSidebarShow(){
-		var x = document.getElementById("sidebar");
-		x.style.display = "block";
-		
-		var x = document.getElementById("closeMenu");
-		x.style.display = "block";
-		
-		var x = document.getElementById("openMenu");
-		x.style.display = "none";
-	}
-	
-	function sidebarHide(){
-		var x = document.getElementById("sidebar");
-		x.style.display = "none";
-		
-		var x = document.getElementById("closeMenu");
-		x.style.display = "none";
-		
-		var x = document.getElementById("openMenu");
-		x.style.display = "block";
-	}
-</script>
 </body>
 </html>
