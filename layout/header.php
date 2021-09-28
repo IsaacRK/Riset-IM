@@ -13,5 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 	<link href="css/responsive.css" rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="css/personal.css" />
-	<script src="js/propper.min.js"></script>
-	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/chart.js"></script>
+	<script src="js/bootstrap.bundle.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

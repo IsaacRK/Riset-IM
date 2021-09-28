@@ -128,30 +128,21 @@ require 'backend/usersession.php';
 					</tr>
 					</thead>
 					<tbody>
-					<tr>
-						<td>arduino nano</td>
-						<td>500</td>
-					</tr>
-					<tr>
-						<td>arduino nano</td>
-						<td>500</td>
-					</tr>
-					<tr>
-						<td>arduino nano</td>
-						<td>500</td>
-					</tr>
-					<tr>
-						<td>arduino nano</td>
-						<td>500</td>
-					</tr>
-					<tr>
-						<td>arduino nano</td>
-						<td>500</td>
-					</tr>
-					<tr>
-						<td>arduino nano</td>
-						<td>500</td>
-					</tr>
+						<?php
+							$query = "select * from stock";
+							$run = mysqli_query($servConnQuery, $query);
+							
+							if(mysqli_num_rows($run)>0){
+								while($fetch = mysqli_fetch_assoc($run)){
+									echo"
+										<tr>
+											<td>".$fetch['stock_name']."</td>
+											<td>".$fetch['amount']."</td>
+										</tr>
+									";
+								}
+							}
+						?>
 					</tbody>
 				</table>
 			
@@ -178,7 +169,7 @@ require 'backend/usersession.php';
 			
 				<div class="card">
 					<div class="card-body" style="height:250px;">
-						<canvas id="line-chart" style=""></canvas>
+						<canvas id="chartDisplay" width="" height=""></canvas>
 					</div>
 				</div>
 				
@@ -227,6 +218,37 @@ require 'backend/usersession.php';
 <?php
 	include"layout/js.php";
 ?>
+
+<script>
+	var chartDisplay = document.getElementById("chartDisplay");
+
+	var speedData = {
+	  labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+	  datasets: [{
+		label: "Activity Log",
+		backgroundColor: 'rgb(16, 100, 174)',
+		borderColor: 'rgb(16, 100, 174)',
+		data: [0,2,2,3,3,4,2,1,3,5],
+	  }]
+	};
+
+	var chartOptions = {
+	  legend: {
+		display: true,
+		position: 'top',
+		labels: {
+		  boxWidth: 10,
+		  fontColor: 'green'
+		}
+	  }
+	};
+
+	var lineChart = new Chart(chartDisplay, {
+	  type: 'line',
+	  data: speedData,
+	  options: chartOptions
+	});
+</script>
 
 </body>
 </html>

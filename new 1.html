@@ -1,233 +1,31 @@
-<?php
-
-//require 'backend/conn.php';
-//require 'backend/usersession.php';
-
-?>
 <!DOCTYPE html>
 <html>
-
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	
-	<meta name="keywords" content="" />
-	<meta name="description" content="" />
-	<meta name="author" content="" />
-	<link rel="shortcut icon" href="images/favicon.png" type="">
-	
-	<title>Dashboard</title>
-	
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-	<link href="css/responsive.css" rel="stylesheet" />
-	<script src="js/propper.min.js"></script>
-	<script src="js/bootstrap.bundle.min.js"></script>
-	
-	<style>
-	body{
-		background-color: #e0e2e1
-	}
-		
-	div.content{
-		margin-left:200px;
-		padding:1px;
-	}
-	
-	.sidebar{
-		padding:0;
-		margin:0;
-		width:200px;
-		background-color:#f1f1f1;
-		position:fixed;
-		height:100%;
-		overflow:auto;
-	}
-	
-	.sidebar a{
-		display:block;
-		color: black;
-		padding: 16px;
-		text-decoration:none;
-	}
-	
-	.sidebar a.active{
-		background-color: #04AA6D;
-		color: white;
-	}
-	
-	@media screen and (max-width:700px){
-		.sidebar{
-			width: 100%;
-			height: auto;
-			position: relative;
-		}
-		.sidebar a{
-			float:left;
-		}
-		div.content{
-			margin-left:0;
-		}
-	}
-	
-	@media screen and (max-width:400px){
-		.sidebar a{
-			text-align: center;
-			float:none;
-		}
-	}
-
-	</style>
+  <title>Bootstrap Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-
 <body>
 
-<div class="sidebar">
-	<a class="active">tes</a>
-	<a>tes</a>
-	<a>tes</a>
-	<a>tes</a>
-</div>
-
-<div class="content">
-<div class="container mr-0">
-
-	<div class="p-1">
-		<div class="mb-3">
-			<h1>Home Dashboard</h1>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-sm">
-			<div class="card">
-			<div class="card-body">
-			
-				<div class="dropdown">
-				  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Arduino
-				  </button>
-				  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					<a class="dropdown-item" href="#">Action</a>
-					<a class="dropdown-item" href="#">Another action</a>
-					<a class="dropdown-item" href="#">Something else here</a>
-				  </div>
-				</div>
-			
-				</br>
-			
-				<div class="card">
-					<div class="card-body" style="height:250px;">
-					
-					</div>
-				</div>
-				
-				<h4 class="card-title">Component list</h4>
-				
-				<table class="table table-striped">
-					<thead>
-					<tr>
-						<th scope="col">name of component</th>
-						<th scope="col">stock</th>
-					</tr>
-					</thead>
-					<tbody>
-					<tr>
-						<td>arduino nano</td>
-						<td>500</td>
-					</tr>
-					<tr>
-						<td>arduino nano</td>
-						<td>500</td>
-					</tr>
-					<tr>
-						<td>arduino nano</td>
-						<td>500</td>
-					</tr>
-					<tr>
-						<td>arduino nano</td>
-						<td>500</td>
-					</tr>
-					<tr>
-						<td>arduino nano</td>
-						<td>500</td>
-					</tr>
-					<tr>
-						<td>arduino nano</td>
-						<td>500</td>
-					</tr>
-					</tbody>
-				</table>
-			
-			</div>
-			</div>
-		</div>
-		
-		<div class="col-sm">
-			<div class="card">
-			<div class="card-body">
-			
-				<div class="dropdown">
-				  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Arduino
-				  </button>
-				  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					<a class="dropdown-item" href="#">Action</a>
-					<a class="dropdown-item" href="#">Another action</a>
-					<a class="dropdown-item" href="#">Something else here</a>
-				  </div>
-				</div>
-			
-				</br>
-			
-				<div class="card">
-					<div class="card-body" style="height:250px;">
-					
-					</div>
-				</div>
-				
-				<h4 class="card-title">Activity Record</h4>
-				
-				<div class="table-responsive">
-				<table class="table table-striped">
-					<thead>
-					<tr>
-						<th scope="col">name of component</th>
-						<th scope="col">date</th>
-						<th scope="col">requester</th>
-						<th scope="col">quantity</th>
-					</tr>
-					</thead>
-					<tbody>
-					<tr>
-						<td>arduino nano</td>
-						<td>13/09</td>
-						<td>anon</td>
-						<td>5</td>
-					</tr>
-					<tr>
-						<td>arduino nano</td>
-						<td>13/09</td>
-						<td>anon</td>
-						<td>5</td>
-					</tr>
-					<tr>
-						<td>arduino nano</td>
-						<td>13/09</td>
-						<td>anon</td>
-						<td>5</td>
-					</tr>
-					</tbody>
-				</table>
-				</div>
-			
-			</div>
-			</div>
-		</div>
-	</div>
-</div>
+<div class="container">
+  <h2>Dropdowns</h2>
+  <p>The .dropdown class is used to indicate a dropdown menu.</p>
+  <p>Use the .dropdown-menu class to actually build the dropdown menu.</p>
+  <p>To open the dropdown menu, use a button or a link with a class of .dropdown-toggle and data-toggle="dropdown".</p>                                          
+  <div class="dropdown">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      Dropdown button
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Link 1</a>
+      <a class="dropdown-item" href="#">Link 2</a>
+      <a class="dropdown-item" href="#">Link 3</a>
+    </div>
+  </div>
 </div>
 
 </body>
-
 </html>
