@@ -11,17 +11,6 @@ if(isset($_POST["input"])){
 	$kolom	= $_POST['kolom'];
 	$baris	= $_POST['baris'];
 
-	/*echo"
-	nama barang:".$stockName."</br>
-	jumlah barang:".$amount."</br>
-	lokasi:".$location."</br>
-	operator:".$username."</br>
-	";*/
-	
-	echo $query =
-	"insert into stock (stock_id, stock_name, amount, rak, lantai, kolom, baris, operator, barcode)
-	values (default, '$stockName', '$amount', '$rak', '$lantai', '$kolom', '$baris', '$operator', '[barcode]');
-	";
 	$run = mysqli_query($servConnQuery, $query);
 }
 
