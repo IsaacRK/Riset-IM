@@ -1,6 +1,9 @@
 <?php
-
-if(isset($_POST["input"])){
+	
+require 'conn.php';
+require 'usersession.php';
+	
+//if(isset($_POST["input"])){
 	
 	$stockName = $_POST['itemName'];
 	$amount = $_POST['amount'];
@@ -11,7 +14,20 @@ if(isset($_POST["input"])){
 	$kolom	= $_POST['kolom'];
 	$baris	= $_POST['baris'];
 
+	/*echo"
+	nama barang:".$stockName."</br>
+	jumlah barang:".$amount."</br>
+	lokasi:".$location."</br>
+	operator:".$username."</br>
+	";*/
+	
+	$query =
+	"insert into stock (stock_id, stock_name, amount, rak, lantai, kolom, baris, operator, barcode)
+	values (default, '$stockName', '$amount', '$rak', '$lantai', '$kolom', '$baris', '$operator', '[barcode]');
+	";
+
 	$run = mysqli_query($servConnQuery, $query);
-}
+//}
+
 
 ?>

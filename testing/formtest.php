@@ -78,6 +78,10 @@ div.input-box label.error {
     margin: 10px 0;
 }
 </style>
+
+<script src="js/jquery3.6.0.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
 </head>
 
 <body>
@@ -99,7 +103,7 @@ div.input-box label.error {
       <input type="tel" name="phone" id="phone" class="text-input" placeholder="856-261-9988"/>
       </div>
       
-      <input type="submit" name="submit" class="button" id="submit_btn" value="Send" />
+      <input type="submit" name="yesButton" class="button" id="submit_btn" value="Send" />
     </fieldset>
   </form>
     <div class="greetings">
@@ -109,7 +113,26 @@ div.input-box label.error {
   </div>
   </body>
   <script>
-  $(function(){
-	  $("form").validate();
-  })
+ $(function(){
+	$("form").validate();
+	  
+	$( "form" ).on("submit", function(e){
+		var dataString = $(this).serialize();
+		alert(dataString);
+		$.ajax({
+			type: "POST",
+			url: "post.php",
+			data: dataString,
+			success: function(){
+				$("#contact_form").html("<div id='message'></div>");
+				$("#message")
+					.html("<h2>Contact Form Submitted!</h2>")
+					.append("<p>We will be in touch soon.</p>")
+					.hide()
+					.html("<p>"+$('form').serialize()+)
+			}
+		});
+		e.preventDefault();
+	});
+});
   </script>

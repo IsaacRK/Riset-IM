@@ -35,7 +35,7 @@ require 'backend/usersession.php';
 				<h3>Stock Registration</h3>
 				</br>
 				
-				<form action="inputbarcode.php" method="post">
+				<form action="" method="post">
 
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
@@ -213,79 +213,51 @@ require 'backend/usersession.php';
 			</div>
 		</div>
 	</div>
-	
-	<a href="#modalBarcode" role="button" class="btn btn-lg btn-primary" data-bs-toggle="modal">Print Barcode</a>
-	
-</div>
-</div>
 
 
 <div id="modalBarcode" class="modal fade" tabindex="-1">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="modal-header">
-				<button class="border border-0" type="" data-bs-dismiss="modal">
-					<img src="img/icons/x-lg.svg"/>
-				</button>
-			</div>
-			<div class="modal-body">
-				<div class="row">
-					<div class="col-6">
-                           <div class="mb-3">
-                               <span>Nama Komponen:</span>
-                           </div>
-                       </div>
-                       <div class="col-6">
-                           <div class="mb-3">
-                               <span>Nama dari Komponen</span>
-                           </div>
-                       </div>
-				</div>
-				
-				<div class="row">
-					<div class="col-6">
-                           <div class="mb-3">
-                               <span>Nama Komponen:</span>
-                           </div>
-                       </div>
-                       <div class="col-6">
-                           <div class="mb-3">
-                               <span>Nama dari Komponen</span>
-                           </div>
-                       </div>
-				</div>
-				
-				<div class="row">
-					<div class="col-6">
-                           <div class="mb-3">
-                               <span>Nama Komponen:</span>
-                           </div>
-                       </div>
-                       <div class="col-6">
-                           <div class="mb-3">
-                               <span>Nama dari Komponen</span>
-                           </div>
-                       </div>
-				</div>
-				
-				<div class="container d-flex justify-content-center">
-				<div class="card" style="width:300px;height:100px;">
-					<div class="card-body">
-					</div>
-				</div>
-				</div>
-				
-			</div>
-			<div class="modal-footer d-flex justify-content-center">
-				<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Print</button>
-			</div>
 		</div>
 	</div>
 </div>
 
+ 
+ 
+</div>
+</div>
+
+
 <?php
 	include"layout/js.php";
 ?>
+
+<script>
+$(function(){
+	
+	$("form").on("submit", function(e){
+		var dataString = $(this).serialize();
+		//alert(dataString);
+		
+		$.ajax({
+			type: "POST",
+			url: "backend/inputhandler.php",
+			data: dataString,
+			success: function(){
+				console.log("aaaaaaaaaaaaa");
+				$('#modalBarcode').modal('show').find('.modal-content').load('layout/modalbarcode.php');
+			}
+		});
+		e.preventDefault();
+	});
+});
+
+$('#modalBarcode').on('hidden.bs.modal', function () {
+ location.reload();
+})
+
+
+</script>
 
 </body>
 </html>
