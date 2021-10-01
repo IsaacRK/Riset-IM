@@ -1,4 +1,5 @@
 <?php
+include "../backend/conn.php";
 if(isset($_GET['itemName'])){
 	$itemName = $_GET['itemName'];
 	$amount = $_GET['amount'];
@@ -7,6 +8,11 @@ if(isset($_GET['itemName'])){
 	$lan = $_GET['lantai'];
 	$klm = $_GET['kolom'];
 	$bar = $_GET['baris'];
+	
+	$stockIdSearchQuery = "select stock_id from `stock` where rak like '$rak' and lantai like '$lan' and kolom like '$klm' and baris like '$bar'";
+	$stockIdSearchQueryRun = mysqli_query($servConnQuery,$stockIdSearchQuery);
+	$stockIdFetch = mysqli_fetch_assoc($stockIdSearchQueryRun);
+	$stockId = $stockIdFetch['stock_id'];
 
 ?>
 
@@ -53,10 +59,10 @@ if(isset($_GET['itemName'])){
                                <span>
 								<?php
 									echo'
-										<p>rak:'.$rak.'</p></br>
-										<p>lantai:'.$lan.'</p></br>
-										<p>kolom:'.$klm.'</p></br>
-										<p>baris:'.$bar.'</p>
+										<span>rak:'.$rak.'</span></br>
+										<span>lantai:'.$lan.'</span></br>
+										<span>kolom:'.$klm.'</span></br>
+										<span>baris:'.$bar.'</span>
 									';
 								?>
 							   </span>
@@ -65,8 +71,9 @@ if(isset($_GET['itemName'])){
 				</div>
 				
 				<div class="container d-flex justify-content-center">
-				<div class="card" style="width:300px;height:100px;">
+				<div class="card" style="">
 					<div class="card-body">
+						<svg id="barcodeShow"></svg>
 					</div>
 				</div>
 				</div>
@@ -75,4 +82,7 @@ if(isset($_GET['itemName'])){
 			<div class="modal-footer d-flex justify-content-center">
 				<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Print</button>
 			</div>
+			<script>
+				JsBarcode("#barcodeShow","<?php echo $stockId; ?>");
+			</script>
 <?php } ?>

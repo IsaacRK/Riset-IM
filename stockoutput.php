@@ -3,6 +3,28 @@
 require 'backend/conn.php';
 require 'backend/usersession.php';
 
+$Cname	= '';
+$CStock	= '';
+$Crak	= '';
+$Clan	= '';
+$Cklm	= '';
+$Cbar	= '';
+
+if(isset($_POST['search'])){
+	$componentNameSearch = $_POST['componentNameSearch'];
+	
+	$serachComponentQuery = "select * from `stock` where stock_name like '$componentNameSearch'";
+	$serachComponentQueryRun = mysqli_query($servConnQuery,$serachComponentQuery);
+	$componentFetch = mysqli_fetch_assoc($serachComponentQueryRun);
+	
+	$Cname = $componentFetch['stock_name'];
+	$CStock = $componentFetch['amount'];
+	$Crak = $componentFetch['rak'];
+	$Clan = $componentFetch['lantai'];
+	$Cklm = $componentFetch['kolom'];
+	$Cbar = $componentFetch['baris'];
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,18 +50,24 @@ require 'backend/usersession.php';
 	</div>
 
 	<div class="row mb-2 ml-2">
-		<div class="col-5">
-			<div class="row border border-dark rounded">
-				<div class="col-2">
-					<img class="m-1" src="img/icons/search.svg" width="25" height="25"/>
-				</div>
-				<div class="col-10">
-					<input class="form-control border border-0" style="" type="text" placeholder="Nama Komponen" name="user" id=""/>
+		<div class="col-7">
+		<form action="" method="post">
+			<div class="row">
+			<div class="col-9">
+				<div class="row border border-dark rounded">
+					<div class="col-2">
+						<img class="m-1" src="img/icons/search.svg" width="25" height="25"/>
+					</div>
+					<div class="col-10">
+						<input class="form-control border border-0" style="" type="text" placeholder="Nama Komponen" name="componentNameSearch" id=""/>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-2">
-			<input class="btn btn-primary btn-block" type="submit" name="submit" value="Search"/>
+			<div class="col-3">
+				<input class="btn btn-primary btn-block" type="submit" name="search" value="Search"/>
+			</div>
+			</div>
+		</form>
 		</div>
 		<div class="col-5">
 			<input class="btn btn-primary btn-block" type="submit" name="submit" value="Barcode Scanner"/>
@@ -52,11 +80,45 @@ require 'backend/usersession.php';
 			<div class="card-body">
 				<h3>Component Information</h3>
 				</br>
-				<span>Component Information</span>
+				<span>Nama Komponen : 
+					<?php
+						if($Cname != ''){
+							echo $Cname;
+						}else{
+							echo 'belum di pilih.';
+						}
+					?>
+				</span>
 				</br>
-				<span>Stock : 500</span>
+				<span>Stock : 
+					<?php
+						if($CStock != ''){
+							echo $CStock;
+						}else{
+							echo 'belum di pilih.';
+						}
+					?>
+				</span>
 				</br>
-				<span>Lokasi : 500</span>
+				<div class="row">
+					<div class="col">
+						<span>lokasi : </span>
+					</div>
+					<div class="col">
+						<?php
+							if($CStock != ''){
+								echo'
+									<span>rak:'.$Crak.'</span></br>
+									<span>lantai:'.$Clan.'</span></br>
+									<span>kolom:'.$Cklm.'</span></br>
+									<span>baris:'.$Cbar.'</span>
+								';
+							}else{
+								echo '<span>belum di pilih.</span>';
+							}
+						?>
+					</div>
+				</div>
 				</br>
 				<div class="row">
 					<div class="col">

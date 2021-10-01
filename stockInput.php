@@ -241,7 +241,7 @@ $(function(){
 		
 		$.ajax({
 			type: "POST",
-			url: "testing/post.php",
+			url: "backend/inputhandler.php",
 			data: dataString,
 			success: function(){
 				$('#modalBarcode').modal('show').find('.modal-content').load('layout/modalbarcode.php?'+dataString);
