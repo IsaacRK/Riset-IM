@@ -16,3 +16,4 @@
 	<script src="js/chart.js"></script>
 	<script src="js/bootstrap.bundle.js"></script>
 	<script src="js/jquery3.6.0.min.js"></script>
+	<script src="js/JsBarcode.code128.min.js"></script>

@@ -241,11 +241,10 @@ $(function(){
 		
 		$.ajax({
 			type: "POST",
-			url: "backend/inputhandler.php",
+			url: "testing/post.php",
 			data: dataString,
 			success: function(){
-				console.log("aaaaaaaaaaaaa");
-				$('#modalBarcode').modal('show').find('.modal-content').load('layout/modalbarcode.php');
+				$('#modalBarcode').modal('show').find('.modal-content').load('layout/modalbarcode.php?'+dataString);
 			}
 		});
 		e.preventDefault();
