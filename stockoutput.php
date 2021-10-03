@@ -2,7 +2,10 @@
 
 require 'backend/conn.php';
 require 'backend/usersession.php';
+require 'backend/outputhandler.php';
+//require 'backend/carthandler.php';
 
+$Cid	= '';
 $Cname	= '';
 $CStock	= '';
 $Crak	= '';
@@ -17,12 +20,13 @@ if(isset($_POST['search'])){
 	$serachComponentQueryRun = mysqli_query($servConnQuery,$serachComponentQuery);
 	$componentFetch = mysqli_fetch_assoc($serachComponentQueryRun);
 	
-	$Cname = $componentFetch['stock_name'];
-	$CStock = $componentFetch['amount'];
-	$Crak = $componentFetch['rak'];
-	$Clan = $componentFetch['lantai'];
-	$Cklm = $componentFetch['kolom'];
-	$Cbar = $componentFetch['baris'];
+	$Cid	= $componentFetch['stock_id'];
+	$Cname	= $componentFetch['stock_name'];
+	$CStock	= $componentFetch['amount'];
+	$Crak	= $componentFetch['rak'];
+	$Clan	= $componentFetch['lantai'];
+	$Cklm	= $componentFetch['kolom'];
+	$Cbar	= $componentFetch['baris'];
 }
 
 ?>
@@ -78,28 +82,43 @@ if(isset($_POST['search'])){
 		<div class="col-sm">
 			<div class="card">
 			<div class="card-body">
+			<form action="" method="post">
 				<h3>Component Information</h3>
 				</br>
-				<span>Nama Komponen : 
-					<?php
-						if($Cname != ''){
-							echo $Cname;
-						}else{
-							echo 'belum di pilih.';
-						}
-					?>
-				</span>
-				</br>
-				<span>Stock : 
-					<?php
-						if($CStock != ''){
-							echo $CStock;
-						}else{
-							echo 'belum di pilih.';
-						}
-					?>
-				</span>
-				</br>
+				<div class="row">
+					<div class="col">
+						<span>Nama Komponen :</span>
+					</div>
+					<div class="col">
+					<span>
+						<?php
+							if($Cname != ''){
+								echo $Cname;
+							}else{
+								echo 'belum di pilih.';
+							}
+						?>
+					</span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col">
+						<span>Stock : </span>
+					</div>
+					<div class="col">
+						<span>
+							<?php
+								if($CStock != ''){
+									echo $CStock;
+								}else{
+									echo 'belum di pilih.';
+								}
+							?>
+						</span>
+					</div>
+				</div>
+
 				<div class="row">
 					<div class="col">
 						<span>lokasi : </span>
@@ -120,37 +139,36 @@ if(isset($_POST['search'])){
 					</div>
 				</div>
 				</br>
-				<div class="row">
-					<div class="col">
-						<span>Jumlah Yang Di Ambil : </span>
+				<div class="input-group input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="inputGroup-sizing-sm">Jumlah Yang Di Ambil</span>
 					</div>
-					<div class="col">
-						<div class="border border-dark rounded m-1 p-1 text-center">jumlah</div>
-					</div>
+					<input required type="number" class="form-control" name="amount_taken" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
 				</div>
 				
-				<div class="row">
-					<div class="col">
-						<span>Keperluan : </span>
+				<div class="input-group input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="inputGroup-sizing-sm">Keperluan</span>
 					</div>
-					<div class="col">
-						<div class="border border-dark rounded m-1 p-1 text-center">Nama Projek</div>
-					</div>
+					<input required type="text" class="form-control" name="necessity" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
 				</div>
 				
-				<div class="row">
-					<div class="col">
-						<span>Pengambil : </span>
+				<div class="input-group input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="inputGroup-sizing-sm">Pengambil</span>
 					</div>
-					<div class="col">
-						<div class="border border-dark rounded m-1 p-1 text-center">nama</div>
-					</div>
+					<input type="text" class="form-control" name="category" placeholder="<?php echo $username; ?>" aria-label="Small" aria-describedby="inputGroup-sizing-sm" disabled>
 				</div>
+				
+				<input type="hidden" class="form-control" value="<?php echo $Cid; ?>" name="stock_id">
+					
 				<div class="row mt-2">
 					<div class="col-6 mx-auto">
-						<input class="btn btn-primary btn-block" type="submit" name="submit" value="Update"/>
+						<input class="btn btn-primary btn-block" type="submit" name="addToCart" value="Tambahkan ke Keranjang"/>
 					</div>
 				</div>
+			</form>
+			
 			</div>	
 			</div>
 		</div>
@@ -160,49 +178,9 @@ if(isset($_POST['search'])){
 				<h3>Cart</h3>
 				
 				<div class="row m-1">
-					<div class="col-2">
-						<div class="border border-dark rounded" style="width:50px;height:50px"></div>
-					</div>
-					<div class="col-10">
-						<span>nama komponen: Arduino nano</span></br>
-						<span>nama komponen: Arduino nano</span></br>
-						<span>nama komponen: Arduino nano</span></br>
-						<span>nama komponen: Arduino nano</span></br>
-					</div>
-					<div class="col-2">
-						<div class="border border-dark rounded" style="width:50px;height:50px"></div>
-					</div>
-					<div class="col-10">
-						<span>nama komponen: Arduino nano</span></br>
-						<span>nama komponen: Arduino nano</span></br>
-						<span>nama komponen: Arduino nano</span></br>
-						<span>nama komponen: Arduino nano</span></br>
-					</div>
-					<div class="col-2">
-						<div class="border border-dark rounded" style="width:50px;height:50px"></div>
-					</div>
-					<div class="col-10">
-						<span>nama komponen: Arduino nano</span></br>
-						<span>nama komponen: Arduino nano</span></br>
-						<span>nama komponen: Arduino nano</span></br>
-						<span>nama komponen: Arduino nano</span></br>
-					</div>
-					<div class="col-2">
-						<div class="border border-dark rounded" style="width:50px;height:50px"></div>
-					</div>
-					<div class="col-10">
-						<span>nama komponen: Arduino nano</span></br>
-						<span>nama komponen: Arduino nano</span></br>
-						<span>nama komponen: Arduino nano</span></br>
-						<span>nama komponen: Arduino nano</span></br>
-					</div>
-				</div>
-				
-				<div class="row mt-2">
-					<div class="col-6 mx-auto">
-						<input class="btn btn-primary btn-block" type="submit" name="submit" value="Update"/>
-					</div>
-				</div>
+				<?php
+					require'backend/carthandler.php';
+				?>
 
 			</div>
 			</div>

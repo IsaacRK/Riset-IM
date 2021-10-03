@@ -129,7 +129,7 @@ require 'backend/usersession.php';
 					</thead>
 					<tbody>
 						<?php
-							$query = "select * from stock";
+							$query = "select * from stock order by stock_id desc limit 5";
 							$run = mysqli_query($servConnQuery, $query);
 							
 							if(mysqli_num_rows($run)>0){
