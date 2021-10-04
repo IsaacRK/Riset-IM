@@ -11,12 +11,9 @@ if(isset($_POST['addToCart'])){
 	$necessity	= $_POST['necessity'];
 	
 	$query = "
-	insert into cart (cart_id, user_id, stock_id, take_amount, necessity)
-	values (default, '$operator', '$stockId', '$amount', '$necessity');
+	insert into cart (cart_id, user_id, stock_id, take_amount, necessity, checkout)
+	values (default, '$operator', '$stockId', '$amount', '$necessity', false);
 	";
-	$queryRun = mysqli_query($servConnQuery, $query);
-	if($queryRun){
-		echo "yes";
-	}
+	mysqli_query($servConnQuery, $query);
 }
 ?>

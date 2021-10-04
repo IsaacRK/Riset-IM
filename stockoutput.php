@@ -3,7 +3,7 @@
 require 'backend/conn.php';
 require 'backend/usersession.php';
 require 'backend/outputhandler.php';
-//require 'backend/carthandler.php';
+require 'backend/checkouthandler.php';
 
 $Cid	= '';
 $Cname	= '';
@@ -14,11 +14,11 @@ $Cklm	= '';
 $Cbar	= '';
 
 if(isset($_POST['search'])){
-	$componentNameSearch = $_POST['componentNameSearch'];
+	$componentNameSearch 		= $_POST['componentNameSearch'];
 	
-	$serachComponentQuery = "select * from `stock` where stock_name like '$componentNameSearch'";
-	$serachComponentQueryRun = mysqli_query($servConnQuery,$serachComponentQuery);
-	$componentFetch = mysqli_fetch_assoc($serachComponentQueryRun);
+	$serachComponentQuery 		= "select * from `stock` where stock_name like '$componentNameSearch'";
+	$serachComponentQueryRun 	= mysqli_query($servConnQuery,$serachComponentQuery);
+	$componentFetch 			= mysqli_fetch_assoc($serachComponentQueryRun);
 	
 	$Cid	= $componentFetch['stock_id'];
 	$Cname	= $componentFetch['stock_name'];
@@ -177,7 +177,6 @@ if(isset($_POST['search'])){
 			<div class="card-body">
 				<h3>Cart</h3>
 				
-				<div class="row m-1">
 				<?php
 					require'backend/carthandler.php';
 				?>

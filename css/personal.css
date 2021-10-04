@@ -104,3 +104,42 @@ text-tertiary{
 	width: 50px;
 	height: 50px;
 }
+
+
+
+.boxhidden{
+	opacity:0;
+}
+.checkbox {
+  display: grid;
+  grid-template-columns: min-content auto;
+  grid-gap: 0.5em;
+  font-size: 2rem;
+  color: #1064ae;
+}
+.checkbox_control {
+  display: inline-grid;
+  width: 1em;
+  height: 1em;
+  border-radius: 0.25em;
+  border: 0.1em solid currentColor;
+}
+.checkbox_input {
+  display: grid;
+  grid-template-areas: "checkbox";
+
+  > * {
+    grid-area: checkbox;
+  }
+}
+.checkbox_control svg {
+  transition: transform 0.1s ease-in 25ms;
+  transform: scale(0);
+  transform-origin: bottom left;
+}
+.checkbox_input input:checked + .checkbox_control svg {
+  transform: scale(1);
+}
+.checkbox_input input:focus + .checkbox_control {
+  box-shadow: 0 0 0 0.05em #fff, 0 0 0.15em 0.1em currentColor;
+}
