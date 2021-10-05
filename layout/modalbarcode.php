@@ -1,5 +1,13 @@
 <?php
 include "../backend/conn.php";
+$itemName = '';
+$amount = '';
+$rak = '';
+$lan = '';
+$klm = '';
+$bar = '';
+$stockId = '';
+
 if(isset($_GET['itemName'])){
 	$itemName = $_GET['itemName'];
 	$amount = $_GET['amount'];
@@ -13,6 +21,16 @@ if(isset($_GET['itemName'])){
 	$stockIdSearchQueryRun = mysqli_query($servConnQuery,$stockIdSearchQuery);
 	$stockIdFetch = mysqli_fetch_assoc($stockIdSearchQueryRun);
 	$stockId = $stockIdFetch['stock_id'];
+}
+
+if(isset($_GET['itemNameUpdate'])){
+	/*$itemName = $_GET['itemNameUpdate'];
+	
+	$stockIdSearchQuery = "select stock_id from `stock` where rak like '$rak' and lantai like '$lan' and kolom like '$klm' and baris like '$bar'";
+	$stockIdSearchQueryRun = mysqli_query($servConnQuery,$stockIdSearchQuery);
+	$stockIdFetch = mysqli_fetch_assoc($stockIdSearchQueryRun);
+	$stockId = $stockIdFetch['stock_id'];*/
+}
 
 ?>
 
@@ -85,4 +103,3 @@ if(isset($_GET['itemName'])){
 			<script>
 				JsBarcode("#barcodeShow","<?php echo $stockId; ?>");
 			</script>
-<?php } ?>

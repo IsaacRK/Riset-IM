@@ -36,6 +36,8 @@ require 'backend/usersession.php';
 				</br>
 				
 				<form action="" method="post">
+				
+					<input type="hidden" value="input" name="pointer">
 
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
@@ -129,31 +131,33 @@ require 'backend/usersession.php';
 				
 				<form action="" method="post">
 
+					<input type="hidden" value="update" name="pointer">
+
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
 							<span class="input-group-text" id="inputGroup-sizing-sm">Nama Komponen</span>
 						</div>
-						<input required type="text" class="form-control" name="itemName" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+						<input required type="text" class="form-control" id="itemNameUpdate" name="itemNameUpdate" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
 					</div>
 					
 					<div class="input-group input-group mb-3">
 						<div class="input-group-prepend">
 							<span class="input-group-text" id="inputGroup-sizing-sm">Kategori</span>
 						</div>
-						<input required type="text" class="form-control" name="category" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+						<span class="form-control" id="categoryUpdate" style="background-color:#e9ecef"></span>
 					</div>
 					
 					<div class="input-group input-group mb-3">
 						<div class="input-group-prepend">
 							<span class="input-group-text" id="inputGroup-sizing-sm">Jumlah</span>
 						</div>
-						<input required type="number" class="form-control" name="amount" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+						<input required type="number" class="form-control" name="amountUpdate" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
 					</div>
 					
 					<div class="row mt-2">	
 						<div class="col-4">Lokasi penyimpanan</div>
 						<div class="col-8">
-							<select name="rak" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
+							<select name="rakUpdate" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
 								<option value="1" class="dropdown-item">rak 1</option>
 								<option value="2" class="dropdown-item">rak 2</option>
 								<option value="3" class="dropdown-item">rak 3</option>
@@ -166,7 +170,7 @@ require 'backend/usersession.php';
 					<div class="row mt-2">
 						<div class="col-4"></div>
 						<div class="col-8">
-							<select name="lantai" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
+							<select name="lantaiUpdate" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
 								<option value="1" class="dropdown-item">lantai 1</option>
 								<option value="2" class="dropdown-item">lantai 2</option>
 								<option value="3" class="dropdown-item">lantai 3</option>
@@ -179,7 +183,7 @@ require 'backend/usersession.php';
 					<div class="row mt-2">
 						<div class="col-4"></div>
 						<div class="col-8">
-							<select name="kolom" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
+							<select name="kolomUpdate" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
 								<option value="1" class="dropdown-item">kolom 1</option>
 								<option value="2" class="dropdown-item">kolom 2</option>
 								<option value="3" class="dropdown-item">kolom 3</option>
@@ -192,7 +196,7 @@ require 'backend/usersession.php';
 					<div class="row mt-2">
 						<div class="col-4"></div>
 						<div class="col-8">
-							<select name="baris" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
+							<select name="barisUpdate" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
 								<option value="1" class="dropdown-item">baris 1</option>
 								<option value="2" class="dropdown-item">baris 2</option>
 								<option value="3" class="dropdown-item">baris 3</option>
@@ -255,8 +259,25 @@ $('#modalBarcode').on('hidden.bs.modal', function () {
  location.reload();
 })
 
+$(function(){
+	$("#itemNameUpdate").autocomplete({
+		source: 'backend/autocomplete.php'
+	});
+});
+/*
+var nameField = document.getElementById('itemNameUpdate');
+var lastnamevalue = undefined;
 
+updateNameDisplay();
+
+setInterval(updateNameDisplay, 100);
+
+function updateNameDisplay(){
+	var aValue = nameField.value;
+	if(lastnamevalue != aValue){
+		document.getElementById('categoryUpdate').innerHTML = lastnamevalue = aValue;
+	}
+}*/
 </script>
-
 </body>
 </html>
