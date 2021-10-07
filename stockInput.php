@@ -50,7 +50,12 @@ require 'backend/usersession.php';
 						<div class="input-group-prepend">
 							<span class="input-group-text" id="inputGroup-sizing-sm">Kategori</span>
 						</div>
-						<input required type="text" class="form-control" name="category" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+							<select name="category" class="btn btn-light btn-block border dropdown-toggle p-2 form-control">
+								<option value="001" class="dropdown-item">Elektronik</option>
+								<option value="010" class="dropdown-item">Sekali Pakai</option>
+								<option value="011" class="dropdown-item">Peralatan</option>
+								<option value="100" class="dropdown-item">Lain-Lain</option>
+							</select>
 					</div>
 					
 					<div class="input-group input-group mb-3">
@@ -65,10 +70,6 @@ require 'backend/usersession.php';
 						<div class="col-8">
 							<select name="rak" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
 								<option value="1" class="dropdown-item">rak 1</option>
-								<option value="2" class="dropdown-item">rak 2</option>
-								<option value="3" class="dropdown-item">rak 3</option>
-								<option value="4" class="dropdown-item">rak 4</option>
-								<option value="5" class="dropdown-item">rak 5</option>
 							</select>
 						</div>
 					</div>
@@ -105,9 +106,6 @@ require 'backend/usersession.php';
 							<select name="baris" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
 								<option value="1" class="dropdown-item">baris 1</option>
 								<option value="2" class="dropdown-item">baris 2</option>
-								<option value="3" class="dropdown-item">baris 3</option>
-								<option value="4" class="dropdown-item">baris 4</option>
-								<option value="5" class="dropdown-item">baris 5</option>
 							</select>
 						</div>
 					</div>
@@ -159,10 +157,6 @@ require 'backend/usersession.php';
 						<div class="col-8">
 							<select name="rakUpdate" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
 								<option value="1" class="dropdown-item">rak 1</option>
-								<option value="2" class="dropdown-item">rak 2</option>
-								<option value="3" class="dropdown-item">rak 3</option>
-								<option value="4" class="dropdown-item">rak 4</option>
-								<option value="5" class="dropdown-item">rak 5</option>
 							</select>
 						</div>
 					</div>
@@ -199,9 +193,6 @@ require 'backend/usersession.php';
 							<select name="barisUpdate" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
 								<option value="1" class="dropdown-item">baris 1</option>
 								<option value="2" class="dropdown-item">baris 2</option>
-								<option value="3" class="dropdown-item">baris 3</option>
-								<option value="4" class="dropdown-item">baris 4</option>
-								<option value="5" class="dropdown-item">baris 5</option>
 							</select>
 						</div>
 					</div>

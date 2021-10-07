@@ -10,7 +10,7 @@ include"../backend/conn.php";
 	$query = "insert into test (id, a, aa, AAA) value (default,'$a','$aa','$AAA')";
 	$run = mysqli_query($servConnQuery, $query);
 	*/
-	
+	if(isset($_GET['term'])){
 	$searchTerm = $_GET['term']; // Menerima kiriman data dari inputan pengguna
 
 	$sql="SELECT * FROM stock WHERE stock_name LIKE '%".$searchTerm."%' ORDER BY stock_name ASC"; // query sql untuk menampilkan data mahasiswa dengan operator LIKE
@@ -23,5 +23,12 @@ include"../backend/conn.php";
 	}
 	//Nilainya disimpan dalam bentuk json
 	echo json_encode($data);
+	}
+	
+$storageSearchQuery = "select * from penyimpanan where rak = '1' and lantai = '1' and kolom = '2' and baris = '2'";
+		$storageSearchRun = mysqli_query($servConnQuery, $storageSearchQuery);
+		$storageIdFetch = mysqli_fetch_assoc($storageSearchRun);
+		
+		echo $storage_id = $storageIdFetch['storage_id'];
 
 ?>

@@ -17,19 +17,39 @@ if(isset($_GET['itemName'])){
 	$klm = $_GET['kolom'];
 	$bar = $_GET['baris'];
 	
-	$stockIdSearchQuery = "select stock_id from `stock` where rak like '$rak' and lantai like '$lan' and kolom like '$klm' and baris like '$bar'";
-	$stockIdSearchQueryRun = mysqli_query($servConnQuery,$stockIdSearchQuery);
-	$stockIdFetch = mysqli_fetch_assoc($stockIdSearchQueryRun);
-	$stockId = $stockIdFetch['stock_id'];
+	$storageSearchQuery = "select * from penyimpanan where rak = '$rak' and lantai = '$lan' and kolom = '$klm' and baris = '$bar'";
+	$storageSearchRun = mysqli_query($servConnQuery, $storageSearchQuery);
+	$storageIdFetch = mysqli_fetch_assoc($storageSearchRun);
+		
+	$storage_id = $storageIdFetch['storage_id'];
+	$stockId	= $storageIdFetch['stock_id'];
+	
+	$stockBarcodeSearchQuery = "select barcode from `stock` where stock_id = '$stockId' and storage_id = '$storage_id'";
+	$stockBarcodeSearchQueryRun = mysqli_query($servConnQuery,$stockBarcodeSearchQuery);
+	$stockBarcodeFetch = mysqli_fetch_assoc($stockBarcodeSearchQueryRun);
+	$stockBarcode = $stockBarcodeFetch['barcode'];
 }
 
 if(isset($_GET['itemNameUpdate'])){
-	/*$itemName = $_GET['itemNameUpdate'];
+	$itemName = $_GET['itemNameUpdate'];
+	$amount = $_GET['amountUpdate'];
 	
-	$stockIdSearchQuery = "select stock_id from `stock` where rak like '$rak' and lantai like '$lan' and kolom like '$klm' and baris like '$bar'";
-	$stockIdSearchQueryRun = mysqli_query($servConnQuery,$stockIdSearchQuery);
-	$stockIdFetch = mysqli_fetch_assoc($stockIdSearchQueryRun);
-	$stockId = $stockIdFetch['stock_id'];*/
+	$rak = $_GET['rakUpdate'];
+	$lan = $_GET['lantaiUpdate'];
+	$klm = $_GET['kolomUpdate'];
+	$bar = $_GET['barisUpdate'];
+	
+	$storageSearchQuery = "select * from penyimpanan where rak = '$rak' and lantai = '$lan' and kolom = '$klm' and baris = '$bar'";
+	$storageSearchRun = mysqli_query($servConnQuery, $storageSearchQuery);
+	$storageIdFetch = mysqli_fetch_assoc($storageSearchRun);
+		
+	$storage_id = $storageIdFetch['storage_id'];
+	$stockId	= $storageIdFetch['stock_id'];
+	
+	$stockBarcodeSearchQuery = "select barcode from `stock` where stock_id = '$stockId' and storage_id = '$storage_id'";
+	$stockBarcodeSearchQueryRun = mysqli_query($servConnQuery,$stockBarcodeSearchQuery);
+	$stockBarcodeFetch = mysqli_fetch_assoc($stockBarcodeSearchQueryRun);
+	$stockBarcode = $stockBarcodeFetch['barcode'];
 }
 
 ?>
@@ -101,5 +121,5 @@ if(isset($_GET['itemNameUpdate'])){
 				<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Print</button>
 			</div>
 			<script>
-				JsBarcode("#barcodeShow","<?php echo $stockId; ?>");
+				JsBarcode("#barcodeShow","<?php echo $stockBarcode; ?>");
 			</script>
