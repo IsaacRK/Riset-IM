@@ -1,0 +1,5 @@
+---
+deployment:
+tasks:
+- export DEPLOYPATH=/home/cypr9718/public_html/inventory
+- /bin/cp -r * $DEPLOYPATH
