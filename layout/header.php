@@ -10,12 +10,13 @@
 	
 	<title>Dashboard</title>
 	
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
 	<link href="css/responsive.css" rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="css/personal.css" />
+	
 	<script src="js/chart.js"></script>
-	<script src="js/bootstrap.bundle.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/jquery3.6.0.min.js"></script>
 	<script src="js/JsBarcode.code128.min.js"></script>
 	<script src="js/jquery-ui.js"></script>

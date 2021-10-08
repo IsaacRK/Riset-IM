@@ -47,47 +47,100 @@ require 'backend/usersession.php';
 				</br>
 				
 				<div class="card">
-					<div class="card-body" style="">
-						<div class="row">
-						<div class="container mx-5 overflow-auto">
-						<div class="row">
-							<div class="col p-1 d-flex justify-content-center">
-								<div class="shadow-sm border rounded rak-box color-tertiary"></div>
-							</div>
-							<div class="col p-1 d-flex justify-content-center">
-								<div class="shadow-sm border rounded rak-box color-tertiary"></div>
-							</div>
-							<div class="col p-1 d-flex justify-content-center">
-								<div class="shadow-sm border rounded rak-box color-tertiary"></div>
-							</div>
-							<div class="col p-1 d-flex justify-content-center">
-								<div class="shadow-sm border rounded rak-box color-tertiary"></div>
-							</div>
-							<div class="col p-1 d-flex justify-content-center">
-								<div class="shadow-sm border rounded rak-box color-tertiary"></div>
-							</div>
-						
-							<div class="w-100"></div>
+					<div class="card-body"  style="background-color:#2879ff73;">
+						<div class="container">
+						<div id="mapping" class="carousel slide" data-bs-ride="carousel">
+							<!-- Carousel indicators -->
+							<ol class="carousel-indicators">
+								<li data-bs-target="#mapping" data-bs-slide-to="0" class="active"></li>
+								<li data-bs-target="#mapping" data-bs-slide-to="1"></li>
+							</ol>
 							
-							<div class="col p-1 d-flex justify-content-center">
-								<div class="shadow-sm border rounded rak-box color-tertiary"></div>
+							<!-- Wrapper for carousel items -->
+							<div class="carousel-inner">
+								<div class="carousel-item active">
+									<div class="row">
+										
+										<?php
+											$mappingQuery = "select * from penyimpanan where lantai = '1' and  baris = '1'";
+											$mappingRun = mysqli_query($servConnQuery, $mappingQuery);
+											if(mysqli_num_rows($mappingRun) > 0){
+												while($mappingFetch = mysqli_fetch_assoc($mappingRun)){
+													if($mappingFetch['stock_id']==null){
+														echo'
+															<div class="col p-1 d-flex justify-content-center">
+																<div class="shadow-sm border rounded rak-box color-tertiary">
+																	'.$mappingFetch['storage_id'].'
+																</div>
+															</div>
+														';
+													}else{
+														echo'
+															<div class="col p-1 d-flex justify-content-center">
+																<div class="shadow-sm border rounded rak-box color-primary">
+																	'.$mappingFetch['storage_id'].'
+																</div>
+															</div>
+														';
+													}
+												}
+											}
+										?>
+										
+										<div class="w-100"></div>
+										
+										<?php
+											$mappingQuery = "select * from penyimpanan where lantai = '1' and  baris = '2'";
+											$mappingRun = mysqli_query($servConnQuery, $mappingQuery);
+											if(mysqli_num_rows($mappingRun) > 0){
+												while($mappingFetch = mysqli_fetch_assoc($mappingRun)){
+													if($mappingFetch['stock_id']==null){
+														echo'
+															<div class="col p-1 d-flex justify-content-center">
+																<div class="shadow-sm border rounded rak-box color-tertiary">
+																	'.$mappingFetch['storage_id'].'
+																</div>
+															</div>
+														';
+													}else{
+														echo'
+															<div class="col p-1 d-flex justify-content-center">
+																<div class="shadow-sm border rounded rak-box color-primary">
+																	'.$mappingFetch['storage_id'].'
+																</div>
+															</div>
+														';
+													}
+												}
+											}
+										?>
+										
+									</div>
+								</div>
+								<div class="carousel-item">
+									<div class="row">
+										<div class="col p-1 d-flex justify-content-center">
+											<div class="shadow-sm border rounded rak-box color-tertiary"></div>
+										</div>
+										<div class="w-100"></div>
+										<div class="col p-1 d-flex justify-content-center">
+											<div class="shadow-sm border rounded rak-box color-tertiary"></div>
+										</div>
+									</div>
+								</div>
 							</div>
-							<div class="col p-1 d-flex justify-content-center">
-								<div class="shadow-sm border rounded rak-box color-tertiary"></div>
-							</div>
-							<div class="col p-1 d-flex justify-content-center">
-								<div class="shadow-sm border rounded rak-box color-tertiary"></div>
-							</div>
-							<div class="col p-1 d-flex justify-content-center">
-								<div class="shadow-sm border rounded rak-box color-tertiary"></div>
-							</div>
-							<div class="col p-1 d-flex justify-content-center">
-								<div class="shadow-sm border rounded rak-box color-tertiary"></div>
-							</div>
+							
+							<!-- Carousel controls -->
+							<a class="carousel-control-prev" href="#mapping" data-bs-slide="prev">
+								<span class="carousel-control-prev-icon"></span>
+							</a>
+							<a class="carousel-control-next" href="#mapping" data-bs-slide="next">
+								<span class="carousel-control-next-icon"></span>
+							</a>
+							
 						</div>
 						</div>
-						</div>
-
+						
 						<div class="row">
 						<div class="container mx-5">
 						<div class="row">
