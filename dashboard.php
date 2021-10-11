@@ -52,82 +52,91 @@ require 'backend/usersession.php';
 						<div id="mapping" class="carousel slide" data-bs-ride="carousel">
 							<!-- Carousel indicators -->
 							<ol class="carousel-indicators">
-								<li data-bs-target="#mapping" data-bs-slide-to="0" class="active"></li>
-								<li data-bs-target="#mapping" data-bs-slide-to="1"></li>
+								<?php
+									$maxStorageIdQuery = "select max(storage_id) from penyimpanan";
+									$maxStorageIdRun = mysqli_query($servConnQuery,$maxStorageIdQuery);
+									$maxStorageIdFetch = mysqli_fetch_array($maxStorageIdRun);
+									$maxStorageId = $maxStorageIdFetch[0];
+									$maxStorageIdRounded = round($maxStorageId/10,0,PHP_ROUND_HALF_DOWN);
+									
+									for($i=0;$i<$maxStorageIdRounded;$i++){
+										if($i==0){
+											echo'<li data-bs-target="#mapping" data-bs-slide-to="'.$i.'" class="active"></li>';
+										}else{
+											echo'<li data-bs-target="#mapping" data-bs-slide-to="'.$i.'"></li>';
+										}
+									}
+								?>
 							</ol>
 							
 							<!-- Wrapper for carousel items -->
 							<div class="carousel-inner">
-								<div class="carousel-item active">
-									<div class="row">
+								<?php
+									function filter_even($var){
+										return($var = $var % 2);
+									}
+									
+									function boxColorFunc($fetch){
+										if($fetch==null){
+											$col='color-tertiary';
+										}else{
+											$col='color-primary';
+										}
+										return($col);
+									}
+									
+									function stringEcho($xx,$xxx){
+										$string = '
+										<div class="col p-1 d-flex justify-content-center">
+											<div class="shadow-sm border rounded rak-box '.$xx.'">
+												'.$xxx.'
+											</div>
+										</div>';
+										return ($string);
+									}
+									
+									for($a=0;$a<$maxStorageIdRounded;$a++){
+										if($a==0){
+											echo'
+											<div class="carousel-item active">
+												<div class="row">';
+										}else{
+											echo'
+											<div class="carousel-item">
+												<div class="row">';
+										}
 										
-										<?php
-											$mappingQuery = "select * from penyimpanan where lantai = '1' and  baris = '1'";
-											$mappingRun = mysqli_query($servConnQuery, $mappingQuery);
-											if(mysqli_num_rows($mappingRun) > 0){
-												while($mappingFetch = mysqli_fetch_assoc($mappingRun)){
-													if($mappingFetch['stock_id']==null){
-														echo'
-															<div class="col p-1 d-flex justify-content-center">
-																<div class="shadow-sm border rounded rak-box color-tertiary">
-																	'.$mappingFetch['storage_id'].'
-																</div>
-															</div>
-														';
-													}else{
-														echo'
-															<div class="col p-1 d-flex justify-content-center">
-																<div class="shadow-sm border rounded rak-box color-primary">
-																	'.$mappingFetch['storage_id'].'
-																</div>
-															</div>
-														';
-													}
+										$mappingOffsetQuery='';
+										if($a==0){
+											$mappingOffsetQuery='';
+										}else{
+											$z = $a * 10;
+											$mappingOffsetQuery='offset '.$z;
+										}
+										
+										$mappingQuery = "select * from penyimpanan limit 10 ".$mappingOffsetQuery;
+										$mappingRun = mysqli_query($servConnQuery, $mappingQuery);
+										if(mysqli_num_rows($mappingRun)>0){
+											$stringBoxTop='';
+											$stringBoxBottom='';
+											$box='';
+											while ($mappingFetch = mysqli_fetch_assoc($mappingRun)){
+												if(filter_even($mappingFetch['storage_id'])==1){
+													$box = boxColorFunc($mappingFetch['stock_id']);
+													$stringBox = stringEcho($box,$mappingFetch['storage_id']);
+													$stringBoxTop=$stringBoxTop.$stringBox;
+												}else{
+													$box = boxColorFunc($mappingFetch['stock_id']);
+													$stringBox = stringEcho($box,$mappingFetch['storage_id']);
+													$stringBoxBottom=$stringBoxBottom.$stringBox;
 												}
 											}
-										?>
+											echo $stringBoxTop.'<div class="w-100"></div>'.$stringBoxBottom;
+										}
 										
-										<div class="w-100"></div>
-										
-										<?php
-											$mappingQuery = "select * from penyimpanan where lantai = '1' and  baris = '2'";
-											$mappingRun = mysqli_query($servConnQuery, $mappingQuery);
-											if(mysqli_num_rows($mappingRun) > 0){
-												while($mappingFetch = mysqli_fetch_assoc($mappingRun)){
-													if($mappingFetch['stock_id']==null){
-														echo'
-															<div class="col p-1 d-flex justify-content-center">
-																<div class="shadow-sm border rounded rak-box color-tertiary">
-																	'.$mappingFetch['storage_id'].'
-																</div>
-															</div>
-														';
-													}else{
-														echo'
-															<div class="col p-1 d-flex justify-content-center">
-																<div class="shadow-sm border rounded rak-box color-primary">
-																	'.$mappingFetch['storage_id'].'
-																</div>
-															</div>
-														';
-													}
-												}
-											}
-										?>
-										
-									</div>
-								</div>
-								<div class="carousel-item">
-									<div class="row">
-										<div class="col p-1 d-flex justify-content-center">
-											<div class="shadow-sm border rounded rak-box color-tertiary"></div>
-										</div>
-										<div class="w-100"></div>
-										<div class="col p-1 d-flex justify-content-center">
-											<div class="shadow-sm border rounded rak-box color-tertiary"></div>
-										</div>
-									</div>
-								</div>
+										echo'</div></div>';
+									}
+								?>
 							</div>
 							
 							<!-- Carousel controls -->

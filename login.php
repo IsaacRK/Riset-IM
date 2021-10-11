@@ -17,7 +17,7 @@ require 'backend/loginhandler.php';
 	
 	<title>Halaman Masuk</title>
 	
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 	<link href="css/responsive.css" rel="stylesheet" />
 	
 	<style>
