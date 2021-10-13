@@ -9,91 +9,17 @@
 <script src="js/jquery3.6.0.min.js"></script>
 <script src="js/JsBarcode.code128.min.js"></script>
 <style>
-.checkbox {
-  display: grid;
-  grid-template-columns: min-content auto;
-  grid-gap: 0.5em;
-  font-size: 2rem;
-  color: var(--color);
-}
-.checkbox__input {
-  display: grid;
-  grid-template-areas: "checkbox";
-  
-  > * {
-    grid-area: checkbox;
-  }
-}
-.boxhidden {
-  opacity: 0;
-  width: 1em;
-  height: 1em;
-}
-.checkbox_control {
-  display: inline-grid;
-  width: 1em;
-  height: 1em;
-  border-radius: 0.25em;
-  border: 0.1em solid currentColor;
-}
-.checkbox_control svg {
-  transition: transform 0.1s ease-in 25ms;
-  transform: scale(0);
-  transform-origin: bottom left;
-}
-.checkbox_input input:checked + .checkbox_control svg {
-  transform: scale(1);
-}
-.checkbox_input input:focus + .checkbox_control {
-  box-shadow: 0 0 0 0.05em #fff, 0 0 0.15em 0.1em currentColor;
-}
+
 </style>
 </head>
 <body>
 
-<label class="checkbox">
-  <span class="checkbox__input">
-    <input class="boxhidden" type="checkbox" name="checkbox" />
-    <span class="checkbox__control">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <path
-          fill="none"
-          stroke="currentColor"
-          stroke-width="3"
-          d="M1.73 12.91l6.37 6.37L22.79 4.59"
-        />
-      </svg>
-    </span>
-  </span>
-  <span class="radio__label">Checkbox</span>
-</label>
+<div id="test">this is div value</div>
 
-<label class="checkbox">
-  <span class="checkbox__input">
-    <input type="checkbox" name="checked" checked />
-    <span class="checkbox__control">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <path
-          fill="none"
-          stroke="currentColor"
-          stroke-width="3"
-          d="M1.73 12.91l6.37 6.37L22.79 4.59"
-        />
-      </svg>
-    </span>
-  </span>
-  <span class="radio__label">Checkbox - Checked</span>
-</label>
+<script>
+var fetch = document.getElementById('test').innerHTML;
+console.log(fetch);
+</script>
 
 </body>
 </html>

@@ -27,7 +27,7 @@ if(isset($_GET['itemName'])){
 	$stockBarcodeSearchQuery = "select barcode from `stock` where stock_id = '$stockId' and storage_id = '$storage_id'";
 	$stockBarcodeSearchQueryRun = mysqli_query($servConnQuery,$stockBarcodeSearchQuery);
 	$stockBarcodeFetch = mysqli_fetch_assoc($stockBarcodeSearchQueryRun);
-	$stockBarcode = $stockBarcodeFetch['barcode'];
+	$stockBarcode = $stockBarcodeFetch['barcode'].$stockId;
 }
 
 if(isset($_GET['itemNameUpdate'])){
@@ -49,7 +49,7 @@ if(isset($_GET['itemNameUpdate'])){
 	$stockBarcodeSearchQuery = "select barcode from `stock` where stock_id = '$stockId' and storage_id = '$storage_id'";
 	$stockBarcodeSearchQueryRun = mysqli_query($servConnQuery,$stockBarcodeSearchQuery);
 	$stockBarcodeFetch = mysqli_fetch_assoc($stockBarcodeSearchQueryRun);
-	$stockBarcode = $stockBarcodeFetch['barcode'];
+	$stockBarcode = $stockBarcodeFetch['barcode'].$stockId;
 }
 
 ?>

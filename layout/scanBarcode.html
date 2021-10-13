@@ -1,0 +1,385 @@
+
+	<style type="text/css">
+		* {
+		    box-sizing: border-box;
+		}
+		.barcode__container{
+			width: 1000px;
+			margin: 0 auto; 
+			padding: 10px;
+		}
+		.barcode__place {
+		        border-radius: 10px;
+			    background: #222;
+			    margin: 10px;
+			    padding: 10px;
+			    position: relative;
+			    width: 300px;
+			    height: 300px;
+			    margin: 0 auto;
+			    overflow: hidden;
+		}
+
+		span.info__barcode {
+		    position: absolute;
+		    top: 10px;
+		    padding: 5px 10px;
+		    background: #525252;
+		    border-radius: 5px;
+		    left: 50%;
+		    transform: translate(-50%,-50%);
+		    color: #fff;
+		}
+
+		span.info__barcode.info__1 {
+		    top: 12%;
+		    width: 65%;
+    		text-align: center;
+    		z-index: 1;
+		}
+
+		span.info__barcode.info__2{
+		    top: 50%;
+		    width: 100%;
+		    text-align: center;
+		    z-index: 1;
+		}
+		.btn__grp {
+		    background: dodgerblue;
+		    position: absolute;
+		    bottom: 0;
+		    padding: 10px;
+		    width: 100%;
+		    left: 0;
+		    text-align: center;
+		    z-index: 1;
+		}
+
+		.barcode__result {
+		    padding: 10px;
+		    position: absolute;
+		    margin: 0 auto;
+		    overflow: hidden;
+		    width: 100%;
+		    height: 100%;
+		    z-index: 2;
+		    background: dodgerblue;
+		    left: 0;
+		    top: 0;
+		    bottom: 0;
+		    right: 0;
+		    display: none;
+		}
+
+		.__result {
+		    background: #222;
+		    color: #ffff;
+		    font-weight: 500;
+		    padding: 5px;
+		    text-align: center;
+		    font-size: 18px;
+		    letter-spacing: 1px;
+		}
+
+		.barcode__tip {
+		    text-align: center;
+		    color: #b19c9c;
+		    font-size: 10px;
+		}
+
+		span.corner {
+		    position: absolute;
+		    width: 25px;
+		    height: 25px;
+		    background: transparent;
+		    border: 2px solid red;
+		    z-index: 1;
+		}
+
+		span.corner.br-h__lt {left: 10px;top: 26%;border-right: none;border-bottom: none;}
+
+		span.corner.br-h__lb {
+		    bottom: 26%;
+		    left: 10px;
+		    border-right: none;
+		    border-top: none;
+		}
+
+		span.corner.br-h__rt {
+		    right: 10px;
+		    top: 26%;
+		    border-left: none;
+		    border-bottom: none;
+		}
+
+		span.corner.br-h__rb {
+		    right: 10px;
+		    bottom: 26%;
+		    border-left: none;
+		    border-top: none;
+		}
+
+		.__subtitle span {
+		    background: dodgerblue;
+		    color: #fff;
+		    padding: 10px;
+		}
+
+		.__subtitle {
+		    margin-bottom: 15px;
+		    margin-top: 15px;
+		    font-weight: bold;
+		    letter-spacing: 2px;
+		    font-size: 18px;
+		}
+
+		p.card-text {
+		    padding: 10px;
+		    border-left: 5px solid #222;
+		    background: #eaeaea;
+		    border-radius: 5px;
+		}
+
+		.__sudhrd {
+		    margin-bottom: 25px;
+		    margin-top: 15px;
+		}
+
+		.__sudhrd span {
+		    background: #d3daec;
+		    padding: 10px;
+		    font-size: 16px;
+		    color: #222;
+		    font-weight: bolder;
+		    letter-spacing: 2px;
+		}
+
+		.laser {
+		    width: 150%;
+		    margin-left: -25%;
+		    background-color: tomato;
+		    height: 1px;
+		    position: absolute;
+		    top: 28%;
+		    z-index: 2;
+		    box-shadow: 0 0 4px red;
+		    animation: scanning 2s infinite;
+		  }
+
+		  .diode {
+		    animation: beam .01s infinite;
+		    display:none;
+		  }
+		  
+		  
+		@keyframes beam {
+		  50% {
+		    opacity: 0;
+		  }
+		}
+
+		@keyframes scanning {
+		  50% {
+		    transform: translateY(140px);
+		  }
+		}
+
+		video#video {
+		    min-width: 100%; 
+		    min-height: 100%;
+		    width: auto; 
+		    height: auto; 
+		    position: absolute;
+		    top: 0;
+		    bottom: 0;
+		    left: 0;
+		    right: 0;
+		}
+
+		.__disable{
+			box-shadow: none;
+    		background: #9a9a9a;
+    		cursor: not-allowed;
+    		position: relative;
+    		overflow: hidden;
+		}
+		.__disable::after{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(255,255,255,0.55);
+		}
+		
+		.__result-div{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+
+
+/*Installation Banner CSS*/
+		 .appInstallBanner {
+		    position: fixed;
+		    top: 0;
+		    z-index: 9999;
+		    left: 0;
+		    right: 0;
+		    text-align: center;
+		    opacity:0.85;
+		    display:none;
+		}
+
+		 .appInstallBanner:hover{
+		    opacity:1;
+		}
+
+		.appInstallBanner .card {
+		    width: 95%;
+		    margin: 7px auto;
+		    padding: 0;
+		    background: #38c5fb;
+		    color: #fff;
+		    position: relative;
+		}
+
+		.appInstallBanner .card-header,.appInstallBanner .card-body {
+		    padding: 7px;
+		    border: none;
+		} 
+
+		.appInstallBanner .card-body p {
+		    margin:0;
+		}
+
+		.appInstallBanner {}
+
+		.decision-btns .installApp {
+		    border-radius: 25px;
+		    background: #fff;
+		    color: #38c5fb;
+		    font-weight: bold;
+		    border: 1px solid #fff;
+		    position: absolute;
+		    right: 4px;
+		    top: 4px;
+		}
+
+		.decision-btns .notNow {
+		    font-weight: bold;
+		    color: #fff;
+		    background: #38c5fb;
+		    border-radius: 25px;
+		    border: 1px solid #38c5fb;
+		    position: absolute;
+		    top: 4px;
+		    left: 10px;
+		}
+
+		.decision-btns {
+		    text-align: right;
+		    padding-right: 10px;
+		}
+
+		.thanksBanner{
+			position: fixed;
+		    top: 0;
+		    z-index: 9999;
+		    left: 0;
+		    right: 0;
+		    text-align: center;
+		    opacity:0.85;
+		    display: none;
+		}
+		.__goto {
+		    padding: 10px;
+		    background: dodgerblue;
+		    color: #fff;
+		    position: fixed;
+		    bottom: 0;
+		    width: 100%;
+		    left: 0;
+		}
+		.mb-80{
+			margin-bottom: 80px;
+		}
+
+
+		@media only screen and (max-width: 720px) {
+			.barcode__container{
+				width: 100%;
+			}
+			.barcode__place {
+		        border-radius: 10px;
+			    background: #222;
+			    margin: 10px;
+			    padding: 10px;
+			    position: relative;
+			    width: 100%;
+			    height: 300px;
+			    margin: 0 auto;
+			    overflow: hidden;
+		}
+
+	}
+
+	</style>
+
+<div class="modal-header">
+	<button class="border border-0" type="" data-bs-dismiss="modal">
+		<img src="img/icons/x-lg.svg"/>
+	</button>
+</div>
+<div class="modal-body">
+
+			<div class="barcode__reader">
+				<div class="barcode__reader-inner pr">
+					<div class="barcode__place">
+						<!-- Barcode info's-->
+						<span class="info__barcode info__1">find a code to scan</span>
+						<span class="info__barcode info__2">Click below button to start scan</span>
+
+						<!-- Highlighted area corners parts-->
+						<span class="corner br-h__lt"></span>
+						<span class="corner br-h__lb"></span>
+						<span class="corner br-h__rt"></span>
+						<span class="corner br-h__rb"></span>
+
+						<!-- Camera -->
+						<video id="video"  class="video"   autoplay></video>
+
+						<div class="diode">
+				      		<div class="laser"></div>
+				    	</div>
+						<!-- group buttons-->
+						<div class="btn__grp">
+							<button class="btn btn-primary" id="startScan">Start Scan</button>
+							<button class="btn btn-primary" id="resetScan">Reset</button>
+						</div>
+						<!-- Barcode Result Display-->
+						<div class="barcode__result">
+							<button class="btn btn_bg_3 __close" id="closeResult">Close</button>
+							<div class="__result-div">
+								<label class="__lbl">Scanned Result</label>
+								<div class="__result" id="__result">
+									BARCODE1234
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+
+				</div>
+			</div>
+</div>
+
+
+
+</div>
+<div class="modal-footer d-flex justify-content-center">
+	<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Print</button>
+</div>

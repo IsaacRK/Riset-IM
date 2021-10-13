@@ -29,10 +29,10 @@ if(isset($_POST['search'])){
 	$addrsFetchQueryRun		 	= mysqli_query($servConnQuery,$addrsFetchQuery);
 	$addrsFetch		 			= mysqli_fetch_assoc($addrsFetchQueryRun);
 	
-	$Crak	= $addrsFetch['rak'];
-	$Clan	= $addrsFetch['lantai'];
-	$Cklm	= $addrsFetch['kolom'];
-	$Cbar	= $addrsFetch['baris'];
+	$Crak	= $componentFetch['rak'];
+	$Clan	= $componentFetch['lantai'];
+	$Cklm	= $componentFetch['kolom'];
+	$Cbar	= $componentFetch['baris'];
 }
 
 ?>
@@ -48,18 +48,18 @@ if(isset($_POST['search'])){
 <body>
 
 <?php
-	include"layout/sidebar.php";
+	include"layout/sidebar-id.php";
 ?>
 <div class="content">
 <div class="container mr-0">
 
 	<div class="p-1">
 		<div class="mb-3">
-			<h1>Stock Output</h1>
+			<h1>Stok Keluar</h1>
 		</div>
 	</div>
 
-	<div class="row mb-2 ms-2">
+	<div class="row mb-2 ml-2">
 		<div class="col-7">
 		<form action="" method="post">
 			<div class="row">
@@ -68,19 +68,19 @@ if(isset($_POST['search'])){
 					<div class="col-2">
 						<img class="m-1" src="img/icons/search.svg" width="25" height="25"/>
 					</div>
-					<div class="col-9">
+					<div class="col-10">
 						<input class="form-control border border-0" style="" type="text" placeholder="Nama Komponen" name="componentNameSearch" id=""/>
 					</div>
 				</div>
 			</div>
 			<div class="col-3">
-				<input class="btn btn-primary btn-block" type="submit" name="search" value="Search"/>
+				<input class="btn btn-primary btn-block" type="submit" name="search" value="Cari"/>
 			</div>
 			</div>
 		</form>
 		</div>
 		<div class="col-5">
-			<button type="button" class="btn btn-primary btn-block" id="barcodeScnButton">Barcode Scanner</button>
+			<button type="button" class="btn btn-primary btn-block" id="barcodeScnButton">Pemindai Kode Batang</button>
 		</div>
 	</div>
 	
@@ -89,7 +89,7 @@ if(isset($_POST['search'])){
 			<div class="card">
 			<div class="card-body">
 			<form action="" method="post">
-				<h3>Component Information</h3>
+				<h3>Informasi Komponen</h3>
 				</br>
 				<div class="row">
 					<div class="col">
@@ -110,7 +110,7 @@ if(isset($_POST['search'])){
 
 				<div class="row">
 					<div class="col">
-						<span>Stock : </span>
+						<span>Stok : </span>
 					</div>
 					<div class="col">
 						<span>
@@ -181,7 +181,7 @@ if(isset($_POST['search'])){
 		<div class="col-sm">
 			<div class="card">
 			<div class="card-body">
-				<h3>Cart</h3>
+				<h3>Keranjang</h3>
 				
 				<?php
 					require'backend/carthandler.php';
@@ -193,6 +193,7 @@ if(isset($_POST['search'])){
 	</div>
 </div>
 </div>
+
 
 <div id="modalBarcodeScn" class="modal fade" tabindex="-1">
 	<div class="modal-dialog">
