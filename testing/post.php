@@ -1,5 +1,5 @@
 <?php
-
+require '../layout/header.php';
 $num = array(
 	1,2,3,4,5,6,7,8,9,10,
 	11,12,13,14,15,16,17,18,19,20,
@@ -88,4 +88,46 @@ if(mysqli_num_rows($mappingRun) > 0){
 	}
 }*/
 
+if(isset($_GET['barcode'])){
+	echo'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</br>';
+}
+
 ?>
+<button type="button" onClick="jumper()">aaa</button></br>
+<button type="button" onclick="sendData()">send</button></br>
+<div id="target">10329302911</div>
+
+
+
+<script>
+
+function jumper(){
+	var target = document.getElementById('target').innerHTML;
+	location.href = window.location.href+"?barcode="+target;
+}
+
+function btnForm(){
+	var target = document.getElementById('target').innerHTML;
+	document.write('<form action="" method="post" id="a">');
+	document.write('<input type="hidden" value="');document.write(target);document.write('">');
+	document.write('</form>');
+	document.write('<div>aaaa</div>');
+}
+
+function sendData(){
+	var target 		= document.getElementById('target').innerHTML;
+	var dataSend	= {barcode:target};
+	$.ajax({
+		type:"GET",
+		data:dataSend,
+		success:function(result){
+			//console.log(data)
+			//location.reload();
+			 $('#result').text('name: ' + result );
+		},
+		error:function(error){
+			colsole.log('err ${error}')
+		}
+	})
+}
+</script>

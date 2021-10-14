@@ -21,11 +21,20 @@ window.addEventListener('load', function () {
            document.getElementById('__result').textContent = result.text;
            $(".barcode__result").show();
 		   
+		   document.getElementById('btnSendBRData').style.visibility = "visible";
+						
+			var target = document.getElementById('__result').innerHTML
+			//location.href = window.location.href+"?barcode="+target;
+			//location.href = "stockoutput.php?barcode="+target;
+			 window.location.assign("stockoutput.php?barcode="+target)
+		   
+		   
+		   /*
 		   $.post('stockoutput.php',{
 			   console.log(document.getElementById('__result').innerHTML),
 			   barcode: document.getElementById('__result').innerHTML
 		   })
-		   
+		   */
 		   //console.log(document.getElementById('__result').innerHTML)
          }
          if (err && !(err instanceof ZXing.NotFoundException)) {

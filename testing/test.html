@@ -14,12 +14,14 @@
 </head>
 <body>
 
-<div id="test">this is div value</div>
+<button type="button" id="btn" onclick="btnDisplay()">btn</button>
+<button type="button" id="btn-reveal" style="visibility: hidden">submit</button>
 
 <script>
-var fetch = document.getElementById('test').innerHTML;
-console.log(fetch);
-</script>
+function btnDisplay(){
+	document.getElementById('btn-reveal').style.visibility = "visible";
+}
 
+</script>
 </body>
 </html>

@@ -35,6 +35,39 @@ if(isset($_POST['search'])){
 	$Cbar	= $addrsFetch['baris'];
 }
 
+if(isset($_GET['barcode'])){
+	$val = $_GET['barcode'];
+	$len = strlen($val);
+	$id = substr($val,7);
+	$adr = '';
+	if($len>8){
+		$adr = substr($val,0,-2);
+	}else{
+		$adr = substr($val,0,-1);
+	}
+
+	$componentIdSearch = $id;
+	$componentAddrSearch = $adr;
+	
+	$serachComponentQuery 		= "select * from `stock` where barcode like '$componentAddrSearch' and stock_id like '$componentIdSearch'";
+	$serachComponentQueryRun 	= mysqli_query($servConnQuery,$serachComponentQuery);
+	$componentFetch 			= mysqli_fetch_assoc($serachComponentQueryRun);
+	
+	$Cid	= $componentFetch['stock_id'];
+	$Cname	= $componentFetch['stock_name'];
+	$CStock	= $componentFetch['amount'];
+	$Caddrs = $componentFetch['storage_id'];
+	
+	$addrsFetchQuery	 		= "select * from `penyimpanan` where storage_id like '$Caddrs'";
+	$addrsFetchQueryRun		 	= mysqli_query($servConnQuery,$addrsFetchQuery);
+	$addrsFetch		 			= mysqli_fetch_assoc($addrsFetchQueryRun);
+	
+	$Crak	= $addrsFetch['rak'];
+	$Clan	= $addrsFetch['lantai'];
+	$Cklm	= $addrsFetch['kolom'];
+	$Cbar	= $addrsFetch['baris'];
+}
+
 ?>
 <!DOCTYPE html>
 <html>

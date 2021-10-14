@@ -228,33 +228,6 @@ require 'backend/usersession.php';
 ?>
 
 <script>
-$(function(){
-	
-	$("form").on("submit", function(e){
-		var dataString = $(this).serialize();
-		//alert(dataString);
-		
-		$.ajax({
-			type: "POST",
-			url: "backend/inputhandler.php",
-			data: dataString,
-			success: function(){
-				$('#modalBarcode').modal('show').find('.modal-content').load('layout/modalbarcode.php?'+dataString);
-			}
-		});
-		e.preventDefault();
-	});
-});
-
-$('#modalBarcode').on('hidden.bs.modal', function () {
- location.reload();
-})
-
-$(function(){
-	$("#itemNameUpdate").autocomplete({
-		source: 'backend/autocomplete.php'
-	});
-});
 /*
 var nameField = document.getElementById('itemNameUpdate');
 var lastnamevalue = undefined;
