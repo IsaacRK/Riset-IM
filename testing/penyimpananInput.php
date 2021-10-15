@@ -25,5 +25,5 @@ for($a=1;$a<=1;$a++){
 </div>
 
 <script>
-	JsBarcode("#barcodeShow","141200123");
+	JsBarcode("#barcodeShow","142100152");
 </script>

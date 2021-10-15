@@ -40,6 +40,12 @@ if(isset($_POST['pointer'])){
 		$storageQuery = "update penyimpanan set stock_id = '$stock_id' where storage_id = '$storage_id'";
 		$storageQueryRun = mysqli_query($servConnQuery, $storageQuery);
 		
+		$now = date("Y-m-d");
+		$historyQuery = 
+		"insert into 
+		history (history_id, stock_id, amount, input, output, date) 
+		values (default, '$stock_id', '$amount', '1', NULL, '$now')";
+		mysqli_query($servConnQuery, $historyQuery);
 	}
 
 	if($point == "update"){
@@ -61,6 +67,7 @@ if(isset($_POST['pointer'])){
 		//-----b.update stock amount, storageId & barcode
 		//---3.update penyimpanan stockId
 		//-----a.update penyimpanan stockId from storageId(2.b)
+		//---4.input ke history
 
 		//---1.
 		//---select stock amount & id
@@ -94,6 +101,15 @@ if(isset($_POST['pointer'])){
 		//---update storage stock_id
 		$storageUpdateNullQuery = "update penyimpanan set stock_id = '$stock_id' where storage_id = '$storage_id'";
 		$storageUpdateNullRun = mysqli_query($servConnQuery, $storageUpdateNullQuery);
+		
+		//---4.
+		//---input ke history
+		$now = date("Y-m-d");
+		$historyQuery = 
+		"insert into 
+		history (history_id, stock_id, amount, input, output, date) 
+		values (default, '$stock_id', '$amount', '1', NULL, '$now')";
+		mysqli_query($servConnQuery, $historyQuery);
 	}
 }
 

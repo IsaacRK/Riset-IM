@@ -53,11 +53,12 @@ require 'backend/usersession.php';
 							<!-- Carousel indicators -->
 							<ol class="carousel-indicators">
 								<?php
+									$queryNum = 8;
 									$maxStorageIdQuery = "select max(storage_id) from penyimpanan";
 									$maxStorageIdRun = mysqli_query($servConnQuery,$maxStorageIdQuery);
 									$maxStorageIdFetch = mysqli_fetch_array($maxStorageIdRun);
 									$maxStorageId = $maxStorageIdFetch[0];
-									$maxStorageIdRounded = round($maxStorageId/10,0,PHP_ROUND_HALF_DOWN);
+									$maxStorageIdRounded = round($maxStorageId/$queryNum,0,PHP_ROUND_HALF_DOWN);
 									
 									for($i=0;$i<$maxStorageIdRounded;$i++){
 										if($i==0){
@@ -110,11 +111,11 @@ require 'backend/usersession.php';
 										if($a==0){
 											$mappingOffsetQuery='';
 										}else{
-											$z = $a * 10;
+											$z = $a * $queryNum;
 											$mappingOffsetQuery='offset '.$z;
 										}
 										
-										$mappingQuery = "select * from penyimpanan limit 10 ".$mappingOffsetQuery;
+										$mappingQuery = "select * from penyimpanan limit ".$queryNum." ".$mappingOffsetQuery;
 										$mappingRun = mysqli_query($servConnQuery, $mappingQuery);
 										if(mysqli_num_rows($mappingRun)>0){
 											$stringBoxTop='';
@@ -191,15 +192,15 @@ require 'backend/usersession.php';
 					</thead>
 					<tbody>
 						<?php
-							$query = "select * from stock order by stock_id desc limit 5";
-							$run = mysqli_query($servConnQuery, $query);
+							$stockQuery = "select * from stock order by stock_id desc limit 5";
+							$stockRun = mysqli_query($servConnQuery, $stockQuery);
 							
-							if(mysqli_num_rows($run)>0){
-								while($fetch = mysqli_fetch_assoc($run)){
+							if(mysqli_num_rows($stockRun)>0){
+								while($stockFetch = mysqli_fetch_assoc($stockRun)){
 									echo"
 										<tr>
-											<td>".$fetch['stock_name']."</td>
-											<td>".$fetch['amount']."</td>
+											<td>".$stockFetch['stock_name']."</td>
+											<td>".$stockFetch['amount']."</td>
 										</tr>
 									";
 								}
@@ -248,12 +249,26 @@ require 'backend/usersession.php';
 					</tr>
 					</thead>
 					<tbody>
-					<tr>
-						<td>arduino nano</td>
-						<td>13/09</td>
-						<td>anon</td>
-						<td>5</td>
-					</tr>
+					<?php
+						$activityFetchQuery="SELECT * FROM `history` WHERE `input` = 1 and date > CURRENT_DATE - INTERVAL 7 day;";
+						$activityFetchRun = mysqli_query($servConnQuery, $activityFetchQuery);
+						if(mysqli_num_rows($activityFetchRun) > 0){
+							while($activityFetch = mysqli_fetch_assoc($activityFetchRun)){
+								$sid = $activityFetch['stock_id'];
+								$stockQuery = "select * from stock where stock_id = '$sid' order by stock_id desc limit 5";
+								$stockRun = mysqli_query($servConnQuery, $stockQuery);
+								$stockFetch = mysqli_fetch_assoc($stockRun);
+								echo"
+									<tr>
+										<td>".$stockFetch['stock_name']."</td>
+										<td>".$activityFetch['date']."</td>
+										<td>".$stockFetch['operator']."</td>
+										<td>".$activityFetch['amount']."</td>
+									</tr>
+								";
+							}
+						}
+					?>
 					<tr>
 						<td>arduino nano</td>
 						<td>13/09</td>

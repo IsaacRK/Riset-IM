@@ -75,7 +75,13 @@ if(isset($_GET['barcode'])){
 <head>
 	<title>Dashboard</title>
 	<?php include"layout/header.php"?>
-	
+	<style>
+		@media screen and (max-width: 767px){
+			#barcodeScnButton{
+				margin-top: 10px;
+			}
+		}
+	</style>
 </head>
 
 <body>
@@ -93,27 +99,27 @@ if(isset($_GET['barcode'])){
 	</div>
 
 	<div class="row mb-2 ms-2">
-		<div class="col-7">
+		<div class="col-md-7 d-grid gap-2 ">
 		<form action="" method="post">
 			<div class="row">
-			<div class="col-9">
+			<div class="col-9 d-grid">
 				<div class="row border border-dark rounded">
 					<div class="col-2">
 						<img class="m-1" src="img/icons/search.svg" width="25" height="25"/>
 					</div>
 					<div class="col-9">
-						<input class="form-control border border-0" style="" type="text" placeholder="Nama Komponen" name="componentNameSearch" id=""/>
+						<input class="form-control border border-0" style="" type="text" placeholder="Nama Komponen" name="componentNameSearch" id="componentNameSearch"/>
 					</div>
 				</div>
 			</div>
-			<div class="col-3">
-				<input class="btn btn-primary btn-block" type="submit" name="search" value="Search"/>
+			<div class="col-3 d-grid">
+				<input class="btn btn-primary" type="submit" name="search" value="Search"/>
 			</div>
 			</div>
 		</form>
 		</div>
-		<div class="col-5">
-			<button type="button" class="btn btn-primary btn-block" id="barcodeScnButton">Barcode Scanner</button>
+		<div class="col-md-5 d-grid gap-2">
+			<button type="button" class="btn btn-primary" id="barcodeScnButton">Barcode Scanner</button>
 		</div>
 	</div>
 	
@@ -242,9 +248,13 @@ $(document).ready(function(){
   });
 });
 
-</script>
+$(function(){
+	$("#componentNameSearch").autocomplete({
+		source: 'backend/autocomplete.php'
+	});
+});
 
-<script src="js/jquery3.6.0.min.js"	type="text/javascript" crossorigin="anonymous"></script>
+</script>
 
 <script src="js/barcodeScanner.js"	type="text/javascript" crossorigin="anonymous"></script>
 <script src="js/zixing-latest.js"	type="text/javascript" crossorigin="anonymous"></script>
