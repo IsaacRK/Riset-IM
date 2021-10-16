@@ -10,6 +10,7 @@ if(isset($_POST["submit"])){
 	if($row > 0){
 		session_start();
 		$_SESSION['uid'] = $row['id'];
+		//$_SESSION['Role'] = $row ['Role'];
 		header('location:dashboard.php');
 	}else{
 		echo "
