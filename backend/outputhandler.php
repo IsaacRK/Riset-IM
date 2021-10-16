@@ -15,5 +15,6 @@ if(isset($_POST['addToCart'])){
 	values (default, '$operator', '$stockId', '$amount', '$necessity', false);
 	";
 	mysqli_query($servConnQuery, $query);
+	
 }
 ?>

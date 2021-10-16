@@ -25,6 +25,13 @@ if(isset($_POST['checkout'])){
 		
 		$cartUpdateQuery = "update cart set checkout=true where cart_id=$cartId";
 		mysqli_query($servConnQuery, $cartUpdateQuery);
+		
+		$now = date("Y-m-d");
+		$historyQuery = 
+		"insert into 
+		history (history_id, stock_id, amount, input, output, date) 
+		values (default, '$stockId', '$takeAmount', NULL, 1, '$now')";
+		mysqli_query($servConnQuery, $historyQuery);
 	}
 }
 

@@ -250,39 +250,45 @@ require 'backend/usersession.php';
 					</thead>
 					<tbody>
 					<?php
-						$activityFetchQuery="SELECT * FROM `history` WHERE `input` = 1 and date > CURRENT_DATE - INTERVAL 7 day;";
-						$activityFetchRun = mysqli_query($servConnQuery, $activityFetchQuery);
+						$activityFetchQuery	="SELECT * FROM `history` WHERE `output` = 1 and date > CURRENT_DATE - INTERVAL 7 day limit 4;";
+						$activityFetchRun 	= mysqli_query($servConnQuery, $activityFetchQuery);
 						if(mysqli_num_rows($activityFetchRun) > 0){
 							while($activityFetch = mysqli_fetch_assoc($activityFetchRun)){
-								$sid = $activityFetch['stock_id'];
-								$stockQuery = "select * from stock where stock_id = '$sid' order by stock_id desc limit 5";
-								$stockRun = mysqli_query($servConnQuery, $stockQuery);
+								$sid 		= $activityFetch['stock_id'];
+								$amount		= $activityFetch['amount'];
+								$stockQuery = "select * from stock where stock_id = '$sid' order by stock_id desc";
+								$stockRun 	= mysqli_query($servConnQuery, $stockQuery);
 								$stockFetch = mysqli_fetch_assoc($stockRun);
+								
+								$cartFetchQuery = "select * from cart where stock_id = '$sid' and take_amount = '$amount'";
+								$cartFetchRun 	= mysqli_query($servConnQuery, $cartFetchQuery);
+								$cartFetch 		= mysqli_fetch_assoc($cartFetchRun);
+								$cartUid 		= $cartFetch['user_id'];
+								
+								$userFetchQuery = "select * from pengguna where id = '$cartUid'";
+								$userFetchRun 	= mysqli_query($servConnQuery, $userFetchQuery);
+								$userFetch 		= mysqli_fetch_assoc($userFetchRun);
+
 								echo"
 									<tr>
-										<td>".$stockFetch['stock_name']."</td>
+										<td class='fw-bold'>".$stockFetch['stock_name']."</td>
 										<td>".$activityFetch['date']."</td>
-										<td>".$stockFetch['operator']."</td>
+										<td>".$userFetch['user']."</td>
 										<td>".$activityFetch['amount']."</td>
 									</tr>
 								";
 							}
 						}
 					?>
-					<tr>
-						<td>arduino nano</td>
-						<td>13/09</td>
-						<td>anon</td>
-						<td>5</td>
-					</tr>
-					<tr>
-						<td>arduino nano</td>
-						<td>13/09</td>
-						<td>anon</td>
-						<td>5</td>
-					</tr>
 					</tbody>
 				</table>
+				<?php
+					if(mysqli_num_rows($activityFetchRun)== 0){
+						echo'
+							<div class="w-100 color-tertiary p-2 text-center fw-bold">Belum ada barang yang di ambil</div>
+						';
+					}
+				?>
 				</div>
 			
 			</div>
@@ -294,18 +300,37 @@ require 'backend/usersession.php';
 
 <?php
 	include"layout/js.php";
+
+$arr=array();
+$var=0;
+for($i=0; $i<=7; $i++){
+	$chartFetchQuery = "SELECT * FROM `history` WHERE input = '1' and date = date_sub(CURRENT_DATE, interval $i day)";
+	$chartFetchRun = mysqli_query($servConnQuery, $chartFetchQuery);
+	$var=0;
+	if(mysqli_num_rows($chartFetchRun)>0){
+		while($chartFetch = mysqli_fetch_assoc($chartFetchRun)){
+			echo$i.'-';
+			echo $chartFetch['amount'].'-';
+			echo$var = $var+$chartFetch['amount'];
+			echo'</br>';
+		}
+	}
+	array_push($arr,$var);
+}
+echo $arr;
+
 ?>
 
 <script>
 	var chartDisplay = document.getElementById("chartDisplay");
 
-	var speedData = {
-	  labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+	var activityData = {
+	  labels: ["1", "2", "3", "4", "5", "6", "7", "8"],
 	  datasets: [{
 		label: "Activity Log",
 		backgroundColor: 'rgb(16, 100, 174)',
 		borderColor: 'rgb(16, 100, 174)',
-		data: [0,2,2,3,3,4,2,1,3,5],
+	  data: <?php echo'['.$arr[7].','.$arr[6].','.$arr[5].','.$arr[4].','.$arr[3].','.$arr[2].','.$arr[1].','.$arr[0].']'; ?>,
 	  }]
 	};
 
@@ -322,7 +347,7 @@ require 'backend/usersession.php';
 
 	var lineChart = new Chart(chartDisplay, {
 	  type: 'line',
-	  data: speedData,
+	  data: activityData,
 	  options: chartOptions
 	});
 </script>

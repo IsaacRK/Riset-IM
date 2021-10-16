@@ -1,1 +1,34 @@
-tes koneksi
+//todo   |---
+-[done] query input tanggal pada saat pengambilan cart
+
+-activity record
+	-button di ganti search
+	-kalo gak search tampilkan barang yang paling sering di cari
+	-sudah search tampilakn barang yang sudah di search
+	
+-mapping[a]
+	-ganti nomer di rak menjadi alamat rak
+	-kasih tabel scroll
+	-button pilih rak, update mapping ke rak yang dipilih
+
+-button pilih kamera di stock output barcode scanner
+-implementasi progress toti pada main-branch/traslate halaman ke bahasa indonesia
+
+-stock input
+	-fungsi stock input jadi satu
+	-card kanan jadi tampilan piechart dari kategori barang
+		-pie chart dari presentase dari tempat yang tersedia dan komponen
+		-dibawah piechart ada presentase dari kategori barang
+			 _________________
+			|__elektronik x%__|
+			|__lain-lain x%___|
+
+//fix   |---
+-input ambil barang  melebihi yang ada di database, value menjadi minus
+-nama barang teralu panjanjang(melebihi 50 karakter) yang membuat tampilan barcode menjadi 0 tetapi data masuk database
+-query pada input barang, id barang dan penyimpanan menjadi satu barcode untuk memudahkan mencari barcode
+-mapping barang menjadi lebih akurat[a]
+
+//planning   |---
+-halaman production planning
+-halaman setting

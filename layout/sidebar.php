@@ -1,4 +1,9 @@
 <?php?>
+<style>	
+.sidebar > a:hover,.sidebar > a:focus{
+	color: #1064ae!important;
+}
+</style>
 <div class="open-menu" id="openMenu">
 	<p><a>≡</a></p>
 </div>
@@ -16,7 +21,7 @@
 		</div>
 	</div>
 	</br>
-	<a href="dashboard.php" class="list-group-item-action ripple text-light" aria-current="true">Home</a>
+	<a href="dashboard.php" class="list-group-item-action ripple text-light active" aria-current="true">Home</a>
 	<a href="stockinput.php" class="list-group-item-action ripple text-light" aria-current="true">Stock Input</a>
 	<a href="stockoutput.php" class="list-group-item-action ripple text-light" aria-current="true">Stock Output</a>
 	<a href="" class="list-group-item-action ripple text-light" aria-current="true">Production Planning</a>
