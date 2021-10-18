@@ -95,6 +95,9 @@ require 'backend/usersession.php';
 								<option value="3" class="dropdown-item">kolom 3</option>
 								<option value="4" class="dropdown-item">kolom 4</option>
 								<option value="5" class="dropdown-item">kolom 5</option>
+								<option value="5" class="dropdown-item">kolom 6</option>
+								<option value="5" class="dropdown-item">kolom 7</option>
+								<option value="5" class="dropdown-item">kolom 8</option>
 							</select>
 						</div>
 					</div>
