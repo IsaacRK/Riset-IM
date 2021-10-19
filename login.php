@@ -49,11 +49,7 @@ require 'backend/loginhandler.php';
 						<li data-target="#myCarousel" data-slide-to="2"></li>
 						<li data-target="#myCarousel" data-slide-to="3"></li>
 						<li data-target="#myCarousel" data-slide-to="4"></li>
-						<li data-target="#myCarousel" data-slide-to="5"></li>
-						<li data-target="#myCarousel" data-slide-to="6"></li>
-						<li data-target="#myCarousel" data-slide-to="7"></li>
-						<li data-target="#myCarousel" data-slide-to="8"></li>
-
+					
 						</ol>
 
 						<!-- Wrapper for slides -->
@@ -72,18 +68,6 @@ require 'backend/loginhandler.php';
 							</div>
 							<div class="item">
 								<img src="img/slide_1.jpg" alt="4R">
-							</div>
-							<div class="item">
-								<img src="img/slide_6.jpg." alt="reduce">
-							</div>
-							<div class="item">
-								<img src="img/slide_7.jpg" alt="reuse">
-							</div>
-							<div class="item">
-								<img src="img/slide_8.jpg" alt="recycle">
-							</div>
-							<div class="item">
-								<img src="img/slide_9.jpg" alt="replace">
 							</div>
 						</div>
 
