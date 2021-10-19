@@ -83,7 +83,7 @@ if(isset($_GET['barcode'])){
 
 	<div class="p-1">
 		<div class="mb-3">
-			<h1>Stock Output</h1>
+			<h1>Stok Keluar</h1>
 		</div>
 	</div>
 
@@ -117,7 +117,7 @@ if(isset($_GET['barcode'])){
 			<div class="card">
 			<div class="card-body">
 			<form action="" method="post">
-				<h3>Component Information</h3>
+				<h3>Informaasi Komponen</h3>
 				</br>
 				<div class="row">
 					<div class="col">
@@ -138,7 +138,7 @@ if(isset($_GET['barcode'])){
 
 				<div class="row">
 					<div class="col">
-						<span>Stock : </span>
+						<span>Stok : </span>
 					</div>
 					<div class="col">
 						<span>
@@ -155,7 +155,7 @@ if(isset($_GET['barcode'])){
 
 				<div class="row">
 					<div class="col">
-						<span>lokasi : </span>
+						<span>Lokasi : </span>
 					</div>
 					<div class="col">
 						<?php
@@ -209,7 +209,7 @@ if(isset($_GET['barcode'])){
 		<div class="col-sm">
 			<div class="card">
 			<div class="card-body">
-				<h3>Cart</h3>
+				<h3>Keranjang</h3>
 				
 				<?php
 					require'backend/carthandler.php';
