@@ -23,7 +23,7 @@ require 'backend/usersession.php';
 
 	<div class="p-1">
 		<div class="mb-3">
-			<h1>Stock Input</h1>
+			<h1>Stok Masuk</h1>
 		</div>
 	</div>
 
@@ -31,7 +31,7 @@ require 'backend/usersession.php';
 		<div class="col-sm">
 			<div class="card">
 			<div class="card-body">
-				<h3>Stock Registration</h3>
+				<h3>Pendaftaran Stok</h3>
 				</br>
 				
 				<form action="" method="post">
@@ -114,7 +114,7 @@ require 'backend/usersession.php';
 					
 					<div class="row mt-2">
 						<div class="col-6 mx-auto">
-							<input class="btn btn-primary btn-block" type="submit" name="input" value="input"/>
+							<input class="btn btn-primary btn-block" type="submit" name="input" value="Masukan"/>
 						</div>
 					</div>
 				</form>
@@ -126,7 +126,7 @@ require 'backend/usersession.php';
 		<div class="col-sm">
 			<div class="card">
 			<div class="card-body">
-				<h3>Stock Update</h3>
+				<h3>Pembaruan Stok</h3>
 				</br>
 				
 				<form action="" method="post">
@@ -204,7 +204,7 @@ require 'backend/usersession.php';
 					
 					<div class="row mt-2">
 						<div class="col-6 mx-auto">
-							<input class="btn btn-primary btn-block" type="submit" name="update" value="update"/>
+							<input class="btn btn-primary btn-block" type="submit" name="update" value="Perbarui"/>
 						</div>
 					</div>
 				</form>
