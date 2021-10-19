@@ -128,11 +128,11 @@ require 'backend/usersession.php';
 											while ($mappingFetch = mysqli_fetch_assoc($mappingRun)){
 												if(filter_even($mappingFetch['storage_id'])==1){
 													$box = boxColorFunc($mappingFetch['stock_id']);
-													$stringBox = stringEcho($box,'C'.$line.'L1');
+													$stringBox = stringEcho($box,'C'.$line.'B1');
 													$stringBoxTop=$stringBoxTop.$stringBox;
 												}else{
 													$box = boxColorFunc($mappingFetch['stock_id']);
-													$stringBox = stringEcho($box,'C'.$line.'L2');
+													$stringBox = stringEcho($box,'C'.$line.'B2');
 													$stringBoxBottom=$stringBoxBottom.$stringBox;
 													$line++;
 												}
@@ -202,22 +202,30 @@ require 'backend/usersession.php';
 			<div class="card-body">
 			
 				<div class="w-100">
-					<form>
+					<form id="searchChart" action="">
 						<div class="row">
 							<div class="col-8">
-								<input class="form-control" type="text" placeholder="Cari Barang">
+								<input class="form-control" name="graphSearch" type="text" id="graphSearch" placeholder="Cari Barang">
 							</div>
 							<div class="col-4 d-grid gap-2">
-								<input class="btn btn-primary" type="submit" value="Cari">
+								<input class="btn btn-primary" type="submit" name="graphBtnSearch" value="Cari">
 							</div>
+						</div>
 					</form>
 				</div>
 			
 				</br>
 			
+				<!--
 				<div class="card">
 					<div class="card-body" style="height:250px;">
 						<canvas id="chartDisplay" width="" height=""></canvas>
+					</div>
+				</div>
+				-->
+				
+				<div class="card">
+					<div class="card-body" id="divChart" style="">
 					</div>
 				</div>
 				
@@ -228,6 +236,7 @@ require 'backend/usersession.php';
 					<thead>
 					<tr>
 						<th scope="col">Nama Komponen</th>
+						<th scope="col">Status</th>
 						<th scope="col">Tanggal</th>
 						<th scope="col">Operator</th>
 						<th scope="col">Jumlah</th>
@@ -235,16 +244,26 @@ require 'backend/usersession.php';
 					</thead>
 					<tbody>
 					<?php
-						$activityFetchQuery	="SELECT * FROM `history` WHERE date > CURRENT_DATE - INTERVAL 7 day;";
+						$activityFetchQuery	="SELECT * FROM `history` WHERE date > CURRENT_DATE - INTERVAL 7 day order by date(date) desc;";
 						$activityFetchRun 	= mysqli_query($servConnQuery, $activityFetchQuery);
 						if(mysqli_num_rows($activityFetchRun) > 0){
 							while($activityFetch = mysqli_fetch_assoc($activityFetchRun)){
 								$sid 		= $activityFetch['stock_id'];
 								$amount		= $activityFetch['amount'];
 								$userId		= $activityFetch['user_id'];
+								$input		= $activityFetch['input'];
+								$output		= $activityFetch['output'];
 								$stockQuery = "select * from stock where stock_id = '$sid' order by stock_id desc";
 								$stockRun 	= mysqli_query($servConnQuery, $stockQuery);
 								$stockFetch = mysqli_fetch_assoc($stockRun);
+								$status = '';
+								if($input == 1){
+									$status = "Input";
+								}elseif($output == 1){
+									$status = "Output";
+								}else{
+									$status = "db err";
+								}
 								
 								$userFetchQuery = "select * from pengguna where id = '$userId'";
 								$userFetchRun 	= mysqli_query($servConnQuery, $userFetchQuery);
@@ -253,6 +272,7 @@ require 'backend/usersession.php';
 								echo"
 									<tr>
 										<td class='fw-bold'>".$stockFetch['stock_name']."</td>
+										<td>".$status."</td>
 										<td>".$activityFetch['date']."</td>
 										<td>".$userFetch['user']."</td>
 										<td>".$activityFetch['amount']."</td>
@@ -281,26 +301,29 @@ require 'backend/usersession.php';
 
 <?php
 	include"layout/js.php";
-
-$arr=array();
-$var=0;
-for($i=0; $i<=7; $i++){
-	$chartFetchQuery = "SELECT * FROM `history` WHERE input = '1' and date = date_sub(CURRENT_DATE, interval $i day)";
-	$chartFetchRun = mysqli_query($servConnQuery, $chartFetchQuery);
-	$var=0;
-	if(mysqli_num_rows($chartFetchRun)>0){
-		while($chartFetch = mysqli_fetch_assoc($chartFetchRun)){
-			$chartFetch['amount'].'-';
-			$var = $var+$chartFetch['amount'];
-		}
-	}
-	array_push($arr,$var);
-}
-
 ?>
 
 <script>
-	var chartDisplay = document.getElementById("chartDisplay");
+	$(document).ready(function(){
+		$("#divChart").load('layout/a.php');
+	})
+	
+	$(function(){
+		$("#searchChart").on("submit", function(e){
+			var dataString = $(this).serialize();
+			//alert(dataString);
+			
+			$.ajax({
+				type: "POST",
+				url: "backend/inputhandler.php",
+				data: dataString,
+				success: function(){
+					$("#divChart").load('layout/a.php?'+dataString);
+				}
+			});
+			e.preventDefault();
+		});
+	});
 
 	$(document).ready(function () {
 		$('#tbComponent').DataTable({
@@ -315,39 +338,19 @@ for($i=0; $i<=7; $i++){
 		$('#tbActivity').DataTable({
 			"scrollY": "50vh",
 			"scrollCollapse": true,
+			"order": [[2, "desc"]],
 			language:{
 				url: 'js/id.json'
 			}
 		});
 		$('.dataTables_length').addClass('bs-select');
 	});
-
-	var activityData = {
-	  labels: ["1", "2", "3", "4", "5", "6", "7", "8"],
-	  datasets: [{
-		label: "Activity Log",
-		backgroundColor: 'rgb(16, 100, 174)',
-		borderColor: 'rgb(16, 100, 174)',
-	  data: <?php echo'['.$arr[7].','.$arr[6].','.$arr[5].','.$arr[4].','.$arr[3].','.$arr[2].','.$arr[1].','.$arr[0].']'; ?>,
-	  }]
-	};
-
-	var chartOptions = {
-	  legend: {
-		display: true,
-		position: 'top',
-		labels: {
-		  boxWidth: 10,
-		  fontColor: 'green'
-		}
-	  }
-	};
-
-	var lineChart = new Chart(chartDisplay, {
-	  type: 'line',
-	  data: activityData,
-	  options: chartOptions
+	
+	$(function(){
+	$("#graphSearch").autocomplete({
+		source: 'backend/autocomplete.php'
 	});
+});
 </script>
 
 </body>
