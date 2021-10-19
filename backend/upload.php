@@ -3,7 +3,7 @@ require 'conn.php';
 require 'usersession.php';
 $Id_Prof = $_SESSION["uid"];   
 $user_prof = $username;
-$target_dir = "D:/Xampp/htdocs/Riset-IM-Main_02/Photo/";
+$target_dir = "D:/Xampp/htdocs/Riset-IM-Main_02/Photo/"; //gantien ke file directory sing ditunjuk Mas Alba
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
