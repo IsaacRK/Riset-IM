@@ -11,12 +11,16 @@ for($i=0; $i<=7; $i++){
 	$var=0;
 	if(mysqli_num_rows($chartFetchRun)>0){
 		while($chartFetch = mysqli_fetch_assoc($chartFetchRun)){
-			echo$i.'-';
-			echo $chartFetch['amount'].'-';
-			echo$var = $var+$chartFetch['amount'];
-			echo'</br>';
+			$var = $var+$chartFetch['amount'];
 		}
 	}
 	array_push($arr,$var);
 }
 echo'['.$arr[0].','.$arr[1].','.$arr[2].','.$arr[3].','.$arr[4].','.$arr[5].','.$arr[6].','.$arr[7].']';
+?>
+<html>
+<body>
+<iframe src="https://stackoverflow.com/questions/12032664/load-a-html-page-within-another-html-page" name="targetframe" allowTransparency="true" scrolling="no" frameborder="0" >
+    </iframe>
+</body>
+</html>

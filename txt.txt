@@ -1,15 +1,23 @@
 //todo   |---
 -[done] query input tanggal pada saat pengambilan cart
 
--activity record
-	-button di ganti search
-	-kalo gak search tampilkan barang yang paling sering di cari
-	-sudah search tampilakn barang yang sudah di search
-	
--mapping[a]
-	-ganti nomer di rak menjadi alamat rak
-	-kasih tabel scroll
-	-button pilih rak, update mapping ke rak yang dipilih
+-dashboard
+	-activity record
+		-[done] button di ganti search
+		-kalo gak search tampilkan barang yang paling sering di cari
+		-sudah search tampilkan barang yang sudah di search pada chart
+		-tabel activity record menampilkan
+			-data barang masuk
+			-data barang keluar
+		
+	-mapping
+		-[done] ganti nomer di rak menjadi alamat rak
+		-[done] kasih tabel scroll
+		-[done] kasih label lantai
+		-button pilih rak, update mapping ke rak yang dipilih
+		-lantai 3, 8 kolom 2 baris
+		-ganti algoritma untuk tampilkan rak agar lebih dinamis
+			-tampilan tetap sama meskipun data penyimpanan di ubah/tambah
 
 -button pilih kamera di stock output barcode scanner
 -implementasi progress toti pada main-branch/traslate halaman ke bahasa indonesia
@@ -23,11 +31,22 @@
 			|__elektronik x%__|
 			|__lain-lain x%___|
 
+-sidebar
+	-tambahkan fisualisasi navigasi halaman
+		 ________________
+		|//////home//////| => jika halaman yang di lihat adalah dashboard
+		|___stock input__|
+		 ________________
+		|_______home_____| => jika halaman yang di lihat adalah stock input
+		|//stock_input///|
+		
+		
 //fix   |---
 -input ambil barang  melebihi yang ada di database, value menjadi minus
--nama barang teralu panjanjang(melebihi 50 karakter) yang membuat tampilan barcode menjadi 0 tetapi data masuk database
--query pada input barang, id barang dan penyimpanan menjadi satu barcode untuk memudahkan mencari barcode
--mapping barang menjadi lebih akurat[a]
+-[done] nama barang teralu panjanjang(melebihi 50 karakter) yang membuat tampilan barcode menjadi 0 tetapi data masuk database
+-[done] query pada input barang, id barang dan penyimpanan menjadi satu barcode untuk memudahkan mencari barcode
+-mapping barang menjadi lebih akurat pada database
+	-ketika mengambil barang dari suatu rak, dan rak masih memiliki barang, tidak membuat rak tersebut terlihat kosong pada display mapping.
 
 //planning   |---
 -halaman production planning

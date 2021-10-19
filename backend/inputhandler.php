@@ -10,46 +10,55 @@ if(isset($_POST['pointer'])){
 		$stockName = $_POST['itemName'];
 		$kategori = $_POST['category'];
 		$amount = $_POST['amount'];
-		$operator = $username;
+		
+		$user_id = $_SESSION['uid'];
 
 		$rak	= $_POST['rak'];
 		$lantai	= $_POST['lantai'];
 		$kolom	= $_POST['kolom'];
 		$baris	= $_POST['baris'];
-
-		$barcode = '0'.$rak.$lantai.$kolom.$baris.$kategori;
 		
 		$storageSearchQuery = "select * from penyimpanan where rak = '$rak' and lantai = '$lantai' and kolom = '$kolom' and baris = '$baris'";
 		$storageSearchRun = mysqli_query($servConnQuery, $storageSearchQuery);
 		$storageIdFetch = mysqli_fetch_assoc($storageSearchRun);
-		
 		$storage_id = $storageIdFetch['storage_id'];
-
+		
+		//input barang-no barcode
 		$inputQuery =
 		"insert into 
-		stock (stock_id, stock_name, category, amount, storage_id, operator, barcode)
-		values (default, '$stockName', '$kategori', '$amount', '$storage_id', '$operator', '$barcode');
+		stock (stock_id, stock_name, category, amount, storage_id, barcode)
+		values (default, '$stockName', '$kategori', '$amount', '$storage_id', '000');
 		";
-		$inputRun = mysqli_query($servConnQuery, $inputQuery);
+		mysqli_query($servConnQuery, $inputQuery);
 		
-		$stockSearchQuery = "select stock_id from stock where stock_name = '$stockName' and storage_id = '$storage_id'";
+		$stockSearchQuery = "select stock_id from stock where stock_name = '$stockName'";
 		$stockSearchRun = mysqli_query($servConnQuery, $stockSearchQuery);
 		$stockSearchFetch = mysqli_fetch_assoc($stockSearchRun);
 		$stock_id = $stockSearchFetch['stock_id'];
 		
 		$storageQuery = "update penyimpanan set stock_id = '$stock_id' where storage_id = '$storage_id'";
-		$storageQueryRun = mysqli_query($servConnQuery, $storageQuery);
+		mysqli_query($servConnQuery, $storageQuery);
 		
+		//input barang with barcode
+		$barcode = $rak.$lantai.$kolom.$baris.$kategori.$stock_id;
+		$inputBarcode =
+		"update stock 
+		set barcode = '$barcode'
+		where storage_id = '$storage_id'
+		";
+		mysqli_query($servConnQuery, $inputBarcode);
+
 		$now = date("Y-m-d");
 		$historyQuery = 
 		"insert into 
-		history (history_id, stock_id, amount, input, output, date) 
-		values (default, '$stock_id', '$amount', '1', NULL, '$now')";
+		history (history_id, stock_id, amount, input, output, user_id, date) 
+		values (default, '$stock_id', '$amount', '1', NULL, '$user_id', '$now')";
 		mysqli_query($servConnQuery, $historyQuery);
 	}
 
 	if($point == "update"){
 		
+		$user_id = $_SESSION['uid'];
 		$stockName = $_POST['itemNameUpdate'];
 		$amount = $_POST['amountUpdate'];
 
@@ -89,9 +98,9 @@ if(isset($_POST['pointer'])){
 		$storageSearchQuery = "select * from penyimpanan where rak = '$rak' and lantai = '$lantai' and kolom = '$kolom' and baris = '$baris'";
 		$storageSearchRun = mysqli_query($servConnQuery, $storageSearchQuery);
 		$storageIdFetch = mysqli_fetch_assoc($storageSearchRun);
-		
+
 		$storage_id = $storageIdFetch['storage_id'];
-		$barcode = '0'.$rak.$lantai.$kolom.$baris.$kategori;
+		$barcode = $rak.$lantai.$kolom.$baris.$kategori.$stock_id;
 		
 		//---update stock amount, storage_id & barcode
 		$stockUpdateQuery = "update stock set amount = '$updateAmount', storage_id = '$storage_id', barcode = '$barcode' where stock_id = '$stock_id'";
@@ -107,8 +116,8 @@ if(isset($_POST['pointer'])){
 		$now = date("Y-m-d");
 		$historyQuery = 
 		"insert into 
-		history (history_id, stock_id, amount, input, output, date) 
-		values (default, '$stock_id', '$amount', '1', NULL, '$now')";
+		history (history_id, stock_id, amount, input, output, user_id, date) 
+		values (default, '$stock_id', '$amount', '1', NULL, '$user_id', '$now')";
 		mysqli_query($servConnQuery, $historyQuery);
 	}
 }

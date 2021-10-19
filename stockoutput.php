@@ -37,19 +37,8 @@ if(isset($_POST['search'])){
 
 if(isset($_GET['barcode'])){
 	$val = $_GET['barcode'];
-	$len = strlen($val);
-	$id = substr($val,7);
-	$adr = '';
-	if($len>8){
-		$adr = substr($val,0,-2);
-	}else{
-		$adr = substr($val,0,-1);
-	}
-
-	$componentIdSearch = $id;
-	$componentAddrSearch = $adr;
 	
-	$serachComponentQuery 		= "select * from `stock` where barcode like '$componentAddrSearch' and stock_id like '$componentIdSearch'";
+	$serachComponentQuery 		= "select * from `stock` where barcode = '$val'";
 	$serachComponentQueryRun 	= mysqli_query($servConnQuery,$serachComponentQuery);
 	$componentFetch 			= mysqli_fetch_assoc($serachComponentQueryRun);
 	

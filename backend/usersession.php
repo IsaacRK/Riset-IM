@@ -5,6 +5,7 @@ if($_SESSION['uid'] != null){
 	$userData = mysqli_fetch_assoc($userFetchRun);
 	
 	$username = $userData['user'];
+	$userId = $userData['id'];
 }else{
 	header('location:index.html');
 }

@@ -20,14 +20,15 @@ if(isset($_GET['itemName'])){
 	$storageSearchQuery = "select * from penyimpanan where rak = '$rak' and lantai = '$lan' and kolom = '$klm' and baris = '$bar'";
 	$storageSearchRun = mysqli_query($servConnQuery, $storageSearchQuery);
 	$storageIdFetch = mysqli_fetch_assoc($storageSearchRun);
-		
+	
 	$storage_id = $storageIdFetch['storage_id'];
 	$stockId	= $storageIdFetch['stock_id'];
 	
-	$stockBarcodeSearchQuery = "select barcode from `stock` where stock_id = '$stockId' and storage_id = '$storage_id'";
-	$stockBarcodeSearchQueryRun = mysqli_query($servConnQuery,$stockBarcodeSearchQuery);
-	$stockBarcodeFetch = mysqli_fetch_assoc($stockBarcodeSearchQueryRun);
-	$stockBarcode = $stockBarcodeFetch['barcode'].$stockId;
+	$stockSearchQuery = "select * from `stock` where stock_name = '$itemName'";
+	$stockSearchQueryRun = mysqli_query($servConnQuery,$stockSearchQuery);
+	$stockFetch = mysqli_fetch_assoc($stockSearchQueryRun);
+	$stockBarcode = $stockFetch['barcode'];
+	$stockTotalAmount = $stockFetch['amount'];
 }
 
 if(isset($_GET['itemNameUpdate'])){
@@ -44,12 +45,12 @@ if(isset($_GET['itemNameUpdate'])){
 	$storageIdFetch = mysqli_fetch_assoc($storageSearchRun);
 		
 	$storage_id = $storageIdFetch['storage_id'];
-	$stockId	= $storageIdFetch['stock_id'];
 	
-	$stockBarcodeSearchQuery = "select barcode from `stock` where stock_id = '$stockId' and storage_id = '$storage_id'";
-	$stockBarcodeSearchQueryRun = mysqli_query($servConnQuery,$stockBarcodeSearchQuery);
-	$stockBarcodeFetch = mysqli_fetch_assoc($stockBarcodeSearchQueryRun);
-	$stockBarcode = $stockBarcodeFetch['barcode'].$stockId;
+	$stockSearchQuery = "select * from `stock` where stock_name = '$itemName'";
+	$stockSearchQueryRun = mysqli_query($servConnQuery,$stockSearchQuery);
+	$stockFetch = mysqli_fetch_assoc($stockSearchQueryRun);
+	$stockBarcode = $stockFetch['barcode'];
+	$stockTotalAmount = $stockFetch['amount'];
 }
 
 ?>
@@ -76,12 +77,25 @@ if(isset($_GET['itemNameUpdate'])){
 				<div class="row">
 					<div class="col-6">
                            <div class="mb-3">
-                               <span>Jumlah:</span>
+                               <span>Jumlah ditambahkan:</span>
                            </div>
                        </div>
                        <div class="col-6">
                            <div class="mb-3">
                                <span><?php echo $amount; ?></span>
+                           </div>
+                       </div>
+				</div>
+				
+				<div class="row">
+					<div class="col-6">
+                           <div class="mb-3">
+                               <span>Jumlah total:</span>
+                           </div>
+                       </div>
+                       <div class="col-6">
+                           <div class="mb-3">
+                               <span><?php echo $stockTotalAmount; ?></span>
                            </div>
                        </div>
 				</div>

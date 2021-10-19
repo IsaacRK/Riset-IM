@@ -47,9 +47,9 @@ require 'backend/usersession.php';
 				</br>
 				
 				<div class="card">
-					<div class="card-body"  style="background-color:#2879ff73;">
-						<div class="container">
-						<div id="mapping" class="carousel slide" data-bs-ride="carousel">
+					<div class="card-body px-0"  style="background-color:#2879ff73;">
+						<div class="container p-0" style="height:200px">
+						<div id="mapping" class="carousel slide carousel-dark h-100" data-bs-ride="carousel">
 							<!-- Carousel indicators -->
 							<ol class="carousel-indicators">
 								<?php
@@ -62,9 +62,12 @@ require 'backend/usersession.php';
 									
 									for($i=0;$i<$maxStorageIdRounded;$i++){
 										if($i==0){
-											echo'<li data-bs-target="#mapping" data-bs-slide-to="'.$i.'" class="active"></li>';
+											echo'
+											<li data-bs-target="#mapping" data-bs-slide-to="'.$i.'" class="active"></li>
+											';
 										}else{
-											echo'<li data-bs-target="#mapping" data-bs-slide-to="'.$i.'"></li>';
+											echo'<li data-bs-target="#mapping" data-bs-slide-to="'.$i.'"></li>
+											';
 										}
 									}
 								?>
@@ -81,16 +84,16 @@ require 'backend/usersession.php';
 										if($fetch==null){
 											$col='color-tertiary';
 										}else{
-											$col='color-primary';
+											$col='color-primary text-light';
 										}
 										return($col);
 									}
 									
-									function stringEcho($xx,$xxx){
+									function stringEcho($a,$b){
 										$string = '
 										<div class="col p-1 d-flex justify-content-center">
-											<div class="shadow-sm border rounded rak-box '.$xx.'">
-												'.$xxx.'
+											<div class="shadow-sm border rounded rak-box text-center '.$a.'">
+												'.$b.'
 											</div>
 										</div>';
 										return ($string);
@@ -99,8 +102,8 @@ require 'backend/usersession.php';
 									for($a=0;$a<$maxStorageIdRounded;$a++){
 										if($a==0){
 											echo'
-											<div class="carousel-item active">
-												<div class="row">';
+								<div class="carousel-item active">
+									<div class="row">';
 										}else{
 											echo'
 											<div class="carousel-item">
@@ -121,21 +124,29 @@ require 'backend/usersession.php';
 											$stringBoxTop='';
 											$stringBoxBottom='';
 											$box='';
+											$line = 1;
 											while ($mappingFetch = mysqli_fetch_assoc($mappingRun)){
 												if(filter_even($mappingFetch['storage_id'])==1){
 													$box = boxColorFunc($mappingFetch['stock_id']);
-													$stringBox = stringEcho($box,$mappingFetch['storage_id']);
+													$stringBox = stringEcho($box,'C'.$line.'L1');
 													$stringBoxTop=$stringBoxTop.$stringBox;
 												}else{
 													$box = boxColorFunc($mappingFetch['stock_id']);
-													$stringBox = stringEcho($box,$mappingFetch['storage_id']);
+													$stringBox = stringEcho($box,'C'.$line.'L2');
 													$stringBoxBottom=$stringBoxBottom.$stringBox;
+													$line++;
 												}
 											}
 											echo $stringBoxTop.'<div class="w-100"></div>'.$stringBoxBottom;
 										}
-										
-										echo'</div></div>';
+										$lantai = $a+1;
+										echo'
+										</div>
+										<div class="carousel-caption d-md-block" style="position:static!important">
+											<h5>Lantai '.$lantai.'</h5>
+										</div>
+									</div>
+									';
 									}
 								?>
 							</div>
@@ -151,39 +162,12 @@ require 'backend/usersession.php';
 						</div>
 						</div>
 						
-						<div class="row">
-						<div class="container mx-5">
-						<div class="row">
-							<div class="col">
-								<div class="row mt-2">
-								<div class="col pr-0 d-flex justify-content-center">
-									<div class="shadow-sm border rounded rak-box color-tertiary m-0"></div>
-								</div>
-								<div class="col pl-0">
-									<p class="align-middle m-0 pt-2">Free Space</p>
-								</div>
-								</div>
-							</div>
-							<div class="col">
-								<div class="row mt-2">
-								<div class="col pr-0 d-flex justify-content-center">
-									<div class="shadow-sm border rounded rak-box color-primary m-0"></div>
-								</div>
-								<div class="col pl-0">
-									<p class="align-middle m-0 pt-2">Full</p>
-								</div>
-								</div>
-							</div>
-						</div>
-						</div>
-						</div>
-						
 					</div>
 				</div>
 				
 				<h4 class="card-title">Component list</h4>
 				
-				<table class="table table-striped">
+				<table class="table table-striped table-sm" id="tbComponent">
 					<thead>
 					<tr>
 						<th scope="col">name of component</th>
@@ -192,7 +176,7 @@ require 'backend/usersession.php';
 					</thead>
 					<tbody>
 						<?php
-							$stockQuery = "select * from stock order by stock_id desc limit 5";
+							$stockQuery = "select * from stock order by stock_id desc";
 							$stockRun = mysqli_query($servConnQuery, $stockQuery);
 							
 							if(mysqli_num_rows($stockRun)>0){
@@ -217,15 +201,16 @@ require 'backend/usersession.php';
 			<div class="card">
 			<div class="card-body">
 			
-				<div class="dropdown">
-				  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Arduino
-				  </button>
-				  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					<a class="dropdown-item" href="#">Action</a>
-					<a class="dropdown-item" href="#">Another action</a>
-					<a class="dropdown-item" href="#">Something else here</a>
-				  </div>
+				<div class="w-100">
+					<form>
+						<div class="row">
+							<div class="col-8">
+								<input class="form-control" type="text" placeholder="Cari Barang">
+							</div>
+							<div class="col-4 d-grid gap-2">
+								<input class="btn btn-primary" type="submit" value="Cari">
+							</div>
+					</form>
 				</div>
 			
 				</br>
@@ -239,33 +224,29 @@ require 'backend/usersession.php';
 				<h4 class="card-title">Activity Record</h4>
 				
 				<div class="table-responsive">
-				<table class="table table-striped">
+				<table class="table table-striped table-sm" id="tbActivity">
 					<thead>
 					<tr>
-						<th scope="col">name of component</th>
-						<th scope="col">date</th>
-						<th scope="col">requester</th>
-						<th scope="col">quantity</th>
+						<th scope="col">Nama Komponen</th>
+						<th scope="col">Tanggal</th>
+						<th scope="col">Operator</th>
+						<th scope="col">Jumlah</th>
 					</tr>
 					</thead>
 					<tbody>
 					<?php
-						$activityFetchQuery	="SELECT * FROM `history` WHERE `output` = 1 and date > CURRENT_DATE - INTERVAL 7 day limit 4;";
+						$activityFetchQuery	="SELECT * FROM `history` WHERE date > CURRENT_DATE - INTERVAL 7 day;";
 						$activityFetchRun 	= mysqli_query($servConnQuery, $activityFetchQuery);
 						if(mysqli_num_rows($activityFetchRun) > 0){
 							while($activityFetch = mysqli_fetch_assoc($activityFetchRun)){
 								$sid 		= $activityFetch['stock_id'];
 								$amount		= $activityFetch['amount'];
+								$userId		= $activityFetch['user_id'];
 								$stockQuery = "select * from stock where stock_id = '$sid' order by stock_id desc";
 								$stockRun 	= mysqli_query($servConnQuery, $stockQuery);
 								$stockFetch = mysqli_fetch_assoc($stockRun);
 								
-								$cartFetchQuery = "select * from cart where stock_id = '$sid' and take_amount = '$amount'";
-								$cartFetchRun 	= mysqli_query($servConnQuery, $cartFetchQuery);
-								$cartFetch 		= mysqli_fetch_assoc($cartFetchRun);
-								$cartUid 		= $cartFetch['user_id'];
-								
-								$userFetchQuery = "select * from pengguna where id = '$cartUid'";
+								$userFetchQuery = "select * from pengguna where id = '$userId'";
 								$userFetchRun 	= mysqli_query($servConnQuery, $userFetchQuery);
 								$userFetch 		= mysqli_fetch_assoc($userFetchRun);
 
@@ -309,20 +290,37 @@ for($i=0; $i<=7; $i++){
 	$var=0;
 	if(mysqli_num_rows($chartFetchRun)>0){
 		while($chartFetch = mysqli_fetch_assoc($chartFetchRun)){
-			echo$i.'-';
-			echo $chartFetch['amount'].'-';
-			echo$var = $var+$chartFetch['amount'];
-			echo'</br>';
+			$chartFetch['amount'].'-';
+			$var = $var+$chartFetch['amount'];
 		}
 	}
 	array_push($arr,$var);
 }
-echo $arr;
 
 ?>
 
 <script>
 	var chartDisplay = document.getElementById("chartDisplay");
+
+	$(document).ready(function () {
+		$('#tbComponent').DataTable({
+			"scrollY": "50vh",
+			"scrollCollapse": true,
+			language:{
+				url: 'js/id.json'
+			}
+		});
+		$('.dataTables_length').addClass('bs-select');
+		
+		$('#tbActivity').DataTable({
+			"scrollY": "50vh",
+			"scrollCollapse": true,
+			language:{
+				url: 'js/id.json'
+			}
+		});
+		$('.dataTables_length').addClass('bs-select');
+	});
 
 	var activityData = {
 	  labels: ["1", "2", "3", "4", "5", "6", "7", "8"],

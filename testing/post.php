@@ -92,15 +92,109 @@ if(isset($_GET['barcode'])){
 	echo'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</br>';
 }
 
+	if(isset($_POST['update'])){
+		$nama = $_POST['input1'];
+		$tipe = $_POST['input2'];
+		$juml = $_POST['input3'];
+		$rak  = $_POST['input4'];
+		$lan  = $_POST['input5'];
+		$kol  = $_POST['input6'];
+		$bar  = $_POST['input7'];
+		
+		echo '-----------</br>'.
+			 $nama.'</br>'.
+			 $tipe.'</br>'.
+			 $juml.'</br>'.
+			 $rak.'</br>'.
+			 $lan.'</br>'.
+			 $kol.'</br>'.
+			 $bar.'</br>'.
+			 '-----------</br>'
+		;
+	}
 ?>
 <button type="button" onClick="jumper()">aaa</button></br>
 <button type="button" onclick="sendData()">send</button></br>
 <div id="target">10329302911</div>
+</br>
 
+				<form action="" method="post">
+					<input type="text" name="input1" id="input1"></br>
+					<select name="input2">
+						<option value="001" class="dropdown-item">Elektronik</option>
+						<option value="010" class="dropdown-item">Sekali Pakai</option>
+						<option value="011" class="dropdown-item">Peralatan</option>
+						<option value="100" class="dropdown-item">Lain-Lain</option>
+					</select></br>
+					<input required type="number" name="input3"></br>
+					<select name="input4">
+						<option value="1" class="dropdown-item">rak 1</option>
+					</select></br>
+					<select name="input5">
+						<option value="1" class="dropdown-item">lantai 1</option>
+						<option value="2" class="dropdown-item">lantai 2</option>
+						<option value="3" class="dropdown-item">lantai 3</option>
+						<option value="4" class="dropdown-item">lantai 4</option>
+						<option value="5" class="dropdown-item">lantai 5</option>
+					</select></br>
+					<select name="input6">
+						<option value="1" class="dropdown-item">kolom 1</option>
+						<option value="2" class="dropdown-item">kolom 2</option>
+						<option value="3" class="dropdown-item">kolom 3</option>
+						<option value="4" class="dropdown-item">kolom 4</option>
+						<option value="5" class="dropdown-item">kolom 5</option>
+					</select></br>
+					<select name="input7">
+						<option value="1" class="dropdown-item">baris 1</option>
+						<option value="2" class="dropdown-item">baris 2</option>
+					</select></br>
+					<input type="submit" name="update" value="update"/>
+				</form>
 
-
+<div id="display"></div>
+<iframe src="https://google.com" style="height:200px;width:300px" title="Iframe Example"></iframe>
 <script>
 
+
+$(function(){
+	$("#input1").autocomplete({
+		source: '../backend/autocomplete.php'
+	});
+});
+//-----------------------------
+let timer;
+const waitTime = 500;
+const a = (txt) => {
+	//http request here
+	console.log(txt);
+	document.getElementById('display').innerHTML = txt;
+	checkDb(txt);
+}
+const input = document.querySelector('#input1');
+input.addEventListener('keyup', (e)=> {
+	const txt = e.currentTarget.value;
+	clearTimeout(timer);
+	timer = setTimeout(() => {
+		a(txt);
+	},waitTime);
+});
+function checkDb(txt){
+	var val	= 'text='+txt;
+	$.ajax({
+		type:"GET",
+		url:'a.php',
+		data:val,
+		success:function(result){
+			//console.log(data)
+			//location.reload();
+			//$('#result').text('name: ' + result );
+		},
+		error:function(error){
+			colsole.log('err ${error}')
+		}
+	})
+}
+//-------------------------------
 function jumper(){
 	var target = document.getElementById('target').innerHTML;
 	location.href = window.location.href+"?barcode="+target;
