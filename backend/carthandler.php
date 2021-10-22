@@ -8,7 +8,6 @@ if(mysqli_num_rows($cartQueryRun) > 0){
 	echo'
 	<form action="" method="post">
 	<div class="row m-1">
-	
 	';
 	
 	while($cartFetch = mysqli_fetch_assoc($cartQueryRun)){

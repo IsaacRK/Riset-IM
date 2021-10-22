@@ -1,4 +1,6 @@
-<?php?>
+<?php
+include "loader.html";
+?>
 <style>	
 .sidebar > a:hover,.sidebar > a:focus{
 	color: #1064ae!important;

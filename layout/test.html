@@ -1,0 +1,136 @@
+<script src="https://code.createjs.com/1.0.0/preloadjs.min.js"></script>
+<style>
+
+/*
+#progress-container{
+	top: 0;
+	left: 0;
+	width: 80%;
+	height: 100%;
+	position: fixed;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+#progress {
+	height: 5px;
+	justify-content: center;
+	background: rgb(126, 126, 126);
+	position: absolute;
+	top: 45%;
+	opacity: 1;
+	z-index: 2;
+	transition: width 0.1s ease;
+}
+
+#pic{
+	opacity: 0;
+	display: grid;
+	width: 100%;
+	grid-template-columns: repeat(2,50%);
+	grid-gap: 5em;
+	hight: 100vh;
+	justify-content: center;
+	transform: scale(.8);
+}
+
+.fadein{
+	transform: scale(1)!imortant;
+	opacity: 1 !important;
+	transition: all 0.5s 0.5s;
+}
+*/
+
+.fadeOut{
+	opacity: 0 !important;
+	transition: opacity 1s !important;
+}
+
+.preloader{
+	background: #fff;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.spinner{
+	border: 16px solid #f3f3f3;
+	border-top: 16px solid #1064ae;
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	position: absolute;
+	top: 35%;
+	animation: spin 2s linear infinite;
+}
+@keyframes spin{
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+</style>
+<body>
+<div id="preloader">
+	<div class="spinner"></div>
+</div>
+<img src="https://assets.vg247.com/current//2014/08/dota-2-official.jpg">
+<img src="http://im.ziffdavisinternational.com/t/ign_br/blogroll/t/techies-al/techies-all-random-deathmatch-mode-added-to-dota-2_fba4.1920.png">
+
+<!--
+<div id="progress-container">
+	<div id="progress"></div>
+</div>
+-->
+
+<script>
+
+var loader = document.getElementById("preloader");
+window.addEventListener("load", function(){
+	setTimeout(() => {
+		loader.classList.add('fadeOut');
+	}, 500);
+	//loader.style.display = "none";
+})
+
+/*
+	let progress = document.getElementById("progress");
+	let pic = document.getElementById("pic");
+	
+	var queue = new createjs.LoadQueue(false);
+	
+	queue.on("progress", event => {
+		console.log(event);
+		let progress = Math.floor(event.progress * 100);
+		this.progress.style.width = progress+'%';
+		if(progress == 100){
+			console.log('done');
+			document.querySelector('body').style.background = 'white';
+		}
+	});
+	
+	queue.on("complete", event => {
+		pic.classList.add('fadein')
+		setTimeout(() => {
+			progress.classList.add('fadeOut');
+		}, 500)
+	});
+	
+	queue.on('fileload', handleFileComplete);
+	queue.loadFile('https://assets.vg247.com/current//2014/08/dota-2-official.jpg');
+	queue.loadFile('http://im.ziffdavisinternational.com/t/ign_br/blogroll/t/techies-al/techies-all-random-deathmatch-mode-added-to-dota-2_fba4.1920.png');
+	
+	function handleFileComplete(event){
+		var item = event.item;
+		var type = item.type;
+		
+		if(type == createjs.Types.IMAGE){
+			pic.appendChild(event.result);
+		}
+	};
+*/
+</script>
+</body>

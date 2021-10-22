@@ -1,4 +1,4 @@
-<?php?>
+
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -21,3 +21,6 @@
 	<script src="js/JsBarcode.code128.min.js"></script>
 	<script src="js/jquery-ui.js"></script>
 	<script type="text/javascript" src="js/datatables.min.js"></script>
+	<?php
+	
+	?>
