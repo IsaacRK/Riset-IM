@@ -3,7 +3,7 @@ require 'conn.php';
 require 'usersession.php';
 $Id_Prof = $_SESSION["uid"];   
 $user_prof = $username;
-$target_dir = "D:/Xampp/htdocs/Riset-IM-Main_02/Photo/"; //gantien ke file directory sing ditunjuk Mas Alba
+$target_dir = "../Photo/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -35,9 +35,10 @@ if ($uploadOk == 0) {
       $filename = $_FILES["fileToUpload"]["name"];
       
       
-      $SRCID_01 = "select filename from image where user_id = '$Id_Prof'";
+      $SRCID_01 = "select * from image where user_id = '$Id_Prof'";
       $SRCID_02 = mysqli_query($servConnQuery, $SRCID_01);
       $SRCID_03 = mysqli_num_rows($SRCID_02);
+      $SRCID_04 = mysqli_fetch_assoc($SRCID_02);
       if ($SRCID_03 == ""){
 
         // Get all the submitted data from the form
@@ -48,9 +49,15 @@ if ($uploadOk == 0) {
 
         header("Location:../Profile.php");
       } else {
-        
+        $Delete_03 = $SRCID_04['filename'];
+        $file_pointer = "../Photo/$Delete_03";
         $Delete_01 = "DELETE FROM image WHERE user_id = '$Id_Prof'";
         $Delete_02 = mysqli_query($servConnQuery, $Delete_01);
+        if (!unlink($file_pointer)) { 
+        }
+        else {   
+        } 
+      
 
         // Get all the submitted data from the form
         $sql = "INSERT INTO image ( user_id, username, filename) VALUES ('$Id_Prof', '$user_prof', '$filename')";
