@@ -3,361 +3,89 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Activate Bootstrap Modals via Data Attributes</title>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/personal.css" rel="stylesheet">
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/jquery3.6.0.min.js"></script>
-<link rel="stylesheet" type="text/css" href="../css/datatables.min.css"/>
- 
-<script type="text/javascript" src="../js/datatables.min.js"></script>
-<script src="js/JsBarcode.code128.min.js"></script>
-<style>
 
-</style>
-<script>
-$(document).ready(function () {
-	$('#dtDynamicVerticalScrollExample').DataTable({
-	"scrollY": "50vh",
-	"scrollCollapse": true,
-	language:{
-		url: '../js/id.json'
-	}
-	});
-	$('.dataTables_length').addClass('bs-select');
-});
-</script>
+<?php include "../layout/header.php"; ?>
+
 </head>
 <body>
+<form action="" method="post">
 
+					<input type="hidden" value="update" name="pointer">
 
-<table id="dtDynamicVerticalScrollExample" class="table table-striped table-bordered table-sm" cellspacing="0"
-  width="100%">
-  <thead>
-    <tr>
-      <th class="th-sm">Name
-      </th>
-      <th class="th-sm">Position
-      </th>
-      <th class="th-sm">Office
-      </th>
-      <th class="th-sm">Age
-      </th>
-      <th class="th-sm">Start date
-      </th>
-      <th class="th-sm">Salary
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Tiger Nixon</td>
-      <td>System Architect</td>
-      <td>Edinburgh</td>
-      <td>61</td>
-      <td>2011/04/25</td>
-      <td>$320,800</td>
-    </tr>
-    <tr>
-      <td>Garrett Winters</td>
-      <td>Accountant</td>
-      <td>Tokyo</td>
-      <td>63</td>
-      <td>2011/07/25</td>
-      <td>$170,750</td>
-    </tr>
-    <tr>
-      <td>Ashton Cox</td>
-      <td>Junior Technical Author</td>
-      <td>San Francisco</td>
-      <td>66</td>
-      <td>2009/01/12</td>
-      <td>$86,000</td>
-    </tr>
-    <tr>
-      <td>Cedric Kelly</td>
-      <td>Senior Javascript Developer</td>
-      <td>Edinburgh</td>
-      <td>22</td>
-      <td>2012/03/29</td>
-      <td>$433,060</td>
-    </tr>
-    <tr>
-      <td>Airi Satou</td>
-      <td>Accountant</td>
-      <td>Tokyo</td>
-      <td>33</td>
-      <td>2008/11/28</td>
-      <td>$162,700</td>
-    </tr>
-    <tr>
-      <td>Brielle Williamson</td>
-      <td>Integration Specialist</td>
-      <td>New York</td>
-      <td>61</td>
-      <td>2012/12/02</td>
-      <td>$372,000</td>
-    </tr>
-    <tr>
-      <td>Herrod Chandler</td>
-      <td>Sales Assistant</td>
-      <td>San Francisco</td>
-      <td>59</td>
-      <td>2012/08/06</td>
-      <td>$137,500</td>
-    </tr>
-    <tr>
-      <td>Rhona Davidson</td>
-      <td>Integration Specialist</td>
-      <td>Tokyo</td>
-      <td>55</td>
-      <td>2010/10/14</td>
-      <td>$327,900</td>
-    </tr>
-	<tr>
-      <td>Rhona Davidson</td>
-      <td>Integration Specialist</td>
-      <td>Tokyo</td>
-      <td>55</td>
-      <td>2010/10/14</td>
-      <td>$327,900</td>
-    </tr>
-	<tr>
-      <td>Rhona Davidson</td>
-      <td>Integration Specialist</td>
-      <td>Tokyo</td>
-      <td>55</td>
-      <td>2010/10/14</td>
-      <td>$327,900</td>
-    </tr>
-	<tr>
-      <td>Rhona Davidson</td>
-      <td>Integration Specialist</td>
-      <td>Tokyo</td>
-      <td>55</td>
-      <td>2010/10/14</td>
-      <td>$327,900</td>
-    </tr>
-	<tr>
-      <td>Rhona Davidson</td>
-      <td>Integration Specialist</td>
-      <td>Tokyo</td>
-      <td>55</td>
-      <td>2010/10/14</td>
-      <td>$327,900</td>
-    </tr>
-	<tr>
-      <td>Rhona Davidson</td>
-      <td>Integration Specialist</td>
-      <td>Tokyo</td>
-      <td>55</td>
-      <td>2010/10/14</td>
-      <td>$327,900</td>
-    </tr>
-	<tr>
-      <td>Rhona Davidson</td>
-      <td>Integration Specialist</td>
-      <td>Tokyo</td>
-      <td>55</td>
-      <td>2010/10/14</td>
-      <td>$327,900</td>
-    </tr>
-	<tr>
-      <td>Rhona Davidson</td>
-      <td>Integration Specialist</td>
-      <td>Tokyo</td>
-      <td>55</td>
-      <td>2010/10/14</td>
-      <td>$327,900</td>
-    </tr>
-	<tr>
-      <td>Rhona Davidson</td>
-      <td>Integration Specialist</td>
-      <td>Tokyo</td>
-      <td>55</td>
-      <td>2010/10/14</td>
-      <td>$327,900</td>
-    </tr>
-	<tr>
-      <td>Rhona Davidson</td>
-      <td>Integration Specialist</td>
-      <td>Tokyo</td>
-      <td>55</td>
-      <td>2010/10/14</td>
-      <td>$327,900</td>
-    </tr>
-	<tr>
-      <td>Rhona Davidson</td>
-      <td>Integration Specialist</td>
-      <td>Tokyo</td>
-      <td>55</td>
-      <td>2010/10/14</td>
-      <td>$327,900</td>
-    </tr>
-	<tr>
-      <td>Rhona Davidson</td>
-      <td>Integration Specialist</td>
-      <td>Tokyo</td>
-      <td>55</td>
-      <td>2010/10/14</td>
-      <td>$327,900</td>
-    </tr>
-	<tr>
-      <td>Rhona Davidson</td>
-      <td>Integration Specialist</td>
-      <td>Tokyo</td>
-      <td>55</td>
-      <td>2010/10/14</td>
-      <td>$327,900</td>
-    </tr>
-  </tbody>
-  <tfoot>
-    <tr>
-      <th>Name
-      </th>
-      <th>Position
-      </th>
-      <th>Office
-      </th>
-      <th>Age
-      </th>
-      <th>Start date
-      </th>
-      <th>Salary
-      </th>
-    </tr>
-  </tfoot>
-</table>
-
-<div style="width:500px;">
-ML
-<!-- Carousel wrapper -->
-<div
-  id="carouselDarkVariant"
-  class="carousel slide carousel-fade carousel-dark"
-  data-mdb-ride="carousel"
->
-  <!-- Indicators -->
-  <div class="carousel-indicators">
-    <button
-      data-mdb-target="#carouselDarkVariant"
-      data-mdb-slide-to="0"
-      class="active"
-      aria-current="true"
-      aria-label="Slide 1"
-    ></button>
-    <button
-      data-mdb-target="#carouselDarkVariant"
-      data-mdb-slide-to="1"
-      aria-label="Slide 1"
-    ></button>
-    <button
-      data-mdb-target="#carouselDarkVariant"
-      data-mdb-slide-to="2"
-      aria-label="Slide 1"
-    ></button>
-  </div>
-
-  <!-- Inner -->
-  <div class="carousel-inner">
-    <!-- Single item -->
-    <div class="carousel-item active">
-      <img
-        src="https://mdbootstrap.com/img/Photos/Slides/img%20(19).jpg"
-        class="d-block w-100"
-        alt="..."
-      />
-      <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-      </div>
-    </div>
-
-    <!-- Single item -->
-    <div class="carousel-item">
-      <img
-        src="https://mdbootstrap.com/img/Photos/Slides/img%20(35).jpg"
-        class="d-block w-100"
-        alt="..."
-      />
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
-    </div>
-
-    <!-- Single item -->
-    <div class="carousel-item">
-      <img
-        src="https://mdbootstrap.com/img/Photos/Slides/img%20(40).jpg"
-        class="d-block w-100"
-        alt="..."
-      />
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-      </div>
-    </div>
-  </div>
-  <!-- Inner -->
-
-  <!-- Controls -->
-  <button
-    class="carousel-control-prev"
-    type="button"
-    data-mdb-target="#carouselDarkVariant"
-    data-mdb-slide="prev"
-  >
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button
-    class="carousel-control-next"
-    type="button"
-    data-mdb-target="#carouselDarkVariant"
-    data-mdb-slide="next"
-  >
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-</div>
-		
-		<div class="row">
-		<div class="container mx-5">
-		<div class="row">
-			<div class="col">
-				<div class="row mt-2">
-				<div class="col pr-0 d-flex justify-content-center">
-					<div class="shadow-sm border rounded rak-box color-tertiary m-0"></div>
-				</div>
-				<div class="col pl-0">
-					<p class="align-middle m-0 pt-2">Free Space</p>
-				</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="row mt-2">
-				<div class="col pr-0 d-flex justify-content-center">
-					<div class="shadow-sm border rounded rak-box color-primary m-0"></div>
-				</div>
-				<div class="col pl-0">
-					<p class="align-middle m-0 pt-2">Full</p>
-				</div>
-				</div>
-			</div>
-		</div>
-		</div>
-		</div>
-		
-<button type="button" id="btn" onclick="btnDisplay()">btn</button>
-<button type="button" id="btn-reveal" style="visibility: hidden">submit</button>
-
-<script>
-function btnDisplay(){
-	document.getElementById('btn-reveal').style.visibility = "visible";
-}
-
-</script>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroup-sizing-sm">Nama Komponen</span>
+						</div>
+						<input required type="text" class="form-control" id="itemNameUpdate" name="itemNameUpdate" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+					</div>
+					
+					<div class="input-group input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroup-sizing-sm">Kategori</span>
+						</div>
+						<span class="form-control" id="categoryUpdate" style="background-color:#e9ecef"></span>
+					</div>
+					
+					<div class="input-group input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroup-sizing-sm">Jumlah</span>
+						</div>
+						<input required type="number" class="form-control" name="amountUpdate" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+					</div>
+					
+					<div class="row mt-2">	
+						<div class="col-4">Lokasi penyimpanan</div>
+						<div class="col-8">
+							<select name="rakUpdate" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
+								<option value="1" class="dropdown-item">rak 1</option>
+							</select>
+						</div>
+					</div>
+					
+					<div class="row mt-2">
+						<div class="col-4"></div>
+						<div class="col-8">
+							<select name="lantaiUpdate" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
+								<option value="1" class="dropdown-item">lantai 1</option>
+								<option value="2" class="dropdown-item">lantai 2</option>
+								<option value="3" class="dropdown-item">lantai 3</option>
+								<option value="4" class="dropdown-item">lantai 4</option>
+								<option value="5" class="dropdown-item">lantai 5</option>
+							</select>
+						</div>
+					</div>
+					
+					<div class="row mt-2">
+						<div class="col-4"></div>
+						<div class="col-8">
+							<select name="kolomUpdate" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
+								<option value="1" class="dropdown-item">kolom 1</option>
+								<option value="2" class="dropdown-item">kolom 2</option>
+								<option value="3" class="dropdown-item">kolom 3</option>
+								<option value="4" class="dropdown-item">kolom 4</option>
+								<option value="5" class="dropdown-item">kolom 5</option>
+								<option value="6" class="dropdown-item">kolom 6</option>
+								<option value="7" class="dropdown-item">kolom 7</option>
+								<option value="8" class="dropdown-item">kolom 8</option>
+							</select>
+						</div>
+					</div>
+					
+					<div class="row mt-2">
+						<div class="col-4"></div>
+						<div class="col-8">
+							<select name="barisUpdate" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
+								<option value="1" class="dropdown-item">baris 1</option>
+								<option value="2" class="dropdown-item">baris 2</option>
+							</select>
+						</div>
+					</div>
+					
+					<div class="row mt-2">
+						<div class="col-6 mx-auto">
+							<input class="btn btn-primary btn-block" type="submit" name="update" value="Perbarui"/>
+						</div>
+					</div>
+				</form>
 </body>
 </html>

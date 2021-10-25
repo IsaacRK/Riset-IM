@@ -2,7 +2,7 @@
 -[done] query input tanggal pada saat pengambilan cart
 
 -dashboard
-	-activity record
+	-[done] activity record
 		-[done] button di ganti search
 		-[done] autocomplete pada search
 		-[done] search berfungsi
@@ -27,7 +27,8 @@
 -implementasi progress toti pada main-branch/traslate halaman ke bahasa indonesia
 
 -stock input
-	-fungsi stock input jadi satu
+	-[done] fungsi stock input jadi satu
+		- penyimpanan belum di implemenetasikan
 	-card kanan jadi tampilan piechart dari kategori barang
 		-pie chart dari presentase dari tempat yang tersedia dan komponen
 		-dibawah piechart ada presentase dari kategori barang

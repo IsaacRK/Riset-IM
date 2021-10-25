@@ -4,7 +4,7 @@ include'../backend/conn.php';
 if(isset($_GET["itemName"])){
 	$iName = $_GET['itemName'];
 	
-	function stringForm($val){
+	function stringForm($val, $itemName){
 		
 		$jenisKomponen = '';
 		if($val == 0){
@@ -23,7 +23,11 @@ if(isset($_GET["itemName"])){
 		}
 		
 		$str = '
-		<form action="">
+		<head>
+			<script src="../js/jquery3.6.0.min.js"></script>
+		</head>
+		<form action="" id="itemData">
+			<input type="hidden" id="" name="itemName" value="'.$itemName.'">
 			<div class="input-group input-group mb-3">
 				<div class="input-group-prepend">
 					<span class="input-group-text" id="inputGroup-sizing-sm">Kategori</span>
@@ -34,13 +38,13 @@ if(isset($_GET["itemName"])){
 				<div class="input-group-prepend">
 					<span class="input-group-text" id="inputGroup-sizing-sm">Jumlah</span>
 				</div>
-				<input required type="number" class="form-control" name="amountUpdate" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+				<input required type="number" class="form-control" name="amount" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
 			</div>
 			
 			<div class="row mt-2">	
 				<div class="col-4">Lokasi penyimpanan</div>
 				<div class="col-8">
-					<select name="rakUpdate" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
+					<select name="rak" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
 						<option value="1" class="dropdown-item">rak 1</option>
 					</select>
 				</div>
@@ -49,7 +53,7 @@ if(isset($_GET["itemName"])){
 			<div class="row mt-2">
 				<div class="col-4"></div>
 				<div class="col-8">
-					<select name="lantaiUpdate" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
+					<select name="lantai" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
 						<option value="1" class="dropdown-item">lantai 1</option>
 						<option value="2" class="dropdown-item">lantai 2</option>
 						<option value="3" class="dropdown-item">lantai 3</option>
@@ -62,7 +66,7 @@ if(isset($_GET["itemName"])){
 			<div class="row mt-2">
 				<div class="col-4"></div>
 				<div class="col-8">
-					<select name="kolomUpdate" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
+					<select name="kolom" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
 						<option value="1" class="dropdown-item">kolom 1</option>
 						<option value="2" class="dropdown-item">kolom 2</option>
 						<option value="3" class="dropdown-item">kolom 3</option>
@@ -78,7 +82,7 @@ if(isset($_GET["itemName"])){
 			<div class="row mt-2">
 				<div class="col-4"></div>
 				<div class="col-8">
-					<select name="barisUpdate" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
+					<select name="baris" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
 						<option value="1" class="dropdown-item">baris 1</option>
 						<option value="2" class="dropdown-item">baris 2</option>
 					</select>
@@ -87,10 +91,28 @@ if(isset($_GET["itemName"])){
 			
 			<div class="row mt-2">
 				<div class="col-6 mx-auto">
-					<input class="btn btn-primary btn-block" type="submit" name="update" value="Perbarui"/>
+					<input class="btn btn-primary btn-block" type="submit" name="insert" value="Masukkan"/>
 				</div>
 			</div>
 		</form>	
+		<script>
+		$(function(){
+			$("#itemData").on("submit", function(e){
+				var dataString = $(this).serialize();
+				alert(dataString);
+				
+				$.ajax({
+					type: "POST",
+					url: "backend/inputhandler.php",
+					data: dataString,
+					success: function(){
+						$("#modalBarcode").modal("show").find(".modal-content").load("layout/modalbarcode.php?"+dataString);
+					}
+				});
+				e.preventDefault();
+			});
+		});
+		</script>
 		';
 		return $str;
 	}
@@ -98,9 +120,9 @@ if(isset($_GET["itemName"])){
 	$query = "select * from stock where stock_name = '$iName'";
 	$run = mysqli_query($servConnQuery, $query);
 	if($x = mysqli_num_rows($run)>0){
-		echo stringForm($x);
+		echo stringForm($x, $iName);
 	}else{
-		echo stringForm($x);
+		echo stringForm($x, $iName);
 	}
 }
 

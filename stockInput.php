@@ -23,191 +23,44 @@ require 'backend/usersession.php';
 
 	<div class="p-1">
 		<div class="mb-3">
-			<h1>Stok Masuk</h1>
+			<h1>Barang Masuk</h1>
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="col-sm">
+		<div class="col">
 			<div class="card">
 			<div class="card-body">
-				<h3>Pendaftaran Stok</h3>
+				<h3>Data Barang</h3>
 				</br>
 				
-				<form action="" method="post">
-				
-					<input type="hidden" value="input" name="pointer">
-
-					<div class="input-group mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text" id="inputGroup-sizing-sm">Nama Komponen</span>
+				<form action="" id="itemNameForm">
+					<div class="row mb-3">
+						<div class="col-9">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="inputGroup-sizing-sm">Nama</span>
+								</div>
+								<input required type="text" class="form-control" name="itemName" id="itemName" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+							</div>
 						</div>
-						<input required type="text" class="form-control" name="itemName" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-					</div>
-					
-					<div class="input-group input-group mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text" id="inputGroup-sizing-sm">Kategori</span>
-						</div>
-							<select name="category" class="btn btn-light btn-block border dropdown-toggle p-2 form-control">
-								<option value="001" class="dropdown-item">Elektronik</option>
-								<option value="010" class="dropdown-item">Sekali Pakai</option>
-								<option value="011" class="dropdown-item">Peralatan</option>
-								<option value="100" class="dropdown-item">Lain-Lain</option>
-							</select>
-					</div>
-					
-					<div class="input-group input-group mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text" id="inputGroup-sizing-sm">Jumlah</span>
-						</div>
-						<input required type="number" class="form-control" name="amount" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-					</div>
-					
-					<div class="row mt-2">	
-						<div class="col-4">Lokasi penyimpanan</div>
-						<div class="col-8">
-							<select name="rak" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
-								<option value="1" class="dropdown-item">rak 1</option>
-							</select>
-						</div>
-					</div>
-					
-					<div class="row mt-2">
-						<div class="col-4"></div>
-						<div class="col-8">
-							<select name="lantai" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
-								<option value="1" class="dropdown-item">lantai 1</option>
-								<option value="2" class="dropdown-item">lantai 2</option>
-								<option value="3" class="dropdown-item">lantai 3</option>
-								<option value="4" class="dropdown-item">lantai 4</option>
-								<option value="5" class="dropdown-item">lantai 5</option>
-							</select>
-						</div>
-					</div>
-					
-					<div class="row mt-2">
-						<div class="col-4"></div>
-						<div class="col-8">
-							<select name="kolom" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
-								<option value="1" class="dropdown-item">kolom 1</option>
-								<option value="2" class="dropdown-item">kolom 2</option>
-								<option value="3" class="dropdown-item">kolom 3</option>
-								<option value="4" class="dropdown-item">kolom 4</option>
-								<option value="5" class="dropdown-item">kolom 5</option>
-								<option value="6" class="dropdown-item">kolom 6</option>
-								<option value="7" class="dropdown-item">kolom 7</option>
-								<option value="8" class="dropdown-item">kolom 8</option>
-							</select>
-						</div>
-					</div>
-					
-					<div class="row mt-2">
-						<div class="col-4"></div>
-						<div class="col-8">
-							<select name="baris" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
-								<option value="1" class="dropdown-item">baris 1</option>
-								<option value="2" class="dropdown-item">baris 2</option>
-							</select>
-						</div>
-					</div>
-					
-					<div class="row mt-2">
-						<div class="col-6 mx-auto">
-							<input class="btn btn-primary btn-block" type="submit" name="input" value="Masukan"/>
+						<div class="col d-grid gap-2">
+							<input class="btn btn-primary" type="submit" name="itemNameBtn" value="Cek">
 						</div>
 					</div>
 				</form>
+				
+				<div id="divItemData">
+				</div>
 				
 			</div>
 			</div>
 		</div>
 		
-		<div class="col-sm">
+		<div class="col">
 			<div class="card">
 			<div class="card-body">
-				<h3>Pembaruan Stok</h3>
-				</br>
 				
-				<form action="" method="post">
-
-					<input type="hidden" value="update" name="pointer">
-
-					<div class="input-group mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text" id="inputGroup-sizing-sm">Nama Komponen</span>
-						</div>
-						<input required type="text" class="form-control" id="itemNameUpdate" name="itemNameUpdate" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-					</div>
-					
-					<div class="input-group input-group mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text" id="inputGroup-sizing-sm">Kategori</span>
-						</div>
-						<span class="form-control" id="categoryUpdate" style="background-color:#e9ecef"></span>
-					</div>
-					
-					<div class="input-group input-group mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text" id="inputGroup-sizing-sm">Jumlah</span>
-						</div>
-						<input required type="number" class="form-control" name="amountUpdate" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-					</div>
-					
-					<div class="row mt-2">	
-						<div class="col-4">Lokasi penyimpanan</div>
-						<div class="col-8">
-							<select name="rakUpdate" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
-								<option value="1" class="dropdown-item">rak 1</option>
-							</select>
-						</div>
-					</div>
-					
-					<div class="row mt-2">
-						<div class="col-4"></div>
-						<div class="col-8">
-							<select name="lantaiUpdate" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
-								<option value="1" class="dropdown-item">lantai 1</option>
-								<option value="2" class="dropdown-item">lantai 2</option>
-								<option value="3" class="dropdown-item">lantai 3</option>
-								<option value="4" class="dropdown-item">lantai 4</option>
-								<option value="5" class="dropdown-item">lantai 5</option>
-							</select>
-						</div>
-					</div>
-					
-					<div class="row mt-2">
-						<div class="col-4"></div>
-						<div class="col-8">
-							<select name="kolomUpdate" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
-								<option value="1" class="dropdown-item">kolom 1</option>
-								<option value="2" class="dropdown-item">kolom 2</option>
-								<option value="3" class="dropdown-item">kolom 3</option>
-								<option value="4" class="dropdown-item">kolom 4</option>
-								<option value="5" class="dropdown-item">kolom 5</option>
-								<option value="6" class="dropdown-item">kolom 6</option>
-								<option value="7" class="dropdown-item">kolom 7</option>
-								<option value="8" class="dropdown-item">kolom 8</option>
-							</select>
-						</div>
-					</div>
-					
-					<div class="row mt-2">
-						<div class="col-4"></div>
-						<div class="col-8">
-							<select name="barisUpdate" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
-								<option value="1" class="dropdown-item">baris 1</option>
-								<option value="2" class="dropdown-item">baris 2</option>
-							</select>
-						</div>
-					</div>
-					
-					<div class="row mt-2">
-						<div class="col-6 mx-auto">
-							<input class="btn btn-primary btn-block" type="submit" name="update" value="Perbarui"/>
-						</div>
-					</div>
-				</form>
 			
 			</div>
 			</div>
@@ -234,8 +87,7 @@ require 'backend/usersession.php';
 
 <script>
 $(function(){
-	
-	$("form").on("submit", function(e){
+	$("#itemData").on("submit", function(e){
 		var dataString = $(this).serialize();
 		//alert(dataString);
 		
@@ -256,8 +108,25 @@ $('#modalBarcode').on('hidden.bs.modal', function () {
 })
 
 $(function(){
-	$("#itemNameUpdate").autocomplete({
+	$("#itemName").autocomplete({
 		source: 'backend/autocomplete.php'
+	});
+});
+
+$(function(){
+	$("#itemNameForm").on("submit", function(e){
+		var dataString = $(this).serialize();
+		//alert(dataString);
+		
+		$.ajax({
+			type: "POST",
+			url: "layout/test.html",
+			data: dataString,
+			success: function(){
+				$("#divItemData").load('layout/formitem.php?'+dataString);
+			}
+		});
+		e.preventDefault();
 	});
 });
 
