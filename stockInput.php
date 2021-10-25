@@ -2,6 +2,57 @@
 
 require 'backend/conn.php';
 require 'backend/usersession.php';
+
+function xpercent_of_y($x, $y){
+	return $x * ($y / 100);
+}
+function x_aspercent_of_y($x,$y){
+	return (100 * $x) / $y;
+}
+
+
+$elek = '';
+$pera = '';
+$lain = '';
+$totalBarang = '';
+
+$sql = "select * from stock";
+$run = mysqli_query($servConnQuery, $sql);
+if(mysqli_num_rows($run)>0){
+	while($row = mysqli_fetch_assoc($run)){
+		//echo 'id: '.$row['stock_id'].' | cate: '.$row['category'].'</br>';
+		if($row['category']=='001'){
+			$elek++;
+		}
+		if($row['category']=='010'){
+			$pera++;
+		}
+		if($row['category']=='100'){
+			$lain++;
+		}
+		$totalBarang++;
+	}
+}
+
+$totalStorage='';
+$storageCheck='';
+$storageQuery = "select * from penyimpanan";
+$storageRun = mysqli_query($servConnQuery, $storageQuery);
+if(mysqli_num_rows($storageRun)>0){
+	while($srow = mysqli_fetch_assoc($storageRun)){
+		$totalStorage++;
+		if($srow['stock_id']!=null){
+			$storageCheck++;
+		}
+	}
+}
+
+$x = $totalStorage - $storageCheck;
+
+$e = xpercent_of_y(x_aspercent_of_y($elek,$totalBarang),$storageCheck);
+$p = xpercent_of_y(x_aspercent_of_y($pera,$totalBarang),$storageCheck);
+$l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -60,8 +111,11 @@ require 'backend/usersession.php';
 		<div class="col">
 			<div class="card">
 			<div class="card-body">
+				<div class="d-flex justify-content-center">
+					<canvas id="pieChart" style="max-width:300px;max-height:300px;"></canvas>
+				</div>
 				
-				<canvas id="pieChart" style="max-width:;max-height:;"></canvas>
+				<canvas id="barChart" style="max-width:;max-height:;"></canvas>
 			
 			</div>
 			</div>
@@ -133,12 +187,11 @@ $(function(){
 
 $(document).ready(function(){
 	var pieDisplay = $('#pieChart');
-	var pieLabel = ["Kosong", "Elektronik", "Peralatan", "Lain-Lain"];
-	var nilaiData = [1,2,3,4];
+	var nilaiData = [<?php echo$x.','.$e.','.$p.','.$l; ?>];
 	var warna = ["#d4dfe9", "#1064AE", "#009AD2", "#89c5fb"];
 	
 	var pieData = {
-		labels: pieLabel,
+		labels: ["Kosong", "elektronik", "peralatan", "lain-lain"],
 		datasets: [{
 			backgroundColor: warna,
 			data: nilaiData,
@@ -156,6 +209,47 @@ $(document).ready(function(){
 		type: "pie",
 		data: pieData,
 		options: pieOptions
+	});
+});
+
+$(document).ready(function(){
+	var barDisplay = $('#barChart');
+	var nilaiData = [<?php echo$elek.','.$pera.','.$lain; ?>];
+	var warna = ["#1064AE"];
+	
+	var barData = {
+		labels: ["Elektronik", "Peralatan", "Lain-lain"],
+		datasets: [{
+			label: 'aaaaaaaaaa',
+			backgroundColor: warna,
+			data: nilaiData,
+		}],
+		legend: {
+			display: false
+		}
+	};
+	
+	var barOptions = {
+		indexAxis: 'y',
+		scales: {
+			x: {
+				title: {
+					display: true,
+					text: 'Jumlah'
+				}
+			}
+		},
+		plugins:{
+			legend:{
+				display: false,
+			}
+		}
+	};
+	
+	var pieChart = new Chart(barDisplay, {
+		type: "bar",
+		data: barData,
+		options: barOptions
 	});
 });
 

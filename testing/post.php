@@ -1,114 +1,107 @@
 <?php
+include "../backend/conn.php";
+
+function xpercent_of_y($x, $y){
+	return $x * ($y / 100);
+}
+function x_aspercent_of_y($x,$y){
+	return (100 * $x) / $y;
+}
+
+
+$elek = '';
+$pera = '';
+$lain = '';
+$totalBarang = '';
+
+$sql = "select * from stock";
+$run = mysqli_query($servConnQuery, $sql);
+if(mysqli_num_rows($run)>0){
+	while($row = mysqli_fetch_assoc($run)){
+		//echo 'id: '.$row['stock_id'].' | cate: '.$row['category'].'</br>';
+		if($row['category']=='001'){
+			$elek++;
+		}
+		if($row['category']=='010'){
+			$pera++;
+		}
+		if($row['category']=='100'){
+			$lain++;
+		}
+		$totalBarang++;
+	}
+}
+
+$totalStorage='';
+$storageCheck='';
+$storageQuery = "select * from penyimpanan";
+$storageRun = mysqli_query($servConnQuery, $storageQuery);
+if(mysqli_num_rows($storageRun)>0){
+	while($srow = mysqli_fetch_assoc($storageRun)){
+		$totalStorage++;
+		if($srow['stock_id']!=null){
+			$storageCheck++;
+		}
+	}
+}
+
+$x = $totalStorage - $storageCheck;
+
+echo 'elektronik = '.$elek;
+echo '</br>peralatan = '.$pera;
+echo '</br>lain-lain = '.$lain;
+echo '</br>total barang = '.$totalBarang;
+echo '</br>-----------------------';
+echo '</br>isi '.$storageCheck.' | total '.$totalStorage;
+
+$e = xpercent_of_y(x_aspercent_of_y($elek,$totalBarang),$storageCheck);
+$p = xpercent_of_y(x_aspercent_of_y($pera,$totalBarang),$storageCheck);
+$l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
 
 ?>
 <html>
 <head>
-<?php include "../layout/header.php"; ?>
+<script src="../js/jquery3.6.0.min.js"></script>
+<script src="../js/chart.js"></script>
 </head>
 <body>
-
-<div class="content">
-<div class="container mr-0">
-
-	<div class="p-1">
-		<div class="mb-3">
-			<h1>Barang Masuk</h1>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col">
-			<div class="card">
-			<div class="card-body">
-				<h3>Data Barang</h3>
-				</br>
-				
-				<form action="" id="itemNameForm">
-					<div class="row mb-3">
-						<div class="col-9">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text" id="inputGroup-sizing-sm">Nama</span>
-								</div>
-								<input required type="text" class="form-control" name="itemName" id="itemName" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-							</div>
-						</div>
-						<div class="col d-grid gap-2">
-							<input class="btn btn-primary" type="submit" name="itemNameBtn" value="Cek">
-						</div>
-					</div>
-				</form>
-				
-				<div id="divItemData">
-				</div>
-				
-			</div>
-			</div>
-		</div>
-		
-		<div class="col">
-			<div class="card">
-			<div class="card-body">
-				
-			
-			</div>
-			</div>
-		</div>
-	</div>
-
-
-<div id="modalBarcode" class="modal fade" tabindex="-1">
-	<div class="modal-dialog">
-		<div class="modal-content">
-		</div>
-	</div>
-</div>
-
- 
- 
-</div>
-</div>
-
+	<canvas id="Chart" style=""></canvas>
 <script>
-$(function(){
-	$("itemData").on("submit", function(e){
-		var dataString = $(this).serialize();
-		//alert(dataString);
-		
-		$.ajax({
-			type: "POST",
-			url: "../backend/inputhandler.php",
-			data: dataString,
-			success: function(){
-				$('#modalBarcode').modal('show').find('.modal-content').load('../layout/modalbarcode.php?'+dataString);
+
+$(document).ready(function(){
+	var barDisplay = $('#Chart');
+	var nilaiData = [<?php echo$elek.','.$pera.','.$lain; ?>];
+	var warna = ["#1064AE", "#009AD2", "#89c5fb"];
+	
+	var barData = {
+		labels: ["Elektronik", "Peralatan", "Lain-lain"],
+		datasets: [{
+			backgroundColor: warna,
+			data: nilaiData,
+		}]
+	};
+	
+	var barOptions = {
+		legend: {
+			display: true,
+			text: "nama text disini"
+		},
+		indexAxis: 'y',
+		scales: {
+			x: {
+				title: {
+					display: true,
+					text: 'Jumlah'
+				}
 			}
-		});
-		e.preventDefault();
+		}
+	};
+	
+	var pieChart = new Chart(barDisplay, {
+		type: "bar",
+		data: barData,
+		options: barOptions
 	});
 });
-
-$(function(){
-	$("#itemName").autocomplete({
-		source: '../backend/autocomplete.php'
-	});
-});
-
-$(function(){
-	$("#itemNameForm").on("submit", function(e){
-		var dataString = $(this).serialize();
-		//alert(dataString);
-		
-		$.ajax({
-			type: "POST",
-			url: "test.html",
-			data: dataString,
-			success: function(){
-				$("#divItemData").load('modal.php?'+dataString);
-			}
-		});
-		e.preventDefault();
-	});
-});
-
 </script>
 <body>

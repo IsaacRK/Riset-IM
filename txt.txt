@@ -29,9 +29,9 @@
 -stock input
 	-[done] fungsi stock input jadi satu
 		- penyimpanan belum di implemenetasikan
-	-card kanan jadi tampilan piechart dari kategori barang
-		-pie chart dari presentase dari tempat yang tersedia dan komponen
-		-dibawah piechart ada presentase dari kategori barang
+	-[done] card kanan jadi tampilan piechart dari kategori barang
+		-[done] pie chart dari presentase dari tempat yang tersedia dan komponen
+		-[done] dibawah piechart ada presentase dari kategori barang
 			 _________________
 			|__elektronik x%__|
 			|__lain-lain x%___|
