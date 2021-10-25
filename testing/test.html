@@ -4,88 +4,94 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<?php include "../layout/header.php"; ?>
+<script src="../js/chart.js"></script>
+<script src="../js/jquery3.6.0.min.js"></script>
 
 </head>
 <body>
-<form action="" method="post">
 
-					<input type="hidden" value="update" name="pointer">
-
-					<div class="input-group mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text" id="inputGroup-sizing-sm">Nama Komponen</span>
-						</div>
-						<input required type="text" class="form-control" id="itemNameUpdate" name="itemNameUpdate" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-					</div>
-					
-					<div class="input-group input-group mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text" id="inputGroup-sizing-sm">Kategori</span>
-						</div>
-						<span class="form-control" id="categoryUpdate" style="background-color:#e9ecef"></span>
-					</div>
-					
-					<div class="input-group input-group mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text" id="inputGroup-sizing-sm">Jumlah</span>
-						</div>
-						<input required type="number" class="form-control" name="amountUpdate" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-					</div>
-					
-					<div class="row mt-2">	
-						<div class="col-4">Lokasi penyimpanan</div>
-						<div class="col-8">
-							<select name="rakUpdate" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
-								<option value="1" class="dropdown-item">rak 1</option>
-							</select>
-						</div>
-					</div>
-					
-					<div class="row mt-2">
-						<div class="col-4"></div>
-						<div class="col-8">
-							<select name="lantaiUpdate" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
-								<option value="1" class="dropdown-item">lantai 1</option>
-								<option value="2" class="dropdown-item">lantai 2</option>
-								<option value="3" class="dropdown-item">lantai 3</option>
-								<option value="4" class="dropdown-item">lantai 4</option>
-								<option value="5" class="dropdown-item">lantai 5</option>
-							</select>
-						</div>
-					</div>
-					
-					<div class="row mt-2">
-						<div class="col-4"></div>
-						<div class="col-8">
-							<select name="kolomUpdate" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
-								<option value="1" class="dropdown-item">kolom 1</option>
-								<option value="2" class="dropdown-item">kolom 2</option>
-								<option value="3" class="dropdown-item">kolom 3</option>
-								<option value="4" class="dropdown-item">kolom 4</option>
-								<option value="5" class="dropdown-item">kolom 5</option>
-								<option value="6" class="dropdown-item">kolom 6</option>
-								<option value="7" class="dropdown-item">kolom 7</option>
-								<option value="8" class="dropdown-item">kolom 8</option>
-							</select>
-						</div>
-					</div>
-					
-					<div class="row mt-2">
-						<div class="col-4"></div>
-						<div class="col-8">
-							<select name="barisUpdate" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
-								<option value="1" class="dropdown-item">baris 1</option>
-								<option value="2" class="dropdown-item">baris 2</option>
-							</select>
-						</div>
-					</div>
-					
-					<div class="row mt-2">
-						<div class="col-6 mx-auto">
-							<input class="btn btn-primary btn-block" type="submit" name="update" value="Perbarui"/>
-						</div>
-					</div>
-				</form>
+	<canvas id="pieChart" style="max-width:500px;max-height:500px;"></canvas>
+	<canvas id="lineChart" style="max-width:500px;max-height:500px;"></canvas>
 </body>
+<script>
+$(document).ready(function(){
+	var pieDisplay = $('#pieChart');
+	var nilaiData = [1,50];
+	var warna = ["#1064ae","#d4dfe9"];
+	
+	var pieData = {
+		labels: ["Kosong", "Terisi"],
+		datasets: [{
+			backgroundColor: warna,
+			data: nilaiData,
+		}]
+	};
+	
+	var pieOptions = {
+		legend: {
+			display: true,
+			text: "nama text disini"
+		}
+	};
+	
+	var pieChart = new Chart(pieDisplay, {
+		type: "pie",
+		data: pieData,
+		options: pieOptions
+	});
+});
+$(document).ready(function(){
+	var chartDisplay = $('#lineChart');
+	
+	var activityData = {
+	  labels: ['senin','senin','senin','senin'],
+	  datasets: [{
+		label: "Aktifitas",
+		backgroundColor: 'rgb(16, 100, 174)',
+		borderColor: 'rgb(16, 100, 174)',
+	  data: [1,2,3,4],
+	  }]
+	};
+
+	var chartOptions = [{
+		legend: {
+			display: true,
+			position: 'top',
+			labels: {
+			  boxWidth: 10,
+			  fontColor: 'green'
+			}
+		},
+		scales: {
+			yAxes: [{
+			  scaleLabel: {
+				display: true,
+				labelString: 'probability'
+			  }
+			}]
+		}
+	}];
+
+	var lineChart = new Chart(chartDisplay, {
+	  type: 'line',
+	  data: activityData,
+	  options: {
+		scales: {
+			y:{
+				title: {
+					display: true,
+					text: 'aaaaaaaaaaa'
+				}
+			},
+			x: {
+				title: {
+					display: true,
+					text: 'aaaaaaaaaa'
+				}
+			}
+		}
+	  }
+	});
+});
+</script>
 </html>

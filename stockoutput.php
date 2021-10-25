@@ -83,7 +83,7 @@ if(isset($_GET['barcode'])){
 
 	<div class="p-1">
 		<div class="mb-3">
-			<h1>Stok Keluar</h1>
+			<h1>Barang Keluar</h1>
 		</div>
 	</div>
 
@@ -117,7 +117,7 @@ if(isset($_GET['barcode'])){
 			<div class="card">
 			<div class="card-body">
 			<form action="" method="post">
-				<h3>Informaasi Komponen</h3>
+				<h3>Informasi Komponen</h3>
 				</br>
 				<div class="row">
 					<div class="col">

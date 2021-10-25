@@ -76,7 +76,7 @@ if(isset($_GET['graphSearch'])){
 
 ?>
 
-<canvas id="chartDisplay"></canvas>
+<canvas id="chartDisplay" style="height:100px"></canvas>
 
 <script>
 $(document).ready(function(){
@@ -85,28 +85,32 @@ $(document).ready(function(){
 	var activityData = {
 	  labels: <?php echo'["'.$day[7].'","'.$day[6].'","'.$day[5].'","'.$day[4].'","'.$day[3].'","'.$day[2].'","'.$day[1].'","'.$day[0].'"]'; ?>,
 	  datasets: [{
-		label: "Activity Log",
+		label: "Aktifitas",
 		backgroundColor: 'rgb(16, 100, 174)',
 		borderColor: 'rgb(16, 100, 174)',
 	  data: <?php echo'['.$arr[7].','.$arr[6].','.$arr[5].','.$arr[4].','.$arr[3].','.$arr[2].','.$arr[1].','.$arr[0].']'; ?>,
 	  }]
 	};
 
-	var chartOptions = {
-	  legend: {
-		display: true,
-		position: 'top',
-		labels: {
-		  boxWidth: 10,
-		  fontColor: 'green'
-		}
-	  }
-	};
-
 	var lineChart = new Chart(chartDisplay, {
 	  type: 'line',
 	  data: activityData,
-	  options: chartOptions
+	  options: {
+		scales: {
+			y:{
+				title: {
+					display: true,
+					text: 'Jumlah'
+				}
+			},
+			x: {
+				title: {
+					display: true,
+					text: 'Tanggal'
+				}
+			}
+		}
+	  }
 	});
 })
 	

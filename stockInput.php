@@ -61,6 +61,7 @@ require 'backend/usersession.php';
 			<div class="card">
 			<div class="card-body">
 				
+				<canvas id="pieChart" style="max-width:;max-height:;"></canvas>
 			
 			</div>
 			</div>
@@ -127,6 +128,34 @@ $(function(){
 			}
 		});
 		e.preventDefault();
+	});
+});
+
+$(document).ready(function(){
+	var pieDisplay = $('#pieChart');
+	var pieLabel = ["Kosong", "Elektronik", "Peralatan", "Lain-Lain"];
+	var nilaiData = [1,2,3,4];
+	var warna = ["#d4dfe9", "#1064AE", "#009AD2", "#89c5fb"];
+	
+	var pieData = {
+		labels: pieLabel,
+		datasets: [{
+			backgroundColor: warna,
+			data: nilaiData,
+		}]
+	};
+	
+	var pieOptions = {
+		legend: {
+			display: true,
+			text: "nama text disini"
+		}
+	};
+	
+	var pieChart = new Chart(pieDisplay, {
+		type: "pie",
+		data: pieData,
+		options: pieOptions
 	});
 });
 

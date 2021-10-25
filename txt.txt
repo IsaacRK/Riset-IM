@@ -56,4 +56,4 @@
 //planning   |---
 -halaman production planning
 -halaman setting
--tambahkan fitur tampilkan loading ketika halaman belum siap
+-[done] tambahkan fitur tampilkan loading ketika halaman belum siap

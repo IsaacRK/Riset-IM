@@ -24,7 +24,7 @@ require 'backend/usersession.php';
 
 	<div class="p-1">
 		<div class="mb-3">
-			<h1>Home Dashboard</h1>
+			<h1>Halaman Dashboard</h1>
 		</div>
 	</div>
 
@@ -165,13 +165,13 @@ require 'backend/usersession.php';
 					</div>
 				</div>
 				
-				<h4 class="card-title">Component list</h4>
+				<h4 class="card-title">Daftar Komponen</h4>
 				
 				<table class="table table-striped table-sm" id="tbComponent">
 					<thead>
 					<tr>
-						<th scope="col">name of component</th>
-						<th scope="col">stock</th>
+						<th scope="col">Nama Komponen</th>
+						<th scope="col">Jumlah</th>
 					</tr>
 					</thead>
 					<tbody>
@@ -229,7 +229,7 @@ require 'backend/usersession.php';
 					</div>
 				</div>
 				
-				<h4 class="card-title">Activity Record</h4>
+				<h4 class="card-title">Catatan Aktifitas</h4>
 				
 				<div class="table-responsive">
 				<table class="table table-striped table-sm" id="tbActivity">

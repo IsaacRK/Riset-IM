@@ -24,8 +24,8 @@ include "loader.html";
 	</div>
 	</br>
 	<a href="dashboard.php" class="list-group-item-action ripple text-light active" aria-current="true">Halaman Beranda</a>
-	<a href="stockinput.php" class="list-group-item-action ripple text-light" aria-current="true">Stok Input</a>
-	<a href="stockoutput.php" class="list-group-item-action ripple text-light" aria-current="true">Stok Keluar</a>
+	<a href="stockinput.php" class="list-group-item-action ripple text-light" aria-current="true">Barang Masuk</a>
+	<a href="stockoutput.php" class="list-group-item-action ripple text-light" aria-current="true">Barang Keluar</a>
 	<a href="" class="list-group-item-action ripple text-light" aria-current="true">Rencana Produksi</a>
 	<a href="" class="list-group-item-action ripple text-light" aria-current="true">Pengaturan</a>
 </div>
