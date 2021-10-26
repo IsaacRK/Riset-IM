@@ -24,7 +24,7 @@ require 'backend/usersession.php';
 
 	<div class="p-1">
 		<div class="mb-3">
-			<h1>Halaman Dashboard</h1>
+			<h1>Halaman Beranda</h1>
 		</div>
 	</div>
 
