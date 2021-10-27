@@ -35,7 +35,7 @@ require 'backend/loginhandler.php';
 <div class="container mt-2">
 	<div class="row">
 		<div class="col-sm">
-			<div class="card text-white bg-info" style="height:100%">
+			<div class="card text-white bg-info" style="height:69%">
 			<div class="card-body">
 				<div class="d-flex justify-content-center">
 				<span>Panel Informasi</span>
@@ -48,26 +48,22 @@ require 'backend/loginhandler.php';
 						<li data-target="#myCarousel" data-slide-to="1"></li>
 						<li data-target="#myCarousel" data-slide-to="2"></li>
 						<li data-target="#myCarousel" data-slide-to="3"></li>
-						<li data-target="#myCarousel" data-slide-to="4"></li>
 					
 						</ol>
 
 						<!-- Wrapper for slides -->
 						<div class="carousel-inner">
 							<div class="item active">
-								<img src="img/judul.jpeg" alt="judul">
+								<img src="img/judul.jpg" alt="judul">
 							</div>	
 							<div class="item">
-								<img src="img/Objectives.jpeg" alt="objectives">
+								<img src="img/keunggulan.jpg" alt="keunggulan">
 							</div>
 							<div class="item">
-								<img src="img/scope.jpeg" alt="scope">
+								<img src="img/pemasukan.jpg" alt="pemasukan">
 							</div>
 							<div class="item">
-								<img src="img/tools.jpeg" alt="tools">
-							</div>
-							<div class="item">
-								<img src="img/slide_1.jpg" alt="4R">
+								<img src="img/pengambilan.jpg" alt="pengambilan">
 							</div>
 						</div>
 
