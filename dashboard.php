@@ -47,126 +47,122 @@ require 'backend/usersession.php';
 				</br>
 				
 				<div class="card">
-					<div class="card-body px-0"  style="background-color:#2879ff73;">
+					<div class="card-body px-0" style="background-color:#2879ff73;">
 						<div class="container p-0" style="height:200px">
-						<div id="mapping" class="carousel slide carousel-dark h-100" data-bs-ride="carousel">
-							<!-- Carousel indicators -->
-							<ol class="carousel-indicators">
-								<?php
-									$queryNum = 8;
-									$maxStorageIdQuery = "select max(storage_id) from penyimpanan";
-									$maxStorageIdRun = mysqli_query($servConnQuery,$maxStorageIdQuery);
-									$maxStorageIdFetch = mysqli_fetch_array($maxStorageIdRun);
-									$maxStorageId = $maxStorageIdFetch[0];
-									$maxStorageIdRounded = round($maxStorageId/$queryNum,0,PHP_ROUND_HALF_DOWN);
-									
-									for($i=0;$i<$maxStorageIdRounded;$i++){
-										if($i==0){
-											echo'
-											<li data-bs-target="#mapping" data-bs-slide-to="'.$i.'" class="active"></li>
-											';
-										}else{
-											echo'<li data-bs-target="#mapping" data-bs-slide-to="'.$i.'"></li>
-											';
-										}
-									}
-								?>
-							</ol>
-							
-							<!-- Wrapper for carousel items -->
-							<div class="carousel-inner">
-								<?php
-									function filter_even($var){
-										return($var = $var % 2);
-									}
-									
-									function boxColorFunc($fetch){
-										if($fetch==null){
-											$col='color-tertiary';
-										}else{
-											$col='color-primary text-light';
-										}
-										return($col);
-									}
-									
-									function stringEcho($a,$b){
-										$string = '
-										<div class="col p-1 d-flex justify-content-center">
-											<div class="shadow-sm border rounded rak-box text-center '.$a.'">
-												'.$b.'
-											</div>
-										</div>';
-										return ($string);
-									}
-									
-									for($a=0;$a<$maxStorageIdRounded;$a++){
-										if($a==0){
-											echo'
-								<div class="carousel-item active">
-									<div class="row">';
-										}else{
-											echo'
-											<div class="carousel-item">
-												<div class="row">';
-										}
-										
-										$mappingOffsetQuery='';
-										if($a==0){
-											$mappingOffsetQuery='';
-										}else{
-											$z = $a * $queryNum;
-											$mappingOffsetQuery='offset '.$z;
-										}
-										
-										$mappingQuery = "select * from penyimpanan limit ".$queryNum." ".$mappingOffsetQuery;
-										$mappingRun = mysqli_query($servConnQuery, $mappingQuery);
-										if(mysqli_num_rows($mappingRun)>0){
-											$stringBoxTop='';
-											$stringBoxBottom='';
-											$box='';
-											$line = 1;
-											while ($mappingFetch = mysqli_fetch_assoc($mappingRun)){
-												if(filter_even($mappingFetch['storage_id'])==1){
-													$box = boxColorFunc($mappingFetch['stock_id']);
-													$stringBox = stringEcho($box,'C'.$line.'B1');
-													$stringBoxTop=$stringBoxTop.$stringBox;
-												}else{
-													$box = boxColorFunc($mappingFetch['stock_id']);
-													$stringBox = stringEcho($box,'C'.$line.'B2');
-													$stringBoxBottom=$stringBoxBottom.$stringBox;
-													$line++;
-												}
-											}
-											echo $stringBoxTop.'<div class="w-100"></div>'.$stringBoxBottom;
-										}
-										$lantai = $a+1;
-										echo'
-										</div>
-										<div class="carousel-caption d-md-block" style="position:static!important">
-											<h5>Lantai '.$lantai.'</h5>
-										</div>
-									</div>
-									';
-									}
-								?>
-							</div>
-							
-							<!-- Carousel controls -->
-							<a class="carousel-control-prev" href="#mapping" data-bs-slide="prev">
-								<span class="carousel-control-prev-icon"></span>
-							</a>
-							<a class="carousel-control-next" href="#mapping" data-bs-slide="next">
-								<span class="carousel-control-next-icon"></span>
-							</a>
-							
-						</div>
-						</div>
 						
+						<!--carousel open-->
+						<div id="mapping" class="carousel slide carousel-dark h-100" data-bs-ride="carousel">
+						<!-- Carousel indicators -->
+						<ol class="carousel-indicators">
+							<?php
+							$queryNum=0;
+							$arrLan=array();
+							$sqlStorageL = "select lantai from penyimpanan";
+							$runStorageL = mysqli_query($servConnQuery, $sqlStorageL);
+							while($fetchL=mysqli_fetch_assoc($runStorageL)){
+								$a=$fetchL['lantai'];
+								if(in_array($a,$arrLan)){
+								}else{
+									array_push($arrLan,$a);
+								}
+							}
+							$queryNum = count($arrLan);
+							
+							for($i=0;$i<$queryNum;$i++){
+								if($i==0){
+									echo'
+									<li data-bs-target="#mapping" data-bs-slide-to="'.$i.'" class="active"></li>
+									';
+								}else{
+									echo'<li data-bs-target="#mapping" data-bs-slide-to="'.$i.'"></li>
+									';
+								}
+							}
+							?>
+						</ol>
+						<div class="carousel-inner">
+						<?php
+							
+							function boxColor($fetch){
+								if($fetch==null){
+									$col='color-tertiary';
+								}else{
+									$col='color-primary text-light';
+								}
+								return($col);
+							}
+							function boxColorText($a,$b){
+								$string = '
+								<div class="col p-1 d-flex justify-content-center">
+								<div class="shadow-sm border rounded rak-box text-center '.$a.'">
+								'.$b.'
+								</div>
+								</div>';
+								return ($string);
+							}
+							
+							for($i=1;$i<=$queryNum;$i++){
+								if($i==1){
+									echo'
+									<div class="carousel-item active">
+									';
+								}else{
+									echo'
+									<div class="carousel-item">
+									';
+								}
+								
+								//isi
+								$top='';
+								$bot='';
+								$line=1;
+								
+								echo'<div class="row">';
+								$sql1 = "select * from penyimpanan where lantai='$i'";
+								$run1 = mysqli_query($servConnQuery, $sql1);
+								while($row1 = mysqli_fetch_assoc($run1)){
+									if($row1['baris']==1){
+										$txt='C'.$line.'B2';
+										$col=boxColor($row1['stock_id']);
+										$str=boxColorText($col,$txt);
+										$top=$top.$str;
+									}
+									if($row1['baris']==2){
+										$txt='C'.$line.'B2';
+										$col=boxColor($row1['stock_id']);
+										$str=boxColorText($col,$txt);
+										$bot=$bot.$str;
+									}
+								}
+								echo$top.'<div class="w-100"></div>'.$bot;
+								
+								echo'
+									</div>
+									<div class="carousel-caption d-md-block" style="position:static!important">
+										<h5>Lantai '.$i.'</h5>
+									</div>
+									</div>
+								';
+							}
+							
+						?>						
+						</div>
+						<a class="carousel-control-prev" href="#mapping" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon"></span>
+						</a>
+						<a class="carousel-control-next" href="#mapping" data-bs-slide="next">
+							<span class="carousel-control-next-icon"></span>
+						</a>
+					</div>
+						<!--carousel close-->
+						
+						</div>
 					</div>
 				</div>
 				
 				<h4 class="card-title">Daftar Komponen</h4>
 				
+				<div class="table-responsive">
 				<table class="table table-striped table-sm" id="tbComponent">
 					<thead>
 					<tr>
@@ -192,6 +188,7 @@ require 'backend/usersession.php';
 						?>
 					</tbody>
 				</table>
+				</div>
 			
 			</div>
 			</div>

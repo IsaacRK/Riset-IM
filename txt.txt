@@ -17,14 +17,14 @@
 		-[done] kasih tabel scroll
 		-[done] kasih label lantai
 		-button pilih rak, update mapping ke rak yang dipilih
-		-lantai 3, 8 kolom 2 baris
-		-ganti algoritma untuk tampilkan rak agar lebih dinamis
-			-tampilan tetap sama meskipun data penyimpanan di ubah/tambah
+		-[done] lantai 3, 8 kolom 2 baris
+		-[done] ganti algoritma untuk tampilkan rak agar lebih dinamis
+			-[done] tampilan tetap sama meskipun data penyimpanan di ubah/tambah
 			-ganti algoritma mapping untuk cek isi ke tabel stok, hitung jenis barang pada penyimpanan tertentu
 				-jika jenis barang lebih dari 10 warna biru, kurang radi 10 warna abu abu
 
 -button pilih kamera di stock output barcode scanner
--implementasi progress toti pada main-branch/traslate halaman ke bahasa indonesia
+-[done] implementasi progress toti pada main-branch/traslate halaman ke bahasa indonesia
 
 -stock input
 	-[done] fungsi stock input jadi satu
@@ -36,8 +36,8 @@
 			|__elektronik x%__|
 			|__lain-lain x%___|
 
--sidebar
-	-tambahkan fisualisasi navigasi halaman
+-[done] sidebar
+	-[done] tambahkan fisualisasi navigasi halaman
 		 ________________
 		|//////home//////| => jika halaman yang di lihat adalah dashboard
 		|___stock input__|
@@ -48,12 +48,13 @@
 		
 //fix   |---
 -input ambil barang  melebihi yang ada di database, value menjadi minus
+	-tambahkan fitur edit pada cart, jumlah dan batal ambil barang.
 -[done] nama barang teralu panjanjang(melebihi 50 karakter) yang membuat tampilan barcode menjadi 0 tetapi data masuk database
 -[done] query pada input barang, id barang dan penyimpanan menjadi satu barcode untuk memudahkan mencari barcode
 -mapping barang menjadi lebih akurat pada database
 	-ketika mengambil barang dari suatu rak, dan rak masih memiliki barang, tidak membuat rak tersebut terlihat kosong pada display mapping.
 
 //planning   |---
--halaman production planning
--halaman setting
+-halaman production planning/rencana produksi
+-halaman setting/pengaturan
 -[done] tambahkan fitur tampilkan loading ketika halaman belum siap

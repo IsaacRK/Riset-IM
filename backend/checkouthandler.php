@@ -5,6 +5,8 @@ if(isset($_POST['checkout'])){
 	for($i=0;$i<count($value);$i++){
 		$cartId = $value[$i];
 		
+		$user_id = $_SESSION['uid'];
+		
 		$cartFetchQuery = "select * from cart where cart_id = '$cartId'";
 		$cartFetchRun	= mysqli_query($servConnQuery, $cartFetchQuery);
 		$cartFetch 		= mysqli_fetch_assoc($cartFetchRun);
@@ -29,8 +31,8 @@ if(isset($_POST['checkout'])){
 		$now = date("Y-m-d");
 		$historyQuery = 
 		"insert into 
-		history (history_id, stock_id, amount, input, output, date) 
-		values (default, '$stockId', '$takeAmount', NULL, 1, '$now')";
+		history (history_id, stock_id, amount, input, output, user_id, date) 
+		values (default, '$stockId', '$takeAmount', NULL, 1, '$user_id', '$now')";
 		mysqli_query($servConnQuery, $historyQuery);
 	}
 }
