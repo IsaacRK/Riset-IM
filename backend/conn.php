@@ -1,5 +1,5 @@
 <?php
-$servConnQuery = mysqli_connect('localhost', 'root', '', 'pblwamsy');
+$servConnQuery = mysqli_connect('localhost', 'root', '', 'updet');
 
 if (mysqli_connect_errno()){
     echo "DATABASE ERROR : " . mysqli_connect_error();

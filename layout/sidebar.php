@@ -24,8 +24,11 @@ include "loader.html";
 				<div class="border border-dark rounded-circle m-0" style="width:40px;height:40px;"></div>
 			</div>
 			<div class="col-sm">
+				<a href ="editprofile.php">
+
 				<p class="font-weight-bold text-primary text-left"><?php echo $username; ?></p>			</div>
-		</div>
+</a>
+			</div>
 	</div>
 	</br>
 	<a href="dashboard.php" id="beranda" class="list-group-item-action ripple text-light active" aria-current="true">Halaman Beranda</a>
