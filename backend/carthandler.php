@@ -22,7 +22,7 @@ if(mysqli_num_rows($cartQueryRun) > 0){
 		$stockName		= $stockNameFetch['stock_name'];
 		
 		echo'
-			<div class="col-2">
+			<div class="col">
 				<label class="checkbox">
 				  <span class="checkbox_input">
 					<input class="boxhidden" type="checkbox" name="checkbox[]" value="'.$cartId.'"/>
@@ -42,8 +42,11 @@ if(mysqli_num_rows($cartQueryRun) > 0){
 					</span>
 				  </span>
 				</label>
+				<div class="py-2">
+					<img src="img/icons/pencil-square.svg" width="32" height="32" onclick="edit('.$cartId.')"/>
+				</div>
 			</div>
-			<div class="col-10 mb-2">
+			<div class="col-10">
 				<span>nama komponen: '.$stockName.'</span></br>
 				<span>jumlah : '.$cartTakeAmount.'</span></br>
 				<span>keperluan : '.$cartNecesity.'</span></br>

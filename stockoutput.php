@@ -5,7 +5,7 @@ require 'backend/usersession.php';
 require 'backend/outputhandler.php';
 require 'backend/checkouthandler.php';
 
-$Cid	= '';
+$Cid	= null;
 $Cname	= '';
 $CStock	= '';
 $Crak	= '';
@@ -195,10 +195,16 @@ if(isset($_GET['barcode'])){
 				</div>
 				
 				<input type="hidden" class="form-control" value="<?php echo $Cid; ?>" name="stock_id">
-					
+
 				<div class="row mt-2">
 					<div class="col-6 mx-auto">
-						<input class="btn btn-primary btn-block" type="submit" name="addToCart" value="Tambahkan ke Keranjang"/>
+						<input class="btn btn-primary btn-block" type="submit" name="addToCart" value="Tambahkan ke Keranjang"
+							<?php
+								if(isset($Cid)==null){
+									echo'disabled aria-disabled="true"';
+								}
+							?>
+						/>
 					</div>
 				</div>
 			</form>
@@ -229,8 +235,20 @@ if(isset($_GET['barcode'])){
 	</div>
 </div>
 
+<div id="modalEditCart" class="modal fade" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+		</div>
+	</div>
+</div>
 
 <script>
+	
+function edit(x){	
+	console.log(x);
+	$('#modalEditCart').modal('show').find('.modal-content').load('layout/editcart.php?cartData='+x);
+}
+
 $(document).ready(function(){
   $("#barcodeScnButton").click(function(){
     $('#modalBarcodeScn').modal('show').find('.modal-content').load('layout/scanBarcode.html');

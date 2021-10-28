@@ -1,50 +1,9 @@
 //todo   |---
--[done] query input tanggal pada saat pengambilan cart
 
--dashboard
-	-[done] activity record
-		-[done] button di ganti search
-		-[done] autocomplete pada search
-		-[done] search berfungsi
-		-[done] kalo gak search tampilkan barang yang terakhir di ambil
-		-[done] sudah search tampilkan barang yang sudah di search pada chart
-		-[done] tabel activity record menampilkan
-			-[done] data barang masuk
-			-[done] data barang keluar
-		
-	-mapping
-		-[done] ganti nomer di rak menjadi alamat rak
-		-[done] kasih tabel scroll
-		-[done] kasih label lantai
-		-button pilih rak, update mapping ke rak yang dipilih
-		-[done] lantai 3, 8 kolom 2 baris
-		-[done] ganti algoritma untuk tampilkan rak agar lebih dinamis
-			-[done] tampilan tetap sama meskipun data penyimpanan di ubah/tambah
-			-ganti algoritma mapping untuk cek isi ke tabel stok, hitung jenis barang pada penyimpanan tertentu
-				-jika jenis barang lebih dari 10 warna biru, kurang radi 10 warna abu abu
+-ganti algoritma mapping untuk cek isi ke tabel stok, hitung jenis barang pada penyimpanan tertentu
+	-jika jenis barang lebih dari 10 warna biru, kurang dari 10 warna abu abu
 
 -button pilih kamera di stock output barcode scanner
--[done] implementasi progress toti pada main-branch/traslate halaman ke bahasa indonesia
-
--stock input
-	-[done] fungsi stock input jadi satu
-		- penyimpanan belum di implemenetasikan
-	-[done] card kanan jadi tampilan piechart dari kategori barang
-		-[done] pie chart dari presentase dari tempat yang tersedia dan komponen
-		-[done] dibawah piechart ada presentase dari kategori barang
-			 _________________
-			|__elektronik x%__|
-			|__lain-lain x%___|
-
--[done] sidebar
-	-[done] tambahkan fisualisasi navigasi halaman
-		 ________________
-		|//////home//////| => jika halaman yang di lihat adalah dashboard
-		|___stock input__|
-		 ________________
-		|_______home_____| => jika halaman yang di lihat adalah stock input
-		|//stock_input///|
-		
 		
 //fix   |---
 -input ambil barang  melebihi yang ada di database, value menjadi minus
@@ -57,4 +16,4 @@
 //planning   |---
 -halaman production planning/rencana produksi
 -halaman setting/pengaturan
--[done] tambahkan fitur tampilkan loading ketika halaman belum siap
+-lazyloading pada ambil data tabel catatan aktifitas & daftar komponen
