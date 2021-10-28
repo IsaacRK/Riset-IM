@@ -4,7 +4,12 @@
 	-jika jenis barang lebih dari 10 warna biru, kurang dari 10 warna abu abu
 
 -button pilih kamera di stock output barcode scanner
-		
+
+-barang keluar
+	-pengecekan ketika pengambilan barang lebih dari yang ada dalam penyimpanan
+	-pengecekan pada checkout keranjang ketika barang yang di ambil melebihi barang yang ada
+		-ketika barang melebihi jumlah yang ada, data tidak di simpan
+
 //fix   |---
 -input ambil barang  melebihi yang ada di database, value menjadi minus
 	-tambahkan fitur edit pada cart, jumlah dan batal ambil barang.

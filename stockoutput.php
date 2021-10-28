@@ -3,6 +3,7 @@
 require 'backend/conn.php';
 require 'backend/usersession.php';
 require 'backend/outputhandler.php';
+require 'backend/editcarthandler.php';
 require 'backend/checkouthandler.php';
 
 $Cid	= null;

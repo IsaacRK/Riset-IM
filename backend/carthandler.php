@@ -22,7 +22,7 @@ if(mysqli_num_rows($cartQueryRun) > 0){
 		$stockName		= $stockNameFetch['stock_name'];
 		
 		echo'
-			<div class="col">
+			<div class="col-2">
 				<label class="checkbox">
 				  <span class="checkbox_input">
 					<input class="boxhidden" type="checkbox" name="checkbox[]" value="'.$cartId.'"/>
