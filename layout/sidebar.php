@@ -20,13 +20,15 @@ include "loader.html";
 	<div id="demo"></div>
 	<div class="list-group-item list-group-item-action flex-column align-items-start color-secondary">
 		<div class="row">
-			<div class="col-sm">
+			<div class="col-sm col-4 align-self-center">
 				<div class="border border-dark rounded-circle m-0" style="width:40px;height:40px;"></div>
 			</div>
-			<div class="col-sm">
+			<div class="col-sm col-6 text-center align-self-center">
 				<a href ="editprofile.php">
 
-				<p class="font-weight-bold text-primary text-left"><?php echo $username; ?></p>			</div>
+				<p class="font-weight-bold text-primary text-left" style="margin-bottom:0!important;"><?php echo $username; ?></p>			
+				<p class="text-primary" style="margin-bottom:0!important"><small><?php echo $userlvl; ?></small></p>	
+				</div>
 </a>
 			</div>
 	</div>
