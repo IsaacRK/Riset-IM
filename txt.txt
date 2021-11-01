@@ -10,11 +10,19 @@
 	-pengecekan pada checkout keranjang ketika barang yang di ambil melebihi barang yang ada
 		-ketika barang melebihi jumlah yang ada, data tidak di simpan
 
+-buat tombol report
+	-bisa pilih report dari 1 minggu / 1 bulan terakhir
+		-report berupa pdf atau exel
+	-hapus report dari 1 bulan terakhir ketika bulan baru
+	-layout tabel
+		-barang
+		-nama barang | Jumlah | kode barang
+		
+		-history
+		-tanggal | nama barang | operator | jumlah barang | untuk apa
+	
 //fix   |---
 -input ambil barang  melebihi yang ada di database, value menjadi minus
-	-tambahkan fitur edit pada cart, jumlah dan batal ambil barang.
--[done] nama barang teralu panjanjang(melebihi 50 karakter) yang membuat tampilan barcode menjadi 0 tetapi data masuk database
--[done] query pada input barang, id barang dan penyimpanan menjadi satu barcode untuk memudahkan mencari barcode
 -mapping barang menjadi lebih akurat pada database
 	-ketika mengambil barang dari suatu rak, dan rak masih memiliki barang, tidak membuat rak tersebut terlihat kosong pada display mapping.
 

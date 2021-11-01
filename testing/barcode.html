@@ -1,0 +1,20 @@
+<html>
+<head>
+<script src="../js/jquery3.6.0.min.js"></script>
+<!--<script src="../js/JsBarcode.code128.min.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/barcodes/JsBarcode.code128.min.js"></script>
+</head>
+<body>
+
+<input type="text" onblur="send()" >
+
+<svg id="barcode"></svg>
+
+<script>
+function send(){
+	var val = document.querySelector('input').value;
+	JsBarcode("#barcode", val);
+}
+</script>
+</body>
+</html>

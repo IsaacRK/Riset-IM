@@ -4,94 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
 <script src="../js/chart.js"></script>
 <script src="../js/jquery3.6.0.min.js"></script>
 
 </head>
 <body>
+<div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
+    <h1>Title</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <button class="btn btn-primary">Get Started</button>
+</div>
 
-	<canvas id="pieChart" style="max-width:500px;max-height:500px;"></canvas>
-	<canvas id="lineChart" style="max-width:500px;max-height:500px;"></canvas>
 </body>
-<script>
-$(document).ready(function(){
-	var pieDisplay = $('#pieChart');
-	var nilaiData = [1,50];
-	var warna = ["#1064ae","#d4dfe9"];
-	
-	var pieData = {
-		labels: ["Kosong", "Terisi"],
-		datasets: [{
-			backgroundColor: warna,
-			data: nilaiData,
-		}]
-	};
-	
-	var pieOptions = {
-		legend: {
-			display: true,
-			text: "nama text disini"
-		}
-	};
-	
-	var pieChart = new Chart(pieDisplay, {
-		type: "pie",
-		data: pieData,
-		options: pieOptions
-	});
-});
-$(document).ready(function(){
-	var chartDisplay = $('#lineChart');
-	
-	var activityData = {
-	  labels: ['senin','senin','senin','senin'],
-	  datasets: [{
-		label: "Aktifitas",
-		backgroundColor: 'rgb(16, 100, 174)',
-		borderColor: 'rgb(16, 100, 174)',
-	  data: [1,2,3,4],
-	  }]
-	};
-
-	var chartOptions = [{
-		legend: {
-			display: true,
-			position: 'top',
-			labels: {
-			  boxWidth: 10,
-			  fontColor: 'green'
-			}
-		},
-		scales: {
-			yAxes: [{
-			  scaleLabel: {
-				display: true,
-				labelString: 'probability'
-			  }
-			}]
-		}
-	}];
-
-	var lineChart = new Chart(chartDisplay, {
-	  type: 'line',
-	  data: activityData,
-	  options: {
-		scales: {
-			y:{
-				title: {
-					display: true,
-					text: 'aaaaaaaaaaa'
-				}
-			},
-			x: {
-				title: {
-					display: true,
-					text: 'aaaaaaaaaa'
-				}
-			}
-		}
-	  }
-	});
-});
-</script>
 </html>
