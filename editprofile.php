@@ -115,22 +115,52 @@ select:focus {
         line-height: 18px
     }
 }    </style>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-    
+    <?php include"layout/header.php"; ?> 
 </head>
 <div class="wrapper bg-white mt-sm-5">
-    <h4 class="pb-4 border-bottom">Edit Profile</h4>
+    <h4 class="pb-4 border-bottom">Kelola Profil</h4>
     <div class="py-2">
         <div class="row py-2">
             <div class="col-md-6"> <label for="firstname">Name</label> <input type="text" class="bg-light form-control" placeholder=""> </div>
-            <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname">Email</label> <input type="text" class="bg-light form-control" placeholder=""> </div>
+            <div class="col-md-6 pt-md-0 pt-3"> <label for="email">Email</label> <input type="text" class="bg-light form-control" placeholder=""> </div>
         </div>
         <div class="row py-2">
             <div class="col-md-6"> <label for="Password">Password</label> <input type="text" class="bg-light form-control" placeholder=""> </div>
-            <div class="col-md-6 pt-md-0 pt-3"> <label for="phone">Nomor Telefon</label> <input type="tel" class="bg-light form-control" placeholder=""> </div>
+            <!DOCTYPE html>
+<html>
+<head>
+<style>
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+</style>
+</head>
+<body>
+</html>
+
+            <div class="col-md-6 pt-md-0 pt-3"> <label for="phone">Nomor Telefon</label> <input type="number" class="bg-light form-control" placeholder=""> </div>
         </div>
-        <div class="py-3 pb-4 border-bottom"> <button class="btn btn-primary mr-3">Save Changes</button> <button class="btn border button">Cancel</button> </div>
+        <div class="py-3 pb-4 border-bottom"> <button class="btn btn-primary mr-3" data-bs-toggle="modal" data-bs-target="#modalkonfirm">Terapkan</button> <button class="btn border button">Cancel</button> </div>
             </div><a href="dashboard.php">Kembali</a>
         </div>
     </div>
+</div>
+
+<div id="modalkonfirm" class="modal fade" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+            <div class="modal-header">
+                <h1>Konfirmasi Password</h1>
+            </div>
+            <div class="modal-body">
+            <input class="form-control" required type="password" name="pass" id=""/>
+			</br>
+            <button class="btn btn-primary mr-3" data-bs-toggle="modal" data-bs-target="#modalkonfirm">Simpan</button> 
+        </div>
+            <div class="modal-footer">
+            </div>
+		</div>
+	</div>
 </div>
