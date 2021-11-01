@@ -1,5 +1,18 @@
 <?php
 include "loader.html";
+require 'backend/conn.php';
+require 'backend/usersession.php';
+$Foto_ID = $_SESSION["uid"];
+$Foto_01 = "select * from Image where user_id = '$Foto_ID'";
+$Foto_02 = mysqli_query($servConnQuery, $Foto_01);
+$Foto_03 = mysqli_fetch_assoc($Foto_02);
+$Foto_04 = mysqli_num_rows($Foto_02);
+if($Foto_04 == null){
+$Foto_05 = "default-user.jpg";
+} else{
+$Foto_05 = $Foto_03['filename'];
+}
+
 ?>
 <style>	
 .sidebar > a:hover,.sidebar > a:focus{
@@ -8,6 +21,12 @@ include "loader.html";
 .currentPage{
 	background-color: #fff!important;
 	color: #1064ae!important;
+}
+.profile{
+	object-fit: cover;
+	width:50px;
+	height:50px;
+	border-radius:50%;
 }
 </style>
 <div class="open-menu" id="openMenu">
@@ -21,7 +40,7 @@ include "loader.html";
 	<div class="list-group-item list-group-item-action flex-column align-items-start color-secondary">
 		<div class="row">
 			<div class="col-sm col-4 align-self-center">
-				<div class="border border-dark rounded-circle m-0" style="width:40px;height:40px;"></div>
+  				 <?php echo "<img src='Photo/$Foto_05' class='profile'>" ?>
 			</div>
 			<div class="col-sm col-6 text-center align-self-center">
 				<a href ="editprofile.php">
