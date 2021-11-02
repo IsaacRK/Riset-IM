@@ -23,8 +23,15 @@ require 'backend/usersession.php';
 <div class="container mr-0">
 
 	<div class="p-1">
-		<div class="mb-3">
-			<h1>Halaman Beranda</h1>
+		<div class="row">
+			<div class="col">
+				<h1>Halaman Beranda</h1>
+			</div>
+			<div class="col mt-1 p-1 d-flex justify-content-end">
+			<div class="d-grid gap-2 w-100">
+				<a href="backend/report.php" class="btn btn-primary">Report</a>
+			</div>
+			</div>
 		</div>
 	</div>
 

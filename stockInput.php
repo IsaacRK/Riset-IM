@@ -220,7 +220,7 @@ $(document).ready(function(){
 	var barData = {
 		labels: ["Elektronik", "Peralatan", "Lain-lain"],
 		datasets: [{
-			label: 'aaaaaaaaaa',
+			label: '',
 			backgroundColor: warna,
 			data: nilaiData,
 		}],

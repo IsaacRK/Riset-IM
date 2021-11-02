@@ -99,7 +99,6 @@ if(isset($_GET["itemName"])){
 		$(function(){
 			$("#itemData").on("submit", function(e){
 				var dataString = $(this).serialize();
-				alert(dataString);
 				
 				$.ajax({
 					type: "POST",

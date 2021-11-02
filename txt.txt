@@ -20,6 +20,8 @@
 		
 		-history
 		-tanggal | nama barang | operator | jumlah barang | untuk apa
+		
+		-pisah barang sesuai dengan lantai
 	
 //fix   |---
 -input ambil barang  melebihi yang ada di database, value menjadi minus
