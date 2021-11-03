@@ -5,23 +5,15 @@
 
 -button pilih kamera di stock output barcode scanner
 
--barang keluar
-	-pengecekan ketika pengambilan barang lebih dari yang ada dalam penyimpanan
-	-pengecekan pada checkout keranjang ketika barang yang di ambil melebihi barang yang ada
-		-ketika barang melebihi jumlah yang ada, data tidak di simpan
-
--buat tombol report
+-[done] buat tombol report
 	-bisa pilih report dari 1 minggu / 1 bulan terakhir
-		-report berupa pdf atau exel
+		-[done] report berupa pdf atau exel
 	-hapus report dari 1 bulan terakhir ketika bulan baru
-	-layout tabel
-		-barang
-		-nama barang | Jumlah | kode barang
-		
-		-history
-		-tanggal | nama barang | operator | jumlah barang | untuk apa
-		
-		-pisah barang sesuai dengan lantai
+
+-lantai 1 rak 1 tidak ada kolom & rak
+-carousel login jadi hitam
+-[done] dropdown
+-[done] profil
 	
 //fix   |---
 -input ambil barang  melebihi yang ada di database, value menjadi minus

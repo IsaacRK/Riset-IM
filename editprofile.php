@@ -1,6 +1,15 @@
+<?php
+	require'backend/conn.php';
+	require'backend/usersession.php';
+?>
+<!DOCTYPE html>
 <head>
-    <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+<style>
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 * {
     margin: 0;
@@ -114,53 +123,81 @@ select:focus {
     #deactivate {
         line-height: 18px
     }
-}    </style>
-    <?php include"layout/header.php"; ?> 
+}
+</style>
+    <?php
+	include"layout/header.php";
+	?> 
 </head>
+<body>
+<?php
+	if(isset($_POST['submit'])){
+		$user = $_POST['username'];
+		$pass = $_POST['pass'];
+		$email = $_POST['email'];
+		$telp = $_POST['telp'];
+		$confPass = $_POST['pass_confirmation'];
+		
+		$fetchSql = "select * from pengguna where id=$userId";
+		$fetchRun = mysqli_query($servConnQuery, $fetchSql);
+		$fetch = mysqli_fetch_assoc($fetchRun);
+		
+		if($user==null){
+			$user = $fetch['user'];
+		}
+		if($pass==null){
+			$pass = $fetch['pass'];
+		}
+		if($email==null){
+			$email = $fetch['email'];
+		}
+		if($telp==null){
+			$email = $fetch['telp'];
+		}
+		
+		$userPass = $fetch['pass'];
+		if($userPass == $confPass){
+			echo $sql = "update pengguna set user='$user', pass='$pass', email='$email', telp='$telp' where id=".$userId;
+			mysqli_query($servConnQuery, $sql);
+		}else{
+			echo"
+				<script>
+					alert('Konfirmasi Password salah!');
+				</script>
+			";
+		}
+		
+	}
+?>
+
+<form method="post" action="">
 <div class="wrapper bg-white mt-sm-5">
     <h4 class="pb-4 border-bottom">Kelola Profil</h4>
     <div class="py-2">
         <div class="row py-2">
-            <div class="col-md-6"> <label for="firstname">Name</label> <input type="text" class="bg-light form-control" placeholder=""> </div>
-            <div class="col-md-6 pt-md-0 pt-3"> <label for="email">Email</label> <input type="text" class="bg-light form-control" placeholder=""> </div>
+            <div class="col-md-6"> <label for="firstname">Name</label> <input type="text" class="bg-light form-control" name="username"> </div>
+            <div class="col-md-6 pt-md-0 pt-3"> <label for="email">Email</label> <input type="email" class="bg-light form-control" name="email"> </div>
         </div>
         <div class="row py-2">
-            <div class="col-md-6"> <label for="Password">Password</label> <input type="text" class="bg-light form-control" placeholder=""> </div>
-            <!DOCTYPE html>
-<html>
-<head>
-<style>
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-</style>
-</head>
-<body>
-</html>
-
-            <div class="col-md-6 pt-md-0 pt-3"> <label for="phone">Nomor Telefon</label> <input type="number" class="bg-light form-control" placeholder=""> </div>
+            <div class="col-md-6"> <label for="Password">Password</label> <input type="password" class="bg-light form-control" name="pass"> </div>
+            <div class="col-md-6 pt-md-0 pt-3"> <label for="phone">Nomor Telefon</label> <input type="number" class="bg-light form-control" name="telp"> </div>
         </div>
-        <div class="py-3 pb-4 border-bottom"> <button class="btn btn-primary mr-3" data-bs-toggle="modal" data-bs-target="#modalkonfirm">Terapkan</button> <button class="btn border button">Cancel</button> </div>
-            </div><a href="dashboard.php">Kembali</a>
-        </div>
-    </div>
-</div>
-
-<div id="modalkonfirm" class="modal fade" tabindex="-1">
-	<div class="modal-dialog">
-		<div class="modal-content">
-            <div class="modal-header">
-                <h1>Konfirmasi Password</h1>
-            </div>
-            <div class="modal-body">
-            <input class="form-control" required type="password" name="pass" id=""/>
-			</br>
-            <button class="btn btn-primary mr-3" data-bs-toggle="modal" data-bs-target="#modalkonfirm">Simpan</button> 
-        </div>
-            <div class="modal-footer">
-            </div>
+		<div class="row py-2">
+			<div class="col-md-6"> <label for="pass_confirmation">Konfirmasi Password</label> 
+			<input class="bg-light form-control" required type="password" name="pass_confirmation" id=""/>
+			</div>
+		</div>
+		<div class="row py-2">
+			<div class="col-md-6">
+				<input type="submit" class="btn btn-primary" name="submit" value="Simpan">
+			</div>
+			<div class="col-md-6">
+				<a href="dashboard.php" class="btn btn-primary">Kembali</a>
+			</div>
 		</div>
 	</div>
 </div>
+</form>
+
+</body>
+</html>

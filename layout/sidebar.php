@@ -37,19 +37,18 @@ $Foto_05 = $Foto_03['filename'];
 
 <div class="sidebar" id="sidebar">
 	<div id="demo"></div>
-	<div class="list-group-item list-group-item-action flex-column align-items-start color-secondary">
+	<div class="list-group-item list-group-item-action flex-column align-items-start color-secondary py-0">
 		<div class="row">
 			<div class="col-sm col-4 align-self-center">
   				 <?php echo "<img src='Photo/$Foto_05' class='profile'>" ?>
 			</div>
 			<div class="col-sm col-6 text-center align-self-center">
 				<a href ="editprofile.php">
-
-				<p class="font-weight-bold text-primary text-left" style="margin-bottom:0!important;"><?php echo $username; ?></p>			
-				<p class="text-primary" style="margin-bottom:0!important"><small><?php echo $userlvl; ?></small></p>	
-				</div>
-</a>
+					<p class="font-weight-bold text-primary text-left" style="margin-bottom:0!important;"><?php echo $username; ?></p>			
+					<p class="text-primary" style="margin-bottom:0!important"><small><?php echo $userlvl; ?></small></p>
+				</a>
 			</div>
+		</div>
 	</div>
 	</br>
 	<a href="dashboard.php" id="beranda" class="list-group-item-action ripple text-light active" aria-current="true">Halaman Beranda</a>
