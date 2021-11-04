@@ -35,10 +35,10 @@ require 'backend/loginhandler.php';
 <div class="container mt-2">
 	<div class="row">
 		<div class="col-sm">
-			<div class="background-color:white" style="height:69%">
+			<div class="background-color:white" style="height:75%">
 			<div class="card-body">
 				<div class="d-flex justify-content-center">
-				<h4 class="card-title font-weight-bold" style="color:#1064AE;">Panel Informasi</h4>
+
 				</div>
 								<div class="container" style ="width : 500px;height : 500px; ">
 					<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -84,7 +84,7 @@ require 'backend/loginhandler.php';
 		</div>
 		
 		<div class="col-sm">
-			<div class="card text-primary">
+			<div class="card text-primary" style="width : 500px;height : 345px;">
 			<div class="card-body">
 			
 			<form action="" method="post">
