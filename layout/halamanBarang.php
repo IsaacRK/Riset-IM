@@ -132,26 +132,25 @@ if(isset($_GET['rak'])){
 					</thead>
 					<tbody>
 						<?php
-							$stockQuery = "
-							select stock.* , penyimpanan.*
-							from stock
-							join penyimpanan
-							on stock.storage_id = penyimpanan.storage_id
-							where penyimpanan.rak = $rak
-							order by stock.stock_id desc";
-							$stockRun = mysqli_query($servConnQuery, $stockQuery);
-							
-							if(mysqli_num_rows($stockRun)>0){
-								while($stockFetch = mysqli_fetch_assoc($stockRun)){
-									echo"
-										<tr>
-											<td>".$stockFetch['stock_name']."</td>
-											<td>".$stockFetch['amount']."</td>
-										</tr>
-									";
-								}
-							}
-						?>
+						$stockQuery = "
+						select stock.* , penyimpanan.*
+						from stock
+						join penyimpanan
+						on stock.storage_id = penyimpanan.storage_id
+						where penyimpanan.rak = $rak
+						order by stock.stock_id desc";
+						$stockRun = mysqli_query($servConnQuery, $stockQuery);
+						$arr = array();
+						
+						while($stockFetch = mysqli_fetch_assoc($stockRun)){
+							$arr[] = $stockFetch;
+						}
+						foreach($arr as $data){ ?>
+						<tr>
+							<td><?php echo $data['stock_name'] ?></td>
+							<td><?php echo $data['amount'] ?></td>
+						</tr>
+						<?php } ?>
 					</tbody>
 				</table>
 				</div>

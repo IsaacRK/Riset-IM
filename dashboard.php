@@ -101,47 +101,36 @@ require 'backend/usersession.php';
 					</thead>
 					<tbody>
 					<?php
-						$activityFetchQuery	="SELECT * FROM `history` WHERE date > CURRENT_DATE - INTERVAL 7 day order by date(date) desc;";
-						$activityFetchRun 	= mysqli_query($servConnQuery, $activityFetchQuery);
-						if(mysqli_num_rows($activityFetchRun) > 0){
-							while($activityFetch = mysqli_fetch_assoc($activityFetchRun)){
-								$sid 		= $activityFetch['stock_id'];
-								$amount		= $activityFetch['amount'];
-								$userId		= $activityFetch['user_id'];
-								$input		= $activityFetch['input'];
-								$output		= $activityFetch['output'];
-								$stockQuery = "select * from stock where stock_id = '$sid' order by stock_id desc";
-								$stockRun 	= mysqli_query($servConnQuery, $stockQuery);
-								$stockFetch = mysqli_fetch_assoc($stockRun);
-								$status = '';
-								if($input == 1){
-									$status = "Input";
-								}elseif($output == 1){
-									$status = "Output";
-								}else{
-									$status = "db err";
-								}
-								
-								$userFetchQuery = "select * from pengguna where id = '$userId'";
-								$userFetchRun 	= mysqli_query($servConnQuery, $userFetchQuery);
-								$userFetch 		= mysqli_fetch_assoc($userFetchRun);
-
-								echo"
-									<tr>
-										<td class='fw-bold'>".$stockFetch['stock_name']."</td>
-										<td>".$status."</td>
-										<td>".$activityFetch['date']."</td>
-										<td>".$userFetch['user']."</td>
-										<td>".$activityFetch['amount']."</td>
-									</tr>
-								";
-							}
-						}
+					$queryHistory	="
+					SELECT history.* , pengguna.user, stock.stock_name
+					FROM history
+					JOIN pengguna ON history.user_id = pengguna.id
+					JOIN stock ON history.stock_id = stock.stock_id
+					WHERE date > CURRENT_DATE - INTERVAL 7 day order by date(date) desc;";
+					$historyRun = mysqli_query($servConnQuery, $queryHistory);
+					$arr = array();
+					while($row = mysqli_fetch_assoc($historyRun)){
+						$arr[] = $row;
+					}
+					function status($a, $b){
+						if($a==1)		{return 'Input';}
+						elseif($b==1)	{return 'Output';}
+						else			{return 'DB ERR';}
+					}
+					foreach($arr as $data){ 
 					?>
+						<tr>
+							<td class='fw-bold'><?php echo $data['stock_name']; ?></td>
+							<td><?php echo status($data['input'],$data['output']); ?></td>
+							<td><?php echo $data['date'];?></td>
+							<td><?php echo $data['user'];?></td>
+							<td><?php echo $data['amount'];?></td>
+						</tr>
+					<?php } ?>
 					</tbody>
 				</table>
 				<?php
-					if(mysqli_num_rows($activityFetchRun)== 0){
+					if(mysqli_num_rows($historyRun)== 0){
 						echo'
 							<div class="w-100 color-tertiary p-2 text-center fw-bold">Belum ada barang yang di ambil</div>
 						';
