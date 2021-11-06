@@ -11,9 +11,6 @@
 	-hapus report dari 1 bulan terakhir ketika bulan baru
 
 -lantai 1 rak 1 tidak ada kolom & rak
--carousel login jadi hitam
--[done] dropdown
--[done] profil
 	
 //fix   |---
 -mapping barang menjadi lebih akurat pada database

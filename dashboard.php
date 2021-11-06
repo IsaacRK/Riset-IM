@@ -27,7 +27,7 @@ require 'backend/usersession.php';
 			<div class="col">
 				<h1>Halaman Beranda</h1>
 			</div>
-			<div class="col mt-1 p-1 d-flex justify-content-end">
+			<div class="col-3 mt-1 p-1 d-flex justify-content-end">
 			<div class="d-grid gap-2 w-100">
 				<a href="backend/report.php" class="btn btn-primary">Report</a>
 			</div>
@@ -163,7 +163,12 @@ require 'backend/usersession.php';
 <script>
 	$(document).ready(function(){
 		$("#divChart").load('layout/a.php');
-	})
+	});
+	
+	
+	$(document).ready(function(){
+		$("#divBarang").load('layout/halamanBarang.php?rak=1');
+	});
 	
 	$(function(){
 		$("#searchChart").on("submit", function(e){
