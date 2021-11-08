@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
 		------------------------
 		 
 		Please click this link to activate your account:
-		http://www.yourwebsite.com/backend/verify.php?email='.$email.'&hash='.$hash.'';
+		inventory.cypiral.org/backend/verify.php?email='.$email.'&hash='.$hash.'';
 		$headers = 'From:noreply@yourwebsite.com' . "\r\n";
 		mail($to, $subject, $message, $headers);*/
 
