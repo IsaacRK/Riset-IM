@@ -3,11 +3,11 @@
 if(isset($_POST['submit'])){
 	$user = $_POST['user'];
 	$pass = $_POST['pass'];
-	
-	
+	$email = $_POST['email'];
+	$hash = md5( rand(0,1000) );
 	$query = "
-	insert into pengguna (id, user, pass)
-	values (default,'".$user."','".$pass."');
+	insert into pengguna (id, user, pass) //, email, hash)
+	values (default,'".$user."','".$pass."'); //,'".$email."','".$hash."');
 	";
 	
 	$run = mysqli_query($servConnQuery, $query);
