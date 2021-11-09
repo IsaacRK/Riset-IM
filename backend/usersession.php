@@ -7,6 +7,10 @@ if($_SESSION['uid'] != null){
 	$username 		= $userData['user'];
 	$userId 		= $userData['id'];
 	$userlvl 		= $userData['tingkat'];
+	/*$userAC= $userData['active'];
+	if ($userAC == '0'){
+		header('location:Verifyno.php');
+	}else{}*/
 }else{
 	header('location:index.html');
 }
