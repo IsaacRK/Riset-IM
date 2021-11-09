@@ -2,7 +2,9 @@
 
 require 'backend/conn.php';
 require 'backend/usersession.php';
-
+/*if ($userAC == '0'){
+	header('location:Verifyno.php');
+}else{}*/
 ?>
 <!DOCTYPE html>
 <html>
