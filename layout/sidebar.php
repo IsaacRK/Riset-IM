@@ -51,20 +51,20 @@ $Foto_05 = $Foto_03['filename'];
 		</div>
 	</div>
 	</br>
-	<a href="dashboard.php" id="beranda" class="list-group-item-action ripple text-light active" aria-current="true">Halaman Beranda</a>
+	<a href="dashboard.php" id="beranda" class="list-group-item-action ripple text-light active" aria-current="true">Beranda</a>
 <?php
 	if($userlvl != 'supervisor'){
-	echo '<a href="stockinput.php" id="masuk" class="list-group-item-action ripple text-light" aria-current="true">Barang Masuk</a>';
+	echo '<a href="stockinput.php" id="masuk" class="list-group-item-action ripple text-light" aria-current="true">Stok Masuk</a>';
 	}else{}
 	if($userlvl != 'supervisor'){
-	echo '<a href="stockoutput.php" id="keluar" class="list-group-item-action ripple text-light" aria-current="true">Barang Keluar</a>';
+	echo '<a href="stockoutput.php" id="keluar" class="list-group-item-action ripple text-light" aria-current="true">Stok Keluar</a>';
 	}else{}
 	if($userlvl != 'staff' || 'operator'){
 	echo '<a href="" class="list-group-item-action ripple text-light" aria-current="true">Rencana Produksi</a>';
 	}else{}
 ?>
 	<a href="" class="list-group-item-action ripple text-light" aria-current="true">Pengaturan</a>
-   	<a href="logout.php" class="list-group-item-action ripple text-light" aria-current="true">Logout</a>
+   	<a href="logout.php" class="list-group-item-action ripple text-light" aria-current="true">Keluar</a>
 </div>
 
 <script>
