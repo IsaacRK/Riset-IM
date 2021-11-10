@@ -6,8 +6,8 @@ if(isset($_POST['submit'])){
 	//$email = $_POST['email'];
 	//$hash = md5( rand(0,1000) );
 	$query = "
-	insert into pengguna (id, user, pass)
-	values (default,'".$user."','".$pass."');"; //,'".$email."','".$hash."');
+	insert into pengguna (id, user, pass, email, hash)
+	values (default,'".$user."','".$pass."','".$email."','".$hash."');
 	
 	$run = mysqli_query($servConnQuery, $query);
 	if($run){
