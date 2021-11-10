@@ -54,7 +54,7 @@ if(isset($_GET['rak'])){
 									$string = '
 									<div class="col p-1 d-flex justify-content-center">
 									<div class="shadow-sm border rounded rak-box text-center '.$a.'">
-									'.$b.'
+									<div style="margin-top:25%;">'.$b.'</div>
 									</div>
 									</div>';
 									return ($string);
@@ -94,7 +94,7 @@ if(isset($_GET['rak'])){
 											$line++;
 										}
 									}
-									echo$top.'<div class="w-100"></div>'.$bot;
+									echo$top.'</div><div class="row">'.$bot;
 									
 									echo'
 										</div>

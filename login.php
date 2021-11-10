@@ -2,7 +2,7 @@
 require 'backend/conn.php';
 require 'backend/loginhandler.php';
 
-if($_SESSION['uid']!=null){
+if(@$_SESSION['uid']!=null){
 	header('location:dashboard.php');
 }
 ?>

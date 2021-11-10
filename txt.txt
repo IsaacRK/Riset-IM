@@ -11,12 +11,18 @@
 	-hapus report dari 1 bulan terakhir ketika bulan baru
 
 -lantai 1 rak 1 tidak ada kolom & rak
-	
+-buat lantai ground
+
+-buat halaman pengaturan tempat penyimpanan
+	-membuat form untuk penyimpanan barang dinamis mengikuti perubahan dari database/pengaturan penyimpanan
+
 //fix   |---
 -mapping barang menjadi lebih akurat pada database
 	-ketika mengambil barang dari suatu rak, dan rak masih memiliki barang, tidak membuat rak tersebut terlihat kosong pada display mapping.
 	
 -modal stock input pada mobile tidak bisa di tutup dan mengirim data ke basis data
+
+-crop foto porfil
 
 //planning   |---
 -halaman production planning/rencana produksi
