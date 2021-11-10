@@ -64,6 +64,7 @@ $Foto_05 = $Foto_03['filename'];
 	}else{}
 ?>
 	<a href="" class="list-group-item-action ripple text-light" aria-current="true">Pengaturan</a>
+   	<a href="logout.php" class="list-group-item-action ripple text-light" aria-current="true">Logout</a>
 </div>
 
 <script>
