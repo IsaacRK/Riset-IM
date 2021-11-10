@@ -66,20 +66,17 @@ require 'backend/signinhandler.php';
 			<div class="row mb-2">
 				<div class="col-sm">
 				<span>verivikasi chapta:</span>
+				<canvas id="captcha">captcha text</canvas>
+            <input id="textBox" type="text" name="text">
+            <div id="buttons">
+                <input id="submitButton" type="submit">
+                <button id="refreshButton" type="submit">Refresh</button>
+            </div>
+            <span id="output"></span>
 				</div>
 				<div class="col-sm"></div>
 				<div class="col-sm"></div>
 			</div>
-			
-			<div class="row">
-				<div class="col-sm">
-					<div class="card">
-					<div class="card-body">
-						<span>kode chapta</span>
-					</div>
-					</div>
-				</div>
-				<div class="col-sm">
 				<input class="btn btn-primary" type="submit" name="submit" value="register"/>
 				</div>
 			</div>
@@ -90,7 +87,7 @@ require 'backend/signinhandler.php';
 	</div>
 	</div>
 </div>
-
+<script src="script.js"></script>
 </body>
 
 </html>

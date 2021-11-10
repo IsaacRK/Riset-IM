@@ -11,7 +11,7 @@ if(isset($_POST['submit'])){
 	
 	$run = mysqli_query($servConnQuery, $query);
 	if($run){
-		/*$to = $email;
+		$to = $email;
 		$subject = 'Signup | Verification';
 		$message = '
 		Thanks for signing up!
@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
 		Please click this link to activate your account:
 		inventory.cypiral.org/backend/verify.php?email='.$email.'&hash='.$hash.'';
 		$headers = 'From:noreply@yourwebsite.com' . "\r\n";
-		mail($to, $subject, $message, $headers);*/
+		mail($to, $subject, $message, $headers);
 
 		echo "
 		<div style='width:100%;pading:5px;background-color:#23C552;color:white;text-align:center;font-weight:bold;'>
