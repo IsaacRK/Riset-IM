@@ -1,13 +1,22 @@
 <?php
 require '../backend/conn.php';
+$rak='1';
+$lan='1';
+
+if(isset($_GET['rak'])){
+	$rak = $_GET['rak'];
+}
+if(isset($_GET['lan'])){
+	$lan = $_GET['lan'];
+}
+
 $arr = array();
 
-for($i = 1; $i <= 5; $i++){
-	$sql = "select * from penyimpanan where lantai = $i";
-	$run = mysqli_query($servConnQuery, $sql);
-	while($row = mysqli_fetch_assoc($run)){
-		$arr[] = $row;
-	}
+$sql = "select * from penyimpanan where rak=$rak and lantai = $lan";
+$run = mysqli_query($servConnQuery, $sql);
+
+while($row = mysqli_fetch_assoc($run)){
+	$arr[] = $row;
 }
 
 ?>

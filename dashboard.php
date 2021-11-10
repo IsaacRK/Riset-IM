@@ -27,7 +27,7 @@ if ($userAC == '0'){
 	<div class="p-1">
 		<div class="row">
 			<div class="col">
-				<h1>Halaman Beranda</h1>
+				<h1>Beranda</h1>
 			</div>
 			<div class="col-3 mt-1 p-1 d-flex justify-content-end">
 			<div class="d-grid gap-2 w-100">
@@ -45,7 +45,7 @@ if ($userAC == '0'){
 				<form action="" id="formBarang">
 				<div class="row">
 					<div class="col-9">
-						<select name="rak" class="btn btn-light border dropdown-toggle m-2 form-control">
+						<select name="rak" class="btn btn-light border dropdown-toggle m-2 form-select">
 							<option value="1" class="dropdown-item">Rak 1</option>
 							<option value="2" class="dropdown-item">Rak 2</option>
 						</select>
