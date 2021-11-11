@@ -3,14 +3,29 @@
 if(isset($_POST['submit'])){
 	$user = $_POST['user'];
 	$pass = $_POST['pass'];
+	$confirm = $_POST['passcon'];
 	$email = $_POST['email'];
 	$hash = md5( rand(0,1000) );
+	$emailpattern = '/[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i';
 	$query = "
 	insert into pengguna (id, user, pass, email, hash)
-	values (default,'".$user."','".$pass."','".$email."','".$hash."')";
-	
-	$run = mysqli_query($servConnQuery, $query);
-	if($run){
+	values (default,'".$user."','".$pass."','".$email."','".$hash."');
+	";
+	if(!preg_match($emailpattern, $email)){
+		echo "
+		<div style='width:100%;pading:5px;background-color:red;color:white;text-align:center;font-weight:bold;'>
+			Email tidak valid
+		</div>
+		";
+	}else if(strpos($pass, $confirm) !== true){
+		echo "
+		<div style='width:100%;pading:5px;background-color:red;color:white;text-align:center;font-weight:bold;'>
+			Password dan Konfirmasi Password berbeda
+		</div>
+		";
+	}else{
+		$run = mysqli_query($servConnQuery, $query);
+		if($run){
 		$to = $email;
 		$subject = 'Signup | Verification';
 		$message = '
@@ -32,13 +47,14 @@ if(isset($_POST['submit'])){
 			Akun $user berhasil di buat
 		</div>
 		";
-		//header("Location:Verifyno.php");
-	}else{
+		header("Location:Verifyno.php");
+		}else{
 		echo "
 		<div style='width:100%;pading:5px;background-color:red;color:white;text-align:center;font-weight:bold;'>
 			error saat pembuatan akun
 		</div>
 		";
+		}
 	}
 }
 
