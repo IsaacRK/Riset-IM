@@ -38,7 +38,7 @@ if(isset($_POST['submit'])){
 		------------------------
 		 
 		Please click this link to activate your account:
-		inventory.cypiral.org/backend/verify.php?email='.$email.'&hash='.$hash.'';
+		http://inventory.cypiral.org/backend/verify.php?email='.$email.'&hash='.$hash.'';
 		$headers = 'From:noreply@yourwebsite.com' . "\r\n";
 		mail($to, $subject, $message, $headers);
 
