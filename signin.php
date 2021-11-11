@@ -42,11 +42,9 @@ require 'backend/signinhandler.php';
 				<div class="col-sm">
 				<span class="">Tulis ulang Password:</span>
 				</br>
-				<input class="" style="" required type="password" name="pass" id=""/>
+				<input class="" style="" required type="password" name="passcon" id=""/>
 				</div>
-				<div class="col-sm">
-				<span>terdiri dari huruf dan angka</span>
-				</div>
+				<div class="col-sm"></div>
 			</div>
 			
 			<div class="row mb-2">
