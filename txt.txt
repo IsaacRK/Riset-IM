@@ -11,10 +11,13 @@
 	-hapus report dari 1 bulan terakhir ketika bulan baru
 
 -lantai 1 rak 1 tidak ada kolom & rak
--buat lantai ground
+-buat rak ground
 
 -buat halaman pengaturan tempat penyimpanan
 	-membuat form untuk penyimpanan barang dinamis mengikuti perubahan dari database/pengaturan penyimpanan
+	- input barang ground
+	
+-crop gambar
 
 //fix   |---
 -mapping barang menjadi lebih akurat pada database

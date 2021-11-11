@@ -77,7 +77,7 @@ if(isset($_GET['rak'])){
 									$line=1;
 									
 									echo'<div class="row">';
-									$sql1 = "select * from penyimpanan where lantai='$i'";
+									$sql1 = "select * from penyimpanan where lantai='$i' and rak='$rak' ORDER BY kolom ASC, baris ASC";
 									$run1 = mysqli_query($servConnQuery, $sql1);
 									while($row1 = mysqli_fetch_assoc($run1)){
 										if($row1['baris']==1){

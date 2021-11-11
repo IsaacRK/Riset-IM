@@ -10,6 +10,19 @@ require 'backend/usersession.php';
 <head>
 	<title>Profile</title>
 	<?php include"layout/header.php"?>	
+	<script>
+		function previewFile(input){
+			var file = $("input[type=file]").get(0).files[0];
+			
+			if(file){
+				var reader = new FileReader();
+				reader.onload = function(){
+					$("#previewImg").attr("src", reader.result);
+				}
+				reader.readAsDataURL(file);
+			}
+		}
+	</script>
 </head>
 
 <body>
@@ -27,9 +40,12 @@ require 'backend/usersession.php';
   <div class="row mb-2 ml-2">
 		<div class="col-7">
     <form action="backend/upload.php" method="post" enctype="multipart/form-data">
-      Select image to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
+		<div class="mb-3">
+			<label for="fileToUpload" class="forl-label">Select image to upload:</label>
+			<input class="form-control" type="file" name="fileToUpload" id="fileToUpload" onchange="previewFile(this);">
+			<img id="previewImg" alt="placeholder"></img>
+			<input class="btn btn-primary" type="submit" value="Upload Image" name="submit">
+		</div>
     </form>
     </div>
   </div>
