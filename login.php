@@ -97,8 +97,8 @@ if(@$_SESSION['uid']!=null){
 				</br>
 				<input class="form-control" required type="password" name="pass" id=""/>
 				</br>
-				<div class="col-6 mx-auto">
-					<input class="btn btn-primary btn-block" type="submit" name="submit" value="Login"/>
+				<div class="col-6 mx-auto d-flex justify-content-center">
+					<button class="btn btn-primary btn-block" type="submit" name="submit" value="Login">Login</button>
 				</div>
 				</br>
 				<span class="d-flex justify-content-center">Belum punya akun? <a href="signin.php">Register</a></span>
