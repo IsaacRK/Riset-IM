@@ -56,7 +56,7 @@ require 'backend/signinhandler.php';
 				<div class="col-sm">
 				<span class="">nomor telepon:</span>
 				</br>
-				<input class="" style="" required type="number" name="notelp" id=""/>
+				<input class="" style="" name="notelp" id="" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input>
 				</div>
 				<div class="col-sm"></div>
 			</div>

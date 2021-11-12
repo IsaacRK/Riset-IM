@@ -58,7 +58,7 @@ $l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
 <html>
 
 <head>
-	<title>Stock Input</title>
+	<title>Barang Masuk</title>
 	<?php include"layout/header.php"; ?>
 	
 </head>

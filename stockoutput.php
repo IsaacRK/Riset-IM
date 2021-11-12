@@ -103,7 +103,7 @@ if(isset($_GET['barcode'])){
 				</div>
 			</div>
 			<div class="col-3 d-grid">
-				<input class="btn btn-primary" type="submit" name="search" value="Search"/>
+				<input class="btn btn-primary" type="submit" name="search" value="Cari"/>
 			</div>
 			</div>
 		</form>
