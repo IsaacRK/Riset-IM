@@ -69,6 +69,11 @@ require 'backend/signinhandler.php';
          </div>
         </div>
         
+        <div class="text-center">
+	 Sudah punya akun? <a href="login.php">Login</a>
+	</div>
+
+
      </div>
 
     </div>
