@@ -11,80 +11,72 @@ require 'backend/signinhandler.php';
 </head>
 
 <body>
-<div class="d-flex justify-content-center">
-	<div class="card" style="width: 70%; margin: 50px">
-	<div class="card-body text-primary">	
+<form action="" method="post">
+ <div class="container mt-5 d-flex justify-content-center">
+ <div class="card border border-secondary" style="width:50%">
+  <div class="card-body">
 
-		<form action="" method="post">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm d-flex justify-content-center">
-				<h4 class="">Registrasi</h4>
-				</div>
-			</div>
-			
-			<div class="row mb-2">
-				<div class="col-sm">
-				<span class="">Username:</span>
-				</br>
-				<input class="" style="" required type="text" name="user" id=""/>
-				</div>
-				<div class="col-sm"></div>
-				<div class="col-sm"></div>
-			</div>
+    <div class="row card border-0 text-center">
+     <div class="col mb-2">
+			<h2 class="text-primary">Registrasi</h2>
+     </div>
+    </div>
 
-			<div class="row mb-2">
-				<div class="col-sm">
-				<span class="">Password:</span>
-				</br>
-				<input class="" style="" required type="password" name="pass" id=""/>
-				</div>
-				<div class="col-sm">
-				<span class="">Tulis ulang Password:</span>
-				</br>
-				<input class="" style="" required type="password" name="passcon" id=""/>
-				</div>
-				<div class="col-sm"></div>
-			</div>
-			
-			<div class="row mb-2">
-				<div class="col-sm">
-				<span class="">email:</span>
-				</br>
-				<input class="" style="" required type="text" name="email" id=""/>
-				</div>
-				<div class="col-sm">
-				<span class="">nomor telepon:</span>
-				</br>
-				<input class="" style="" name="notelp" id="" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input>
-				</div>
-				<div class="col-sm"></div>
-			</div>
-			
-			<div class="row mb-2">
-				<div class="col-sm">
-				<span>verivikasi chapta:</span>
-				<canvas id="captcha">captcha text</canvas>
-            <input id="textBox" type="text" name="text">
-            <div id="buttons">
-                <input id="submitButton" type="submit">
-                <button id="refreshButton" type="submit">Refresh</button>
-            </div>
-            <span id="output"></span>
-				</div>
-				<div class="col-sm"></div>
-				<div class="col-sm"></div>
-			</div>
-				<input class="btn btn-primary" type="submit" name="submit" value="register"/>
-				</div>
-			</div>
-		</div>
-		</form>
+    <div class="row border-0">
+     <div class="col">
 
-	</br>
-	</div>
-	</div>
-</div>
+        <div class="row card border-0 text-center mb-3">
+         <div class="col-sm">
+          <span class="text-primary">Nama</span></br>
+          <input class="" style="" required type="text" name="user" id=""/>
+         </div>
+        </div>
+
+        <div class="row border-0 text-center mb-3">
+         <div class="col-sm">
+          <span class="text-primary">Kata Sandi</span></br>
+          <input class="" style="" required type="password" name="pass" id=""/>
+         </div>
+         <div class="col-sm">
+          <span class="text-primary">Konfirmasi Kata Sandi</span></br>
+          <input class="" style="" required type="password" name="passcon" id=""/>
+         </div>
+        </div>
+
+        <div class="row border-0 text-center mb-3">
+         <div class="col-sm">
+          <span class="text-primary">Email</span></br>
+          <input class="" style="" required type="text" name="email" id=""/>
+         </div>
+         <div class="col-sm">
+          <span class="text-primary">Nomor Telepon</span></br>
+          <input class="" style="" required type="number" name="notelp" id=""/>
+         </div>
+        </div>
+
+        <div class="row border-0 text-center mb-3">
+         <div class="col-sm">
+          <span class="text-primary">Verifikasi Captcha</span></br>
+          <canvas id="captcha" height="70">captcha text</canvas></br>
+          <input id="textBox" type="text" name="text"></br>
+          <button class="btn border border-secondary mt-1"id="refreshButton" type="submit">Refresh</button>
+         </div>
+        </div>
+
+        <div class="row card border-0 text-center mb-2">
+         <div class="col-sm mb-1">
+         <Button class="btn btn-primary" type="submit" name="submit" value="register">Daftar</button>
+         </div>
+        </div>
+        
+     </div>
+
+    </div>
+
+  </div>
+ </div>
+ </div>
+</form>
 <script src="script.js"></script>
 </body>
 
