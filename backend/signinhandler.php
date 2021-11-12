@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
 			Email tidak valid
 		</div>
 		";
-	}else if(strpos($pass, $confirm) !== true){
+	}else if($pass !== $confirm){
 		echo "
 		<div style='width:100%;pading:5px;background-color:red;color:white;text-align:center;font-weight:bold;'>
 			Password dan Konfirmasi Password berbeda
