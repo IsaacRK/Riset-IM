@@ -59,7 +59,8 @@ require 'backend/signinhandler.php';
           <span class="text-primary">Verifikasi Captcha</span></br>
           <canvas id="captcha" height="70">captcha text</canvas></br>
           <input id="textBox" type="text" name="text"></br>
-          <button class="btn border border-secondary mt-1"id="refreshButton" type="submit">Refresh</button>
+          <div class="btn border border-secondary mt-1" onclick='refreshBtn()'>Refresh</div>
+          <div class="btn border border-secondary mt-1" id="refreshButton">Refresh--</div>
          </div>
         </div>
 

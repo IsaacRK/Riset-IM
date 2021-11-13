@@ -31,8 +31,7 @@ if ($userAC == '0'){
 			</div>
 			<div class="col-3 mt-1 p-1 d-flex justify-content-end">
 			<div class="d-grid gap-2 w-100">
-				<a href="backend/report.php" class="btn btn-primary">Laporan</a>
->>>>>>> 912407bc78249a059005ab35b2e74842a9b3a963
+				<a href="backend/report.php" class="btn btn-primary">Unduh Laporan</a>
 			</div>
 			</div>
 		</div>
