@@ -87,7 +87,7 @@ if(@$_SESSION['uid']!=null){
 			<div class="card-body">
 			
 			<form action="" method="post">
-				<h4 class="card-title font-weight-bold">Selamat Datang di Basis Data Persediaan Alat</h4>
+				<h4 class="card-title font-weight-bold">Selamat Datang di Inventory Management</h4>
 
 				<span class="card-title">Username</span>
 				</br>
