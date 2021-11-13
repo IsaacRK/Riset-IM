@@ -9,20 +9,7 @@ require 'backend/usersession.php';
 <html>
 <head>
 	<title>Profile</title>
-	<?php include"layout/header.php"?>	
-	<script>
-		function previewFile(input){
-			var file = $("input[type=file]").get(0).files[0];
-			
-			if(file){
-				var reader = new FileReader();
-				reader.onload = function(){
-					$("#previewImg").attr("src", reader.result);
-				}
-				reader.readAsDataURL(file);
-			}
-		}
-	</script>
+	<?php include"layout/header.php"?>
 </head>
 
 <body>
@@ -74,49 +61,39 @@ echo '
 }
 else {
 	include "layout/sidebar.php";
- echo '
- <div class="row">
-<div class="col-2"></div>
- <div class="col-10">
-<form action="backend/upload.php" method="post" enctype="multipart/form-data">    
- <div class="container mt-5">
-  <div class="card border border-secondary">
-   <div class="card-body text-center">
-    <div class="row card border-0 mb-1">
-     <div class="col">
-      <div class="p-1">
-	 	<div class="mb-0">
-			<h1>Profile</h1>
-		</div>
-	  </div>
-     </div>
-    </div>
-    <div class="row card border-0 mb-1">
-     <div class="col">
-		 <div class="mb-3">
-			<label for="fileToUpload" class="forl-label">Select image to upload:</label>
-			<input class="form-control" type="file" name="fileToUpload" id="fileToUpload" onchange="previewFile(this);">
-		 </div>
-     </div>
-    </div>
-    <div class="row card border mb-1">
-     <div class="col">
-     <img id="previewImg" alt="placeholder"></img>
-     </div>
-    </div>
-    <div class="row card border-0 mt-3">
-     <div class="col">
-     <input class="btn btn-primary" type="submit" value="Upload Image" name="submit">
-     </div>
-   </div>
-   </div>
-  </div>
- </div>
-</form>
- </div>
-</div>
+ ?>
 
- ';
+<div class="content">
+<div class="container mr-0">
+
+	<div class="p-1">
+		<h1>Profil</h1>
+	</div>
+
+	<form action="backend/upload.php" method="post" enctype="multipart/form-data">
+		<div class="row card border-0 mb-1">
+			<div class="col">
+				<div class="mb-3">
+					<label for="fileToUpload" class="forl-label">Select image to upload:</label>
+					<input class="form-control" type="file" name="fileToUpload" id="fileToUpload" onchange="previewFile(this);">
+				</div>
+			</div>
+		</div>
+		<div class="row card border mb-1">
+			<div class="col">
+				<img id="previewImg" alt="placeholder"></img>
+			</div>
+		</div>
+		<div class="row card border-0 mt-3">
+			<div class="col">
+				<input class="btn btn-primary" type="submit" value="Upload Image" name="submit">
+			</div>
+		</div>
+	</form>
+
+</div>
+</div>
+ <?php
 }
 ?>
 <?php

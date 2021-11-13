@@ -14,10 +14,10 @@ require 'backend/usersession.php';
 			$kol = $_POST['kolom'];
 			$bar = $_POST['baris'];
 			
-			echo $sqlCheck = "select * from penyimpanan where rak=$rak and lantai=$lan and kolom=$kol and baris=$bar";
+			$sqlCheck = "select * from penyimpanan where rak=$rak and lantai=$lan and kolom=$kol and baris=$bar";
 			$runCheck = mysqli_query($servConnQuery, $sqlCheck);
 			if(mysqli_num_rows($runCheck)==null){
-				echo$sqlInput = "
+				$sqlInput = "
 					INSERT INTO penyimpanan (rak, lantai, kolom, baris)
 					VALUES ($rak, $lan, $kol, $bar);
 				";
@@ -96,7 +96,9 @@ require 'backend/usersession.php';
 	</div>
 	</form>
 	
+	<!--tabel rak start-->
 	<div id="divPenyimpanan"></div>
+	<!--tabel rak end---->
 
 </div>
 </div>
@@ -165,6 +167,27 @@ require 'backend/usersession.php';
   </div>
 </div>
 
+<div class="modal fade" id="modalHapus">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Apakah anda yakin ingin meghapus tempat penyimpanan ini?</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-footer">
+		<div class="row w-100">
+			<div class="col d-grid gap-2 w-100">
+				<button type="button" class="btn btn-danger fw-bold" data-bs-dismiss="modal">Hapus</button>
+			</div>
+			<div class="col d-grid gap-2 w-100">
+				<button type="button" class="btn btn-success fw-bold" data-bs-dismiss="modal">Batalkan</button>
+			</div>
+		</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <?php
 	include"layout/js.php";
 ?>
@@ -204,6 +227,12 @@ $(function(){
 		e.preventDefault();
 	});
 });
+
+function hapus(x){	
+	console.log(x);
+	$('#modalHapus').modal('show');
+}
+
 </script>
 </body>
 </html>

@@ -20,13 +20,14 @@ while($row = mysqli_fetch_assoc($run)){
 }
 
 ?>
-<table class="table table-striped">
+<table class="table table-sm table-striped">
 	<thead>
 	<tr>
 		<th>Rak</th>
 		<th>Lantai</th>
 		<th>Kolom</th>
 		<th>Baris</th>
+		<th>Hapus</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -37,6 +38,11 @@ while($row = mysqli_fetch_assoc($run)){
 			<td><?php echo $data['lantai']; ?></td>
 			<td><?php echo $data['kolom']; ?></td>
 			<td><?php echo $data['baris']; ?></td>
+			<td>
+				<div class="py-2">
+					<img src="img/icons/trash.svg" width="32" height="32" onclick="hapus(<?php echo $data['storage_id']; ?>)"/>
+				</div>
+			</td>
 		</tr>
 		<?php } ?>
 	</tbody>

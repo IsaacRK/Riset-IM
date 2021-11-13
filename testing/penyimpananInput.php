@@ -9,5 +9,5 @@
 </div>
 
 <script>
-	JsBarcode("#barcodeShow","1381001128");
+	JsBarcode("#barcodeShow","G4381001128");
 </script>
