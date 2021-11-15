@@ -43,7 +43,7 @@ $Foto_05 = $Foto_03['filename'];
   				 <?php echo "<a href='Profile.php'><img src='Photo/$Foto_05' class='profile'></a>" ?>
 			</div>
 			<div class="col-sm col-7 text-center align-self-center">
-				<a href ="editprofile.php">
+				<a href ="Profile.php">
 					<p class="font-weight-bold text-primary text-left" style="margin-bottom:0!important;"><?php echo $username; ?></p>			
 					<p class="text-primary" style="margin-bottom:0!important"><small><?php echo $userlvl; ?></small></p>
 				</a>
