@@ -37,7 +37,7 @@ echo '
     <div class="col">
      <div class="p-1">
 		<div class="mb-0">
-			<h1>Profile</h1>
+			<h1>Ikon Akun</h1>
 		</div>
 	 </div>
     </div>
@@ -141,7 +141,7 @@ else {
      <div class="col">
       <div class="p-1">
 	 	<div class="mb-0">
-			<h1>Profile</h1>
+			<h1>Ikon Akun</h1>
 		</div>
 	  </div>
      </div>
