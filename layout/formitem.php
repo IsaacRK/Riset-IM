@@ -23,9 +23,7 @@ if(isset($_GET["itemName"])){
 		}
 		
 		$str = '
-		<head>
-			<script src="../js/jquery3.6.0.min.js"></script>
-		</head>
+		
 		<form action="" id="itemData">
 			<input type="hidden" id="" name="itemName" value="'.$itemName.'">
 			<div class="input-group input-group mb-3">

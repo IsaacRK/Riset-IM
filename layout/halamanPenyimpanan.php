@@ -44,6 +44,11 @@ while($row = mysqli_fetch_assoc($run)){
 				</div>
 			</td>
 		</tr>
-		<?php } ?>
+		<?php 
+		}
+		if($arr==null){
+			echo'<td colspan="5" class="align-middle">Data Kosong</td>';	
+		}
+		?>
 	</tbody>
 </table>

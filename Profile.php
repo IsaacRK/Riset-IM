@@ -8,8 +8,32 @@ require 'backend/usersession.php';
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Profile</title>
-	<?php include"layout/header.php"?>
+	<title>Informasi Akun</title>
+	<?php include"layout/header.php"?>	
+	<script>
+		function previewFile(input){
+			var file = $("input[type=file]").get(0).files[0];
+			
+			if(file){
+				var reader = new FileReader();
+				reader.onload = function(){
+					$("#previewImg").attr("src", reader.result);
+				}
+				reader.readAsDataURL(file);
+			}
+		}
+	</script>
+	  <style>
+   .un{
+     width: 70%
+   }
+   @media screen and (max-width:800px) {
+        .un{
+          width: 80%;
+        }
+      }
+
+  </style>
 </head>
 
 <body>
@@ -24,7 +48,7 @@ echo '
     <div class="col">
      <div class="p-1">
 		<div class="mb-0">
-			<h1>Profile</h1>
+			<h1>Ikon Akun</h1>
 		</div>
 	 </div>
     </div>
@@ -61,39 +85,104 @@ echo '
 }
 else {
 	include "layout/sidebar.php";
- ?>
+ echo '
+<div class="row">
+<div class="col-2"></div>
+ <div class="col-10">
+ <div class="container d-flex justify-content-center">
+ <div class="card mt-5 border border-secondary un">
+  <div class="card-body">
 
-<div class="content">
-<div class="container mr-0">
+    <div class="row card border-0 text-center mb-2">
+     <div class="col mb-2">
+			<h2>Ganti Informasi Akun</h2>
+     </div>
+    </div>
 
-	<div class="p-1">
-		<h1>Profil</h1>
-	</div>
+    <div class="row border-0">
+     <div class="col">
+  <form action="backend/edit.php" method="post">
+        <div class="row justify-content-between border mb-2">
+         <div class="col mb-2">
+          <span class="">Nama : </span></br>
+          <input class=""  type="text" name="user" id=""/>
+         </div>
+         <div class="col d-flex justify-content-end">
+              <button class="btn btn-primary mb-3 mt-3" type="submit" name="submit" value="Ganti">Ganti Nama</button>
+         </div>
+        </div>
 
-	<form action="backend/upload.php" method="post" enctype="multipart/form-data">
-		<div class="row card border-0 mb-1">
-			<div class="col">
-				<div class="mb-3">
-					<label for="fileToUpload" class="forl-label">Select image to upload:</label>
-					<input class="form-control" type="file" name="fileToUpload" id="fileToUpload" onchange="previewFile(this);">
-				</div>
-			</div>
+        <div class="row border mb-2">
+         <div class="col-sm mb-2">
+          <span class="">Kata Sandi : </span></br>
+          <input class="" style="" type="password" name="pass" id=""/>
+         </div>
+         <div class="col-sm mb-2">
+          <span class="">Konfirmasi Kata Sandi : </span></br>
+          <input class="" style="" type="password" name="passcon" id=""/>
+         </div>
+         <div class="col d-flex justify-content-end">
+              <button class="btn btn-primary mb-3 mt-3" type="submit" name="submit" value="register">Ganti Kata Sandi</button>
+         </div>
+         </div>
+
+        <div class="row border mb-2">
+         <div class="col-sm mb-2">
+          <span class="">Email :</span></br>
+          <input class="" style="" type="text" name="email" id=""/>
+         </div>
+           <div class="col d-flex justify-content-end">
+              <button class="btn btn-primary mb-3 mt-3" type="submit" name="submit" value="register">Ganti Email</button>
+           </div>
+        </div>
+
+  </form>
+     </div>
+
+    </div>
+
+  </div>
+ </div>
+ </div>
+<form action="backend/upload.php" method="post" enctype="multipart/form-data">    
+ <div class="container mt-5">
+  <div class="card border border-secondary">
+   <div class="card-body text-center">
+    <div class="row card border-0 mb-1">
+     <div class="col">
+      <div class="p-1">
+	 	<div class="mb-0">
+			<h1>Ikon Akun</h1>
 		</div>
-		<div class="row card border mb-1">
-			<div class="col">
-				<img id="previewImg" alt="placeholder"></img>
-			</div>
-		</div>
-		<div class="row card border-0 mt-3">
-			<div class="col">
-				<input class="btn btn-primary" type="submit" value="Upload Image" name="submit">
-			</div>
-		</div>
-	</form>
-
+	  </div>
+     </div>
+    </div>
+    <div class="row card border-0 mb-1">
+     <div class="col">
+		 <div class="mb-3">
+			<label for="fileToUpload" class="forl-label">Select image to upload:</label>
+			<input class="form-control" type="file" name="fileToUpload" id="fileToUpload" onchange="previewFile(this);">
+		 </div>
+     </div>
+    </div>
+    <div class="row card border mb-1">
+     <div class="col">
+     <img id="previewImg" alt="placeholder"></img>
+     </div>
+    </div>
+    <div class="row card border-0 mt-3">
+     <div class="col">
+     <input class="btn btn-primary" type="submit" value="Upload Image" name="submit">
+     </div>
+   </div>
+   </div>
+  </div>
+ </div>
+</form>
+ </div>
 </div>
-</div>
- <?php
+
+ ';
 }
 ?>
 <?php
