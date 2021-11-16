@@ -1,5 +1,18 @@
 //todo   |---
 
+-fitur erp
+	-hanya bisa diakses admin & supervervisor
+	Fitur
+	-procurement, pembelian stock
+	-supply chain, stock management
+	-akutansi, barang keluar & barang masuk ada harga jual & beli
+	-menu enterprise performance manajemen, berhubungan dengan 3 diatas, penghitung nilai manajemen gudang
+		-jika satu bulan target 500.000rb dan penghasilan hanya kurang dari 100.000 maka nilai dari manajemen gudang kurang dari 25%
+
+-tugas
+	-buat ppt dari tugas yang di berikan/dikerjakan
+	-mempelajari erp [fitur fitur diatas]
+
 -ganti algoritma mapping untuk cek isi ke tabel stok, hitung jenis barang pada penyimpanan tertentu
 	-jika jenis barang lebih dari 10 warna biru, kurang dari 10 warna abu abu
 
@@ -20,15 +33,12 @@
 -crop gambar
 	-implementasi ke halaman profil & pasang backend
 
-//pbl anak smk
-1.ajari
-2.
 
 //fix   |---
 -mapping barang menjadi lebih akurat pada database
 	-ketika mengambil barang dari suatu rak, dan rak masih memiliki barang, tidak membuat rak tersebut terlihat kosong pada display mapping.
-	
--modal stock input pada mobile tidak bisa di tutup dan mengirim data ke basis data
+
+-[done]modal stock input pada mobile tidak bisa di tutup dan mengirim data ke basis data
 
 -crop foto porfil
 

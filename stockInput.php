@@ -121,7 +121,9 @@ $l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
 			</div>
 		</div>
 	</div>
-
+ 
+</div>
+</div>
 
 <div id="modalBarcode" class="modal fade" tabindex="-1">
 	<div class="modal-dialog">
@@ -129,12 +131,6 @@ $l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
 		</div>
 	</div>
 </div>
-
- 
- 
-</div>
-</div>
-
 
 <?php
 	include"layout/js.php";
