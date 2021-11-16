@@ -66,7 +66,7 @@ if(mysqli_num_rows($cartQueryRun) > 0){
 }else{
 	echo'
 		<div class="p-2 d-flex flex-fill bg-light justify-content-center p-2 text-justify">
-			Tidak ada barang di Keranjang
+			Keranjang belum terisi
 		</div>
 	';
 }
