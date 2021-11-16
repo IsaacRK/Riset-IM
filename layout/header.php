@@ -10,8 +10,10 @@
 	
 	<title>Dashboard</title>
 	
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<!--| jquery first then other js |-->
 	<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+	<!--| jquery end |-->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/personal.css" />
 	<link rel="stylesheet" type="text/css" href="css/datatables.min.css"/>
 	<link rel="stylesheet" href="css/croppie.css" />

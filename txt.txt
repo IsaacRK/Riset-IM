@@ -18,6 +18,11 @@
 	- input barang ground
 	
 -crop gambar
+	-implementasi ke halaman profil & pasang backend
+
+//pbl anak smk
+1.ajari
+2.
 
 //fix   |---
 -mapping barang menjadi lebih akurat pada database
