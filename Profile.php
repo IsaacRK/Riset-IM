@@ -23,6 +23,17 @@ require 'backend/usersession.php';
 			}
 		}
 	</script>
+	  <style>
+   .un{
+     width: 70%
+   }
+   @media screen and (max-width:800px) {
+        .un{
+          width: 80%;
+        }
+      }
+
+  </style>
 </head>
 
 <body>
@@ -79,7 +90,7 @@ else {
 <div class="col-2"></div>
  <div class="col-10">
  <div class="container d-flex justify-content-center">
- <div class="card mt-5 border border-secondary" style="width:70%">
+ <div class="card mt-5 border border-secondary un">
   <div class="card-body">
 
     <div class="row card border-0 text-center mb-2">
@@ -97,7 +108,7 @@ else {
           <input class=""  type="text" name="user" id=""/>
          </div>
          <div class="col d-flex justify-content-end">
-              <button class="btn btn-primary mb-1 mt-1" type="submit" name="submit" value="Ganti">Ganti</button>
+              <button class="btn btn-primary mb-3 mt-3" type="submit" name="submit" value="Ganti">Ganti Nama</button>
          </div>
         </div>
 
@@ -111,7 +122,7 @@ else {
           <input class="" style="" type="password" name="passcon" id=""/>
          </div>
          <div class="col d-flex justify-content-end">
-              <button class="btn btn-primary mb-1 mt-1" type="submit" name="submit" value="register">Ganti</button>
+              <button class="btn btn-primary mb-3 mt-3" type="submit" name="submit" value="register">Ganti Kata Sandi</button>
          </div>
          </div>
 
@@ -121,7 +132,7 @@ else {
           <input class="" style="" type="text" name="email" id=""/>
          </div>
            <div class="col d-flex justify-content-end">
-              <button class="btn btn-primary mb-1 mt-1" type="submit" name="submit" value="register">Ganti</button>
+              <button class="btn btn-primary mb-3 mt-3" type="submit" name="submit" value="register">Ganti Email</button>
            </div>
         </div>
 
