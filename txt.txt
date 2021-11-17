@@ -1,14 +1,29 @@
 //todo   |---
 
 -fitur erp
-	-hanya bisa diakses admin & supervervisor
+	-[done]hanya bisa diakses admin & supervervisor
 	Fitur
 	-procurement, pembelian stock
 	-supply chain, stock management
 	-akutansi, barang keluar & barang masuk ada harga jual & beli
 	-menu enterprise performance manajemen, berhubungan dengan 3 diatas, penghitung nilai manajemen gudang
 		-jika satu bulan target 500.000rb dan penghasilan hanya kurang dari 100.000 maka nilai dari manajemen gudang kurang dari 25%
-
+	
+	tatanan halaman
+	-pembelian stok
+		-barang yang kurang / pesanan barang
+		-total harga dari barang yang di beli pada bulan(?) tertentu
+	-akutansi
+		-pembelian
+		-penjualan
+	-supply chain
+		- ¯\_(ツ)_/¯
+	-entrprise performance
+		-summary dari barang yang di jual & beli
+		-summary dari barang masuk & keluar
+		-target & performa bulanan(?) dari manajemen gudang
+		-bisa mengatur target bulanan dari manajemen gudang(?)
+	
 -tugas
 	-buat ppt dari tugas yang di berikan/dikerjakan
 	-mempelajari erp [fitur fitur diatas]

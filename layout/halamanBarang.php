@@ -74,24 +74,22 @@ if(isset($_GET['rak'])){
 									//isi
 									$top='';
 									$bot='';
-									$line=1;
 									
 									echo'<div class="row">';
 									$sql1 = "select * from penyimpanan where lantai='$i' and rak='$rak' ORDER BY kolom ASC, baris ASC";
 									$run1 = mysqli_query($servConnQuery, $sql1);
 									while($row1 = mysqli_fetch_assoc($run1)){
 										if($row1['baris']==1){
-											$txt='C'.$line.'B1';
+											$txt='C'.$row1['kolom'].'B1';
 											$col=boxColor($row1['stock_id']);
 											$str=boxColorText($col,$txt);
 											$top=$top.$str;
 										}
 										if($row1['baris']==2){
-											$txt='C'.$line.'B2';
+											$txt='C'.$row1['kolom'].'B2';
 											$col=boxColor($row1['stock_id']);
 											$str=boxColorText($col,$txt);
 											$bot=$bot.$str;
-											$line++;
 										}
 									}
 									echo$top.'</div><div class="row">'.$bot;
