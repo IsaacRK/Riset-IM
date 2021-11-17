@@ -27,6 +27,22 @@ if(@$_SESSION['uid']!=null){
 	body{
 		background-color:;
 	}
+	.gin{
+		width:100%;
+	}
+	.dun{
+		width:100%;
+		height: 500px;
+	}
+	@media screen and (max-width:800px) {
+        .gin{
+          width: 100%;
+        }
+	.dun{
+	width:100%;
+	height: 230px;
+	}
+      }
 	</style>
 </head>
 
@@ -34,13 +50,13 @@ if(@$_SESSION['uid']!=null){
 
 <div class="container mt-2">
 	<div class="row">
-		<div class="col-sm">
+		<div class="col-sm dun">
 			<div class="background-color:white" style="height:75%">
 			<div class="card-body">
 				<div class="d-flex justify-content-center">
 
 				</div>
-				<div class="container" style ="width : 500px;height : 500px; ">
+				<div class="container" style ="">
 				
 					<div id="cLogin" class="carousel carousel-dark slide" data-bs-ride="carousel">
 
@@ -82,8 +98,8 @@ if(@$_SESSION['uid']!=null){
 			</div>
 		</div>
 		
-		<div class="col-sm">
-			<div class="card text-primary" style="width : 500px;height : 345px;">
+		<div class="col-sm gin">
+			<div class="card text-primary" style="height : 345px;">
 			<div class="card-body">
 			
 			<form action="" method="post">
