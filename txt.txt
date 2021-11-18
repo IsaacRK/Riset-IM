@@ -9,27 +9,25 @@
 	-menu enterprise performance manajemen, berhubungan dengan 3 diatas, penghitung nilai manajemen gudang
 		-jika satu bulan target 500.000rb dan penghasilan hanya kurang dari 100.000 maka nilai dari manajemen gudang kurang dari 25%
 	
-	tatanan halaman
-	-pembelian stok
-		-barang yang kurang / pesanan barang
-		-total harga dari barang yang di beli pada bulan(?) tertentu
-	-akutansi
-		-pembelian
-		-penjualan
-	-supply chain
-		- ¯\_(ツ)_/¯
-	-entrprise performance
-		-summary dari barang yang di jual & beli
-		-summary dari barang masuk & keluar
-		-target & performa bulanan(?) dari manajemen gudang
-		-bisa mengatur target bulanan dari manajemen gudang(?)
-	
 -tugas
 	-buat ppt dari tugas yang di berikan/dikerjakan
 	-mempelajari erp [fitur fitur diatas]
 
 -ganti algoritma mapping untuk cek isi ke tabel stok, hitung jenis barang pada penyimpanan tertentu
 	-jika jenis barang lebih dari 10 warna biru, kurang dari 10 warna abu abu
+
+-pengaturan
+	-[done]pengaturan penyimpanan
+	-pengaturan rentang report
+		-atur rantang tanggal awal dan akhir / durasi hari
+		-30 hari, 7hari
+	-pengeturan kapasitas kolom dan baris
+		-maksimal dari penyimpanan tersebut, jika hampir atau melebihi dari yang di tentukan maka mapping akan berubah
+	-pengaturan rentang indikator kinerja
+		-total pemasukan
+		-total pengeluaran
+		-target pemasukan
+		-3hari, 7hari, 30hari
 
 -button pilih kamera di stock output barcode scanner
 
@@ -61,3 +59,17 @@
 -halaman production planning/rencana produksi
 -halaman setting/pengaturan
 -lazyloading pada ambil data tabel catatan aktifitas & daftar komponen
+
+
+
+//aa 109
+progress (poin)
+(barang yang belum selesai)
+	pengujian
+	bagain selesai
+	suatu rinci
+	(sedetail mungkin)
+kendala (poin)
+(suatu yang belum selesai)
+	dari suatu yang belum selesai baru di dapat masalah dan dapat di fokuskan.
+	(sedetail mungkin)

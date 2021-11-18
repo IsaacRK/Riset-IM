@@ -66,38 +66,43 @@ require 'backend/usersession.php';
 	</div>
 	
 	<br>
-	<div class="w-100" style="border: 1px solid black"></div>
 	
-	<form action="" id="formRak">
-	<div class="row">
-		<div class="col">
-			<select name="rak" class="btn btn-light border dropdown-toggle m-2 form-select">
-				<option value="1" class="dropdown-item">Rak 1</option>
-				<option value="2" class="dropdown-item">Rak 2</option>
-			</select>
+	<div class="card">
+	<div class="card-body">
+	
+		<form action="" id="formRak">
+		<div class="row">
+			<div class="col">
+				<select name="rak" class="btn btn-light border dropdown-toggle m-2 form-select">
+					<option value="1" class="dropdown-item">Rak 1</option>
+					<option value="2" class="dropdown-item">Rak 2</option>
+				</select>
+			</div>
+			
+			<div class="col">
+				<select name="lan" class="btn btn-light border dropdown-toggle m-2 form-select">
+					<option value="1" class="dropdown-item">Lantai 1</option>
+					<option value="2" class="dropdown-item">Lantai 2</option>
+					<option value="3" class="dropdown-item">Lantai 3</option>
+					<option value="4" class="dropdown-item">Lantai 4</option>
+					<option value="5" class="dropdown-item">Lantai 5</option>
+				</select>
+			</div>
+			
+			<div class="col-sm">
+			<div class="d-grid">
+				<input class="btn btn-primary mt-2" type="submit" name="butonRak" value="Ganti Penyimpanan">
+			</div>
+			</div>
 		</div>
-		
-		<div class="col">
-			<select name="lan" class="btn btn-light border dropdown-toggle m-2 form-select">
-				<option value="1" class="dropdown-item">Lantai 1</option>
-				<option value="2" class="dropdown-item">Lantai 2</option>
-				<option value="3" class="dropdown-item">Lantai 3</option>
-				<option value="4" class="dropdown-item">Lantai 4</option>
-				<option value="5" class="dropdown-item">Lantai 5</option>
-			</select>
-		</div>
-		
-		<div class="col-sm">
-		<div class="d-grid">
-			<input class="btn btn-primary mt-2" type="submit" name="butonRak" value="Ganti Penyimpanan">
-		</div>
-		</div>
-	</div>
-	</form>
+		</form>
 	
 	<!--tabel rak start-->
-	<div id="divPenyimpanan"></div>
+		<div id="divPenyimpanan"></div>
 	<!--tabel rak end---->
+	
+	</div>
+	</div>
 
 </div>
 </div>
