@@ -3,6 +3,21 @@
 require 'backend/conn.php';
 require 'backend/usersession.php';
 
+if(isset($_POST['btnEdit'])){
+	$sid = $_POST['storageId'];
+	$cap = $_POST['maxCap'];
+	
+	$editSql = "UPDATE penyimpanan SET kapasitas='$cap' WHERE storage_id='$sid'";
+	$editRun = mysqli_query($servConnQuery, $editSql);
+	if($editRun){
+		echo'
+			<script>
+				alert("kapasitas berhasil di ubah");
+			</script>
+		';
+	}
+}
+
 ?>
 <html>
 
@@ -65,6 +80,14 @@ require 'backend/usersession.php';
 </div>
 </div>
 
+<div class="modal" id="modalEdit">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+    </div>
+  </div>
+</div>
+
 <?php
 	include"layout/js.php";
 ?>
@@ -91,7 +114,7 @@ $(function(){
 
 function edit(x){	
 	console.log(x);
-	$('#modalHapus').modal('show');
+	$('#modalEdit').modal('show').find('.modal-content').load('layout/modalkapasitas.php?rakId='+x);
 }
 </script>
 

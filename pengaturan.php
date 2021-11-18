@@ -42,7 +42,7 @@ require 'backend/usersession.php';
 
 		<div class="row border-0 d-flex justify-content-around text-center mb-2">
 			<div class="col-4 mb-2">
-				<a href="" class="btn btn-primary mt-2">Pengaturan Kapasitas Kolom dan Baris</a>
+				<a href="kapasitas.php" class="btn btn-primary mt-2">Pengaturan Kapasitas Kolom dan Baris</a>
 			</div>
 			<div class="col-4 mb-2">
 				<a href="" class="btn btn-primary mt-2">Pengaturan Rentang Performance Indikator</a>
@@ -56,6 +56,8 @@ require 'backend/usersession.php';
   </div>
  </div>
 </div>
-
+<?php
+	include"layout/js.php";
+?>
 </body>
 </html>

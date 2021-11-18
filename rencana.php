@@ -1,5 +1,6 @@
 <?php
-
+require 'backend/conn.php';
+require 'backend/usersession.php';
 ?>
 <!DOCTYPE HTML>
 <html>

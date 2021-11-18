@@ -1,6 +1,19 @@
 <?php
 require 'backend/conn.php';
 require 'backend/usersession.php';
+
+if(isset($_POST['hapusRak'])){
+	$sid = $_POST['rakId'];
+	$sqlHapus = "DELETE FROM penyimpanan WHERE storage_id='$sid'";
+	$run = mysqli_query($servConnQuery, $sqlHapus);
+	if($run){
+		echo'
+			<script>
+				alert("penyimpanan berhasil di hapus");
+			</script>
+		';
+	}
+}
 ?>
 <html>
 <head>
@@ -174,20 +187,7 @@ require 'backend/usersession.php';
 <div class="modal fade" id="modalHapus">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Apakah anda yakin ingin meghapus tempat penyimpanan ini?</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-footer">
-		<div class="row w-100">
-			<div class="col d-grid gap-2 w-100">
-				<button type="button" class="btn btn-danger fw-bold" data-bs-dismiss="modal">Hapus</button>
-			</div>
-			<div class="col d-grid gap-2 w-100">
-				<button type="button" class="btn btn-success fw-bold" data-bs-dismiss="modal">Batalkan</button>
-			</div>
-		</div>
-      </div>
+      
     </div>
   </div>
 </div>
@@ -218,7 +218,7 @@ $(function(){
 
 function hapus(x){	
 	console.log(x);
-	$('#modalHapus').modal('show');
+	$('#modalHapus').modal('show').find('.modal-content').load('layout/modalpenyimpanan.php?rakId='+x);
 }
 
 </script>
