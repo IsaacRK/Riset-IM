@@ -65,7 +65,7 @@ require 'backend/signinhandler.php';
          </div>
          <div class="col text-center mt-4">
           <input id="textBox" type="text" class="" name="text"></br>
-          <button class="btn border border-secondary mt-1" id="refreshButton" type="submit">Ganti</button>
+          <button class="btn border border-secondary mt-1" formnovalidate id="refreshButton" type="submit">Ganti</button>
          </div>
         </div>
 
