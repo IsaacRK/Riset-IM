@@ -3,7 +3,7 @@ include "loader.html";
 require 'backend/conn.php';
 require 'backend/usersession.php';
 $Foto_ID = $_SESSION["uid"];
-$Foto_01 = "select * from Image where user_id = '$Foto_ID'";
+$Foto_01 = "select * from image where user_id = '$Foto_ID'";
 $Foto_02 = mysqli_query($servConnQuery, $Foto_01);
 $Foto_03 = mysqli_fetch_assoc($Foto_02);
 $Foto_04 = mysqli_num_rows($Foto_02);
