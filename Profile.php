@@ -95,7 +95,7 @@ else { 	include "layout/sidebar.php";
    <div class="row">
      <div class="col-1"></div>
      <div class="col-10">
-       <div class="row mt-5 border">
+       <div class="row mt-5 border card">
          <div class="row">
 
            <div class="col-3 ms-1 text-center mt-2">
