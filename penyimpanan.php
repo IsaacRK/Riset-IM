@@ -80,7 +80,7 @@ if(isset($_POST['hapusRak'])){
 	
 	<br>
 	
-	<div class="card">
+	<div class="card shadow-sm">
 	<div class="card-body">
 	
 		<form action="" id="formRak">

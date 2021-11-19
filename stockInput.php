@@ -80,7 +80,7 @@ $l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
 
 	<div class="row">
 		<div class="col">
-			<div class="card">
+			<div class="card shadow-sm">
 			<div class="card-body">
 				<h3>Data Barang</h3>
 				</br>
@@ -109,7 +109,7 @@ $l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
 		</div>
 		
 		<div class="col">
-			<div class="card">
+			<div class="card shadow-sm">
 			<div class="card-body">
 				<div class="d-flex justify-content-center">
 					<canvas id="pieChart" style="max-width:300px;max-height:300px;"></canvas>

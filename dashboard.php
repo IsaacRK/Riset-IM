@@ -39,7 +39,7 @@ if ($userAC == '0'){
 
 	<div class="row">
 		<div class="col-sm">
-			<div class="card">
+			<div class="card shadow-sm">
 			<div class="card-body">
 			
 				<form action="" id="formBarang">
@@ -65,7 +65,7 @@ if ($userAC == '0'){
 		</div>
 		
 		<div class="col-sm">
-			<div class="card">
+			<div class="card shadow-sm">
 			<div class="card-body">
 			
 				<div class="w-100">

@@ -42,7 +42,7 @@ if ($userAC == '0'){
 echo '
 <form action="backend/upload.php" method="post" enctype="multipart/form-data">    
 <div class="container mt-5">
- <div class="card border border-secondary">
+ <div class="card border border-secondary shadow-sm">
   <div class="card-body text-center">
    <div class="row card border-0 mb-1">
     <div class="col">
@@ -90,7 +90,7 @@ else {
 <div class="col-2"></div>
  <div class="col-10">
  <div class="container d-flex justify-content-center">
- <div class="card mt-5 border border-secondary un">
+ <div class="card mt-5 border border-secondary shadow-sm">
   <div class="card-body">
 
     <div class="row card border-0 text-center mb-2">
@@ -157,7 +157,7 @@ else {
 	  </div>
      </div>
     </div>
-    <div class="row card border-0 mb-1">
+    <div class="row card border-0 mb-1 shadow-sm">
      <div class="col">
 		 <div class="mb-3">
 			<label for="fileToUpload" class="forl-label">Select image to upload:</label>

@@ -45,7 +45,7 @@ require 'backend/usersession.php';
 	<div class="row">
 	
 	<div class="col-sm">
-	<div class="card">
+	<div class="card shadow-sm">
 		<div class="card-body">
 			<h3>Supply chain</h3>
 		
@@ -54,7 +54,7 @@ require 'backend/usersession.php';
 	</div>
 	
 	<div class="col-sm">
-	<div class="card">
+	<div class="card shadow-sm">
 		<div class="card-body">
 			<h3>Enterprise performance</h3>
 			

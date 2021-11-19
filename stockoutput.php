@@ -115,7 +115,7 @@ if(isset($_GET['barcode'])){
 	
 	<div class="row">
 		<div class="col-sm">
-			<div class="card">
+			<div class="card shadow-sm">
 			<div class="card-body">
 			<form action="" method="post">
 				<h3>Informasi Komponen</h3>
@@ -214,7 +214,7 @@ if(isset($_GET['barcode'])){
 			</div>
 		</div>
 		<div class="col-sm">
-			<div class="card">
+			<div class="card shadow-sm">
 			<div class="card-body">
 				<h3>Keranjang</h3>
 				

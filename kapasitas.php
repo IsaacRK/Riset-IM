@@ -40,7 +40,7 @@ if(isset($_POST['btnEdit'])){
 		<h1>Pengaturan Kapasitas Penyimpanan</h1>
 	</div>
 	
-	<div class="card">
+	<div class="card shadow-sm">
 		<div class="card-body">
 		
 		<form action="" id="formRak">
