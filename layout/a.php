@@ -57,24 +57,37 @@ if(isset($_GET['graphSearch'])){
 		
 		//menenentukan hari dari barang yang akan diambil
 		//hari sekarang dikurangi $i hari
-		$chartFetchQuery = "SELECT * FROM `history` WHERE date = date_sub(CURRENT_DATE, interval $i day)";
+		$chartFetchQuery = "SELECT * FROM `history` WHERE date = date_sub(CURRENT_DATE, interval $i day and output=1)";
 		$chartFetchRun = mysqli_query($servConnQuery, $chartFetchQuery);
 		
 		//mereset jumlah total barang setiap 1 hari menjadi 0
-		$var=0;
+		$out=0;
 		if(mysqli_num_rows($chartFetchRun)>0){
 			while($chartFetch = mysqli_fetch_assoc($chartFetchRun)){
 				//hitung jumlah total barang yang masuk/keluar pada satu hari, dari hari yang di tentukan
 				$chartFetch['amount'];
-				$var = $var+$chartFetch['amount'];
+				$out = $out+$chartFetch['amount'];
 			}
 		}
+		
+		$chartinpQuery = "SELECT * FROM `history` WHERE date = date_sub(CURRENT_DATE, interval $i day and input=1)";
+		$chartinpRun = mysqli_query($servConnQuery, $chartFetchQuery);
+		$inp=0;
+		if(mysqli_num_rows($chartinpRun)>0){
+			while($chartFetch = mysqli_fetch_assoc($chartinpRun)){
+				//hitung jumlah total barang yang masuk/keluar pada satu hari, dari hari yang di tentukan
+				$inpFetch['amount'];
+				$inp = $inp+$inpFetch['amount'];
+			}
+		}
+		
 		//mengitung hari, sekarang di kurangi $i hari
 		$now = date("Y-m-d");
 		$cut = date('m-d', strtotime($now.'-'.$i.' Days'));
 		
 		//memasukkan data total barang masuk ke array
-		array_push($arr,$var);
+		array_push($arr,$out);
+		array_push($inv,$inp);
 		array_push($day,$cut);
 		//echo ' '.$day[$i].' ';
 		//echo $arr[$i].'</br>';
@@ -96,7 +109,12 @@ $(document).ready(function(){
 		label: "Jumlah Keluar",
 		backgroundColor: 'rgb(16, 100, 174)',
 		borderColor: 'rgb(16, 100, 174)',
-	  data: <?php echo'['.$arr[7].','.$arr[6].','.$arr[5].','.$arr[4].','.$arr[3].','.$arr[2].','.$arr[1].','.$arr[0].']'; ?>,
+		data: <?php echo'['.$arr[7].','.$arr[6].','.$arr[5].','.$arr[4].','.$arr[3].','.$arr[2].','.$arr[1].','.$arr[0].']'; ?>,
+	  },{
+		label: "Jumlah Keluar",
+		backgroundColor: 'yellow',
+		borderColor: 'yellow',
+		data: <?php echo'['.$inv[7].','.$arr[6].','.$arr[5].','.$arr[4].','.$arr[3].','.$arr[2].','.$arr[1].','.$arr[0].']';?>,
 	  }]
 	};
 

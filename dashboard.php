@@ -48,6 +48,7 @@ if ($userAC == '0'){
 						<select name="rak" class="btn btn-light border dropdown-toggle m-2 form-select">
 							<option value="1" class="dropdown-item">Rak 1</option>
 							<option value="2" class="dropdown-item">Rak 2</option>
+							<option value="G" class="dropdown-item">Rak G</option>
 						</select>
 					</div>
 					<div class="col-sm d-grid">
@@ -99,7 +100,7 @@ if ($userAC == '0'){
 			<div class="card shadow-sm">
 			<div class="card-body">
 			
-				<h4 class="card-title">Catatan Aktifitas</h4>
+				<h4 class="card-title">Riwayat Aktifitas</h4>
 				
 				<div class="table-responsive">
 				<table class="table table-striped table-sm" id="tbActivity">
@@ -119,15 +120,15 @@ if ($userAC == '0'){
 					FROM history
 					JOIN pengguna ON history.user_id = pengguna.id
 					JOIN stock ON history.stock_id = stock.stock_id
-					WHERE date > CURRENT_DATE - INTERVAL 7 day order by date(date) desc;";
+					WHERE date > CURRENT_DATE - INTERVAL 7 day order by date(date) desc limit 5;";
 					$historyRun = mysqli_query($servConnQuery, $queryHistory);
 					$arr = array();
 					while($row = mysqli_fetch_assoc($historyRun)){
 						$arr[] = $row;
 					}
 					function status($a, $b){
-						if($a==1)		{return 'Input';}
-						elseif($b==1)	{return 'Output';}
+						if($a==1)		{return 'Masuk';}
+						elseif($b==1)	{return 'Keluar';}
 						else			{return 'DB ERR';}
 					}
 					foreach($arr as $data){ 
@@ -150,12 +151,22 @@ if ($userAC == '0'){
 					}
 				?>
 				</div>
+				
+				<div class="btn btn-primary" onclick="historyModal()">Lihat Keseluruhan</div>
 			
 			</div>
 			</div>
 		</div>
 	</div>
 </div>
+</div>
+
+<div class="modal fade" id="modalHistory">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      
+    </div>
+  </div>
 </div>
 
 <?php
@@ -188,18 +199,6 @@ if ($userAC == '0'){
 			e.preventDefault();
 		});
 	});
-
-	$(document).ready(function () {
-		$('#tbActivity').DataTable({
-			"scrollY": "50vh",
-			"scrollCollapse": true,
-			"order": [[2, "desc"]],
-			language:{
-				url: 'js/id.json'
-			}
-		});
-		$('.dataTables_length').addClass('bs-select');
-	});
 	
 	$(function(){
 	$("#graphSearch").autocomplete({
@@ -222,6 +221,10 @@ if ($userAC == '0'){
 			e.preventDefault();
 		});
 	});
+	
+function historyModal(){
+	$('#modalHistory').modal('show').find('.modal-content').load('layout/modalhistory.php');
+};
 </script>
 
 </body>

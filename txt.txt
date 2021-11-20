@@ -2,17 +2,17 @@
 
 	//prioritas		|-------------
 	
-	perbaiki halaman berikut
-	- beranda
-		-grafik kurang jelas
-		-menu pencarian barang dalam dashboard kurang berguhna
-		-legend mapping
+		ubah halaman beranda
+			-masukan legend ke box
+			-ganti tabel daftar komponen & catatan aktifitas
+				-max 5 barang
+				-tombol untuk lihat semua barang & history
+			-ganti catatan aktifitas -> riwayat aktifitas
+			-grfik di tambah barang keluar & barang masuk
 		
-		-terlalu padat
-		-tampilan lebih interaktif
-		-[done]tampilan rak diberi legend
-	
-	|---------------------
+		perbaiki bug mapping tidak bisa update stokId pada penyimpanan
+		
+	|-----------------------------
 	
 -fitur erp
 	-[done]hanya bisa diakses admin & supervervisor
