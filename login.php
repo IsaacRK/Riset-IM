@@ -9,7 +9,7 @@ if(@$_SESSION['uid']!=null){
 <html>
 
 <head>
-	<title>Login and Registrasi</title>
+	<title>Login dan Registrasi</title>
 	<?php include "layout/header.php"?>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
