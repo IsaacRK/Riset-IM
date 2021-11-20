@@ -62,7 +62,7 @@ if(isset($_GET['barcode'])){
 <html>
 
 <head>
-	<title>Stock Keluar</title>
+	<title>Stok Keluar</title>
 	<?php include"layout/header.php"?>
 	<style>
 		@media screen and (max-width: 767px){
