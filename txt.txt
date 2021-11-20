@@ -1,5 +1,19 @@
 //todo   |---
 
+	//prioritas		|-------------
+	
+	perbaiki halaman berikut
+	- beranda
+		-grafik kurang jelas
+		-menu pencarian barang dalam dashboard kurang berguhna
+		-legend mapping
+		
+		-terlalu padat
+		-tampilan lebih interaktif
+		-[done]tampilan rak diberi legend
+	
+	|---------------------
+	
 -fitur erp
 	-[done]hanya bisa diakses admin & supervervisor
 	Fitur

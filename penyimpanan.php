@@ -27,12 +27,16 @@ if(isset($_POST['hapusRak'])){
 			$kol = $_POST['kolom'];
 			$bar = $_POST['baris'];
 			
-			$sqlCheck = "select * from penyimpanan where rak=$rak and lantai=$lan and kolom=$kol and baris=$bar";
+			if($rak==0){
+				$rak = 'G';
+			}
+			
+			$sqlCheck = "select * from penyimpanan where rak='$rak' and lantai=$lan and kolom=$kol and baris=$bar";
 			$runCheck = mysqli_query($servConnQuery, $sqlCheck);
 			if(mysqli_num_rows($runCheck)==null){
 				$sqlInput = "
 					INSERT INTO penyimpanan (rak, lantai, kolom, baris)
-					VALUES ($rak, $lan, $kol, $bar);
+					VALUES ('$rak', $lan, $kol, $bar);
 				";
 				$runInput = mysqli_query($servConnQuery, $sqlInput);
 				if($runInput){

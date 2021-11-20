@@ -118,6 +118,32 @@ if(isset($_GET['rak'])){
 					</div>
 				</div>
 				
+				<div class="row fw-semi-bold">
+					<span class="col-auto m-1 mr-2">
+						<span class="color-primary rounded-circle p-1" style="display:inline-block;">
+							<span class="visually-hidden">penuh</span>
+						</span>
+						Penuh
+					</span>
+					
+					<span class="col-auto m-1 mr-2">
+						<span class="color-tertiary rounded-circle p-1" style="display:inline-block;">
+							<span class="visually-hidden">Kosong</span>
+						</span>
+						Kosong
+					</span>
+					
+					<span class="col-auto m-1 mr-2">
+						<span class="badge bg-light text-dark">C</span>
+						Kolom
+					</span>
+					
+					<span class="col-auto m-1 mr-2">
+						<span class="badge bg-light text-dark">B</span>
+						Baris
+					</span>
+				</div>
+				
 				<h4 class="card-title">Daftar Komponen</h4>
 				
 				<div class="table-responsive">

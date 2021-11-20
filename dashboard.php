@@ -39,18 +39,18 @@ if ($userAC == '0'){
 
 	<div class="row">
 		<div class="col-sm">
-			<div class="card shadow-sm">
+			<div class="card shadow-sm mb-2">
 			<div class="card-body">
 			
 				<form action="" id="formBarang">
 				<div class="row">
-					<div class="col-9">
+					<div class="col-sm-9">
 						<select name="rak" class="btn btn-light border dropdown-toggle m-2 form-select">
 							<option value="1" class="dropdown-item">Rak 1</option>
 							<option value="2" class="dropdown-item">Rak 2</option>
 						</select>
 					</div>
-					<div class="col">
+					<div class="col-sm d-grid">
 						<input class="btn btn-primary mt-2" type="submit" name="butonRak" value="Ganti Rak">
 					</div>
 				</div>
@@ -65,14 +65,16 @@ if ($userAC == '0'){
 		</div>
 		
 		<div class="col-sm">
-			<div class="card shadow-sm">
+			<div class="card shadow-sm mb-4">
 			<div class="card-body">
-			
+				
+				<h4 class="card-title">Aktifitas Barang</h4>
+				
 				<div class="w-100">
 					<form id="searchChart" action="">
 						<div class="row">
 							<div class="col-8">
-								<input class="form-control" name="graphSearch" type="text" id="graphSearch" placeholder="Cari Barang">
+								<input class="form-control" name="graphSearch" type="text" id="graphSearch" placeholder="Cari aktifitas Barang">
 							</div>
 							<div class="col-4 d-grid gap-2">
 								<button class="btn btn-primary" type="submit" name="graphBtnSearch" value="Cari"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -87,9 +89,16 @@ if ($userAC == '0'){
 
 				<div class="card">
 					<div class="card-body" id="divChart" style="">
+						
 					</div>
 				</div>
 				
+			</div>
+			</div>
+			
+			<div class="card shadow-sm">
+			<div class="card-body">
+			
 				<h4 class="card-title">Catatan Aktifitas</h4>
 				
 				<div class="table-responsive">

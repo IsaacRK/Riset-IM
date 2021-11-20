@@ -43,6 +43,7 @@ if(isset($_GET['graphSearch'])){
 	}
 }else{
 	for($i=0; $i<=7; $i++){
+		/*
 		$lastEntryQuery = 'select stock_id from history where output = 1 ORDER BY history_id DESC LIMIT 1';
 		$lastEntryRun = mysqli_query($servConnQuery, $lastEntryQuery);
 		$lastEntryFetch = mysqli_fetch_assoc($lastEntryRun);
@@ -51,6 +52,12 @@ if(isset($_GET['graphSearch'])){
 		//menenentukan hari dari barang yang akan diambil
 		//hari sekarang dikurangi $i hari
 		$chartFetchQuery = "SELECT * FROM `history` WHERE date = date_sub(CURRENT_DATE, interval $i day) and stock_id = '$sid'";
+		$chartFetchRun = mysqli_query($servConnQuery, $chartFetchQuery);
+		*/
+		
+		//menenentukan hari dari barang yang akan diambil
+		//hari sekarang dikurangi $i hari
+		$chartFetchQuery = "SELECT * FROM `history` WHERE date = date_sub(CURRENT_DATE, interval $i day)";
 		$chartFetchRun = mysqli_query($servConnQuery, $chartFetchQuery);
 		
 		//mereset jumlah total barang setiap 1 hari menjadi 0
@@ -72,6 +79,7 @@ if(isset($_GET['graphSearch'])){
 		//echo ' '.$day[$i].' ';
 		//echo $arr[$i].'</br>';
 	}
+	echo'<h5>Aktifitas 7 hari terakhir</h5>';
 }
 
 ?>
@@ -85,7 +93,7 @@ $(document).ready(function(){
 	var activityData = {
 	  labels: <?php echo'["'.$day[7].'","'.$day[6].'","'.$day[5].'","'.$day[4].'","'.$day[3].'","'.$day[2].'","'.$day[1].'","'.$day[0].'"]'; ?>,
 	  datasets: [{
-		label: "Aktifitas",
+		label: "Jumlah Keluar",
 		backgroundColor: 'rgb(16, 100, 174)',
 		borderColor: 'rgb(16, 100, 174)',
 	  data: <?php echo'['.$arr[7].','.$arr[6].','.$arr[5].','.$arr[4].','.$arr[3].','.$arr[2].','.$arr[1].','.$arr[0].']'; ?>,
