@@ -1,6 +1,5 @@
 <?php
 require 'backend/conn.php';
-require 'backend/loginhandler.php';
 
 if(@$_SESSION['uid']!=null){
 	header('location:dashboard.php');
@@ -10,122 +9,155 @@ if(@$_SESSION['uid']!=null){
 <html>
 
 <head>
+	<title>Login and Registrasi</title>
+	<?php include "layout/header.php"?>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	
-	<meta name="keywords" content="" />
-	<meta name="description" content="" />
-	<meta name="author" content="" />
-	<link rel="shortcut icon" href="images/favicon.png" type="">
-	
-	<title>Halaman Masuk</title>
-	
-	<?php require 'layout/header.php';?>
-	
-	<style>
-	body{
-		background-color:;
-	}
-	.gin{
-		width:100%;
-	}
-	.dun{
-		width:100%;
-		height: 500px;
-	}
-	@media screen and (max-width:800px) {
-        .gin{
-          width: 100%;
-        }
-	.dun{
-	width:100%;
-	height: 230px;
-	}
-      }
-	</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 </head>
+<body class="bg-light bg-gradient">
 
-<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient">
+  <div class="container-fluid">
+    <a class="navbar-brand">Inventory Management</a>
+	
+    <form action="backend/loginhandler.php" method="post" class="d-flex">
+	  <input class="form-control" required type="text" name="user" id="" placeholder="Nama pengguna"/>
+	  <input class="form-control ms-2" required type="password" name="pass" id="" placeholder="Kata sandi"/>      
+	  <button class="btn btn-light btn-outline-primary ms-2" type="submit" name="submit" value="Login">Masuk</button>
+    </form>
+    </div>
+  </div>
+</nav>
 
-<div class="container mt-2">
-	<div class="row">
-		<div class="col-sm dun">
-			<div class="background-color:white" style="height:75%">
-			<div class="card-body">
-				<div class="d-flex justify-content-center">
+<div class="row" style="width:100%">
+<div class="col">
 
-				</div>
-				<div class="container" style ="">
+<div class="container mt-5" style =" ">
 				
-					<div id="cLogin" class="carousel carousel-dark slide" data-bs-ride="carousel">
+				<div id="cLogin" class="carousel carousel-dark slide" data-bs-ride="carousel">
 
-						<!-- Indicators/dots -->
-						<div class="carousel-indicators">
-							<button type="button" data-bs-target="#cLogin" data-bs-slide-to="0" class="active"></button>
-							<button type="button" data-bs-target="#cLogin" data-bs-slide-to="1"></button>
-							<button type="button" data-bs-target="#cLogin" data-bs-slide-to="2"></button>
-							<button type="button" data-bs-target="#cLogin" data-bs-slide-to="3"></button>
-						</div>
-
-						<!-- The slideshow/carousel -->
-						<div class="carousel-inner">
-							<div class="carousel-item active">
-								<img src="img/judul.jpg" alt="judul" class="d-block w-100">
-							</div>
-							<div class="carousel-item">
-								<img src="img/keunggulan.jpg" alt="Los Angeles" class="d-block w-100">
-							</div>
-							<div class="carousel-item">
-								<img src="img/pemasukan.jpg" alt="Chicago" class="d-block w-100">
-							</div>
-							<div class="carousel-item">
-								<img src="img/pengambilan.jpg" alt="New York" class="d-block w-100">
-							</div>
-						</div>
-
-						<!-- Left and right controls/icons -->
-						<button class="carousel-control-prev" type="button" data-bs-target="#cLogin" data-bs-slide="prev">
-							<span class="carousel-control-prev-icon"></span>
-						</button>
-						<button class="carousel-control-next" type="button" data-bs-target="#cLogin" data-bs-slide="next">
-							<span class="carousel-control-next-icon"></span>
-						</button>
+					<!-- Indicators/dots -->
+					<div class="carousel-indicators">
+						<button type="button" data-bs-target="#cLogin" data-bs-slide-to="0" class="active"></button>
+						<button type="button" data-bs-target="#cLogin" data-bs-slide-to="1"></button>
+						<button type="button" data-bs-target="#cLogin" data-bs-slide-to="2"></button>
+						<button type="button" data-bs-target="#cLogin" data-bs-slide-to="3"></button>
 					</div>
-				
-				</div>
-			</div>
-			</div>
-		</div>
-		
-		<div class="col-sm gin">
-			<div class="card text-primary" style="height : 345px;">
-			<div class="card-body">
-			
-			<form action="" method="post">
-				<h4 class="card-title font-weight-bold">Selamat Datang di Inventory Management</h4>
 
-				<span class="card-title">Username</span>
-				</br>
-				<input class="form-control" required type="text" name="user" id=""/>
-				</br>
-				<span class="card-title">Password</span>
-				</br>
-				<input class="form-control" required type="password" name="pass" id=""/>
-				</br>
-				<div class="col-6 mx-auto d-flex justify-content-center">
-					<button class="btn btn-primary btn-block" type="submit" name="submit" value="Login">Login</button>
+					<!-- The slideshow/carousel -->
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img src="img/judul.jpg" alt="judul" class="d-block w-100">
+						</div>
+						<div class="carousel-item">
+							<img src="img/keunggulan.jpg" alt="Los Angeles" class="d-block w-100">
+						</div>
+						<div class="carousel-item">
+							<img src="img/pemasukan.jpg" alt="Chicago" class="d-block w-100">
+						</div>
+						<div class="carousel-item">
+							<img src="img/pengambilan.jpg" alt="New York" class="d-block w-100">
+						</div>
+					</div>
+
+					<!-- Left and right controls/icons -->
+					<button class="carousel-control-prev" type="button" data-bs-target="#cLogin" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon"></span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#cLogin" data-bs-slide="next">
+						<span class="carousel-control-next-icon"></span>
+					</button>
 				</div>
-				</br>
-				<span class="d-flex justify-content-center">Buat akun? <a href="signin.php">Register</a></span>
-				</br>
-			</form>
 			
-			</div>
-			</div>
-		</div>
-	</div>
 </div>
-</body>
 
+</div>
+<div class="col">
+<div class="container mt-2 d-flex justify-content-center">
+ <div class="card border border-0 bg-transparent ms-3">
+  <div class="card-body" style="width:520px;">
+
+    <div class="row card border-0 text-center bg-transparent">
+     <div class="col">
+			<h2 class="text-primary">Registrasi</h2>
+     </div>
+    </div>
+  <form action="backend/signinhandler.php" method="post">
+    <div class="row border-0">
+
+     <div class="col border-0">
+
+        <div class="row mb-3 mt-3">
+            <div class="col text-end">
+             <p class="">Nama : </p>
+            </div>
+            <div class="col">
+             <input class="form-control" style="width:300px" required type="text" name="user" id=""/>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col text-end">
+             <p class="">Email : </p>
+            </div>
+            <div class="col">
+              <input class="form-control" style="width:300px" required type="text" name="email" id=""/>
+            </div>
+        </div>
+                
+        <div class="row mb-3">
+            <div class="col text-end">
+             <p class="">Kata Sandi : </p>
+            </div>
+            <div class="col">
+               <input class="form-control" style="width:300px" required type="password" name="pass" id=""/>
+            </div>
+        </div>
+        
+        <div class="row mb-3">
+            <div class="col text-end">
+             <p class="">Konfirmasi Kata Sandi : </p>
+            </div>
+            <div class="col">
+                <input class="form-control" style="width:300px" required type="password" name="passcon" id=""/>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col text-end">
+             <p class="">Verifikasi Captcha : </p>
+            </div>
+            <div class="col-md-auto">
+                <canvas id="captcha" class="" width="215" height="70">captcha text</canvas></br>
+                <input id="textBox" type="text" class="form-control" style="width:150px" name="text">
+            </div>
+            <div class="col col-lg-2">
+                <button class="btn border border-secondary" formnovalidate id="refreshButton" type="submit">Ganti</button>
+            </div>
+        </div>
+        
+        <div class="row mb-3">
+            <div class="col text-center">
+                <Button class="btn btn-primary" type="submit" name="submit" value="register">Daftar</button>
+            </div>
+        </div>
+
+
+    </div>
+
+    </div>		
+  </form>
+
+  </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
 </html>
