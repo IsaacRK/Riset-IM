@@ -8,6 +8,9 @@ require 'backend/usersession.php';
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<title>Informasi Akun</title>
 	<?php include"layout/header.php"?>	
 	<script>
@@ -24,19 +27,25 @@ require 'backend/usersession.php';
 		}
 	</script>
   <style>
-   .un{
-     width: 70%
-     }
    .ikon{
   	object-fit: cover;
   	width:  200px;
   	height: 200px;
   	border-radius:50%;
     }
+    .sfa{
+      width: 130%;
+    }
    @media screen and (max-width:800px) {
-        .un{
-          width: 80%;
-        }
+    .ikon{
+  	object-fit: cover;
+  	width:  100px;
+  	height: 100px;
+  	border-radius:50%;
+    }
+    .sfa{
+      width: 100%;
+    }
       }
   </style>
 </head>
@@ -95,10 +104,10 @@ else { 	include "layout/sidebar.php";
    <div class="row">
      <div class="col-1"></div>
      <div class="col-10">
-       <div class="row mt-5 border card">
+       <div class="row mt-5 border card un">
          <div class="row">
 
-           <div class="col-3 ms-1 text-center mt-2">
+           <div class="col-sm ms-1 text-center mt-2">
             <form action="backend/upload.php" method="post" enctype="multipart/form-data">
               <div class="col">              
                <img src="<?php echo'Photo/'.$Foto_05;?>" class="ikon my-1">
@@ -128,7 +137,7 @@ else { 	include "layout/sidebar.php";
             </form>
            </div>
 
-           <div class="col-8" style="height:100%;">
+           <div class="col-sm">
             <div class="row card border-0 text-center mb-2">
                <div class="col mb-2">
                  <h2>Ganti Informasi Akun</h2>
@@ -143,12 +152,14 @@ else { 	include "layout/sidebar.php";
                      <span class="">Nama : </span></br>
                      <input class=""  type="text" name="user" id="" placeholder="<?php echo $username;?>"/>
                    </div>
-                   <div class="col d-flex justify-content-end">
+                   <div class="col d-flex justify-content-center">
                      <button class="btn btn-primary mb-3 mt-3" type="submit" name="submit" value="Ganti">Ganti Nama</button>
                    </div>
                  </div>
 
                  <div class="row border-0 mb-2">
+                    <div class="col-sm">
+                      <div class="row">
                   <div class="col-sm mb-2">
                    <span class="">Kata Sandi : </span></br>
                    <input class="" style="" type="password" name="pass" id=""/>
@@ -157,17 +168,19 @@ else { 	include "layout/sidebar.php";
                    <span class="">Konfirmasi Kata Sandi : </span></br>
                    <input class="" style="" type="password" name="passcon" id=""/>
                   </div>
-                  <div class="col d-flex justify-content-end">
-                   <button class="btn btn-primary mb-3 mt-3" type="submit" name="submit" value="register">Ganti Kata Sandi</button>
+                      </div>
+                    </div>
+                  <div class="col-sm d-flex justify-content-center">
+                   <button class="btn btn-primary my-3 mx-5" type="submit" name="submit" value="register">Ganti Kata Sandi</button>
                   </div>
                  </div>
 
                  <div class="row border-0 mb-2">
                    <div class="col-sm mb-2">
                      <span class="">Email :</span></br>
-                     <input class="" style="width:120%;" type="text" name="email" id="" placeholder="<?php echo $userEM;?>"/>
+                     <input class="sfa" type="text" name="email" id="" placeholder="<?php echo $userEM;?>"/>
                    </div>
-                   <div class="col d-flex justify-content-end">
+                   <div class="col d-flex justify-content-center">
                      <button class="btn btn-primary mb-3 mt-3" type="submit" name="submit" value="register">Ganti Email</button>
                    </div>
                  </div>
