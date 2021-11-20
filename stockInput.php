@@ -92,7 +92,7 @@ $l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
 								<div class="input-group-prepend">
 									<span class="input-group-text" id="inputGroup-sizing-sm">Nama</span>
 								</div>
-								<input required type="text" class="form-control" name="itemName" id="itemName" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+								<input required type="text" class="form-control" name="itemName" placeholder="Nama Barang" id="itemName" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
 							</div>
 						</div>
 						<div class="col d-grid gap-2">
