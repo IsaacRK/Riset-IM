@@ -58,7 +58,7 @@ $l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
 <html>
 
 <head>
-	<title>Barang Masuk</title>
+	<title>Stok Masuk</title>
 	<?php include"layout/header.php"; ?>
 	
 </head>
@@ -74,7 +74,7 @@ $l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
 
 	<div class="p-1">
 		<div class="mb-3">
-			<h1>Stock Masuk</h1>
+			<h1>Stok Masuk</h1>
 		</div>
 	</div>
 

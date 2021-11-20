@@ -1,4 +1,5 @@
 <?php
+require 'conn.php';
 
 if(isset($_POST['submit'])){
 	$user = $_POST['user'];
@@ -48,7 +49,7 @@ if(isset($_POST['submit'])){
 		if($row > 0){
 		session_start();
 		$_SESSION['uid'] = $row['id'];
-		header('location: Profile.php');
+		header('location: ../Profile.php');
 		}else{}
 		}else{
 		echo "

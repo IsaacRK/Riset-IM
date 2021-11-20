@@ -11,7 +11,6 @@ if(isset($_GET["itemName"])){
 			$jenisKomponen = '
 				<select name="category" class="btn btn-light btn-block border dropdown-toggle p-2 form-control">
 					<option value="001" class="dropdown-item">Elektronik</option>
-					<option value="010" class="dropdown-item">Sekali Pakai</option>
 					<option value="011" class="dropdown-item">Peralatan</option>
 					<option value="100" class="dropdown-item">Lain-Lain</option>
 				</select>
@@ -44,6 +43,8 @@ if(isset($_GET["itemName"])){
 				<div class="col-8">
 					<select name="rak" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
 						<option value="1" class="dropdown-item">rak 1</option>
+						<option value="2" class="dropdown-item">rak 2</option>
+						<option value="G" class="dropdown-item">rak G</option>
 					</select>
 				</div>
 			</div>

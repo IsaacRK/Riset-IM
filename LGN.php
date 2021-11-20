@@ -9,7 +9,7 @@ if(@$_SESSION['uid']!=null){
 <html>
 
 <head>
-	<title>Login dan Registrasi</title>
+	<title>Login and Registrasi</title>
 	<?php include "layout/header.php"?>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -22,9 +22,9 @@ if(@$_SESSION['uid']!=null){
     <a class="navbar-brand">Inventory Management</a>
 	
     <form action="backend/loginhandler.php" method="post" class="d-flex">
-	  <input class="form-control" required type="text" name="user" id="" placeholder="Nama pengguna"/>
-	  <input class="form-control ms-2" required type="password" name="pass" id="" placeholder="Kata sandi"/>      
-	  <button class="btn btn-light btn-outline-primary ms-2" type="submit" name="submit" value="Login">Masuk</button>
+	  <input class="form-control" required type="text" name="user" id="" placeholder="Nama User"/>
+	  <input class="form-control ms-2" required type="password" name="pass" id="" placeholder="Kata Sandi"/>      
+	  <button class="btn btn-light btn-outline-primary ms-2" type="submit" name="submit" value="Login">Login</button>
     </form>
     </div>
   </div>
@@ -74,9 +74,10 @@ if(@$_SESSION['uid']!=null){
 
 </div>
 <div class="col">
+
 <div class="container mt-2 d-flex justify-content-center">
  <div class="card border border-0 bg-transparent ms-3">
-  <div class="card-body" style="width:520px;">
+  <div class="card-body" style="width:400px;">
 
     <div class="row card border-0 text-center bg-transparent">
      <div class="col">
@@ -85,75 +86,58 @@ if(@$_SESSION['uid']!=null){
     </div>
   <form action="backend/signinhandler.php" method="post">
     <div class="row border-0">
+     <div class="col">
 
-     <div class="col border-0">
-
-        <div class="row mb-3 mt-3">
-            <div class="col text-end">
-             <p class="">Nama : </p>
-            </div>
-            <div class="col">
-             <input class="form-control" style="width:300px" required type="text" name="user" id=""/>
-            </div>
+        <div class="row border-0 text-center mb-1">
+         <div class="col-sm">
+          <span class="text-primary">Nama</span></br>
+          <input class="" style="width:300px" required type="text" name="user" id=""/>
+         </div>
+		</div>
+		<div class="row border-0 text-center mb-1">
+         <div class="col-sm">
+          <span class="text-primary">Email</span></br>
+          <input class="" style="width:300px" required type="text" name="email" id=""/>
+         </div>
         </div>
 
-        <div class="row mb-3">
-            <div class="col text-end">
-             <p class="">Email : </p>
-            </div>
-            <div class="col">
-              <input class="form-control" style="width:300px" required type="text" name="email" id=""/>
-            </div>
-        </div>
-                
-        <div class="row mb-3">
-            <div class="col text-end">
-             <p class="">Kata Sandi : </p>
-            </div>
-            <div class="col">
-               <input class="form-control" style="width:300px" required type="password" name="pass" id=""/>
-            </div>
-        </div>
-        
-        <div class="row mb-3">
-            <div class="col text-end">
-             <p class="">Konfirmasi Kata Sandi : </p>
-            </div>
-            <div class="col">
-                <input class="form-control" style="width:300px" required type="password" name="passcon" id=""/>
-            </div>
+        <div class="row border-0 text-center mb-1">
+         <div class="col-sm">
+          <span class="text-primary">Kata Sandi</span></br>
+          <input class="" style="width:300px" required type="password" name="pass" id=""/>
+         </div>
+		</div>
+		<div class="row border-0 text-center mb-1">
+         <div class="col-sm">
+          <span class="text-primary">Konfirmasi Kata Sandi</span></br>
+          <input class="" style="width:300px" required type="password" name="passcon" id=""/>
+         </div>
         </div>
 
-        <div class="row mb-3">
-            <div class="col text-end">
-             <p class="">Verifikasi Captcha : </p>
-            </div>
-            <div class="col-md-auto">
-                <canvas id="captcha" class="" width="215" height="70">captcha text</canvas></br>
-                <input id="textBox" type="text" class="form-control" style="width:150px" name="text">
-            </div>
-            <div class="col col-lg-2">
-                <button class="btn border border-secondary" formnovalidate id="refreshButton" type="submit">Ganti</button>
-            </div>
-        </div>
-        
-        <div class="row mb-3">
-            <div class="col text-center">
-                <Button class="btn btn-primary" type="submit" name="submit" value="register">Daftar</button>
-            </div>
+        <div class="row border-0 text-center">
+         <div class="col text-center">
+          <span class="text-primary">Verifikasi Captcha</span></br>
+          <canvas id="captcha" class="" width="190" height="70">captcha text</canvas>
+         </div>
+		</div>
+		<div class="row border-0 text-center mb-1">
+         <div class="col text-center mt-4">
+          <input id="textBox" type="text" class="" style="width:300px" name="text"></br>
+		  <button class="btn border border-secondary mt-1" formnovalidate id="refreshButton" type="submit">Ganti</button>
+         </div>
         </div>
 
-
-    </div>
-
-    </div>		
+        <div class="row card border-0 bg-transparent text-center mb-1">
+         <div class="col-sm mb-1">
+         <Button class="btn btn-primary" type="submit" name="submit" value="register">Daftar</button>
+         </div>
+        </div>
+		
   </form>
-
   </div>
   </div>
 </div>
 
-</div>
 </div>
 
 </div>

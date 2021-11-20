@@ -39,18 +39,19 @@ if ($userAC == '0'){
 
 	<div class="row">
 		<div class="col-sm">
-			<div class="card shadow-sm">
+			<div class="card shadow-sm mb-2">
 			<div class="card-body">
 			
 				<form action="" id="formBarang">
 				<div class="row">
-					<div class="col-9">
+					<div class="col-sm-9">
 						<select name="rak" class="btn btn-light border dropdown-toggle m-2 form-select">
 							<option value="1" class="dropdown-item">Rak 1</option>
 							<option value="2" class="dropdown-item">Rak 2</option>
+							<option value="G" class="dropdown-item">Rak G</option>
 						</select>
 					</div>
-					<div class="col">
+					<div class="col-sm d-grid">
 						<input class="btn btn-primary mt-2" type="submit" name="butonRak" value="Ganti Rak">
 					</div>
 				</div>
@@ -65,14 +66,16 @@ if ($userAC == '0'){
 		</div>
 		
 		<div class="col-sm">
-			<div class="card shadow-sm">
+			<div class="card shadow-sm mb-4">
 			<div class="card-body">
-			
+				
+				<h4 class="card-title">Aktifitas Barang</h4>
+				
 				<div class="w-100">
 					<form id="searchChart" action="">
 						<div class="row">
 							<div class="col-8">
-								<input class="form-control" name="graphSearch" type="text" id="graphSearch" placeholder="Cari Barang">
+								<input class="form-control" name="graphSearch" type="text" id="graphSearch" placeholder="Cari aktifitas Barang">
 							</div>
 							<div class="col-4 d-grid gap-2">
 								<button class="btn btn-primary" type="submit" name="graphBtnSearch" value="Cari"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -87,10 +90,17 @@ if ($userAC == '0'){
 
 				<div class="card">
 					<div class="card-body" id="divChart" style="">
+						
 					</div>
 				</div>
 				
-				<h4 class="card-title">Catatan Aktifitas</h4>
+			</div>
+			</div>
+			
+			<div class="card shadow-sm">
+			<div class="card-body">
+			
+				<h4 class="card-title">Riwayat Aktifitas</h4>
 				
 				<div class="table-responsive">
 				<table class="table table-striped table-sm" id="tbActivity">
@@ -110,15 +120,15 @@ if ($userAC == '0'){
 					FROM history
 					JOIN pengguna ON history.user_id = pengguna.id
 					JOIN stock ON history.stock_id = stock.stock_id
-					WHERE date > CURRENT_DATE - INTERVAL 7 day order by date(date) desc;";
+					WHERE date > CURRENT_DATE - INTERVAL 7 day order by date(date) desc limit 5;";
 					$historyRun = mysqli_query($servConnQuery, $queryHistory);
 					$arr = array();
 					while($row = mysqli_fetch_assoc($historyRun)){
 						$arr[] = $row;
 					}
 					function status($a, $b){
-						if($a==1)		{return 'Input';}
-						elseif($b==1)	{return 'Output';}
+						if($a==1)		{return 'Masuk';}
+						elseif($b==1)	{return 'Keluar';}
 						else			{return 'DB ERR';}
 					}
 					foreach($arr as $data){ 
@@ -141,12 +151,22 @@ if ($userAC == '0'){
 					}
 				?>
 				</div>
+				
+				<div class="btn btn-primary" onclick="historyModal()">Lihat Keseluruhan</div>
 			
 			</div>
 			</div>
 		</div>
 	</div>
 </div>
+</div>
+
+<div class="modal fade" id="modalHistory">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      
+    </div>
+  </div>
 </div>
 
 <?php
@@ -179,18 +199,6 @@ if ($userAC == '0'){
 			e.preventDefault();
 		});
 	});
-
-	$(document).ready(function () {
-		$('#tbActivity').DataTable({
-			"scrollY": "50vh",
-			"scrollCollapse": true,
-			"order": [[2, "desc"]],
-			language:{
-				url: 'js/id.json'
-			}
-		});
-		$('.dataTables_length').addClass('bs-select');
-	});
 	
 	$(function(){
 	$("#graphSearch").autocomplete({
@@ -213,6 +221,10 @@ if ($userAC == '0'){
 			e.preventDefault();
 		});
 	});
+	
+function historyModal(){
+	$('#modalHistory').modal('show').find('.modal-content').load('layout/modalhistory.php');
+};
 </script>
 
 </body>

@@ -5,6 +5,9 @@ if(isset($_GET['rak'])){
 	$rak = $_GET['rak'];
 }
 ?>
+<script src="js/jquery3.6.0.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+
 				<div class="card">
 					<div class="card-body px-0" style="background-color:#2879ff73;">
 						<div class="container p-0" style="height:200px">
@@ -16,7 +19,7 @@ if(isset($_GET['rak'])){
 								<?php
 								$queryNum=0;
 								$arrLan=array();
-								$sqlStorageL = "select lantai from penyimpanan where rak=$rak";
+								$sqlStorageL = "select lantai from penyimpanan where rak='$rak'";
 								$runStorageL = mysqli_query($servConnQuery, $sqlStorageL);
 								while($fetchL=mysqli_fetch_assoc($runStorageL)){
 									$a=$fetchL['lantai'];
@@ -115,6 +118,33 @@ if(isset($_GET['rak'])){
 						<!--carousel close-->
 						
 						</div>
+						
+						<div class="row fw-semi-bold m-0 justify-content-md-center">
+							<span class="col-auto m-1 mr-2">
+								<span class="color-primary rounded-circle p-1 border border-dark" style="display:inline-block;">
+									<span class="visually-hidden">penuh</span>
+								</span>
+								Penuh
+							</span>
+							
+							<span class="col-auto m-1 mr-2">
+								<span class="color-tertiary rounded-circle p-1 border border-dark" style="display:inline-block;">
+									<span class="visually-hidden">Kosong</span>
+								</span>
+								Kosong
+							</span>
+							
+							<span class="col-auto m-1 mr-2">
+								<span class="badge bg-light text-dark">C</span>
+								Kolom
+							</span>
+							
+							<span class="col-auto m-1 mr-2">
+								<span class="badge bg-light text-dark">B</span>
+								Baris
+							</span>
+						</div>
+						
 					</div>
 				</div>
 				
@@ -135,8 +165,8 @@ if(isset($_GET['rak'])){
 						from stock
 						join penyimpanan
 						on stock.storage_id = penyimpanan.storage_id
-						where penyimpanan.rak = $rak
-						order by stock.stock_id desc";
+						where penyimpanan.rak = '$rak'
+						order by stock.stock_id asc limit 5";
 						$stockRun = mysqli_query($servConnQuery, $stockQuery);
 						$arr = array();
 						
@@ -152,6 +182,17 @@ if(isset($_GET['rak'])){
 					</tbody>
 				</table>
 				</div>
+				<div class="btn btn-primary" onclick="modalBarang('<?php echo$rak;?>')">Lihat selengkapnya</div>
+				
+				
+<div class="modal fade" id="modalbarang">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      
+    </div>
+  </div>
+</div>
+				
 				<script>
 				$(function(){
 					$('#tbComponent').DataTable({
@@ -162,5 +203,9 @@ if(isset($_GET['rak'])){
 						}
 					});
 					$('.dataTables_length').addClass('bs-select');
-				})
+				});
+				
+				function modalBarang(x){
+					$('#modalbarang').modal('show').find('.modal-content').load('layout/modalbarang.php?rak='+x);
+				};
 				</script>

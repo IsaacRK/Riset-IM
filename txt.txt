@@ -1,5 +1,19 @@
 //todo   |---
 
+	//prioritas		|-------------
+	
+		ubah halaman beranda
+			-masukan legend ke box
+			-ganti tabel daftar komponen & catatan aktifitas
+				-max 5 barang
+				-tombol untuk lihat semua barang & history
+			-ganti catatan aktifitas -> riwayat aktifitas
+			-grfik di tambah barang keluar & barang masuk
+		
+		perbaiki bug mapping tidak bisa update stokId pada penyimpanan
+		
+	|-----------------------------
+	
 -fitur erp
 	-[done]hanya bisa diakses admin & supervervisor
 	Fitur

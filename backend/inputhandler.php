@@ -118,8 +118,7 @@ if(isset($_POST['pointer'])){
 		";
 		mysqli_query($servConnQuery, $inputQuery);
 		
-		$stockSearchQuery = "select stock_id from stock where stock_name = '$stockName'";
-		$stockSearchRun = mysqli_query($servConnQuery, $stockSearchQuery);
+		$stockSearchQuery = "select stock_id from stock where stock_name = '$stockName'";		$stockSearchRun = mysqli_query($servConnQuery, $stockSearchQuery);
 		$stockSearchFetch = mysqli_fetch_assoc($stockSearchRun);
 		$stock_id = $stockSearchFetch['stock_id'];
 		
@@ -134,7 +133,8 @@ if(isset($_POST['pointer'])){
 		where storage_id = '$storage_id'
 		";
 		mysqli_query($servConnQuery, $inputBarcode);
-
+		
+		//input history
 		$now = date("Y-m-d");
 		$historyQuery = 
 		"insert into 
