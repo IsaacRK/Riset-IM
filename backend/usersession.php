@@ -8,6 +8,8 @@ if($_SESSION['uid'] != null){
 	$userId 		= $userData['id'];
 	$userlvl 		= $userData['tingkat'];
 	$userAC			= $userData['active'];
+	$userEM			= $userData['email'];
+	$userPS			= $userData['pass'];
 }else{
 	header('location:index.html');
 }
