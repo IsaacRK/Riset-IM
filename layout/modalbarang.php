@@ -63,5 +63,5 @@ $(function(){
 		}
 	});
 	$('.dataTables_length').addClass('bs-select');
-})
+});
 </script>

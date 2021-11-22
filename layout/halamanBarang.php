@@ -5,8 +5,6 @@ if(isset($_GET['rak'])){
 	$rak = $_GET['rak'];
 }
 ?>
-<script src="js/jquery3.6.0.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
 
 				<div class="card">
 					<div class="card-body px-0" style="background-color:#2879ff73;">
@@ -182,9 +180,15 @@ if(isset($_GET['rak'])){
 					</tbody>
 				</table>
 				</div>
-				<div class="btn btn-primary" onclick="modalBarang('<?php echo$rak;?>')">Lihat selengkapnya</div>
-
-
 				<script>
-				
+				$(function(){
+					$('#tbComponent').DataTable({
+						"scrollY": "50vh",
+						"scrollCollapse": true,
+						language:{
+							url: 'js/id.json'
+						}
+					});
+					$('.dataTables_length').addClass('bs-select');
+				});
 				</script>

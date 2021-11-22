@@ -15,7 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/personal.css" />
 	<link rel="stylesheet" type="text/css" href="css/datatables.min.css"/>
-	<link rel="stylesheet" href="css/croppie.css" />
+	<link rel="stylesheet" type="text/css" href="css/croppie.css" />
 
 	<!--| jquery first then other js |-->
 	<script src="js/jquery3.6.0.min.js"></script>
@@ -24,5 +24,5 @@
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/JsBarcode.code128.min.js"></script>
 	<script src="js/jquery-ui.js"></script>
-	<script type="text/javascript" src="js/datatables.min.js"></script>
+	<script src="js/datatables.min.js"></script>
 	<script src="js/croppie.js"></script>
