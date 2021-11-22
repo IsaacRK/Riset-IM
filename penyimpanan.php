@@ -27,10 +27,6 @@ if(isset($_POST['hapusRak'])){
 			$kol = $_POST['kolom'];
 			$bar = $_POST['baris'];
 			
-			if($rak==0){
-				$rak = 'G';
-			}
-			
 			$sqlCheck = "select * from penyimpanan where rak='$rak' and lantai=$lan and kolom=$kol and baris=$bar";
 			$runCheck = mysqli_query($servConnQuery, $sqlCheck);
 			if(mysqli_num_rows($runCheck)==null){
@@ -136,16 +132,16 @@ if(isset($_POST['hapusRak'])){
 		
 			<div class="input-group input-group mb-3">
 				<div class="input-group-prepend">
-					<span class="input-group-text" id="inputGroup-sizing-sm">Lantai</span>
+					<span class="input-group-text" id="inputGroup-sizing-sm">Rak</span>
 				</div>
-				<input required type="number" class="form-control" name="lantai" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+				<input required type="text" class="form-control" name="rak" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
 			</div>
 		
 			<div class="input-group input-group mb-3">
 				<div class="input-group-prepend">
-					<span class="input-group-text" id="inputGroup-sizing-sm">Rak</span>
+					<span class="input-group-text" id="inputGroup-sizing-sm">Lantai</span>
 				</div>
-				<input required type="number" class="form-control" name="rak" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+				<input required type="number" class="form-control" name="lantai" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
 			</div>
 			
 			<div class="input-group input-group mb-3">

@@ -4,6 +4,7 @@ include '../layout/header.php';
 
 //deklarasi variabel
 $arr=array();
+$inv=array();
 $day=array();
 $var=0;
 
@@ -57,7 +58,7 @@ if(isset($_GET['graphSearch'])){
 		
 		//menenentukan hari dari barang yang akan diambil
 		//hari sekarang dikurangi $i hari
-		$chartFetchQuery = "SELECT * FROM `history` WHERE date = date_sub(CURRENT_DATE, interval $i day and output=1)";
+		$chartFetchQuery = "SELECT * FROM `history` WHERE date = date_sub(CURRENT_DATE, interval $i day) and output=1";
 		$chartFetchRun = mysqli_query($servConnQuery, $chartFetchQuery);
 		
 		//mereset jumlah total barang setiap 1 hari menjadi 0
@@ -69,18 +70,18 @@ if(isset($_GET['graphSearch'])){
 				$out = $out+$chartFetch['amount'];
 			}
 		}
-		
-		$chartinpQuery = "SELECT * FROM `history` WHERE date = date_sub(CURRENT_DATE, interval $i day and input=1)";
+		$out;
+		$chartinpQuery = "SELECT * FROM `history` WHERE date = date_sub(CURRENT_DATE, interval $i day) and input=1";
 		$chartinpRun = mysqli_query($servConnQuery, $chartFetchQuery);
 		$inp=0;
 		if(mysqli_num_rows($chartinpRun)>0){
-			while($chartFetch = mysqli_fetch_assoc($chartinpRun)){
+			while($chartinpFetch = mysqli_fetch_assoc($chartinpRun)){
 				//hitung jumlah total barang yang masuk/keluar pada satu hari, dari hari yang di tentukan
-				$inpFetch['amount'];
-				$inp = $inp+$inpFetch['amount'];
+				$chartinpFetch['amount'];
+				$inp = $inp+$chartinpFetch['amount'];
 			}
 		}
-		
+		echo $inp;
 		//mengitung hari, sekarang di kurangi $i hari
 		$now = date("Y-m-d");
 		$cut = date('m-d', strtotime($now.'-'.$i.' Days'));
@@ -107,14 +108,14 @@ $(document).ready(function(){
 	  labels: <?php echo'["'.$day[7].'","'.$day[6].'","'.$day[5].'","'.$day[4].'","'.$day[3].'","'.$day[2].'","'.$day[1].'","'.$day[0].'"]'; ?>,
 	  datasets: [{
 		label: "Jumlah Keluar",
-		backgroundColor: 'rgb(16, 100, 174)',
-		borderColor: 'rgb(16, 100, 174)',
+		backgroundColor: 'rgba(16, 100, 174, 0.3)',
+		borderColor: 'rgba(16, 100, 174, 0.3)',
 		data: <?php echo'['.$arr[7].','.$arr[6].','.$arr[5].','.$arr[4].','.$arr[3].','.$arr[2].','.$arr[1].','.$arr[0].']'; ?>,
 	  },{
-		label: "Jumlah Keluar",
+		label: "Jumlah masuk",
 		backgroundColor: 'yellow',
 		borderColor: 'yellow',
-		data: <?php echo'['.$inv[7].','.$arr[6].','.$arr[5].','.$arr[4].','.$arr[3].','.$arr[2].','.$arr[1].','.$arr[0].']';?>,
+		data: <?php echo'['.$inv[7].','.$inv[6].','.$inv[5].','.$inv[4].','.$inv[3].','.$inv[2].','.$inv[1].','.$inv[0].']';?>,
 	  }]
 	};
 

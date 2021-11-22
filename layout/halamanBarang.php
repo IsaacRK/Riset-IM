@@ -183,29 +183,8 @@ if(isset($_GET['rak'])){
 				</table>
 				</div>
 				<div class="btn btn-primary" onclick="modalBarang('<?php echo$rak;?>')">Lihat selengkapnya</div>
-				
-				
-<div class="modal fade" id="modalbarang">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      
-    </div>
-  </div>
-</div>
-				
+
+
 				<script>
-				$(function(){
-					$('#tbComponent').DataTable({
-						"scrollY": "50vh",
-						"scrollCollapse": true,
-						language:{
-							url: 'js/id.json'
-						}
-					});
-					$('.dataTables_length').addClass('bs-select');
-				});
 				
-				function modalBarang(x){
-					$('#modalbarang').modal('show').find('.modal-content').load('layout/modalbarang.php?rak='+x);
-				};
 				</script>
