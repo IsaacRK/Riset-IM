@@ -86,7 +86,7 @@ $l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
 		<div class="col">
 			<div class="card shadow-sm">
 			<div class="card-body">
-				<h3>Data Barang</h3>
+				<h3>Data barang</h3>
 				</br>
 				
 				<form action="" id="itemNameForm">
@@ -96,7 +96,7 @@ $l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
 								<div class="input-group-prepend">
 									<span class="input-group-text" id="inputGroup-sizing-sm">Nama</span>
 								</div>
-								<input required type="text" class="form-control" name="itemName" placeholder="Nama Barang" id="itemName" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+								<input required type="text" class="form-control" name="itemName" placeholder="Nama barang" id="itemName" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
 							</div>
 						</div>
 						<div class="col d-grid gap-2">
