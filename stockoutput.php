@@ -98,7 +98,7 @@ if(isset($_GET['barcode'])){
 						<img class="m-1" src="img/icons/search.svg" width="25" height="25"/>
 					</div>
 					<div class="col-9">
-						<input class="form-control border border-0" style="" type="text" placeholder="Nama Komponen" name="componentNameSearch" id="componentNameSearch"/>
+						<input class="form-control border border-0" style="" type="text" placeholder="Nama komponen" name="componentNameSearch" id="componentNameSearch"/>
 					</div>
 				</div>
 			</div>
@@ -109,7 +109,7 @@ if(isset($_GET['barcode'])){
 		</form>
 		</div>
 		<div class="col-md-5 d-grid gap-2">
-			<button type="button" class="btn btn-primary" id="barcodeScnButton">Barcode Scanner</button>
+			<button type="button" class="btn btn-primary" id="barcodeScnButton">Barcode scanner</button>
 		</div>
 	</div>
 	
@@ -118,11 +118,11 @@ if(isset($_GET['barcode'])){
 			<div class="card shadow-sm">
 			<div class="card-body">
 			<form action="" method="post">
-				<h3>Informasi Komponen</h3>
+				<h3>Informasi komponen</h3>
 				</br>
 				<div class="row">
 					<div class="col">
-						<span>Nama Komponen :</span>
+						<span>Nama komponen :</span>
 					</div>
 					<div class="col">
 					<span>
@@ -130,7 +130,7 @@ if(isset($_GET['barcode'])){
 							if($Cname != ''){
 								echo $Cname;
 							}else{
-								echo 'belum di pilih.';
+								echo 'belum dipilih.';
 							}
 						?>
 					</span>
@@ -147,7 +147,7 @@ if(isset($_GET['barcode'])){
 								if($CStock != ''){
 									echo $CStock;
 								}else{
-									echo 'belum di pilih.';
+									echo 'belum dipilih.';
 								}
 							?>
 						</span>
@@ -168,7 +168,7 @@ if(isset($_GET['barcode'])){
 									<span>baris:'.$Cbar.'</span>
 								';
 							}else{
-								echo '<span>belum di pilih.</span>';
+								echo '<span>belum dipilih.</span>';
 							}
 						?>
 					</div>
@@ -176,7 +176,7 @@ if(isset($_GET['barcode'])){
 				</br>
 				<div class="input-group input-group mb-3">
 					<div class="input-group-prepend">
-						<span class="input-group-text" id="inputGroup-sizing-sm">Jumlah Yang Di Ambil</span>
+						<span class="input-group-text" id="inputGroup-sizing-sm">Jumlah yang diambil</span>
 					</div>
 					<input required type="number" class="form-control" name="amount_taken" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
 				</div>
@@ -199,7 +199,7 @@ if(isset($_GET['barcode'])){
 
 				<div class="row mt-2">
 					<div class="col-6 mx-auto">
-						<input class="btn btn-primary btn-block" type="submit" name="addToCart" value="Tambahkan ke Keranjang"
+						<input class="btn btn-primary btn-block" type="submit" name="addToCart" value="Tambahkan ke keranjang"
 							<?php
 								if(isset($Cid)==null){
 									echo'disabled aria-disabled="true"';
