@@ -107,12 +107,12 @@ $(document).ready(function(){
 	var activityData = {
 	  labels: <?php echo'["'.$day[7].'","'.$day[6].'","'.$day[5].'","'.$day[4].'","'.$day[3].'","'.$day[2].'","'.$day[1].'","'.$day[0].'"]'; ?>,
 	  datasets: [{
-		label: "Jumlah Keluar",
+		label: "Stok keluar",
 		backgroundColor: 'rgba(16, 100, 174, 0.3)',
 		borderColor: 'rgba(16, 100, 174, 0.3)',
 		data: <?php echo'['.$arr[7].','.$arr[6].','.$arr[5].','.$arr[4].','.$arr[3].','.$arr[2].','.$arr[1].','.$arr[0].']'; ?>,
 	  },{
-		label: "Jumlah masuk",
+		label: "Stok masuk",
 		backgroundColor: 'yellow',
 		borderColor: 'yellow',
 		data: <?php echo'['.$inv[7].','.$inv[6].','.$inv[5].','.$inv[4].','.$inv[3].','.$inv[2].','.$inv[1].','.$inv[0].']';?>,
