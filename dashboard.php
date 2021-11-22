@@ -10,7 +10,7 @@ if ($userAC == '0'){
 <html>
 
 <head>
-	<title>Dashboard</title>
+	<title>Beranda</title>
 	<?php include"layout/header.php"?>
 	
 </head>
@@ -75,7 +75,7 @@ if ($userAC == '0'){
 					<form id="searchChart" action="">
 						<div class="row">
 							<div class="col-8">
-								<input class="form-control" name="graphSearch" type="text" id="graphSearch" placeholder="Cari aktifitas Barang">
+								<input class="form-control" name="graphSearch" type="text" id="graphSearch" placeholder="Cari aktivitas Barang">
 							</div>
 							<div class="col-4 d-grid gap-2">
 								<button class="btn btn-primary" type="submit" name="graphBtnSearch" value="Cari"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
