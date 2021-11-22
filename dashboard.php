@@ -31,7 +31,7 @@ if ($userAC == '0'){
 			</div>
 			<div class="col-3 mt-1 p-1 d-flex justify-content-end">
 			<div class="d-grid gap-2 w-100">
-				<a href="backend/report.php" class="btn btn-primary">Unduh Laporan</a>
+				<a href="backend/report.php" class="btn btn-primary">Unduh laporan</a>
 			</div>
 			</div>
 		</div>
@@ -52,7 +52,7 @@ if ($userAC == '0'){
 						</select>
 					</div>
 					<div class="col-sm d-grid">
-						<input class="btn btn-primary mt-2" type="submit" name="butonRak" value="Ganti Rak">
+						<input class="btn btn-primary mt-2" type="submit" name="butonRak" value="Ganti rak">
 					</div>
 				</div>
 				</form>
@@ -69,13 +69,13 @@ if ($userAC == '0'){
 			<div class="card shadow-sm mb-4">
 			<div class="card-body">
 				
-				<h4 class="card-title">Aktifitas Barang</h4>
+				<h4 class="card-title">Aktivitas barang</h4>
 				
 				<div class="w-100">
 					<form id="searchChart" action="">
 						<div class="row">
 							<div class="col-8">
-								<input class="form-control" name="graphSearch" type="text" id="graphSearch" placeholder="Cari aktivitas Barang">
+								<input class="form-control" name="graphSearch" type="text" id="graphSearch" placeholder="Cari aktivitas barang">
 							</div>
 							<div class="col-4 d-grid gap-2">
 								<button class="btn btn-primary" type="submit" name="graphBtnSearch" value="Cari"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -131,13 +131,13 @@ if ($userAC == '0'){
 			<div class="card shadow-sm">
 			<div class="card-body">
 			
-				<h4 class="card-title">Riwayat Aktifitas</h4>
+				<h4 class="card-title">Riwayat aktivitas</h4>
 				
 				<div class="table-responsive">
 				<table class="table table-striped table-sm" id="tbActivity">
 					<thead>
 					<tr>
-						<th scope="col">Nama Komponen</th>
+						<th scope="col">Nama komponen</th>
 						<th scope="col">Status</th>
 						<th scope="col">Tanggal</th>
 						<th scope="col">Operator</th>
@@ -177,13 +177,13 @@ if ($userAC == '0'){
 				<?php
 					if(mysqli_num_rows($historyRun)== 0){
 						echo'
-							<div class="w-100 color-tertiary p-2 text-center fw-bold">Belum ada barang yang di ambil</div>
+							<div class="w-100 color-tertiary p-2 text-center fw-bold">Belum ada barang yang diambil</div>
 						';
 					}
 				?>
 				</div>
 				
-				<div class="btn btn-primary" onclick="historyModal()">Lihat Keseluruhan</div>
+				<div class="btn btn-primary" onclick="historyModal()">Lihat keseluruhan</div>
 			
 			</div>
 			</div>
