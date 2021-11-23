@@ -93,7 +93,7 @@ if(isset($_GET['barcode'])){
 		<form action="" method="post">
 			<div class="row">
 			<div class="col-9 d-grid">
-				<div class="row border border-dark rounded">
+				<div class="row border border-dark rounded" style="background:white;">
 					<div class="col-2">
 						<img class="m-1" src="img/icons/search.svg" width="25" height="25"/>
 					</div>
