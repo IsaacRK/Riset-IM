@@ -40,18 +40,20 @@ if(isset($_GET["itemName"])){
 			
 			<div class="row mt-2">	
 				<div class="col-4">Lokasi penyimpanan</div>
-				<div class="col-8">
+				<div class="container">
+  				 <div class="row">
+				  <div class="col">
 					<select name="rak" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
 						<option value="1" class="dropdown-item">rak 1</option>
 						<option value="2" class="dropdown-item">rak 2</option>
 						<option value="G" class="dropdown-item">rak G</option>
 					</select>
 				</div>
-			</div>
 			
-			<div class="row mt-2">
-				<div class="col-4"></div>
-				<div class="col-8">
+			
+			
+				
+				<div class="col">
 					<select name="lantai" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
 						<option value="1" class="dropdown-item">lantai 1</option>
 						<option value="2" class="dropdown-item">lantai 2</option>
@@ -60,11 +62,9 @@ if(isset($_GET["itemName"])){
 						<option value="5" class="dropdown-item">lantai 5</option>
 					</select>
 				</div>
-			</div>
 			
-			<div class="row mt-2">
-				<div class="col-4"></div>
-				<div class="col-8">
+
+				<div class="col">
 					<select name="kolom" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
 						<option value="1" class="dropdown-item">kolom 1</option>
 						<option value="2" class="dropdown-item">kolom 2</option>
@@ -76,19 +76,17 @@ if(isset($_GET["itemName"])){
 						<option value="8" class="dropdown-item">kolom 8</option>
 					</select>
 				</div>
-			</div>
 			
-			<div class="row mt-2">
-				<div class="col-4"></div>
-				<div class="col-8">
+			
+			
+			
+				<div class="col">
 					<select name="baris" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
 						<option value="1" class="dropdown-item">baris 1</option>
 						<option value="2" class="dropdown-item">baris 2</option>
 					</select>
 				</div>
-			</div>
-			
-			<div class="row mt-2">
+		
 				<div class="col-6 mx-auto">
 					<input class="btn btn-primary btn-block" type="submit" name="insert" value="Masukkan"/>
 				</div>

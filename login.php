@@ -48,16 +48,16 @@ if(@$_SESSION['uid']!=null){
 					<!-- The slideshow/carousel -->
 					<div class="carousel-inner">
 						<div class="carousel-item active">
-							<img src="img/judul.jpg" alt="judul" class="d-block w-100">
+							<img src="img/hal1.jpg" alt="judul" class="d-block w-100">
 						</div>
 						<div class="carousel-item">
-							<img src="img/keunggulan.jpg" alt="Los Angeles" class="d-block w-100">
+							<img src="img/hal2.jpg" alt="Los Angeles" class="d-block w-100">
 						</div>
 						<div class="carousel-item">
-							<img src="img/pemasukan.jpg" alt="Chicago" class="d-block w-100">
+							<img src="img/hal3.jpg" alt="Chicago" class="d-block w-100">
 						</div>
 						<div class="carousel-item">
-							<img src="img/pengambilan.jpg" alt="New York" class="d-block w-100">
+							<img src="img/hal4.jpg" alt="New York" class="d-block w-100">
 						</div>
 					</div>
 
