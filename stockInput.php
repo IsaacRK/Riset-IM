@@ -123,10 +123,19 @@ $l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
 		<div class="col">
 			<div class="card shadow-sm">
 			<div class="card-body">
+				<div class="text-center">
+				<h2>Ratio ruang penyimpanan</h2></br>
+				</div>
 				<div class="d-flex justify-content-center">
 					<canvas id="pieChart" style="max-width:300px;max-height:300px;"></canvas>
 				</div>
-				
+			</div>
+			</div>
+			<div class="card shadow-sm">
+			<div class="card-body">
+				<div class="text-center">
+				<h2>Ratio jenis stok</h2></br>
+				</div>
 				<canvas id="barChart" style="max-width:;max-height:;"></canvas>
 			
 			</div>
