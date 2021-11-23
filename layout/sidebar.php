@@ -21,7 +21,7 @@ $Foto_05 = $Foto_03['filename'];
 	padding: 0;
 	width: 200px;
 	height: 100%;
-	box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+	box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 50%);
 	overflow: auto;
 	background-color: #1787ff;
 	
