@@ -15,6 +15,17 @@ $Foto_05 = $Foto_03['filename'];
 
 ?>
 <style>	
+.sidebar{
+	position: fixed;
+	margin: 0;
+	padding: 0;
+	width: 200px;
+	height: 100%;
+	box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+	overflow: auto;
+	background-color: #1787ff;
+	
+}
 .sidebar > a:hover,.sidebar > a:focus{
 	color: #1064ae!important;
 }
@@ -37,7 +48,7 @@ $Foto_05 = $Foto_03['filename'];
 
 <div class="sidebar" id="sidebar">
 	<div id="demo"></div>
-	<div class="list-group-item list-group-item-action flex-column align-items-start color-secondary py-0">
+	<div class="list-group-item list-group-item-action flex-column align-items-start color-secondary py-0" style="background: #52d7ff;">
 		<div class="row">
 			<div class="col-sm col-5 align-self-center">
 				<a href='Profile.php'><img src='Photo/<?php echo$Foto_05; ?>' class='profile'></a>
