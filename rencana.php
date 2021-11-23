@@ -55,7 +55,7 @@ require 'backend/usersession.php';
 			<div class="col-sm-2 mt-1 p-1 d-flex">
 			<div class="d-grid gap-2 w-100">
 				<a href="" class="btn btn-primary">
-					Procerement
+					Pembelian
 				</a>
 			</div>
 			</div>
@@ -63,7 +63,7 @@ require 'backend/usersession.php';
 			<div class="col-sm-2 mt-1 p-1 d-flex">
 			<div class="d-grid gap-2 w-100">
 				<a href="" class="btn btn-primary">
-					Accounting
+					Akuntansi
 				</a>
 			</div>
 			</div>
@@ -75,7 +75,7 @@ require 'backend/usersession.php';
 	<div class="col-sm">
 	<div class="card shadow-sm">
 		<div class="card-body">
-			<h3>Supply chain</h3>
+			<h3>Rantai pasokan</h3>
 		
 		</div>
 	</div>
@@ -84,11 +84,11 @@ require 'backend/usersession.php';
 	<div class="col-sm">
 	<div class="card shadow-sm">
 		<div class="card-body">
-			<h3>Enterprise performance</h3>
+			<h3>Peforma perusahaan</h3>
 			
 			<div class="card">
 				<div class="card-body">
-					<h5>Preforma Bulanan</h5>
+					<h5>Performa bulanan</h5>
 					
 					<div class="row">
 						<div class="col-sm-8">
@@ -115,7 +115,7 @@ require 'backend/usersession.php';
 								<div class="col">
 									<div class="card text-white bg-danger">
 									<div class="card-body">
-										<div class="card-title">Pengeuaran</div>
+										<div class="card-title">Pengeluaran</div>
 										<div class="card-text"><h4>100.000 RB</h4></div>
 									</div>
 									</div>
@@ -127,7 +127,7 @@ require 'backend/usersession.php';
 						<div class="col">
 							<div class="card h-100 text-white bg-secondary">
 							<div class="card-body">
-								<div class="card-title">Presentase Bulanan</div>
+								<div class="card-title">Persentase bulanan</div>
 								<div class="card-text"><h1>100%</h1></div>
 							</div>
 							</div>
