@@ -146,13 +146,13 @@ if(isset($_GET['rak'])){
 					</div>
 				</div>
 				
-				<h4 class="card-title">Daftar Komponen</h4>
+				<h4 class="card-title">Daftar komponen</h4>
 				
 				<div class="table-responsive">
 				<table class="table table-striped table-sm" id="tbComponent">
 					<thead>
 					<tr>
-						<th scope="col">Nama Komponen</th>
+						<th scope="col">Nama komponen</th>
 						<th scope="col">Jumlah</th>
 					</tr>
 					</thead>
