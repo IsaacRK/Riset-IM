@@ -52,7 +52,7 @@ if ($userAC == '0'){
 						</select>
 					</div>
 					<div class="col-sm d-grid">
-						<input class="btn btn-primary mt-2" type="submit" name="butonRak" value="Ganti rak">
+						<input class="btn btn-primary my-2" type="submit" name="butonRak" value="Ganti rak">
 					</div>
 				</div>
 				</form>
