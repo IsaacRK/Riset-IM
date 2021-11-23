@@ -1,5 +1,5 @@
 body{
-	background-color: rgb(248, 249, 250);
+	background: #E5E4E2;
 }
 
 color-dblue{
@@ -9,18 +9,6 @@ color-dblue{
 div.content{
 	margin-left: 200px;
 	padding: 1px;
-}
-
-.sidebar{
-	position: fixed;
-	margin: 0;
-	padding: 0;
-	width: 200px;
-	height: 100%;
-	box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
-	overflow: auto;
-	background-color: #1064ae;
-	
 }
 
 div.open-menu{
