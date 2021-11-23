@@ -4,32 +4,46 @@ include'../backend/conn.php';
 if(isset($_GET["itemName"])){
 	$iName = $_GET['itemName'];
 	
-	function stringForm($val, $itemName){
-		
-		$jenisKomponen = '';
-		if($val == 0){
-			$jenisKomponen = '
-				<select name="category" class="btn btn-light btn-block border dropdown-toggle p-2 form-control">
-					<option value="001" class="dropdown-item">Elektronik</option>
-					<option value="011" class="dropdown-item">Peralatan</option>
-					<option value="100" class="dropdown-item">Lain-Lain</option>
-				</select>
-			';			
-		}else{
-			$jenisKomponen = '
-				<span class="form-control" id="categoryUpdate" style="background-color:#e9ecef"></span>
-			';
-		}
-		
-		$str = '
-		
+	$query = "select * from stock where stock_name = '$iName'";
+	$run = mysqli_query($servConnQuery, $query);
+	$x = mysqli_num_rows($run);
+	
+	$strEnabled ='
+	<select name="category" class="btn btn-light btn-block border dropdown-toggle p-2 form-control">
+		<option value="001" class="dropdown-item">Elektronik</option>
+		<option value="011" class="dropdown-item">Peralatan</option>
+		<option value="100" class="dropdown-item">Lain-Lain</option>
+	</select>';
+	$strDisabled ='
+		<span class="form-control" id="categoryUpdate" style="background-color:#e9ecef"></span>
+	';
+	?>
+	
 		<form action="" id="itemData">
 			<input type="hidden" id="" name="itemName" value="'.$itemName.'">
+			
+				<div class="card mb-3">
+				<div class="card-body py-1 d-flex justify-content-center">
+				<?php
+					if($x>0){
+						echo'Barang Tersedia pada penyimpanan';
+					}else{
+						echo'Barang baru';
+					}
+				?>
+				</div>
+				</div>						
 			<div class="input-group input-group mb-3">
 				<div class="input-group-prepend">
 					<span class="input-group-text" id="inputGroup-sizing-sm">Kategori</span>
 				</div>
-				'.$jenisKomponen.'
+				<?php
+				if($x>0){
+					echo $strDisabled;
+				}else{
+					echo $strEnabled;
+				}
+				?>
 			</div>
 			<div class="input-group input-group mb-3">
 				<div class="input-group-prepend">
@@ -111,17 +125,7 @@ if(isset($_GET["itemName"])){
 			});
 		});
 		</script>
-		';
-		return $str;
-	}
-	
-	$query = "select * from stock where stock_name = '$iName'";
-	$run = mysqli_query($servConnQuery, $query);
-	if($x = mysqli_num_rows($run)>0){
-		echo stringForm($x, $iName);
-	}else{
-		echo stringForm($x, $iName);
-	}
+	<?php
 }
 
 ?>

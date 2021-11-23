@@ -2,7 +2,6 @@
 
 require 'backend/conn.php';
 require 'backend/usersession.php';
-require 'backend/outputhandler.php';
 require 'backend/editcarthandler.php';
 
 $Cid	= null;
@@ -77,6 +76,7 @@ if(isset($_GET['barcode'])){
 
 <?php
 	include"layout/sidebar.php";
+	require 'backend/outputhandler.php';
 	require 'backend/checkouthandler.php';
 ?>
 <div class="content">

@@ -21,7 +21,7 @@ if(mysqli_num_rows($cartQueryRun) > 0){
 		$stockNameFetch = mysqli_fetch_assoc($stockFindQueryRun);
 		$stockName		= $stockNameFetch['stock_name'];
 		
-		echo'
+		?>
 			<div class="col-2">
 				<label class="checkbox">
 				  <span class="checkbox_input">
@@ -47,11 +47,11 @@ if(mysqli_num_rows($cartQueryRun) > 0){
 				</div>
 			</div>
 			<div class="col-10">
-				<span>nama komponen: '.$stockName.'</span></br>
-				<span>jumlah : '.$cartTakeAmount.'</span></br>
-				<span>keperluan : '.$cartNecesity.'</span></br>
+				<span>nama komponen: <?php echo$stockName;?></span></br>
+				<span>jumlah : <?php echo$cartTakeAmount;?></span></br>
+				<span>keperluan : <?php echo$cartNecesity;?></span></br>
 			</div>
-		';
+		<?php
 	}
 	echo'
 	</div>

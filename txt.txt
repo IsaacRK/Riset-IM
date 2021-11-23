@@ -2,16 +2,23 @@
 
 	//prioritas		|-------------
 	
-		ubah halaman beranda
-			-masukan legend ke box
-			-ganti tabel daftar komponen & catatan aktifitas
-				-max 5 barang
-				-tombol untuk lihat semua barang & history
-			-ganti catatan aktifitas -> riwayat aktifitas
-			-grfik di tambah barang keluar & barang masuk
+	Tambahan dari pak Dwiky:
+-DIahalaman Beranda, yang di carousel digantikan dengan susunan rak.
+-Dikasih gambar rak dibackgroundnya
+-Penyusunan bahasa
+-[done]Di halaman stok input, petunjuk menghilang setelah tombol cek di tekan.
+-[done]Dibawah form control nama, diberikan keterangan apakah barang itu barang lama atau baru.
+-Card kiri butuh keterangan
 		
-		perbaiki bug mapping tidak bisa update stokId pada penyimpanan
-		
+-[done?]Pada stok output, Masih bisa ngambil lebih banyak dari pada stok
+-Tombol Edit pada kerajangan diganti seperti di shopee
+-Pada tombol laporan, apabila bisa, dokumen yang didownload sudah berdada dalam sebuah format
+-Berikan tombol ganti kamera pada barcode scanner dan di bahasa indonesiakan
+-Bahaasa Indoesiakan semua kecuali Barcode scanner
+-Carousel di halaman login diganti fitur-fitur dan keuntungan. Per-slide per-fitur
+-Pas pertama kali masuk, terdapat tutorial menggunakan halaman
+
+-[done]ubah fitur, jika barang yang diambil lebih banyak, tidak bisa menaruh di rak
 	|-----------------------------
 	
 -fitur erp
