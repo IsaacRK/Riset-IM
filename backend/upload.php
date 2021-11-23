@@ -47,7 +47,11 @@ if ($uploadOk == 0) {
         // Execute query
         mysqli_query($servConnQuery, $sql);
 
+       if ($userAC == '0'){
+        header("Location:../Verifyno.php");
+      }else{
         header("Location:../Profile.php");
+      }  
       } else {
         $Delete_03 = $SRCID_04['filename'];
         $file_pointer = "../Photo/$Delete_03";
