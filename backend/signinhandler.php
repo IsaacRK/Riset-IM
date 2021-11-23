@@ -27,6 +27,7 @@ if(isset($_POST['submit'])){
 	}else{
 		$run = mysqli_query($servConnQuery, $query);
 		if($run){
+		$from = "csinventory@cypiral.org";
 		$to = $email;
 		$subject = 'Signup | Verification';
 		$message = '
@@ -40,7 +41,7 @@ if(isset($_POST['submit'])){
 		 
 		Please click this link to activate your account:
 		http://inventory.cypiral.org/backend/verify.php?email='.$email.'&hash='.$hash.'';
-		$headers = 'From:noreply@yourwebsite.com' . "\r\n";
+		$headers = 'From:noreply' . $from;
 		mail($to, $subject, $message, $headers);
 
 		$query = "select * from pengguna where user = '$user' and pass = '$pass'";
