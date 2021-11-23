@@ -105,7 +105,7 @@ else { 	include "layout/sidebar.php";
       <div class="col-1"></div>
       <div class="col-10">
         <div class="row mt-5 border">
-          <div class="row">
+          <div class="row" style="background:white;">
 
             <div class="col-3 ms-1 text-center mt-2">
              <form action="backend/upload.php" method="post" enctype="multipart/form-data">

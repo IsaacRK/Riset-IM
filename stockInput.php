@@ -60,7 +60,11 @@ $l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
 <head>
 	<title>Stok Masuk</title>
 	<?php include"layout/header.php"; ?>
-	
+	<style>
+            .text-justify{
+                text-align: justify;
+            }
+        </style>
 </head>
 
 <body>
@@ -82,7 +86,7 @@ $l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
 		<div class="col">
 			<div class="card shadow-sm">
 			<div class="card-body">
-				<h3>Data Barang</h3>
+				<h3>Data barang</h3>
 				</br>
 				
 				<form action="" id="itemNameForm">
@@ -92,7 +96,7 @@ $l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
 								<div class="input-group-prepend">
 									<span class="input-group-text" id="inputGroup-sizing-sm">Nama</span>
 								</div>
-								<input required type="text" class="form-control" name="itemName" placeholder="Nama Barang" id="itemName" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+								<input required type="text" class="form-control" name="itemName" placeholder="Nama barang" id="itemName" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
 							</div>
 						</div>
 						<div class="col d-grid gap-2">
@@ -104,6 +108,14 @@ $l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
 				<div id="divItemData">
 				</div>
 				
+				<div class="row ms-1 text-justify mt-3">
+                    <a>Petunjuk penggunaan:</a>
+                   	<ol>
+						<li><small>Apabila nama barang yang tertulis belum terdaftar pada database, maka barang tersebut akan dianggap sebagai barang baru</small></li>
+						<li><small>Apabila barang tersebut sudah terdaftar pada database, maka operasi yang dapat dilakukan adalah pembaruan stok tanpa dapat mengubah kategori dari barang tersebut</small></li>
+                   	 </ol>
+               	 </div>
+				
 			</div>
 			</div>
 		</div>
@@ -111,10 +123,23 @@ $l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
 		<div class="col">
 			<div class="card shadow-sm">
 			<div class="card-body">
+<<<<<<< Updated upstream
+				<div class="text-center">
+				<h2>Ratio penyimpanan</h2></br>
+				</div>
+=======
+				<h3>Kapasitas Penyimpanan</h3>
+>>>>>>> Stashed changes
 				<div class="d-flex justify-content-center">
 					<canvas id="pieChart" style="max-width:300px;max-height:300px;"></canvas>
 				</div>
-				
+			</div>
+			</div>
+			<div class="card shadow-sm">
+			<div class="card-body">
+				<div class="text-center">
+				<h2>Ratio jenis stok</h2></br>
+				</div>
 				<canvas id="barChart" style="max-width:;max-height:;"></canvas>
 			
 			</div>
