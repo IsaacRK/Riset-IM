@@ -84,7 +84,7 @@ if(isset($_GET['barcode'])){
 
 	<div class="p-1">
 		<div class="mb-3">
-			<h1>Stock Keluar</h1>
+			<h1>Stok Keluar</h1>
 		</div>
 	</div>
 
@@ -130,7 +130,7 @@ if(isset($_GET['barcode'])){
 							if($Cname != ''){
 								echo $Cname;
 							}else{
-								echo 'belum dipilih.';
+								echo '-';
 							}
 						?>
 					</span>
@@ -147,7 +147,7 @@ if(isset($_GET['barcode'])){
 								if($CStock != ''){
 									echo $CStock;
 								}else{
-									echo 'belum dipilih.';
+									echo '-';
 								}
 							?>
 						</span>
@@ -168,7 +168,7 @@ if(isset($_GET['barcode'])){
 									<span>baris:'.$Cbar.'</span>
 								';
 							}else{
-								echo '<span>belum dipilih.</span>';
+								echo '<span>-</span>';
 							}
 						?>
 					</div>
