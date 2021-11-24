@@ -56,7 +56,7 @@ $Foto_05 = $Foto_03['filename'];
 			<div class="col-sm col-7 text-center align-self-center">
 				<a href ="Profile.php" class="pe-0">
 					<!--<div class="border rounded-start my-0 ms-1 p-1">-->
-						<p class="font-weight-bold text-light text-left mb-0"><b><?php echo $username; ?></b></p>
+						<p class="font-weight-bold text-primary text-left mb-0"><b><?php echo $username; ?></b></p>
 						<p class="text-primary" style="margin-bottom:0!important"><small><?php echo $userlvl; ?></small></p>
 					<!--</div>-->
 				</a>
