@@ -123,13 +123,8 @@ $l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
 		<div class="col">
 			<div class="card shadow-sm">
 			<div class="card-body">
-<<<<<<< Updated upstream
-				<div class="text-center">
-				<h2>Ratio penyimpanan</h2></br>
-				</div>
-=======
 				<h3>Kapasitas Penyimpanan</h3>
->>>>>>> Stashed changes
+				
 				<div class="d-flex justify-content-center">
 					<canvas id="pieChart" style="max-width:300px;max-height:300px;"></canvas>
 				</div>
