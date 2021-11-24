@@ -48,7 +48,7 @@ $Foto_05 = $Foto_03['filename'];
 
 <div class="sidebar" id="sidebar">
 	<div id="demo"></div>
-	<div class="list-group-item list-group-item-action flex-column align-items-start color-secondary py-0" style="background: #52d7ff;">
+	<div class="list-group-item list-group-item-action flex-column align-items-start color-secondary py-0">
 		<div class="row">
 			<div class="col-sm col-5 align-self-center">
 				<a href='Profile.php'><img src='Photo/<?php echo$Foto_05; ?>' class='profile'></a>
