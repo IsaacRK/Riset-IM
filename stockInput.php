@@ -204,7 +204,7 @@ $(function(){
 $(document).ready(function(){
 	var pieDisplay = $('#pieChart');
 	var nilaiData = [<?php echo$x.','.$e.','.$p.','.$l; ?>];
-	var warna = ["#d4dfe9", "#1064AE", "#009AD2", "#89c5fb"];
+	var warna = ["#d4dfe9", "#46C7C7", "#16F529", "#FFFF33"];
 	
 	var pieData = {
 		labels: ["Kosong", "elektronik", "peralatan", "lain-lain"],
@@ -231,7 +231,7 @@ $(document).ready(function(){
 $(document).ready(function(){
 	var barDisplay = $('#barChart');
 	var nilaiData = [<?php echo$elek.','.$pera.','.$lain; ?>];
-	var warna = ["#1064AE"];
+	var warna = ["#46C7C7", "#16F529", "#FFFF33"];
 	
 	var barData = {
 		labels: ["Elektronik", "Peralatan", "Lain-lain"],
