@@ -2,48 +2,48 @@
 include'../backend/conn.php';
 
 if(isset($_GET["itemName"])){
-	$iName = $_GET['itemName'];
+	echo$iName = $_GET['itemName'];
 	
-	$query = "select * from stock where stock_name = '$iName'";
-	$run = mysqli_query($servConnQuery, $query);
-	$x = mysqli_num_rows($run);
-	
-	$strEnabled ='
-	<select name="category" class="btn btn-light btn-block border dropdown-toggle p-2 form-control">
-		<option value="001" class="dropdown-item">Elektronik</option>
-		<option value="011" class="dropdown-item">Peralatan</option>
-		<option value="100" class="dropdown-item">Lain-Lain</option>
-	</select>';
-	$strDisabled ='
-		<span class="form-control" id="categoryUpdate" style="background-color:#e9ecef"></span>
-	';
-	?>
+	function stringForm($val, $itemName){
+
+		$jenisKomponen = '';
+		if($val == 0){
+			$jenisKomponen = '
+				<select name="category" class="btn btn-light btn-block border dropdown-toggle p-2 form-control">
+					<option value="001" class="dropdown-item">Elektronik</option>
+					<option value="011" class="dropdown-item">Peralatan</option>
+					<option value="100" class="dropdown-item">Lain-Lain</option>
+				</select>
+			';			
+		}else{
+			$jenisKomponen = '
+				<span class="form-control" id="categoryUpdate" style="background-color:#e9ecef"></span>
+			';
+		}
+		
+		$infoBarang = '';
+		if($val==0){
+			$infoBarang='<small>Barang baru</small>';
+		}else{
+			$infoBarang='<small>Barang tersedia pada penyimpanan</small>';
+		}
+
+		$str = '
+		
 	
 		<form action="" id="itemData">
 			<input type="hidden" id="" name="itemName" value="'.$itemName.'">
 			
 				<div class="mb-3">
 				<div class="py-1 d-flex align-items-start">
-				<?php
-					if($x>0){
-						echo'<small>Barang tersedia pada penyimpanan</small>';
-					}else{
-						echo'<small>Barang baru</small>';
-					}
-				?>
+				'.$infoBarang.'
 				</div>
 				</div>						
 			<div class="input-group input-group mb-3">
 				<div class="input-group-prepend">
 					<span class="input-group-text" id="inputGroup-sizing-sm">Kategori</span>
 				</div>
-				<?php
-				if($x>0){
-					echo $strDisabled;
-				}else{
-					echo $strEnabled;
-				}
-				?>
+				'.$jenisKomponen.'
 			</div>
 			<div class="input-group input-group mb-3">
 				<div class="input-group-prepend">
@@ -91,9 +91,6 @@ if(isset($_GET["itemName"])){
 					</select>
 				</div>
 			
-			
-			
-			
 				<div class="col">
 					<select name="baris" class="btn btn-light btn-block border border-dark dropdown-toggle p-2">
 						<option value="1" class="dropdown-item">baris 1</option>
@@ -123,7 +120,17 @@ if(isset($_GET["itemName"])){
 			});
 		});
 		</script>
-	<?php
+	';
+	return $str;
+	}
+
+	$query = "select * from stock where stock_name = '$iName'";
+	$run = mysqli_query($servConnQuery, $query);
+	if($x = mysqli_num_rows($run)>0){
+		echo stringForm($x, $iName);
+	}else{
+		echo stringForm($x, $iName);
+	}
 }
 
 ?>
