@@ -90,7 +90,7 @@ $l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
 				</br>
 				
 				<form action="" id="itemNameForm">
-					<div class="row mb-3">
+					<div class="row">
 						<div class="col-9">
 							<div class="input-group">
 								<div class="input-group-prepend">
