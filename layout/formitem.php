@@ -22,13 +22,13 @@ if(isset($_GET["itemName"])){
 		<form action="" id="itemData">
 			<input type="hidden" id="" name="itemName" value="'.$itemName.'">
 			
-				<div class="card mb-3">
-				<div class="card-body py-1 d-flex justify-content-center">
+				<div class="mb-3">
+				<div class="py-1 d-flex align-items-start">
 				<?php
 					if($x>0){
-						echo'Barang Tersedia pada penyimpanan';
+						echo'<small>Barang tersedia pada penyimpanan</small>';
 					}else{
-						echo'Barang baru';
+						echo'<small>Barang baru</small>';
 					}
 				?>
 				</div>
@@ -53,7 +53,7 @@ if(isset($_GET["itemName"])){
 			</div>
 			
 			<div class="row mt-2">	
-				<div class="col-4">Lokasi penyimpanan</div>
+				<div class="col-4 mb-2">Lokasi penyimpanan:</div>
 				<div class="container">
   				 <div class="row">
 				  <div class="col">
@@ -101,7 +101,7 @@ if(isset($_GET["itemName"])){
 					</select>
 				</div>
 		
-				<div class="col-6 mx-auto">
+				<div class="col-6 mx-auto mt-5 d-flex justify-content-center">
 					<input class="btn btn-primary btn-block" type="submit" name="insert" value="Masukkan"/>
 				</div>
 			</div>
