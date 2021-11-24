@@ -220,6 +220,7 @@ if(isset($_GET['barcode'])){
 <!-------------------------->
 <!--| construction banner|-->
 <!-------------------------->
+<!--
 <div class="card text-light bg-danger my-3">
 <div class="card-body">
 	<div class="row">
@@ -241,6 +242,7 @@ if(isset($_GET['barcode'])){
 	</div>
 </div>
 </div>
+-->
 <!-------------------------->
 <!--| construction banner|-->
 <!-------------------------->

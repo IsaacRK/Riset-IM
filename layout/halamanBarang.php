@@ -22,7 +22,7 @@ if(isset($_GET['rak'])){
 				$string = '
 				<div class="col-sm p-1 d-flex justify-content-center">
 					<div class="shadow-sm border rounded rak-box text-center '.$a.'">
-					<div style="margin-top:25%;">'.$b.'</div>
+					<div style="">'.$b.'</div>
 					</div>
 				</div>';
 				return ($string);
@@ -41,7 +41,7 @@ if(isset($_GET['rak'])){
 			}
 			$queryNum = count($arrLan);
 			
-			for($i=1;$i<=$queryNum;$i++){
+			for($i=$queryNum;$i>=1;$i--){
 				
 				//isi
 				$top='';
@@ -51,13 +51,13 @@ if(isset($_GET['rak'])){
 				$run1 = mysqli_query($servConnQuery, $sql1);
 				while($row1 = mysqli_fetch_assoc($run1)){
 					if($row1['baris']==1){
-						$txt='C'.$row1['kolom'].'B1';
+						$txt='C'.$row1['kolom'];
 						$col=boxColor($row1['stock_id']);
 						$str=boxColorText($col,$txt);
 						$top=$top.$str;
 					}
 					if($row1['baris']==2){
-						$txt='C'.$row1['kolom'].'B2';
+						$txt='C'.$row1['kolom'];
 						$col=boxColor($row1['stock_id']);
 						$str=boxColorText($col,$txt);
 						$bot=$bot.$str;
@@ -67,13 +67,13 @@ if(isset($_GET['rak'])){
 				if($top!=''){
 					$top = '
 						<div class="col-auto d-flex justify-content-center text-center pl-4 mt-2">
-							<b>Baris 1</b>
+							<b>B1</b>
 						</div>'.$top;
 				}
 				if($bot!=''){
 					$bot = '
 						<div class="col-auto d-flex justify-content-center text-center pl-4 mt-2">
-							<b>Baris 2</b>
+							<b>B2</b>
 						</div>'.$bot;
 				}
 				
