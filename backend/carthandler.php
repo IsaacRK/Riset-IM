@@ -1,10 +1,9 @@
 <?php
 $uid = $_SESSION['uid'];
-$cartQuery = "select *  from cart where user_id = '$uid' and checkout = false";
+$cartQuery = "select *  from cart where user_id = $uid and checkout = false";
 $cartQueryRun = mysqli_query($servConnQuery,$cartQuery);
-
+$x=1;
 if(mysqli_num_rows($cartQueryRun) > 0){
-	
 	echo'
 	<form action="" method="post">
 	<div class="row m-1">
@@ -20,6 +19,11 @@ if(mysqli_num_rows($cartQueryRun) > 0){
 		$stockFindQueryRun = mysqli_query($servConnQuery,$stockFindQuery);
 		$stockNameFetch = mysqli_fetch_assoc($stockFindQueryRun);
 		$stockName		= $stockNameFetch['stock_name'];
+		
+		$maxQuery		= "select amount from stock where stock_id = $stockId";
+		$maxRun			= mysqli_query($servConnQuery, $maxQuery);
+		$maxFetch		= mysqli_fetch_assoc($maxRun);
+		$max			= $maxFetch['amount'];
 		
 		?>
 			<div class="col-2">
@@ -42,16 +46,69 @@ if(mysqli_num_rows($cartQueryRun) > 0){
 					</span>
 				  </span>
 				</label>
+				<!--
 				<div class="py-2">
-					<img src="img/icons/pencil-square.svg" width="32" height="32" onclick="edit('.$cartId.')"/>
+					<img src="img/icons/pencil-square.svg" width="32" height="32" onclick="edit('<?php echo$cartId;?>')"/>
 				</div>
+				-->
 			</div>
 			<div class="col-10">
-				<span>nama komponen: <?php echo$stockName;?></span></br>
-				<span>jumlah : <?php echo$cartTakeAmount;?></span></br>
-				<span>keperluan : <?php echo$cartNecesity;?></span></br>
+				<!--
+				<span><b>Nama: <?php //echo$stockName;?></span></br>
+				<span>Jumlah: <?php //echo$cartTakeAmount;?></span></br>
+				<span>Keperluan: <?php //echo$cartNecesity;?></span></br>
+				-->
+				<div class="row">
+					<div class="col-10">
+						<span><b><?php echo$stockName;?></b></span></br>
+						<span><b><?php echo$cartNecesity;?></b></span></br>
+					</div>
+					<div class="col-2">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+						  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+						  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+						</svg>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col">
+						<div class="input-group">
+							<div class="row m-0 p-0">
+								<div class="col-auto m-0 p-0">
+								<span class="input-group-btn">
+									<button type="button" class="btn btn-default btn-number mx-0 px-0" disabled="disabled" data-type="minus" data-field="quant[<?php echo$x;?>]">
+										<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-dash-square" viewBox="0 0 16 16">
+										  <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+										  <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+										</svg>
+									</button>
+								</span>
+								</div>
+								<div class="col-3 mt-1 p-0">
+								<input type="text" name="quant[<?php echo$x;?>]" class="form-control input-number" value="<?php echo$cartTakeAmount;?>" min="1" max="<?php echo$max;?>">
+								</div>
+								<div class="col-auto m-0 p-0">
+								<span class="input-group-btn">
+									<button type="button" class="btn btn-default btn-number mx-0 px-0" data-type="plus" data-field="quant[<?php echo$x;?>]">
+										<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+										  <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+										  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+										</svg>
+									</button>
+								</span>
+								</div>
+								<div class="col-auto">
+									<span class="mt-1">dari <?php echo$max;?></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
+			<hr></hr>
 		<?php
+		$x++;
 	}
 	echo'
 	</div>
@@ -71,3 +128,76 @@ if(mysqli_num_rows($cartQueryRun) > 0){
 	';
 }
 ?>
+<script>
+$('.btn-number').click(function(e){
+    e.preventDefault();
+    
+    fieldName = $(this).attr('data-field');
+    type      = $(this).attr('data-type');
+    var input = $("input[name='"+fieldName+"']");
+    var currentVal = parseInt(input.val());
+    if (!isNaN(currentVal)) {
+        if(type == 'minus') {
+            
+            if(currentVal > input.attr('min')) {
+                input.val(currentVal - 1).change();
+            } 
+            if(parseInt(input.val()) == input.attr('min')) {
+                $(this).attr('disabled', true);
+            }
+
+        } else if(type == 'plus') {
+
+            if(currentVal < input.attr('max')) {
+                input.val(currentVal + 1).change();
+            }
+            if(parseInt(input.val()) == input.attr('max')) {
+                $(this).attr('disabled', true);
+            }
+
+        }
+    } else {
+        input.val(0);
+    }
+});
+$('.input-number').focusin(function(){
+   $(this).data('oldValue', $(this).val());
+});
+$('.input-number').change(function() {
+    
+    minValue =  parseInt($(this).attr('min'));
+    maxValue =  parseInt($(this).attr('max'));
+    valueCurrent = parseInt($(this).val());
+    
+    name = $(this).attr('name');
+    if(valueCurrent >= minValue) {
+        $(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled')
+    } else {
+        alert('Sorry, the minimum value was reached');
+        $(this).val($(this).data('oldValue'));
+    }
+    if(valueCurrent <= maxValue) {
+        $(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
+    } else {
+        alert('Sorry, the maximum value was reached');
+        $(this).val($(this).data('oldValue'));
+    }
+    
+    
+});
+$(".input-number").keydown(function (e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+             // Allow: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) || 
+             // Allow: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+                 // let it happen, don't do anything
+                 return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+</script>
