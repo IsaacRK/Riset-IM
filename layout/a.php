@@ -99,7 +99,7 @@ if(isset($_GET['graphSearch'])){
 		array_push($inp,$in);
 		array_push($day,$cut);
 	}
-	echo'<h5>Aktifitas 7 hari terakhir</h5>';
+	echo'<h5>Aktivitas 7 hari terakhir</h5>';
 }
 
 ?>
