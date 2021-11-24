@@ -20,10 +20,10 @@ if(isset($_GET['rak'])){
 			
 			function boxColorText($a,$b){
 				$string = '
-				<div class="col p-1 d-flex justify-content-center">
-				<div class="shadow-sm border rounded rak-box text-center '.$a.'">
-				<div style="margin-top:25%;">'.$b.'</div>
-				</div>
+				<div class="col-sm p-1 d-flex justify-content-center">
+					<div class="shadow-sm border rounded rak-box text-center '.$a.'">
+					<div style="margin-top:25%;">'.$b.'</div>
+					</div>
 				</div>';
 				return ($string);
 			}
@@ -64,10 +64,23 @@ if(isset($_GET['rak'])){
 					}
 				}
 				
+				if($top!=''){
+					$top = '
+						<div class="col-auto d-flex justify-content-center text-center pl-4 mt-2">
+							<b>Baris 1</b>
+						</div>'.$top;
+				}
+				if($bot!=''){
+					$bot = '
+						<div class="col-auto d-flex justify-content-center text-center pl-4 mt-2">
+							<b>Baris 2</b>
+						</div>'.$bot;
+				}
+				
 				//print
 				echo'<div class="row">';
 				echo'<div class="w-100 text-center"><h5>Lantai '.$i.'</h5></div>';
-				echo'baris1'.$top.'</div><div class="row">baris2'.$bot.'</div>';
+				echo$top.'</div><div class="row">'.$bot.'</div>';
 				echo'<div class="w-100"><hr></hr></div>';
 			}
 			

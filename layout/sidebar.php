@@ -54,9 +54,11 @@ $Foto_05 = $Foto_03['filename'];
 				<a href='Profile.php'><img src='Photo/<?php echo$Foto_05; ?>' class='profile'></a>
 			</div>
 			<div class="col-sm col-7 text-center align-self-center">
-				<a href ="Profile.php">
-					<p class="font-weight-bold text-primary text-left" style="margin-bottom:0!important;"><?php echo $username; ?></p>			
-					<p class="text-primary" style="margin-bottom:0!important"><small><?php echo $userlvl; ?></small></p>
+				<a href ="Profile.php" class="pe-0">
+					<!--<div class="border rounded-start my-0 ms-1 p-1">-->
+						<p class="font-weight-bold text-light text-left mb-0"><b><?php echo $username; ?></b></p>
+						<p class="text-primary" style="margin-bottom:0!important"><small><?php echo $userlvl; ?></small></p>
+					<!--</div>-->
 				</a>
 			</div>
 		</div>

@@ -257,7 +257,7 @@ if ($userAC == '0'){
 		$('#modalHistory').modal('show').find('.modal-content').tag;
 	};
 	
-//dump code | js ga bisa di eksekusi dari innerHTML
+//dump code DataTabel | js ga bisa di eksekusi dari innerHTML
 $(function(){
 	$('#tbComponent').DataTable({
 		"scrollY": "50vh",

@@ -17,7 +17,7 @@ if(isset($_POST['checkout'])){
 		$stockFetchRun 		= mysqli_query($servConnQuery, $stockFetchQuery);
 		$stockFetch 		= mysqli_fetch_assoc($stockFetchRun);
 	
-		$stockName = $stockFetch['stock_name'];
+		$stockName 		= $stockFetch['stock_name'];
 		$stockAmount	= $stockFetch['amount'];
 		$takeAmount 	= $cartFetch['take_amount'];
 		
