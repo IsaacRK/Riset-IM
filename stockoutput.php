@@ -84,7 +84,7 @@ if(isset($_GET['barcode'])){
 
 	<div class="p-1">
 		<div class="mb-3">
-			<h1>Barang Keluar</h1>
+			<h1>Stock Keluar</h1>
 		</div>
 	</div>
 

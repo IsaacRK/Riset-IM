@@ -133,7 +133,7 @@ $l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
 			<div class="card shadow-sm">
 			<div class="card-body">
 				<div class="text-center">
-				<h2>Ratio jenis stok</h2></br>
+				<h2>Rasio jenis stok</h2></br>
 				</div>
 				<canvas id="barChart" style="max-width:;max-height:;"></canvas>
 			

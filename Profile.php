@@ -123,13 +123,13 @@ else { 	include "layout/sidebar.php";
               <div class="row mt-2">
                 <div class="col border-0">
                   <h3 class="text-primary">Foto baru</h3></br>
-                  <img id="previewImg" alt="placeholder" class="ikon my-1"></img>
+                  <img id="previewImg" alt="Foto" class="ikon my-1"></img>
                 </div>
               </div>
 
               <div class="row card border-0 mt-3 mb-3">
                <div class="col">
-                <input class="btn btn-primary" type="submit" value="Upload Image" name="submit">
+                <input class="btn btn-primary" type="submit" value="Unggah Gambar" name="submit">
                </div>
               </div>
 
