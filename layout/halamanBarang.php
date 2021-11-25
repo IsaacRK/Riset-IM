@@ -13,7 +13,7 @@ if(isset($_GET['rak'])){
 				if($fetch==null){
 					$col='color-tertiary';
 				}else{
-					$col='color-primary text-light';
+					$col='color-danger text-light';
 				}
 				return($col);
 			}
@@ -88,7 +88,7 @@ if(isset($_GET['rak'])){
 		
 		<div class="row fw-semi-bold m-0 justify-content-md-center">
 			<span class="col-auto m-1 mr-2">
-				<span class="color-primary rounded-circle p-1 border border-dark" style="display:inline-block;">
+				<span class="color-danger rounded-circle p-1 border border-dark" style="display:inline-block;">
 					<span class="visually-hidden">penuh</span>
 				</span>
 				Penuh
