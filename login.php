@@ -83,7 +83,7 @@ if(@$_SESSION['uid']!=null){
 			<h2 class="text-primary">Registrasi</h2>
      </div>
     </div>
-  <form action="backend/signinhandler.php" method="post">
+  <form action="login.php" method="post" novalidate>
     <div class="row border-0">
 
      <div class="col border-0">
@@ -133,7 +133,7 @@ if(@$_SESSION['uid']!=null){
                 <input id="textBox" type="text" class="form-control" style="width:150px" name="text">
             </div>
             <div class="col col-lg-2">
-                <button class="btn border border-secondary" formnovalidate id="refreshButton" type="submit">Ganti</button>
+                <button class="btn border border-secondary" id="refreshButton" type="refreshbutton">Ganti</button>
             </div>
         </div>
         
