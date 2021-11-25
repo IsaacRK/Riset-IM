@@ -12,7 +12,11 @@ if ($userAC == '0'){
 <head>
 	<title>Beranda</title>
 	<?php include"layout/header.php"?>
-	
+<style>
+.color-danger{
+	background-color:#FF4700;
+}
+</style>
 </head>
 
 <body>
