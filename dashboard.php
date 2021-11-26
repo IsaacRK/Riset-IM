@@ -14,7 +14,7 @@ if ($userAC == '0'){
 	<?php include"layout/header.php"?>
 <style>
 .color-danger{
-	background-color:#FF4700;
+	background-color:#FF9600;
 }
 </style>
 </head>
