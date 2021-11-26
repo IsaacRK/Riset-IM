@@ -109,15 +109,16 @@ $l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
 				</form>
 				
 				<div id="divItemData">
+					<div class="row ms-1 text-justify mt-3">
+                    			 <a>Petunjuk penggunaan:</a>
+                   			  <ol>
+					   <li><small>Apabila nama barang yang tertulis belum terdaftar pada database, maka barang tersebut akan dianggap sebagai barang baru</small></li>
+					   <li><small>Apabila barang tersebut sudah terdaftar pada database, maka operasi yang dapat dilakukan adalah pembaruan stok tanpa dapat mengubah kategori dari barang tersebut</small></li>
+                   	 		  </ol>
+               				</div>
 				</div>
 				
-				<div class="row ms-1 text-justify mt-3">
-                    <a>Petunjuk penggunaan:</a>
-                   	<ol>
-						<li><small>Apabila nama barang yang tertulis belum terdaftar pada database, maka barang tersebut akan dianggap sebagai barang baru</small></li>
-						<li><small>Apabila barang tersebut sudah terdaftar pada database, maka operasi yang dapat dilakukan adalah pembaruan stok tanpa dapat mengubah kategori dari barang tersebut</small></li>
-                   	 </ol>
-               	 </div>
+
 				
 			</div>
 			</div>
