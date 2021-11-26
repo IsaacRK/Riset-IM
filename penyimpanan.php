@@ -1,7 +1,9 @@
 <?php
 require 'backend/conn.php';
 require 'backend/usersession.php';
-
+if ($userAC == '0'){
+	header('location:Verifyno.php');
+}else{}
 if(isset($_POST['hapusRak'])){
 	$sid = $_POST['rakId'];
 	$sqlHapus = "DELETE FROM penyimpanan WHERE storage_id='$sid'";
