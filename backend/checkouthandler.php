@@ -3,6 +3,7 @@
 if(isset($_POST['checkout'])){
 	$value = $_POST['checkbox'];
 	for($i=0;$i<count($value);$i++){
+		$quant = $i + 1;
 		$cartId = $value[$i];
 		
 		$user_id = $_SESSION['uid'];
@@ -11,7 +12,7 @@ if(isset($_POST['checkout'])){
 		$cartFetchRun	= mysqli_query($servConnQuery, $cartFetchQuery);
 		$cartFetch 		= mysqli_fetch_assoc($cartFetchRun);
 		
-		$stockId = $cartFetch['stock_id'];
+		$stockId		= $cartFetch['stock_id'];
 		
 		$stockFetchQuery 	= "select * from stock where stock_id = $stockId";
 		$stockFetchRun 		= mysqli_query($servConnQuery, $stockFetchQuery);
@@ -21,7 +22,7 @@ if(isset($_POST['checkout'])){
 		$stockAmount	= $stockFetch['amount'];
 		$takeAmount 	= $cartFetch['take_amount'];
 		
-		$finalAmount = $stockAmount - $takeAmount;
+		$finalAmount	= $stockAmount - $takeAmount;
 		
 		if($finalAmount < 0){
 			echo'
@@ -31,7 +32,7 @@ if(isset($_POST['checkout'])){
 					})
 				</script>
 			';
-		}else{			
+		}else{	
 			$stockUpdateQuery = "update stock set amount='$finalAmount' where stock_id='$stockId'";
 			mysqli_query($servConnQuery, $stockUpdateQuery);
 			

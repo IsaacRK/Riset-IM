@@ -29,7 +29,7 @@ if(mysqli_num_rows($cartQueryRun) > 0){
 			<div class="col-2">
 				<label class="checkbox">
 				  <span class="checkbox_input">
-					<input class="boxhidden" type="checkbox" name="checkbox[]" value="'.$cartId.'"/>
+					<input class="boxhidden" type="checkbox" name="checkbox[]" value="<?php echo$cartId;?>"/>
 					<span class="checkbox_control">
 					  <svg
 						viewBox="0 0 24 24"
@@ -48,7 +48,7 @@ if(mysqli_num_rows($cartQueryRun) > 0){
 				</label>
 				<!--
 				<div class="py-2">
-					<img src="img/icons/pencil-square.svg" width="32" height="32" onclick="edit('<?php echo$cartId;?>')"/>
+					<img src="img/icons/pencil-square.svg" width="32" height="32" onclick="edit('<?php //echo$cartId;?>')"/>
 				</div>
 				-->
 			</div>
@@ -77,7 +77,7 @@ if(mysqli_num_rows($cartQueryRun) > 0){
 							<div class="row m-0 p-0">
 								<div class="col-auto m-0 p-0">
 								<span class="input-group-btn">
-									<button type="button" class="btn btn-default btn-number mx-0 px-0" disabled="disabled" data-type="minus" data-field="quant[<?php echo$x;?>]">
+									<button type="button" class="btn btn-default btn-number mx-0 px-0" disabled="disabled" data-type="minus" data-field="quant[<?php echo$cartId;?>]">
 										<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-dash-square" viewBox="0 0 16 16">
 										  <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
 										  <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
@@ -86,11 +86,11 @@ if(mysqli_num_rows($cartQueryRun) > 0){
 								</span>
 								</div>
 								<div class="col-3 mt-1 p-0">
-								<input type="text" name="quant[<?php echo$x;?>]" class="form-control input-number" value="<?php echo$cartTakeAmount;?>" min="1" max="<?php echo$max;?>">
+									<input type="text" name="quant[<?php echo$cartId;?>]" class="form-control input-number" value="<?php echo$cartTakeAmount;?>" min="1" max="<?php echo$max;?>">
 								</div>
 								<div class="col-auto m-0 p-0">
 								<span class="input-group-btn">
-									<button type="button" class="btn btn-default btn-number mx-0 px-0" data-type="plus" data-field="quant[<?php echo$x;?>]">
+									<button type="button" class="btn btn-default btn-number mx-0 px-0" data-type="plus" data-field="quant[<?php echo$cartId;?>]">
 										<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
 										  <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
 										  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -136,11 +136,22 @@ $('.btn-number').click(function(e){
     type      = $(this).attr('data-type');
     var input = $("input[name='"+fieldName+"']");
     var currentVal = parseInt(input.val());
+	var editCartUrl = "backend/editjumlahcart.php";
     if (!isNaN(currentVal)) {
         if(type == 'minus') {
             
             if(currentVal > input.attr('min')) {
                 input.val(currentVal - 1).change();
+				let amn = toString(currentVal-1);
+				input.value = amn;
+				
+				//string split - ambil id dari nama quant[id] -> id
+				let a = fieldName.substr(fieldName.indexOf('[')+1);
+				let b = a.split("]")[0];
+				$.post(editCartUrl,{
+					cartId: b,
+					newVal: currentVal - 1
+				});
             } 
             if(parseInt(input.val()) == input.attr('min')) {
                 $(this).attr('disabled', true);
@@ -150,6 +161,16 @@ $('.btn-number').click(function(e){
 
             if(currentVal < input.attr('max')) {
                 input.val(currentVal + 1).change();
+				let amn = toString(currentVal+1);
+				input.value = amn;
+				
+				//string split - ambil id dari nama quant[id] -> id
+				let a = fieldName.substr(fieldName.indexOf('[')+1);
+				let b = a.split("]")[0];
+				$.post(editCartUrl,{
+					cartId: b,
+					newVal: currentVal + 1
+				});
             }
             if(parseInt(input.val()) == input.attr('max')) {
                 $(this).attr('disabled', true);
@@ -163,7 +184,7 @@ $('.btn-number').click(function(e){
 $('.input-number').focusin(function(){
    $(this).data('oldValue', $(this).val());
 });
-$('.input-number').change(function() {
+$('.input-number').change(function(){
     
     minValue =  parseInt($(this).attr('min'));
     maxValue =  parseInt($(this).attr('max'));

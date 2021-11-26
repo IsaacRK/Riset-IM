@@ -11,7 +11,7 @@ if(isset($_POST["submit"])){
 	if($row > 0){
 		session_start();
 		$_SESSION['uid'] = $row['id'];
-		header('location:../dashboard.php');
+		header('location:dashboard.php');
 	}else{
 		echo "
 		<div style='width:100%;pading:5px;background-color:red;color:white;text-align:center;font-weight:bold;'>

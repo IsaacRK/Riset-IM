@@ -2,7 +2,7 @@
 include'../backend/conn.php';
 
 if(isset($_GET["itemName"])){
-	echo$iName = $_GET['itemName'];
+	$iName = $_GET['itemName'];
 	
 	function stringForm($val, $itemName){
 
