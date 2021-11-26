@@ -19,6 +19,10 @@ $Cbar	= '';
 if(isset($_POST['search'])){
 	$componentNameSearch 		= $_POST['componentNameSearch'];
 	
+	if($componentNameSearch == null){
+	header('location:stockoutput.php');
+	}else{
+	
 	$serachComponentQuery 		= "select * from `stock` where stock_name like '$componentNameSearch'";
 	$serachComponentQueryRun 	= mysqli_query($servConnQuery,$serachComponentQuery);
 	$componentFetch 			= mysqli_fetch_assoc($serachComponentQueryRun);
@@ -36,6 +40,7 @@ if(isset($_POST['search'])){
 	$Clan	= $addrsFetch['lantai'];
 	$Cklm	= $addrsFetch['kolom'];
 	$Cbar	= $addrsFetch['baris'];
+	}
 }
 
 if(isset($_GET['barcode'])){
