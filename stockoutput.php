@@ -4,6 +4,10 @@ require 'backend/conn.php';
 require 'backend/usersession.php';
 require 'backend/editcarthandler.php';
 
+if ($userAC == '0'){
+	header('location:Verifyno.php');
+}else{}
+
 $Cid	= null;
 $Cname	= '';
 $CStock	= '';
