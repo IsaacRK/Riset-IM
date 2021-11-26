@@ -10,6 +10,9 @@ function x_aspercent_of_y($x,$y){
 	return (100 * $x) / $y;
 }
 
+if ($userAC == '0'){
+	header('location:Verifyno.php');
+}else{}
 
 $elek = '';
 $pera = '';
