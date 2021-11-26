@@ -11,6 +11,6 @@ if($_SESSION['uid'] != null){
 	$userEM			= $userData['email'];
 	$userPS			= $userData['pass'];
 }else{
-	header('location:index.html');
+	header('location:login.php');
 }
 ?>
