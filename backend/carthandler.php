@@ -77,7 +77,7 @@ if(mysqli_num_rows($cartQueryRun) > 0){
 							<div class="row m-0 p-0">
 								<div class="col-auto m-0 p-0">
 								<span class="input-group-btn">
-									<button type="button" class="btn btn-default btn-number mx-0 px-0" disabled="disabled" data-type="minus" data-field="quant[<?php echo$cartId;?>]">
+									<button type="button" class="btn btn-default btn-number mx-0 px-0" data-type="minus" data-field="quant[<?php echo$cartId;?>]">
 										<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-dash-square" viewBox="0 0 16 16">
 										  <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
 										  <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
@@ -85,9 +85,11 @@ if(mysqli_num_rows($cartQueryRun) > 0){
 									</button>
 								</span>
 								</div>
+								
 								<div class="col-3 mt-1 p-0">
 									<input type="text" name="quant[<?php echo$cartId;?>]" class="form-control input-number" value="<?php echo$cartTakeAmount;?>" min="1" max="<?php echo$max;?>">
 								</div>
+								
 								<div class="col-auto m-0 p-0">
 								<span class="input-group-btn">
 									<button type="button" class="btn btn-default btn-number mx-0 px-0" data-type="plus" data-field="quant[<?php echo$cartId;?>]">
@@ -134,9 +136,9 @@ $('.btn-number').click(function(e){
     
     fieldName = $(this).attr('data-field');
     type      = $(this).attr('data-type');
-    var input = $("input[name='"+fieldName+"']");
-    var currentVal = parseInt(input.val());
-	var editCartUrl = "backend/editjumlahcart.php";
+    let input = $("input[name='"+fieldName+"']");
+    let currentVal = parseInt(input.val());
+	let editCartUrl = "backend/editjumlahcart.php";
     if (!isNaN(currentVal)) {
         if(type == 'minus') {
             
@@ -194,13 +196,13 @@ $('.input-number').change(function(){
     if(valueCurrent >= minValue) {
         $(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled')
     } else {
-        alert('Sorry, the minimum value was reached');
+        alert('Jumlah Minimal Telah Tercapai');
         $(this).val($(this).data('oldValue'));
     }
     if(valueCurrent <= maxValue) {
         $(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
     } else {
-        alert('Sorry, the maximum value was reached');
+        alert('Jumlah Maksimal Telah Tercapai');
         $(this).val($(this).data('oldValue'));
     }
     
