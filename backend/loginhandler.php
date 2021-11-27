@@ -5,6 +5,7 @@ if(isset($_POST["submit"])){
 	$user = $_POST["user"];
 	$pass = $_POST["pass"];
 	
+	/*
 	$query = "select * from pengguna where user = '$user' and pass = '$pass'";
 	$run = mysqli_query($servConnQuery, $query);
 	$row = mysqli_fetch_assoc($run);
@@ -19,6 +20,7 @@ if(isset($_POST["submit"])){
 		</div>
 		";
 	}
+	*/
 	
 }
 

@@ -3,22 +3,24 @@
 	//prioritas		|-------------
 	
 	Tambahan dari pak Dwiky:
--DIahalaman Beranda, yang di carousel digantikan dengan susunan rak.
--Dikasih gambar rak dibackgroundnya
--Penyusunan bahasa
--[done]Di halaman stok input, petunjuk menghilang setelah tombol cek di tekan.
--[done]Dibawah form control nama, diberikan keterangan apakah barang itu barang lama atau baru.
--[done?]Card kiri butuh keterangan
-		
--[done?]Pada stok output, Masih bisa ngambil lebih banyak dari pada stok
--Tombol Edit pada kerajangan diganti seperti di shopee
--Pada tombol laporan, apabila bisa, dokumen yang didownload sudah berdada dalam sebuah format
--Berikan tombol ganti kamera pada barcode scanner dan di bahasa indonesiakan
--Bahaasa Indoesiakan semua kecuali Barcode scanner
--[done]Carousel di halaman login diganti fitur-fitur dan keuntungan. Per-slide per-fitur
--Pas pertama kali masuk, terdapat tutorial menggunakan halaman
+		-[done]DIahalaman Beranda, yang di carousel digantikan dengan susunan rak.
+		-[done]Dikasih gambar rak dibackgroundnya
+		-[done]Penyusunan bahasa
+		-[done]Di halaman stok input, petunjuk menghilang setelah tombol cek di tekan.
+		-[done]Dibawah form control nama, diberikan keterangan apakah barang itu barang lama atau baru.
+		-[done?]Card kiri butuh keterangan
+				
+		-[done?]Pada stok output, Masih bisa ngambil lebih banyak dari pada stok
+		-[done]Tombol Edit pada kerajangan diganti seperti di shopee
+		-Pada tombol laporan, apabila bisa, dokumen yang didownload sudah berdada dalam sebuah format
+		-Berikan tombol ganti kamera pada barcode scanner dan di bahasa indonesiakan
+		-[done]Bahaasa Indoesiakan semua kecuali Barcode scanner
+		-[done]Carousel di halaman login diganti fitur-fitur dan keuntungan. Per-slide per-fitur
+		-Pas pertama kali masuk, terdapat tutorial menggunakan halaman
 
--[done]ubah fitur, jika barang yang diambil lebih banyak, tidak bisa menaruh di rak
+		-[done]ubah fitur, jika barang yang diambil lebih banyak, tidak bisa menaruh di rak
+		
+		-ambil komponen, tidak bisa checkut pada web online
 	|-----------------------------
 	
 -fitur erp

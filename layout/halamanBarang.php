@@ -7,11 +7,13 @@ if(isset($_GET['rak'])){
 ?>
 
 <div class="card">
-	<div class="card-body px-0 overflow-auto" style="background-color:#2879ff73;">
+	<!--<div class="card-body px-0 overflow-auto" style="background-color:#2879ff73;">-->
+	<div class="card-body px-0 overflow-auto" style="background-color:#C2C2C2;">
 		<?php								
 			function boxColor($fetch){
 				if($fetch==null){
-					$col='color-tertiary';
+					//$col='color-tertiary';
+					$col='bg-light';
 				}else{
 					$col='color-danger text-light';
 				}
@@ -20,7 +22,7 @@ if(isset($_GET['rak'])){
 			
 			function boxColorText($a,$b){
 				$string = '
-				<div class="col-sm p-1 d-flex justify-content-center">
+				<div class="col-auto p-1 d-flex justify-content-center">
 					<div class="shadow-sm border rounded rak-box text-center '.$a.'">
 					<div style="">'.$b.'</div>
 					</div>
@@ -78,10 +80,19 @@ if(isset($_GET['rak'])){
 				}
 				
 				//print
-				echo'<div class="row">';
-				echo'<div class="w-100 text-center"><h5>Lantai '.$i.'</h5></div>';
-				echo$top.'</div><div class="row">'.$bot.'</div>';
-				echo'<div class="w-100"><hr></hr></div>';
+				echo'
+				<div class="card m-3">
+					<div class="card-body m-1 p-1" style="background-color:#DBDBDB;">
+					<div class="w-100 text-center"><h5>Lantai '.$i.'</h5></div>
+						<div class="row d-flex justify-content-center">
+							'.$top.'
+						</div>
+						<div class="row d-flex justify-content-center">
+							'.$bot.'
+						</div>
+					</div>
+				</div>
+				';
 			}
 			
 		?>

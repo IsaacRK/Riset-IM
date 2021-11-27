@@ -1,12 +1,12 @@
 <?php
 
 if(isset($_POST['checkout'])){
-	$value = $_POST['checkbox'];
+	$value 	= $_POST['checkbox'];
 	for($i=0;$i<count($value);$i++){
-		$quant = $i + 1;
+		$quant 	= $i + 1;
 		$cartId = $value[$i];
 		
-		$user_id = $_SESSION['uid'];
+		$user_id 		= $_SESSION['uid'];
 		
 		$cartFetchQuery = "select * from cart where cart_id = '$cartId'";
 		$cartFetchRun	= mysqli_query($servConnQuery, $cartFetchQuery);
