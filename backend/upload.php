@@ -16,6 +16,7 @@ if(isset($_POST["submit"])) {
   } else {
     echo "File is not an image.";
     $uploadOk = 0;
+    header('location:../Profile.php');
   }
 }
 
