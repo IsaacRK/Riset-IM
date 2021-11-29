@@ -5,29 +5,54 @@ if ($userAC == '0'){
 	header('location:Verifyno.php');
 }else{}
 ?>
-<!DOCTYPE HTML>
+
+<!DOCTYPE html>
 <html>
 <head>
-	<title>Akutansi</title>
-	<?php include"layout/header.php";?>
+<title>Akunting proto</title>
+<?php include "layout/header.php"?>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 </head>
 <body>
-<?php include"layout/sidebar.php";?>
+
+<?php
+	include "layout/sidebar.php";
+?>
 
 <div class="content">
-	<div class="container mr-0">
-	
-		<h1 class="p-1">Akutansi</h1>
-		
-		<div class="card shadow-sm">
-			<div class="card-body">
-				
-			</div>
-		</div>
-	
-	</div>
-</div>
+ <div class="container mr-0">
 
-<?php include"layout/js.php";?>
+    <div class="p-1 mb-3">
+		<div class="row">
+			<div class="col juk">
+				<h1>Akunting</h1>
+			</div>
+        </div>
+    </div>
+
+
+    <div class="card shadow-sm">
+	<div class="card-body">
+    <table class="table">
+        <thead>
+            <tr class="table-info">
+                <th scope="col">Nama</th>
+                <th scope="col">Jumlah</th>
+                <th scope="col">Tanggal input</th>
+                <th scope="col">Harga beli</th>
+                <th scope="col">Harga jual</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    </div>
+    </div>
+    
+ </div>
+</div>
 </body>
 </html>
