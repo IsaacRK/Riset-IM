@@ -16,6 +16,17 @@ if ($userAC == '0'){
 .color-danger{
 	background-color:#FF9600;
 }
+	.hun{
+	width: 30%;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+@media screen and (max-width:800px) {
+.hun{
+	width:50%;
+	margin-top: 0px;
+}
+      }
 </style>
 </head>
 
@@ -33,7 +44,7 @@ if ($userAC == '0'){
 			<div class="col">
 				<h1>Beranda</h1>
 			</div>
-			<div class="col-3 mt-1 p-1 d-flex justify-content-end">
+			<div class="col-3 mt-1 p-1 d-flex justify-content-end hun">
 			<div class="d-grid gap-2 w-100">
 				<a href="backend/report.php" class="btn btn-primary">Unduh laporan</a>
 			</div>
