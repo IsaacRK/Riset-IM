@@ -188,7 +188,7 @@
                 <div class="row">
                     <div class="col">
                         <a target="_blank"\>
-                        <img src="../img/caktot.jpeg" alt="logo" class="d-block w-100" />
+                        <img src="img/caktot.png" alt="logo" class="d-block w-100" />
                             </a>
                     </div>
                     <div class="col company-details">
@@ -208,12 +208,10 @@
                     <div class="col invoice-to">
                         <div class="text-gray-light">INVOICE TO:</div>
                         <h2 class="to">Nama Pembeli</h2>
-                        <div class="address">Alamat Pembeli</div>
                         <div class="email"><a href="mailto:john@example.com">Email Pembeli</a></div>
                     </div>
                     <div class="col invoice-details">
-                        <h1 class="invoice-id">INVOICE NUMBER</h1>
-                        <div class="date">Tanggal Pembuatan Invoice</div>
+                        <h1 class="invoice-id">Tanggal Pembuatan Invoice</h1>
                         <div class="date">Tenggat Waktu Invoice</div>
                     </div>
                 </div>
@@ -274,7 +272,7 @@
                 </div>
             </main>
             <footer>
-                Invoice was created on a computer and is valid without the signature and seal.
+                
             </footer>
         </div>
         <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
