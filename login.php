@@ -4,8 +4,6 @@ require 'backend/conn.php';
 if(@$_SESSION['uid']!=null){
 	header('location:dashboard.php');
 }
-
-require 'backend/loginhandler.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,8 +13,8 @@ require 'backend/loginhandler.php';
 	<?php include "layout/header.php"?>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	  <style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <style>
     .kin{
       text-align: right;
     }
@@ -42,7 +40,7 @@ require 'backend/loginhandler.php';
   <div class="container-fluid">
     <a class="navbar-brand">Inventory Management</a>
 	
-    <form action="" method="post" class="d-flex">
+    <form action="backend/loginhandler.php" method="post" class="d-flex">
 	  <input class="form-control" required type="text" name="user" id="" placeholder="Nama pengguna"/>
 	  <input class="form-control ms-2" required type="password" name="pass" id="" placeholder="Kata sandi"/>      
 	  <button class="btn btn-light btn-outline-primary ms-2" type="submit" name="submit" value="Login">Masuk</button>
@@ -97,14 +95,14 @@ require 'backend/loginhandler.php';
 <div class="col">
 <div class="container mt-2 d-flex justify-content-center">
  <div class="card border border-0 bg-transparent ms-3">
-  <div class="card-body" style="width:520px;">
+  <div class="card-body">
 
     <div class="row card border-0 text-center bg-transparent">
      <div class="col text-center">
 			<h2 class="text-primary">Registrasi</h2>
      </div>
     </div>
-  <form action="" method="post" novalidate>
+  <form action="backend/signinhandler.php" method="post" novalidate>
     <div class="row border-0">
 
      <div class="col border-0">
