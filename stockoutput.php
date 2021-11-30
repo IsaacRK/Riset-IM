@@ -76,6 +76,7 @@ if(isset($_GET['barcode'])){
 		@media screen and (max-width: 767px){
 			#barcodeScnButton{
 				margin-top: 10px;
+				width: 96%;
 			}
 		}
 	</style>

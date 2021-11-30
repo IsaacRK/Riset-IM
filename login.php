@@ -4,8 +4,6 @@ require 'backend/conn.php';
 if(@$_SESSION['uid']!=null){
 	header('location:dashboard.php');
 }
-
-require 'backend/loginhandler.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,7 +13,26 @@ require 'backend/loginhandler.php';
 	<?php include "layout/header.php"?>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <style>
+    .kin{
+      text-align: right;
+    }
+    .inp{
+      width:300px;
+    }
+		@media screen and (max-width: 767px){
+      .kin{
+        text-align: left;
+      }
+      .spc{
+        width:100%;
+      }
+      .inp{
+        width:250px;
+      }
+		}
+	</style>
 </head>
 <body class="bg-light bg-gradient">
 
@@ -23,7 +40,7 @@ require 'backend/loginhandler.php';
   <div class="container-fluid">
     <a class="navbar-brand">Inventory Management</a>
 	
-    <form action="" method="post" class="d-flex">
+    <form action="backend/loginhandler.php" method="post" class="d-flex">
 	  <input class="form-control" required type="text" name="user" id="" placeholder="Nama pengguna"/>
 	  <input class="form-control ms-2" required type="password" name="pass" id="" placeholder="Kata sandi"/>      
 	  <button class="btn btn-light btn-outline-primary ms-2" type="submit" name="submit" value="Login">Masuk</button>
@@ -78,51 +95,51 @@ require 'backend/loginhandler.php';
 <div class="col">
 <div class="container mt-2 d-flex justify-content-center">
  <div class="card border border-0 bg-transparent ms-3">
-  <div class="card-body" style="width:520px;">
+  <div class="card-body">
 
     <div class="row card border-0 text-center bg-transparent">
-     <div class="col">
+     <div class="col text-center">
 			<h2 class="text-primary">Registrasi</h2>
      </div>
     </div>
-  <form action="" method="post" novalidate>
+  <form action="backend/signinhandler.php" method="post" novalidate>
     <div class="row border-0">
 
      <div class="col border-0">
 
         <div class="row mb-3 mt-3">
-            <div class="col text-end">
-             <p class="">Nama : </p>
+            <div class="col">
+             <p class="kin">Nama : </p>
             </div>
             <div class="col">
-             <input class="form-control" style="width:300px" required type="text" name="user" id=""/>
+             <input class="form-control inp" required type="text" name="user" id=""/>
             </div>
         </div>
 
         <div class="row mb-3">
-            <div class="col text-end">
-             <p class="">Email : </p>
+            <div class="col">
+             <p class="kin">Email : </p>
             </div>
             <div class="col">
-              <input class="form-control" style="width:300px" required type="text" name="email" id=""/>
+              <input class="form-control inp" required type="text" name="email" id=""/>
             </div>
         </div>
                 
         <div class="row mb-3">
-            <div class="col text-end">
-             <p class="">Kata Sandi : </p>
+            <div class="col">
+             <p class="kin">Kata Sandi : </p>
             </div>
             <div class="col">
-               <input class="form-control" style="width:300px" required type="password" name="pass" id=""/>
+               <input class="form-control inp" required type="password" name="pass" id=""/>
             </div>
         </div>
         
         <div class="row mb-3">
-            <div class="col text-end">
-             <p class="">Konfirmasi Kata Sandi : </p>
+            <div class="col">
+             <p class="kin spc">Konfirmasi Kata Sandi : </p>
             </div>
             <div class="col">
-                <input class="form-control" style="width:300px" required type="password" name="passcon" id=""/>
+                <input class="form-control inp" required type="password" name="passcon" id=""/>
             </div>
         </div>
         
@@ -139,8 +156,8 @@ require 'backend/loginhandler.php';
   </form>
 
 <div class="row mb-3">
-            <div class="col text-end">
-             <p class="">Verifikasi Captcha : </p>
+            <div class="col">
+             <p class="kin spc">Verifikasi Captcha : </p>
             </div>
             <div class="col-md-auto">
                 <canvas id="captcha" class="" width="215" height="70">captcha text</canvas></br>

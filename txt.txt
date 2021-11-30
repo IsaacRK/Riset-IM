@@ -95,3 +95,6 @@ kendala (poin)
 (suatu yang belum selesai)
 	dari suatu yang belum selesai baru di dapat masalah dan dapat di fokuskan.
 	(sedetail mungkin)
+
+Acounting
+| nama | input | harga beli | harga jual | edit? |

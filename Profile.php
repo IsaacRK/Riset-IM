@@ -107,7 +107,7 @@ else { 	include "layout/sidebar.php";
         <div class="row mt-5 border">
           <div class="row" style="background:white;">
 
-            <div class="col-3 ms-1 text-center mt-2">
+            <div class="col-sm-3 ms-1 text-center mt-2">
              <form action="backend/upload.php" method="post" enctype="multipart/form-data">
                <div class="col border-0">              
                  <?php echo "<img src='Photo/$Foto_05' class='ikon my-1'>" ?>
@@ -136,7 +136,7 @@ else { 	include "layout/sidebar.php";
              </form>
 		      	</div>
 
-            <div class="col-8">
+            <div class="col-sm-8">
              <div class="row card border-0 text-center mb-2">
                 <div class="col mb-2">
 			            <h2>Informasi Akun</h2>

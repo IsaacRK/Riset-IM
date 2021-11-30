@@ -12,7 +12,17 @@ if ($userAC == '0'){
 <head>
 	<title>Pengaturan</title>
 	<?php include "layout/header.php"?>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<style>
+		.tan{
+			width: 100%;
+		}
+		@media screen and (max-width: 767px){
+			.tan{
+				width: 160%;
+			}
+		}
+	</style>
 </head>
 
 <body>
@@ -58,7 +68,7 @@ if ($userAC == '0'){
 		<a href="penyimpanan.php" class="btn btn-primary mt-2">Pengaturan Penyimpanan</a>
 	</div>
 	<div class="col-4 mb-2">
-		<a href="kapasitas.php" class="btn btn-primary mt-2">Pengaturan Kapasitas Kolom dan Baris</a>
+		<a href="kapasitas.php" class="btn btn-primary mt-2 tan">Pengaturan Kapasitas Kolom dan Baris</a>
 	</div>
 </div>
 
