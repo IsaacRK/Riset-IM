@@ -1,311 +1,293 @@
 <html>
 <head>
-<?php include'../layout/header.php';?>
 <style>
-// Variables
-$primary-color: #1779ba;
-$secondary-color: #0b386f;
-$gray:  #9b9b9b;
-$light-gray: #eeeeee;
-$medium-gray: #c8c3be;
-$dark-gray: #96918c;
-$black: #322d28;
-$white: #f3f3f3;
-$body-background: #ffffff;
-$body-font-color: $black;
-
-$sans: 'Montserrat', sans-serif;
-$serif: 'Lora', Georgia, serif;
-
-
-
-body {
-  font-family: $sans;
-  font-weight: 400;
-  color: $body-font-color;
-}
-header.top-bar {
-  h1 {
-    font-family: $sans;
-  }
-}
-main {
-  margin-top: 4rem;
-  min-height: calc(100vh - 107px);
-  .inner-container {
-    max-width: 800px;
-    margin: 0 auto;
-  }
+#invoice{
+    padding: 30px;
 }
 
-table.invoice {
-  background: #fff;
-  .num {
-    font-weight: 200;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-size: .8em;
-  }
-  tr, td {
-    background: #fff;
-    text-align: left;
+.invoice {
+    position: relative;
+    background-color: #FFF;
+    min-height: 680px;
+    padding: 15px
+}
+
+.invoice header {
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #3989c6
+}
+
+.invoice .company-details {
+    text-align: right
+}
+
+.invoice .company-details .name {
+    margin-top: 0;
+    margin-bottom: 0
+}
+
+.invoice .contacts {
+    margin-bottom: 20px
+}
+
+.invoice .invoice-to {
+    text-align: left
+}
+
+.invoice .invoice-to .to {
+    margin-top: 0;
+    margin-bottom: 0
+}
+
+.invoice .invoice-details {
+    text-align: right
+}
+
+.invoice .invoice-details .invoice-id {
+    margin-top: 0;
+    color: #3989c6
+}
+
+.invoice main {
+    padding-bottom: 50px
+}
+
+.invoice main .thanks {
+    margin-top: -100px;
+    font-size: 2em;
+    margin-bottom: 50px
+}
+
+.invoice main .notices {
+    padding-left: 6px;
+    border-left: 6px solid #3989c6
+}
+
+.invoice main .notices .notice {
+    font-size: 1.2em
+}
+
+.invoice table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 20px
+}
+
+.invoice table td,.invoice table th {
+    padding: 15px;
+    background: #eee;
+    border-bottom: 1px solid #fff
+}
+
+.invoice table th {
+    white-space: nowrap;
     font-weight: 400;
-    color: $body-font-color;
-  }
-  tr {
-    &.header {
-      td {
-        img {
-          max-width: 300px;
-        }
-        h2 {
-          text-align: right;
-          font-family: $sans;
-          font-weight: 200;
-          font-size: 2rem;
-          color: $primary-color;
-        }
-      }
-    }
-    &.intro {
-      td {
-        &:nth-child(2) {
-          text-align: right;
-        }
-      }
-    }
-    &.details {
-      > td { 
-        padding-top: 4rem; 
-        padding-bottom: 0; 
-      }
-      td, th {
-        &.id,
-        &.qty {
-          text-align: center;
-        }
-        &:last-child {
-          text-align: right;
-        }
-      }
-      table {
-        thead, tbody {
-          position: relative;
-          &:after {
-            content: '';
-            height: 1px;
-            position: absolute;
-            width: 100%;
-            left: 0;
-            margin-top: -1px;
-            background: $medium-gray;
-          }
-        }
-      }
-    }
-    &.totals {
-      td {
-        padding-top: 0;
-      }
-      table {
-        tr {
-          td {
-            padding-top:0;
-            padding-bottom:0;
-            &:nth-child(1) {
-              font-weight: 500;
-            }
-            &:nth-child(2) {
-              text-align: right;
-              font-weight: 200;
-            }
-          }
-          &:nth-last-child(2) {
-            
-            td {
-              padding-bottom: .5em;
-              &:last-child {
-                position: relative;
-                &:after {
-                  content: '';
-                  height: 4px;
-                  width: 110%;
-                  border-top: 1px solid $primary-color;
-                  border-bottom: 1px solid $primary-color;
-                  position: relative;
-                  right: 0;
-                  bottom: -.575rem;
-                  display: block;
-                }
-              }
-            }
-            
-          }
-          &.total {
-            td {
-              font-size: 1.2em;
-              padding-top: .5em;
-              font-weight: 700;
-              &:last-child {
-                font-weight: 700;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+    font-size: 16px
 }
 
-.additional-info {
-  h5 {
-    font-size: .8em;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: $primary-color;
-  }
+.invoice table td h3 {
+    margin: 0;
+    font-weight: 400;
+    color: #3989c6;
+    font-size: 1.2em
+}
+
+.invoice table .qty,.invoice table .total,.invoice table .unit {
+    text-align: right;
+    font-size: 1.2em
+}
+
+.invoice table .no {
+    color: #fff;
+    font-size: 1.6em;
+    background: #3989c6
+}
+
+.invoice table .unit {
+    background: #ddd
+}
+
+.invoice table .total {
+    background: #3989c6;
+    color: #fff
+}
+
+.invoice table tbody tr:last-child td {
+    border: none
+}
+
+.invoice table tfoot td {
+    background: 0 0;
+    border-bottom: none;
+    white-space: nowrap;
+    text-align: right;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-top: 1px solid #aaa
+}
+
+.invoice table tfoot tr:first-child td {
+    border-top: none
+}
+
+.invoice table tfoot tr:last-child td {
+    color: #3989c6;
+    font-size: 1.4em;
+    border-top: 1px solid #3989c6
+}
+
+.invoice table tfoot tr td:first-child {
+    border: none
+}
+
+.invoice footer {
+    width: 100%;
+    text-align: center;
+    color: #777;
+    border-top: 1px solid #aaa;
+    padding: 8px 0
+}
+
+@media print {
+    .invoice {
+        font-size: 11px!important;
+        overflow: hidden!important
+    }
+
+    .invoice footer {
+        position: absolute;
+        bottom: 10px;
+        page-break-after: always
+    }
+
+    .invoice>div:last-child {
+        page-break-before: always
+    }
 }
 </style>
 </head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-<body>
-<!-- Button to Open the Modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-  Open modal
-</button>
+<!--Author      : @arboshiki-->
+<div id="invoice">
 
-<!-- The Modal -->
-<div class="modal" id="myModal">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Modal Heading</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-      <div class="container">
-      <header class="top-bar align-center">
- 
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-
-<header class="top-bar align-center">
-  <div class="top-bar-title">
-    <h1>Invoice Template <small>with Foundation Flex-Grid Layout</small></h1>
-  </div>
-</header>
-<div class="row expanded">
-  <main class="columns">
-    <div class="inner-container">
-    <header class="row align-center">
-        <a class="button hollow secondary"><i class="ion ion-chevron-left"></i> Go Back to Purchases</a>
-        &nbsp;&nbsp;<a class="button"><i class="ion ion-ios-printer-outline"></i> Print Invoice</a>
-      </header>
-    <section class="row">
-      <div class="callout large invoice-container">
-        <table class="invoice">
-          <tr class="header">
-            <td class="">
-              <img src="travelerie.com/wp-content/uploads/2014/04/PlaceholderLogoBlue.jpg" alt="Company Name" />
-            </td>
-            <td class="align-right">
-              <h2>Invoice</h2>
-            </td>
-          </tr>
-          <tr class="intro">
-            <td class="">
-              Hello, Philip Brooks.<br>
-              Thank you for your order.
-            </td>
-            <td class="text-right">
-              <span class="num">Order #00302</span><br>
-              October 18, 2017
-            </td>
-          </tr>
-          <tr class="details">
-            <td colspan="2">
-              <table>
-                <thead>
-                  <tr>
-                    <th class="desc">Item Description</th>
-                    <th class="id">Item ID</th>
-                    <th class="qty">Quantity</th>
-                    <th class="amt">Subtotal</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="item">
-                    <td class="desc">Name or Description of item</td>
-                    <td class="id num">MH792AM</td>
-                    <td class="qty">1</td>
-                    <td class="amt">$100.00</td>
-                  </tr>
-                </tbody>
-              </table>
-            </td> 
-          </tr>
-          <tr class="totals">
-            <td></td>
-            <td>
-              <table>
-                <tr class="subtotal">
-                  <td class="num">Subtotal</td>
-                  <td class="num">$100.00</td>
-                </tr>
-                <tr class="fees">
-                  <td class="num">Shipping & Handling</td>
-                  <td class="num">$0.00</td>
-                </tr>
-                <tr class="tax">
-                  <td class="num">Tax (7%)</td>
-                  <td class="num">$7.00</td>
-                </tr>
-                <tr class="total">
-                  <td>Total</td>
-                  <td>$107.00</td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-        
-        <section class="additional-info">
-        <div class="row">
-          <div class="columns">
-            <h5>Billing Information</h5>
-            <p>Philip Brooks<br>
-              134 Madison Ave.<br>
-              New York NY 00102<br>
-              United States</p>
-          </div>
-          <div class="columns">
-            <h5>Payment Information</h5>
-            <p>Credit Card<br>
-              Card Type: Visa<br>
-              &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; 1234
-              </p>
-          </div>
+    <div class="toolbar hidden-print">
+        <div class="text-right">
+            <button id="printInvoice" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
         </div>
-        </section>
-      </div>
-    </section>
+        <hr>
     </div>
-  </main>
+    <div class="invoice overflow-auto">
+        <div style="min-width: 600px">
+            <header>
+                <div class="row">
+                    <div class="col">
+                        <a target="_blank"\>
+                        <img src="../img/caktot.jpeg" alt="logo" class="d-block w-100" />
+                            </a>
+                    </div>
+                    <div class="col company-details">
+                        <h2 class="name">
+                            <a target="_blank">
+                            Toko Murah
+                            </a>
+                        </h2>
+                        <div>JL City Home Regency E8 Keputih, Sukolilo, Surabaya 60111</div>
+                        <div>085158422477</div>
+                        <div>Tokomurah77714@gmail.com</div>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <div class="row contacts">
+                    <div class="col invoice-to">
+                        <div class="text-gray-light">INVOICE TO:</div>
+                        <h2 class="to">Nama Pembeli</h2>
+                        <div class="address">Alamat Pembeli</div>
+                        <div class="email"><a href="mailto:john@example.com">Email Pembeli</a></div>
+                    </div>
+                    <div class="col invoice-details">
+                        <h1 class="invoice-id">INVOICE NUMBER</h1>
+                        <div class="date">Tanggal Pembuatan Invoice</div>
+                        <div class="date">Tenggat Waktu Invoice</div>
+                    </div>
+                </div>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                            <th class="text-mid">NO</th>
+                            <th class="text-left">DESKRIPSI</th>
+                            <th class="text-right">HARGA</th>
+                            <th class="text-right">JUMLAH</th>
+                            <th class="text-right">TOTAL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="no">01</td>
+                            <td class="text-left"><h3>Komponen/Alat</h3>Keperluan</td>
+                            <td class="unit">$40.00</td>
+                            <td class="qty">30</td>
+                            <td class="total">$1,200.00</td>
+                        </tr>
+                        <tr>
+                            <td class="no">02</td>
+                            <td class="text-left"><h3>Komponen/Alat</h3>Keperluan</td>
+                            <td class="unit">$40.00</td>
+                            <td class="qty">80</td>
+                            <td class="total">$3,200.00</td>
+                        </tr>
+                        <tr>
+                            <td class="no">03</td>
+                            <td class="text-left"><h3>Komponen?Alat</h3>Keperluan</td>
+                            <td class="unit">$40.00</td>
+                            <td class="qty">20</td>
+                            <td class="total">$800.00</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        
+                        <tr>
+                            <td colspan="2"></td>
+                            <td colspan="2">JUMLAH TOTAL</td>
+                            <td>$6,500.00</td>
+                        </tr>
+                    </tfoot>
+                </table>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+                <div class="thanks">Terimakasih</div>
+                <div class="notices">
+                    <div>Perhatian:</div>
+                    <div class="notice">Harga sudah termasuk PPN</div>
+                </div>
+            </main>
+            <footer>
+                Invoice was created on a computer and is valid without the signature and seal.
+            </footer>
+        </div>
+        <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
+        <div></div>
+    </div>
 </div>
-
-
-</body>
-</html>
+<script>
+ $('#printInvoice').click(function(){
+            Popup($('.invoice')[0].outerHTML);
+            function Popup(data) 
+            {
+                window.print();
+                return true;
+            }
+        });
+  </script>
