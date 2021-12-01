@@ -62,7 +62,7 @@ if(isset($_POST['hapusRak'])){
 	?>
 </head>
 <body>
-	<?php include"layout/sidebar.php";?>
+	<?php include"layout/sidebar-old.php";?>
 <div class="content">
 <div class="container mr-0">
 	<div class="p-1">

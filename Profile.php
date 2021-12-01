@@ -96,7 +96,7 @@ if ($userAC == '0'){ ?>
  
 <?php
 }
-else { 	include "layout/sidebar.php";
+else { 	include "layout/sidebar-old.php";
 ?>
 
 <div class="content">

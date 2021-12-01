@@ -40,7 +40,7 @@ if(isset($_POST['editBtn'])){
 <body>
 
 <?php
-	include "layout/sidebar.php";
+	include "layout/sidebar-old.php";
 ?>
 
 <div class="content">
@@ -57,7 +57,7 @@ if(isset($_POST['editBtn'])){
 
     <div class="card shadow-sm">
 	<div class="card-body">
-    <table class="table">
+    <table class="table table-striped table-sm" id="tableAcc">
         <thead>
             <tr class="table-info">
                 <th scope="col">Nama</th>
@@ -107,8 +107,8 @@ if(isset($_POST['editBtn'])){
 			<td><?php echo$data['stock_name'];?></td>
 			<td><?php echo$data['amount'];?>
 			<td><?php echo$tgl;?></td>
-			<td><?php echo$jual;?></td>
 			<td><?php echo$beli;?></td>
+			<td><?php echo$jual;?></td>
 			<td>
 				<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal<?php echo$id;?>">
 					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -149,5 +149,19 @@ if(isset($_POST['editBtn'])){
     
  </div>
 </div>
+
+<script>
+$(function(){
+	$('#tableAcc').DataTable({
+		"scrollY": "50vh",
+		"scrollCollapse": true,
+		language:{
+			url: 'js/id.json'
+		}
+	});
+	$('.dataTables_length').addClass('bs-select');
+});
+</script>
+
 </body>
 </html>

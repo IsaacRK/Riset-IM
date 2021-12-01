@@ -85,7 +85,7 @@ if(isset($_GET['barcode'])){
 <body>
 
 <?php
-	include"layout/sidebar.php";
+	include"layout/sidebar-old.php";
 	require 'backend/outputhandler.php';
 	require 'backend/checkouthandler.php';
 ?>

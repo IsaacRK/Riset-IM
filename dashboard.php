@@ -31,11 +31,10 @@ if ($userAC == '0'){
 </head>
 
 <body>
-
 <?php
-	include"layout/sidebar.php";
+	include"layout/sidebar-old.php";
 ?>
-
+       
 <div class="content">
 <div class="container mr-0">
 

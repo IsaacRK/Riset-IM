@@ -14,7 +14,7 @@ if ($userAC == '0'){
 <body>
 
 <?php
-	include"layout/sidebar.php";
+	include"layout/sidebar-old.php";
 ?>
 
 <div class="content">
@@ -73,13 +73,46 @@ if ($userAC == '0'){
 		</div>
 	</div>
 
-	<div class="row">
+	<div class="row mb-3">
 	
 	<div class="col-sm">
 	<div class="card shadow-sm">
 		<div class="card-body">
-			<h3>Rantai pasokan</h3>
-		
+			<h3>Perlu Pembelian</h3>
+			<table class="table table-striped table-sm">
+				<thead>
+					<tr>
+						<th>Nama</th>
+						<th>????</th>
+						<th>Jumlah</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>placeholder</td>
+						<td>placeholder</td>
+						<td>placeholder</td>
+					</tr>
+					<tr>
+						<td>placeholder</td>
+						<td>placeholder</td>
+						<td>placeholder</td>
+					</tr>
+					<tr>
+						<td>placeholder</td>
+						<td>placeholder</td>
+						<td>placeholder</td>
+					</tr>
+					<tr>
+						<td>placeholder</td>
+						<td>placeholder</td>
+						<td>placeholder</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="d-grid d-md-flex justify-content-md-end">
+				<a href="pembelian.php" class="btn btn-primary float-right">Pembelian</a>
+			</div>
 		</div>
 	</div>
 	</div>
@@ -145,6 +178,16 @@ if ($userAC == '0'){
 		</div>
 	</div>
 	</div>
+	
+	</div>
+	
+	<div class="row m-0">
+	
+		<div class="card shadow-sm">
+			<div class="card-body">
+				p
+			</div>
+		</div>
 	
 	</div>
 			
