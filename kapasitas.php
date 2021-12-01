@@ -32,7 +32,7 @@ if(isset($_POST['btnEdit'])){
 <body>
 
 <?php
-	include"layout/sidebar.php";
+	include"layout/sidebar-old.php";
 ?>
 
 <div class="content">
