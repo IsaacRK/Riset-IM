@@ -40,7 +40,7 @@ if(isset($_POST['editBtn'])){
 <body>
 
 <?php
-	include "layout/sidebar.php";
+	include "layout/sidebar-old.php";
 ?>
 
 <div class="content">
