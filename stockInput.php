@@ -73,7 +73,7 @@ $l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
 <body>
 
 <?php
-	include"layout/sidebar.php";
+	include"layout/sidebar-old.php";
 ?>
 
 <div class="content">
