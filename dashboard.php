@@ -31,11 +31,17 @@ if ($userAC == '0'){
 </head>
 
 <body>
-
+<div id="wrapper">
+   <div class="overlay"></div>
 <?php
 	include"layout/sidebar.php";
 ?>
-
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+          <span class="hamb-middle"></span>
+        <span class="hamb-bottom"></span>
+            </button>
 <div class="content">
 <div class="container mr-0">
 
@@ -195,7 +201,8 @@ if ($userAC == '0'){
     </div>
   </div>
 </div>
-
+				</div>
+				</div>
 
 <?php
 	include"layout/js.php";
