@@ -14,7 +14,7 @@ if ($userAC == '0'){
 <body>
 
 <?php
-	include"layout/sidebar.php";
+	include"layout/sidebar-old.php";
 ?>
 
 <div class="content">
