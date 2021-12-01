@@ -1,6 +1,6 @@
 <?php
 require 'backend/conn.php';
-require 'backend/loginhandler.php';
+
 if(@$_SESSION['uid']!=null){
 	header('location:dashboard.php');
 }
@@ -40,7 +40,7 @@ if(@$_SESSION['uid']!=null){
   <div class="container-fluid">
     <a class="navbar-brand">Inventory Management</a>
 	
-    <form action="" method="post" class="d-flex">
+    <form action="backend/loginhandler.php" method="post" class="d-flex">
 	  <input class="form-control" required type="text" name="user" id="" placeholder="Nama pengguna"/>
 	  <input class="form-control ms-2" required type="password" name="pass" id="" placeholder="Kata sandi"/>      
 	  <button class="btn btn-light btn-outline-primary ms-2" type="submit" name="submit" value="Login">Masuk</button>
