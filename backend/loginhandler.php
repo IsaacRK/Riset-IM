@@ -32,7 +32,7 @@ if(isset($_POST["submit"])){
 	if($result->num_rows > 0){
 		session_start();
 		$_SESSION['uid'] = $id['id'];
-		header('location:dashboard.php');
+		header('location:../dashboard.php');
 	}else{
 		echo "
 		<div style='width:100%;pading:5px;background-color:red;color:white;text-align:center;font-weight:bold;'>
