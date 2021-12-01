@@ -1,5 +1,5 @@
 body{
-	position: fixed;
+	position: relative;
     overflow-x: hidden;
 	background: #E5E4E2;
 }
