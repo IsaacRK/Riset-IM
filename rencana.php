@@ -127,53 +127,49 @@ if ($userAC == '0'){
 					<h5>Performa bulanan</h5>
 					
 					<div class="row">
-						<div class="col-sm-8">
 
-							<div class="row">
-								<div class="col-12 mb-3">
-									<div class="card text-white bg-primary">
-									<div class="card-body">
-										<div class="card-title">Target</div>
-										<div class="card-text"><h3>100.000 RB</h3></div>
-									</div>
-									</div>
-								</div>
-								
-								<div class="col">
-									<div class="card text-white bg-success">
-									<div class="card-body">
-										<div class="card-title">Pemasukan</div>
-										<div class="card-text"><h3>100.000 RB</h3></div>
-									</div>
-									</div>
-								</div>
-								
-								<div class="col">
-									<div class="card text-white bg-danger">
-									<div class="card-body">
-										<div class="card-title">Pengeluaran</div>
-										<div class="card-text"><h4>100.000 RB</h4></div>
-									</div>
-									</div>
-								</div>
+						<div class="col-6 mb-3">
+							<div class="card">
+							<div class="card-body">
+								<div class="card-title"><b>Target</b></div>
+								<div class="card-text"><h4>100.000 RB</h4></div>
 							</div>
-							
+							</div>
 						</div>
 						
-						<div class="col">
-							<div class="card h-100 text-white bg-secondary">
+						<div class="col-6">
+							<div class="card">
 							<div class="card-body">
-								<div class="card-title">Persentase bulanan</div>
-								<div class="card-text"><h1>100%</h1></div>
+								<div class="card-title"><b>Pemasukan</b></div>
+								<div class="card-text"><h4>100.000 RB</h4></div>
 							</div>
 							</div>
 						</div>
+						
+						<div class="col-6">
+							<div class="card">
+							<div class="card-body">
+								<div class="card-title"><b>Pengeluaran</b></div>
+								<div class="card-text"><h4>100.000 RB</h4></div>
+							</div>
+							</div>
+						</div>
+							
+						<div class="col-6">
+							<div class="card">
+							<div class="card-body">
+								<div class="card-title"><b>Persentase bulanan</b></div>
+								<div class="card-text"><h4>100%</h4></div>
+							</div>
+							</div>
+						</div>
+						
 					</div>
 					
 				</div>
 			</div>
 			
-			<canvas class="w-100" id="harga"></canvas>
+			<!--<canvas class="w-100" id="harga"></canvas>-->
 			
 		</div>
 	</div>
@@ -181,11 +177,39 @@ if ($userAC == '0'){
 	
 	</div>
 	
-	<div class="row m-0">
+	<div class="row my-0 mt-0 mb-3">
 	
-		<div class="card shadow-sm">
+		<div class="card shadow-sm px-0">
 			<div class="card-body">
-				p
+				<h3>Cek Resi</h3>
+				
+				<div class="w-50">
+				<form method="post" action="">
+					<div class="input-group mb-3">
+					  <input type="text" class="form-control" placeholder="Kode Resi" aria-label="Example text with button addon" aria-describedby="Form Resi">
+					  <input class="btn btn-outline-secondary" type="submit" id="" value="+">
+					</div>
+				</form>
+				</div>
+				
+				<table class="table table-stripped">
+					<thead>
+						<tr>
+							<th>Tanggal</th>
+							<th>Barang</th>
+							<th>placeholder</th>
+							<th>placeholder</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>placeholder</td>
+							<td>placeholder</td>
+							<td>placeholder</td>
+							<td>placeholder</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	

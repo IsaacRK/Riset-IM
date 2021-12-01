@@ -44,7 +44,7 @@ $storageRun = mysqli_query($servConnQuery, $storageQuery);
 if(mysqli_num_rows($storageRun)>0){
 	while($srow = mysqli_fetch_assoc($storageRun)){
 		$totalStorage++;
-		if($srow['stock_id']!=null){
+		if($srow['isi']!=null){
 			$storageCheck++;
 		}
 	}
