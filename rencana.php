@@ -159,7 +159,7 @@ if ($userAC == '0'){
 							</div>
 							
 						</div>
-						
+
 						<div class="col">
 							<div class="card h-100 text-white bg-secondary">
 							<div class="card-body">
@@ -168,6 +168,7 @@ if ($userAC == '0'){
 							</div>
 							</div>
 						</div>
+
 					</div>
 					
 				</div>
@@ -184,9 +185,23 @@ if ($userAC == '0'){
 	<div class="row m-0">
 	
 		<div class="card shadow-sm">
-			<div class="card-body">
-				p
-			</div>
+		<div class="card-body">
+		
+			<h3>Cek Resi</h3>
+			</br>
+			
+			<table>
+				<thead>
+					<tr>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+			</table>
+		
+		</div>
 		</div>
 	
 	</div>
