@@ -5,7 +5,7 @@ $cartQueryRun = mysqli_query($servConnQuery,$cartQuery);
 $x=1;
 if(mysqli_num_rows($cartQueryRun) > 0){
 	echo'
-	<form action="" method="post">
+	<form action="" method="post" id="formCart">
 	<div class="row m-1">
 	';
 	
@@ -46,18 +46,8 @@ if(mysqli_num_rows($cartQueryRun) > 0){
 					</span>
 				  </span>
 				</label>
-				<!--
-				<div class="py-2">
-					<img src="img/icons/pencil-square.svg" width="32" height="32" onclick="edit('<?php //echo$cartId;?>')"/>
-				</div>
-				-->
 			</div>
 			<div class="col-10">
-				<!--
-				<span><b>Nama: <?php //echo$stockName;?></span></br>
-				<span>Jumlah: <?php //echo$cartTakeAmount;?></span></br>
-				<span>Keperluan: <?php //echo$cartNecesity;?></span></br>
-				-->
 				<div class="row">
 					<div class="col-10">
 						<span><b><?php echo$stockName;?></b></span></br>
@@ -109,6 +99,16 @@ if(mysqli_num_rows($cartQueryRun) > 0){
 				</div>
 			</div>
 			<hr></hr>
+			<script>
+			$(document).ready(function(){
+				$("#formCart").on("submit", function(e){
+					var dataString = $(this).serialize();
+					alert(dataString);
+					
+					e.preventDefault();
+				});
+			});
+			</script>
 		<?php
 		$x++;
 	}
@@ -209,18 +209,18 @@ $('.input-number').change(function(){
     
 });
 $(".input-number").keydown(function (e) {
-        // Allow: backspace, delete, tab, escape, enter and .
-        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
-             // Allow: Ctrl+A
-            (e.keyCode == 65 && e.ctrlKey === true) || 
-             // Allow: home, end, left, right
-            (e.keyCode >= 35 && e.keyCode <= 39)) {
-                 // let it happen, don't do anything
-                 return;
-        }
-        // Ensure that it is a number and stop the keypress
-        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-            e.preventDefault();
-        }
-    });
+    // Allow: backspace, delete, tab, escape, enter and .
+    if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+         // Allow: Ctrl+A
+        (e.keyCode == 65 && e.ctrlKey === true) || 
+         // Allow: home, end, left, right
+        (e.keyCode >= 35 && e.keyCode <= 39)) {
+             // let it happen, don't do anything
+             return;
+    }
+    // Ensure that it is a number and stop the keypress
+    if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+        e.preventDefault();
+    }
+});
 </script>

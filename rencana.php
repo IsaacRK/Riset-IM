@@ -83,7 +83,7 @@ if ($userAC == '0'){
 				<thead>
 					<tr>
 						<th>Nama</th>
-						<th>????</th>
+						<th>Lokasi</th>
 						<th>Jumlah</th>
 					</tr>
 				</thead>
@@ -197,8 +197,8 @@ if ($userAC == '0'){
 						<tr>
 							<th>Tanggal</th>
 							<th>Barang</th>
-							<th>placeholder</th>
-							<th>placeholder</th>
+							<th>Resi</th>
+							<th>Lokasi</th>
 						</tr>
 					</thead>
 					<tbody>
