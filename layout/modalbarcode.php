@@ -6,7 +6,6 @@ $rak = '';
 $lan = '';
 $klm = '';
 $bar = '';
-$stockId = '';
 
 if(isset($_GET['itemName'])){
 	$itemName = $_GET['itemName'];
@@ -22,7 +21,6 @@ if(isset($_GET['itemName'])){
 	$storageIdFetch = mysqli_fetch_assoc($storageSearchRun);
 	
 	$storage_id = $storageIdFetch['storage_id'];
-	$stockId	= $storageIdFetch['stock_id'];
 	
 	$stockSearchQuery = "select * from `stock` where stock_name = '$itemName'";
 	$stockSearchQueryRun = mysqli_query($servConnQuery,$stockSearchQuery);

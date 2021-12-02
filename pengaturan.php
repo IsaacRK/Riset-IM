@@ -18,9 +18,10 @@ if ($userAC == '0'){
 			width: 100%;
 		}
 		@media screen and (max-width: 767px){
-			.tan{
-				width: 160%;
-			}
+		.tan{
+			width: 200%;
+			margin-left:23px;
+		}
 		}
 	</style>
 </head>

@@ -54,13 +54,13 @@ if(isset($_GET['rak'])){
 				while($row1 = mysqli_fetch_assoc($run1)){
 					if($row1['baris']==1){
 						$txt='C'.$row1['kolom'];
-						$col=boxColor($row1['stock_id']);
+						$col=boxColor($row1['isi']);
 						$str=boxColorText($col,$txt);
 						$top=$top.$str;
 					}
 					if($row1['baris']==2){
 						$txt='C'.$row1['kolom'];
-						$col=boxColor($row1['stock_id']);
+						$col=boxColor($row1['isi']);
 						$str=boxColorText($col,$txt);
 						$bot=$bot.$str;
 					}
