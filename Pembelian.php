@@ -33,7 +33,7 @@ if ($userAC == '0'){
                                 <p class="text-end">Nama : </p>
                             </div>
                             <div class="col-5">
-                                <input class="form-control" type="text" name="nmbrng" id="" style="width:150%;"/>
+                                <input class="form-control" type="text" name="nmbrng" id="nmbrng" style="width:150%;"/>
                             </div>
                         </div>
 
@@ -105,12 +105,43 @@ if ($userAC == '0'){
                                     </thead>
                                     <tbody>
                                         <?php
-                                            
-                                        ?>
+                                           $Rncn = "SELECT pembelian.* , stock.stock_name , harga.beli, harga.jual
+                                           FROM pembelian
+                                           JOIN stock ON pembelian.stock_id = stock.stock_id
+                                           JOIN harga ON pembelian.stock_id = harga.stock_id
+                                           WHERE pembelian.RAB = 0;";
+                                           $RNCNRUN = mysqli_query($servConnQuery, $Rncn);
+                                           $ARG = array();
+                                           while($kol = mysqli_fetch_assoc($RNCNRUN)){
+                                            $ARG[] = $kol;
+                                            }
+                                            foreach($ARG as $data){ ?>
+                                                <tr>
+                                                    <td><?php echo $data['id']; ?></td>
+                                                    <td class='fw-bold'><?php echo $data['stock_name']; ?></td>
+                                                    <td><?php echo $data['link'];?></td>
+                                                    <td><?php echo $data['beli'];?></td>
+                                                    <td><?php echo $data['jumlah'];?></td>
+                                                    <td><?php echo $data['totalhrg'];?></td>
+                                                </tr>
+                                            <?php } ?>
                                     </tbody>
                                 </table>
+				 <?php
+                                    if(mysqli_num_rows($RNCNRUN)== 0){
+                                        echo'
+                                            <div class="w-100 color-tertiary p-2 text-center fw-bold">---------</div>
+                                        ';
+                                    }
+                                ?>
                             </div>
 
+			<div class='row'>
+                                <div class="col text-center">
+                                <button class="btn btn-primary" type="submit" name="buat" value="buat">Buat RAB</button>
+                                </div>
+                        </div>
+				
                         </div>
                     </div>
 
@@ -119,5 +150,13 @@ if ($userAC == '0'){
 
          </div>
         </div>
+	    
+        <script>
+            $(function(){
+		        $("#nmbrng").autocomplete({
+			    source: 'backend/autocomplete.php'
+		        });
+	        });
+        </script>	    
     </body>
 </html>
