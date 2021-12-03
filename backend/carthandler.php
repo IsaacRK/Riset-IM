@@ -220,7 +220,7 @@ $(".input-number").keydown(function (e) {
 $(document).ready(function(){
 	$("#formCart").on("submit", function(e){
 		var dataString = $(this).serialize();
-		alert(dataString);
+		//alert(dataString);
 		$.ajax({
 			type: "POST",
 			url: "backend/checkouthandler.php",

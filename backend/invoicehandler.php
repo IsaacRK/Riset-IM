@@ -22,16 +22,28 @@ if(isset($_POST['checkbox'])){
 		$inv 	= $inv.$serNum;
 	}
 	
-	//insert
+	//insert 
 	$val = $_POST['checkbox'];
 	for($i=0;$i<count($val);$i++){
 		$cartId = $val[$i];
 		echo'</br>'.$cartId.'</br>';
 		
+		$sqlHargaTotal = "
+			SELECT cart.* , harga.jual
+			FROM cart
+			JOIN harga ON cart.stock_id = harga.stock_id
+			WHERE cart.cart_id = $cartId
+		";
+		$runHargaTotal = mysqli_query($servConnQuery, $sqlHargaTotal);
+		$rowHargaTotal = mysqli_fetch_assoc($runHargaTotal);
+		$jumBarang = $rowHargaTotal['take_amount'];
+		$harBarang = $rowHargaTotal['jual'];
+		$hargaTotal = $jumBarang * $harBarang;
+		
 		$now = date('Y-m-d');
 		echo $inputInvoiceSql = "insert into 
 							invoice (invoice_no, user_id, cart_id, date, total_harga)
-							values ('$inv', '$userId', '$cartId', '$now', 0)
+							values ('$inv', '$userId', '$cartId', '$now', $hargaTotal)
 							";
 		echo'</br>';
 		if(mysqli_query($servConnQuery, $inputInvoiceSql)){
