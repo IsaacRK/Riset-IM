@@ -129,9 +129,17 @@ if(isset($_POST['editBtn'])){
 			  </div>
 			  <div class="modal-body">
 				<form method="post"; >
-					<input type="text" name="edit" class="form form-control">
-					<input type="hidden" name="editId" value="<?php echo$id;?>">
-			  </div>
+				<label for="exampleInputNama" class="form-label">Nama</label>
+                <input type="Nama" class="form-control" id="exampleInputNama">	
+				<label for="exampleInputJumlah" class="form-label">Jumlah</label>
+                <input type="Jumlah" class="form-control" id="exampleInputJumlah" >
+				<label for="exampleInputTanggalInput" class="form-label">Tanggal Input</label>
+                <input type="TanggalInput" class="form-control" id="exampleInputTanggalInput" >
+				<label for="exampleInputHargaBeli" class="form-label">Harga Beli</label>
+                <input type="HargaBeli" class="form-control" id="exampleInputHargaBeli" >
+				<label for="exampleInputHargaJual" class="form-label">Harga Jual</label>
+                <input type="HargaJual" class="form-control" id="exampleInputHargaJual" >
+			</div>
 			  <div class="modal-footer">
 				<input type="submit"  class="btn btn-primary" name="editBtn" value="Submit">
 				</form>

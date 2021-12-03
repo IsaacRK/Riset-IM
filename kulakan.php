@@ -12,25 +12,25 @@
     <div class="card">
         <form>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Nama Komponen</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="exampleInputNamaKomponen" class="form-label">Nama Komponen</label>
+                <input type="NamaKomponen" class="form-control" id="exampleInputNamaKomponen">
                 
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Link Pembelian</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label for="exampleInputLinkPembelian" class="form-label">Link Pembelian</label>
+                <input type="LinkPembelian" class="form-control" id="exampleInputLinkPembelian">
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Harga Beli</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label for="exampleInputHargaBeli" class="form-label">Harga Beli</label>
+                <input type="HargaBeli" class="form-control" id="exampleInputHargaBeli">
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Jumlah</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label for="exampleInputJumlah" class="form-label">Jumlah</label>
+                <input type="Jumlah" class="form-control" id="exampleInputJumlah">
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Harga Total</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label for="exampleInputHargaTotal" class="form-label">Harga Total</label>
+                <input type="HargaTotal" class="form-control" id="exampleInputHargaTotal">
             </div>
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
