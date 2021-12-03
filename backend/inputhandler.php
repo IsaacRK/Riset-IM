@@ -37,7 +37,7 @@ if(isset($_POST['itemName'])){
 		$barcode 	= $rak.$lantai.$kolom.$baris.$kategori.$stock_id;
 	}else{
 		//tidak ada di penyimpanan
-		echo '</br>barang ada</br>';
+		echo '</br>barang baru</br>';
 		echo $check = 0;
 	}
 	
@@ -85,8 +85,12 @@ if(isset($_POST['itemName'])){
 		$inputBarcode =
 		"update stock 
 		set barcode = '$barcode'
-		where storage_id = '$storage_id'
+		where stock_id = '$stock_id'
 		";
+		
+		$sqlIsi = "insert into harga (stock_id, input, beli, jual) values ('$stock_id', '0', '0', '0')";
+		mysqli_query($servConnQuery, $sqlIsi);
+		
 		if(mysqli_query($servConnQuery, $inputBarcode)){
 			echo 'insert done!';
 		}

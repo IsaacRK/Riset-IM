@@ -1,7 +1,9 @@
 <?php
-
-if(isset($_POST['checkout'])){
+include'conn.php';
+include'usersession.php';
+if(isset($_POST['checkbox'])){
 	$value 	= $_POST['checkbox'];
+	print_r($value);
 	for($i=0;$i<count($value);$i++){
 		$quant 	= $i + 1;
 		$cartId = $value[$i];
@@ -40,7 +42,7 @@ if(isset($_POST['checkout'])){
 			mysqli_query($servConnQuery, $cartUpdateQuery);
 			
 			$now = date("Y-m-d");
-			$historyQuery = 
+			echo$historyQuery = 
 			"insert into 
 			history (history_id, stock_id, amount, input, output, user_id, date) 
 			values (default, '$stockId', '$takeAmount', NULL, 1, '$user_id', '$now')";

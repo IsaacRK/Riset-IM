@@ -1,5 +1,32 @@
-<html>
-<head>
+<?php
+include'backend/conn.php';
+include'backend/usersession.php';
+if(isset($_GET['checkbox'])){
+}
+
+//invoice check
+//invoice Generator
+//cek invoice serialNum
+$inv = 'INV/'.date('Ymd').'/'.$userId.'/';
+$sqlCek="select * from invoice where invoice_no like '$inv%' order by id desc limit 1";
+$cekRun = mysqli_query($servConnQuery, $sqlCek);
+
+$serNum = 1;
+if(mysqli_num_rows($cekRun)>0){
+	$cekRow = mysqli_fetch_assoc($cekRun);
+	$x 		= substr($cekRow['invoice_no'] , strrpos($cekRow['invoice_no'], "/") + 1);
+	$inv 	= $inv.$x;
+}else{
+	$inv 	= $inv.$x;
+}
+
+$sqlFind = "select * from invoice where invoice_no = '$inv'";
+$runFind = mysqli_query($servConnQuery, $sqlFind);
+$cartIdArr = array();
+while($rowFind = mysqli_fetch_assoc($runFind)){
+	$cartIdArr[] = $rowFind;
+}
+?>
 <style>
 #invoice{
     padding: 30px;
@@ -167,117 +194,127 @@
     }
 }
 </style>
-</head>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <!------ Include the above in your HEAD tag ---------->
 
 <!--Author      : @arboshiki-->
-<div id="invoice">
 
-    <div class="toolbar hidden-print">
-        <div class="text-right">
-            <button id="printInvoice" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
-        </div>
-        <hr>
-    </div>
-    <div class="invoice overflow-auto">
-        <div style="min-width: 600px">
-            <header>
-                <div class="row">
-                    <div class="col">
-                        <a target="_blank"\>
-                        <img src="img/caktot.png" alt="logo" class="d-block w-100" />
-                            </a>
-                    </div>
-                    <div class="col company-details">
-                        <h2 class="name">
-                            <a target="_blank">
-                            Toko Murah
-                            </a>
-                        </h2>
-                        <div>JL City Home Regency E8 Keputih, Sukolilo, Surabaya 60111</div>
-                        <div>085158422477</div>
-                        <div>Tokomurah77714@gmail.com</div>
-                    </div>
-                </div>
-            </header>
-            <main>
-                <div class="row contacts">
-                    <div class="col invoice-to">
-                        <div class="text-gray-light">INVOICE TO:</div>
-                        <h2 class="to">Nama Pembeli</h2>
-                        <div class="email"><a href="mailto:john@example.com">Email Pembeli</a></div>
-                    </div>
-                    <div class="col invoice-details">
-                        <h1 class="invoice-id">Tanggal Pembuatan Invoice</h1>
-                        <div class="date">Tenggat Waktu Invoice</div>
-                    </div>
-                </div>
-                <table border="0" cellspacing="0" cellpadding="0">
-                    <thead>
-                        <tr>
-                            <th class="text-mid">NO</th>
-                            <th class="text-left">DESKRIPSI</th>
-                            <th class="text-right">HARGA</th>
-                            <th class="text-right">JUMLAH</th>
-                            <th class="text-right">TOTAL</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="no">01</td>
-                            <td class="text-left"><h3>Komponen/Alat</h3>Keperluan</td>
-                            <td class="unit">$40.00</td>
-                            <td class="qty">30</td>
-                            <td class="total">$1,200.00</td>
-                        </tr>
-                        <tr>
-                            <td class="no">02</td>
-                            <td class="text-left"><h3>Komponen/Alat</h3>Keperluan</td>
-                            <td class="unit">$40.00</td>
-                            <td class="qty">80</td>
-                            <td class="total">$3,200.00</td>
-                        </tr>
-                        <tr>
-                            <td class="no">03</td>
-                            <td class="text-left"><h3>Komponen?Alat</h3>Keperluan</td>
-                            <td class="unit">$40.00</td>
-                            <td class="qty">20</td>
-                            <td class="total">$800.00</td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        
-                        <tr>
-                            <td colspan="2"></td>
-                            <td colspan="2">JUMLAH TOTAL</td>
-                            <td>$6,500.00</td>
-                        </tr>
-                    </tfoot>
-                </table>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
+<div class="modal-header">
+	<button class="border border-0" type="" data-bs-dismiss="modal">
+		<img src="img/icons/x-lg.svg"/>
+	</button>
+</div>
+<div class="modal-body">
+	<div id="invoice">
 
-                <div class="thanks">Terimakasih</div>
-                <div class="notices">
-                    <div>Perhatian:</div>
-                    <div class="notice">Harga sudah termasuk PPN</div>
-                </div>
-            </main>
-            <footer>
-                
-            </footer>
-        </div>
-        <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
-        <div></div>
-    </div>
+		<div class="toolbar hidden-print">
+			<div class="text-right">
+				<button id="printInvoice" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
+			</div>
+			<hr>
+		</div>
+		<div class="invoice overflow-auto">
+			<div style="min-width: 600px">
+				<header>
+					<div class="row">
+						<div class="col">
+							<a target="_blank"\>
+							<img src="img/caktot.png" alt="logo" class="d-block w-100" />
+								</a>
+						</div>
+						<div class="col company-details">
+							<h2 class="name">
+								<a target="_blank">
+								Toko Murah
+								</a>
+							</h2>
+							<div>JL City Home Regency E8 Keputih, Sukolilo, Surabaya 60111</div>
+							<div>085158422477</div>
+							<div>Tokomurah77714@gmail.com</div>
+						</div>
+					</div>
+				</header>
+				<main>
+					<div class="row contacts">
+						<div class="col invoice-to">
+							<div class="text-gray-light">INVOICE TO:</div>
+							<h2 class="to">Nama Pembeli</h2>
+							<div class="email"><a href="mailto:john@example.com">Email Pembeli</a></div>
+						</div>
+						<div class="col invoice-details">
+							<h1 class="invoice-id">Tanggal Pembuatan Invoice</h1>
+							<div class="date">Tenggat Waktu Invoice</div>
+						</div>
+					</div>
+					<table border="0" cellspacing="0" cellpadding="0">
+						<thead>
+							<tr>
+								<th class="text-mid">NO</th>
+								<th class="text-left">NAMA</th>
+								<th class="text-right">HARGA</th>
+								<th class="text-right">JUMLAH</th>
+								<th class="text-right">TOTAL</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php
+							$no =  1;
+							foreach($cartIdArr as $data){
+								$cid = $data['cart_id'];
+								$sql = "
+									SELECT cart.* , stock.stock_name , harga.jual 
+									from cart 
+									join stock on cart.stock_id = stock.stock_id 
+									join harga on cart.stock_id = harga.stock_id 
+									where cart.cart_id = $cid";
+								$run = mysqli_query($servConnQuery, $sql);
+								$row = mysqli_fetch_assoc($run);
+								echo'
+								<tr>
+									<td class="no">'.$no.'</td>
+									<td class="text-left"><h3>'.$row['stock_name'].'</h3>Keperluan</td>
+									<td class="unit">'.$row['jual'].'</td>
+									<td class="qty">'.$row['take_amount'].'</td>
+									<td class="total">harga total</td>
+								</tr>
+								';
+								$no++;
+							}
+							
+							?>
+						</tbody>
+						<tfoot>
+							
+							<tr>
+								<td colspan="2"></td>
+								<td colspan="2">JUMLAH TOTAL</td>
+								<td>$6,500.00</td>
+							</tr>
+						</tfoot>
+					</table>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+
+					<div class="thanks">Terimakasih</div>
+					<div class="notices">
+						<div>Perhatian:</div>
+						<div class="notice">Harga sudah termasuk PPN</div>
+					</div>
+				</main>
+				<footer>
+					
+				</footer>
+			</div>
+			<!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
+			<div></div>
+		</div>
+	</div>
+
 </div>
 <script>
  $('#printInvoice').click(function(){

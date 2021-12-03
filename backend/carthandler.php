@@ -26,6 +26,7 @@ if(mysqli_num_rows($cartQueryRun) > 0){
 		$max			= $maxFetch['amount'];
 		
 		?>
+			
 			<div class="col-2">
 				<label class="checkbox">
 				  <span class="checkbox_input">
@@ -100,14 +101,6 @@ if(mysqli_num_rows($cartQueryRun) > 0){
 			</div>
 			<hr></hr>
 			<script>
-			$(document).ready(function(){
-				$("#formCart").on("submit", function(e){
-					var dataString = $(this).serialize();
-					alert(dataString);
-					
-					e.preventDefault();
-				});
-			});
 			</script>
 		<?php
 		$x++;
@@ -223,4 +216,30 @@ $(".input-number").keydown(function (e) {
         e.preventDefault();
     }
 });
+
+$(document).ready(function(){
+	$("#formCart").on("submit", function(e){
+		var dataString = $(this).serialize();
+		alert(dataString);
+		$.ajax({
+			type: "POST",
+			url: "backend/checkouthandler.php",
+			data: dataString,
+			success: function(){
+				$.ajax({
+					type: "POST",
+					url: "backend/invoicehandler.php",
+					data: dataString,
+					success: function(){
+						$('#modalInvoice').modal("show").find(".modal-content").load("invoice.php");
+					}
+				});
+				
+			}
+		});
+		
+		e.preventDefault();
+	});
+});
+
 </script>

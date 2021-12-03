@@ -2,6 +2,7 @@
 include'../backend/conn.php';
 
 if(isset($_POST['reset'])){
+	
 	$sqlFetch = "select * from stock";
 	$runFetch = mysqli_query($servConnQuery, $sqlFetch);
 	

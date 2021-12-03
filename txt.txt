@@ -20,9 +20,8 @@
 
 		-[done]ubah fitur, jika barang yang diambil lebih banyak, tidak bisa menaruh di rak
 		
-		-ambil komponen, tidak bisa checkut pada web online
 		
-		-halaman penjualan, modal keluar sesuai dengan data yang di checkout
+		-[done]halaman penjualan, modal keluar sesuai dengan data yang di checkout
 	|-----------------------------
 	
 -fitur erp

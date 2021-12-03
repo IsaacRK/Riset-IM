@@ -87,7 +87,6 @@ if(isset($_GET['barcode'])){
 <?php
 	include"layout/sidebar-old.php";
 	require 'backend/outputhandler.php';
-	require 'backend/checkouthandler.php';
 ?>
 <div class="content">
 <div class="container mr-0">
@@ -253,6 +252,13 @@ if(isset($_GET['barcode'])){
 	</div>
 </div>
 
+<div id="modalInvoice" class="modal fade" tabindex="-1">
+	<div class="modal-dialog modal-xl">
+		<div class="modal-content">
+		</div>
+	</div>
+</div>
+
 <script>
 	
 function edit(x){	
@@ -270,6 +276,11 @@ $(function(){
 	$("#componentNameSearch").autocomplete({
 		source: 'backend/autocomplete.php'
 	});
+});
+
+
+$('#modalInvoice').on('hidden.bs.modal', function () {
+ location.reload();
 });
 
 </script>
