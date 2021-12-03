@@ -1,6 +1,7 @@
 <?php
 require 'backend/conn.php';
 require 'backend/usersession.php';
+require 'backend/pmbln.php';
 if ($userAC == '0'){
 	header('location:Verifyno.php');
 }else{}
@@ -22,7 +23,7 @@ if ($userAC == '0'){
 
             <div class="row">
                 <div class="col-sm-4">
-                    
+                 <form action="" method="post">   
                     <div class="card shadow-sm mb-2">
                      <div class="card-body">
                         <h3 class="text-center">Registrasi Data</h3>
@@ -75,14 +76,14 @@ if ($userAC == '0'){
 
                         <div class="row mb-3">
                             <div class="col text-center">
-                                <Button class="btn btn-primary" type="submit" name="tambahkan" value="tambahkan">Tambahkan</button>
+                                <Button class="btn btn-primary" type="submit" name="submit" value="tambahkan">Tambahkan</button>
                             </div>
                         </div>                        
 
 
                      </div>
                     </div>
-			         
+                 </form>    
                 </div>
 
                 <div class="col-sm-8">
@@ -103,13 +104,16 @@ if ($userAC == '0'){
                                         <th scope="col">Harga total</th>
                                     </tr>
                                     </thead>
+                                   <div style="max-height:500px;">
                                     <tbody>
                                         <?php
                                            $Rncn = "SELECT pembelian.* , stock.stock_name , harga.beli, harga.jual
                                            FROM pembelian
                                            JOIN stock ON pembelian.stock_id = stock.stock_id
                                            JOIN harga ON pembelian.stock_id = harga.stock_id
-                                           WHERE pembelian.RAB = 0;";
+                                           WHERE pembelian.RAB = 0
+                                           order by pembelian.id asc
+                                           ";
                                            $RNCNRUN = mysqli_query($servConnQuery, $Rncn);
                                            $ARG = array();
                                            while($kol = mysqli_fetch_assoc($RNCNRUN)){
@@ -126,8 +130,9 @@ if ($userAC == '0'){
                                                 </tr>
                                             <?php } ?>
                                     </tbody>
+                                   </div>
                                 </table>
-				 <?php
+                                <?php
                                     if(mysqli_num_rows($RNCNRUN)== 0){
                                         echo'
                                             <div class="w-100 color-tertiary p-2 text-center fw-bold">---------</div>
@@ -135,13 +140,14 @@ if ($userAC == '0'){
                                     }
                                 ?>
                             </div>
-
-			<div class='row'>
-                                <div class="col text-center">
+                            <form action="" method="post">
+                            <div class='row'>
+                                <div class="col text-center mt-3">
                                 <button class="btn btn-primary" type="submit" name="buat" value="buat">Buat RAB</button>
                                 </div>
-                        </div>
-				
+                            </div>
+                            </form>
+
                         </div>
                     </div>
 
@@ -150,13 +156,14 @@ if ($userAC == '0'){
 
          </div>
         </div>
-	    
+
         <script>
             $(function(){
 		        $("#nmbrng").autocomplete({
 			    source: 'backend/autocomplete.php'
 		        });
 	        });
-        </script>	    
+        </script>
+
     </body>
 </html>
