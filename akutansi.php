@@ -129,12 +129,14 @@ if(isset($_POST['editBtn'])){
 			  </div>
 			  <div class="modal-body">
 				<form method="post"; >
-				<label for="exampleInputNama" class="form-label">Nama</label>
-                <input type="Nama" class="form-control" id="exampleInputNama">	
-				<label for="exampleInputJumlah" class="form-label">Jumlah</label>
-                <input type="Jumlah" class="form-control" id="exampleInputJumlah" >
-				<label for="exampleInputTanggalInput" class="form-label">Tanggal Input</label>
-                <input type="TanggalInput" class="form-control" id="exampleInputTanggalInput" >
+					<fieldset disabled>
+				<label for="disabledTextInput" class="form-label" >Nama</label>
+                <input type="Text" class="form-control" id="disabledTextInput" placeholeder="disabled input">	
+				<label for="disabledTextInput" class="form-label" >Jumlah</label>
+                <input type="Text" class="form-control" id="disabledTextInput" placeholeder="disabled input">
+				<label for="disabledTextInput" class="form-label">Tanggal Input</label>
+                <input type="Text" class="form-control" id="disabledTextInput" placeholeder="disabled input">
+				</fieldset disabled>
 				<label for="exampleInputHargaBeli" class="form-label">Harga Beli</label>
                 <input type="HargaBeli" class="form-control" id="exampleInputHargaBeli" >
 				<label for="exampleInputHargaJual" class="form-label">Harga Jual</label>
