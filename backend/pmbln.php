@@ -37,7 +37,7 @@ if(isset($_POST['submit'])){
     $hrg = "UPDATE harga SET beli='$harga' WHERE stock_id = '$stckid'";
     $inhr= mysqli_query($servConnQuery, $hrg);
 
-    header('location:Pembelian.php');
+    header('location:Pembelian-work.php');
     }
 
 }
@@ -46,7 +46,7 @@ if(isset($_POST['buat'])){
     $RAB = "UPDATE pembelian SET RAB = '1';";
     $done = mysqli_query($servConnQuery, $RAB);
 
-    header('location:Pembelian.php');
+    header('location:Pembelian-work.php');
 }
 
 ?>
