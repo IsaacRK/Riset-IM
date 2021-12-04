@@ -113,8 +113,7 @@ if ($userAC == '0'){
                  <form action="" method="post">   
                     <div class="card shadow-sm mb-2">
                         <div class="card-body">
-                            <h3 class="text-center card-title">Rencana Pembelian</h3>
-                            <p class="text">Daftar Kebutuhan &nbsp; <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambahkan</button> 
+			    <p class="text"><big>Daftar Kebutuhan</big> &nbsp; <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambahkan</button> 
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				    
 <form action="" method="post">				   
@@ -293,7 +292,7 @@ if ($userAC == '0'){
                         <div class="page">
 
                             <p class="text-center fs-4 fw-bold mt-3">Rencana Anggaran Belanja</p>
-                            <div class="row mt-3">
+                            <div class="row mt-3 mb-3">
                                 <div class="col-2">
                                 <span>Akun Pengambil </br></span>
                                 <span>Peran </br></span>
