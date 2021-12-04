@@ -106,7 +106,7 @@ if ($userAC == '0'){
 	  </div>		 
 		 
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col">
                  <form action="" method="post">   
                     <div class="card shadow-sm mb-2">
                         <div class="card-body">
