@@ -113,6 +113,8 @@ if ($userAC == '0'){
                             <h3 class="text-center card-title">Rencana Pembelian</h3>
                             <p class="text">Daftar Kebutuhan &nbsp; <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambahkan</button> 
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				    
+<form action="" method="post">				   
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -175,6 +177,8 @@ if ($userAC == '0'){
     </div>
   </div>
 </div>
+</form>
+				    
                          <div class="table-responsive tableFixHead" id="tblee">
                                 <table class="table table-striped table-sm" id="Rncn">
                                     <thead>
