@@ -51,7 +51,22 @@ if ($userAC == '0'){
             margin-top: 0;
             margin-bottom: 0
         }
-
+        .tableFixHead {
+        table-layout: fixed;
+        border-collapse: collapse;
+        }
+        .tableFixHead tbody {
+        display: block;
+        overflow: auto;
+        max-height: 440px;
+        }
+        .tableFixHead thead tr {
+        display: block;
+        }
+        .tableFixHead th,
+        .tableFixHead td {
+        width: 200px;
+        }
         @page {
         margin: 20mm
         }
@@ -84,6 +99,12 @@ if ($userAC == '0'){
         <div class="content">
          <div class="container mr-0">
 
+          <div class="p-1">
+    		<div class="mb-3">
+			<h1>Pembelian</h1>
+	    	</div>
+	  </div>		 
+		 
             <div class="row">
                 <div class="col-sm-4">
                  <form action="" method="post">   
@@ -151,11 +172,11 @@ if ($userAC == '0'){
 
                 <div class="col-sm-8">
 
-                    <div class="card shadow-sm mb-2">
+                    <div class="card shadow-sm mb-2"  style="max-height:630px;">
                         <div class="card-body">
                             <h3 class="text-center card-title">Rencana Pembelian</h3>
 
-                            <div class="table-responsive" id="tblee">
+                            <div class="table-responsive tableFixHead" id="tblee">
                                 <table class="table table-striped table-sm" id="Rncn">
                                     <thead>
                                     <tr>
