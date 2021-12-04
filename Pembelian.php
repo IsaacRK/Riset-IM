@@ -67,6 +67,9 @@ if ($userAC == '0'){
         .tableFixHead td {
         width: 200px;
         }
+	ul.ui-autocomplete.ui-menu {
+        z-index: 1600;
+        }  
         @page {
         margin: 20mm
         }
