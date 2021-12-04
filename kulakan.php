@@ -1,5 +1,5 @@
 <head>
-<?php include'../layout/header.php';?>
+<?php include'layout/header.php';?>
 <style>
 .tbl-content{
     height:300px;

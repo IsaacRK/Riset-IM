@@ -78,13 +78,13 @@ if ($userAC == '0'){
 	<div class="col-sm">
 	<div class="card shadow-sm">
 		<div class="card-body">
-			<h3>Perlu Pembelian</h3>
+			<h3>Peringatan Stok Minim</h3>
 			<table class="table table-striped table-sm">
 				<thead>
 					<tr>
-						<th>Nama</th>
-						<th>Lokasi</th>
+						<th>Nama Barang</th>
 						<th>Jumlah</th>
+						<th>Lokasi Penyimpanan</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -120,18 +120,17 @@ if ($userAC == '0'){
 	<div class="col-sm">
 	<div class="card shadow-sm">
 		<div class="card-body">
-			<h3>Peforma perusahaan</h3>
+			<h3>Indikator Peforma</h3>
 			
 			<div class="card">
 				<div class="card-body">
-					<h5>Performa bulanan</h5>
 					
 					<div class="row">
 
 						<div class="col-6 mb-3">
 							<div class="card">
 							<div class="card-body">
-								<div class="card-title"><b>Target</b></div>
+								<div class="card-title"><b>Target Pemasukan Bulanan</b></div>
 								<div class="card-text"><h4>100.000 RB</h4></div>
 							</div>
 							</div>
@@ -140,7 +139,7 @@ if ($userAC == '0'){
 						<div class="col-6">
 							<div class="card">
 							<div class="card-body">
-								<div class="card-title"><b>Pemasukan</b></div>
+								<div class="card-title"><b>Rata-Rata Pemasukan Seminggu</b></div>
 								<div class="card-text"><h4>100.000 RB</h4></div>
 							</div>
 							</div>
@@ -149,7 +148,7 @@ if ($userAC == '0'){
 						<div class="col-6">
 							<div class="card">
 							<div class="card-body">
-								<div class="card-title"><b>Pengeluaran</b></div>
+								<div class="card-title"><b>Total Pembelian Bulanan</b></div>
 								<div class="card-text"><h4>100.000 RB</h4></div>
 							</div>
 							</div>
@@ -158,7 +157,7 @@ if ($userAC == '0'){
 						<div class="col-6">
 							<div class="card">
 							<div class="card-body">
-								<div class="card-title"><b>Persentase bulanan</b></div>
+								<div class="card-title"><b>Nilai Performa</b></div>
 								<div class="card-text"><h4>100%</h4></div>
 							</div>
 							</div>
@@ -181,7 +180,7 @@ if ($userAC == '0'){
 	
 		<div class="card shadow-sm px-0">
 			<div class="card-body">
-				<h3>Cek Resi</h3>
+				<h3>Status Pengiriman</h3>
 				
 				<div class="w-50">
 				<form method="post" action="">
@@ -196,9 +195,10 @@ if ($userAC == '0'){
 					<thead>
 						<tr>
 							<th>Tanggal</th>
-							<th>Barang</th>
-							<th>Resi</th>
-							<th>Lokasi</th>
+							<th>Pengirim</th>
+							<th>Alamat Tujuan</th>
+							<th>Lokasi Terkini<th>
+							<th>Nomor Resi</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -206,6 +206,8 @@ if ($userAC == '0'){
 							<td>placeholder</td>
 							<td>placeholder</td>
 							<td>placeholder</td>
+							<td>placeholder</td>
+							<td></td>
 							<td>placeholder</td>
 						</tr>
 					</tbody>
