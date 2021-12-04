@@ -54,22 +54,7 @@ if ($userAC == '0'){
 			<div class="col">
 				<h1>Enterprise Resource Planning</h1>
 			</div>
-		
-			<div class="col-sm-2 mt-1 p-1 d-flex">
-			<div class="d-grid gap-2 w-100">
-				<a href="" class="btn btn-primary">
-					Pembelian
-				</a>
-			</div>
-			</div>
-			
-			<div class="col-sm-2 mt-1 p-1 d-flex">
-			<div class="d-grid gap-2 w-100">
-				<a href="" class="btn btn-primary">
-					Akuntansi
-				</a>
-			</div>
-			</div>
+
 		</div>
 	</div>
 
@@ -88,6 +73,31 @@ if ($userAC == '0'){
 					</tr>
 				</thead>
 				<tbody>
+					<tr>
+						<td>placeholder</td>
+						<td>placeholder</td>
+						<td>placeholder</td>
+					</tr>
+					<tr>
+						<td>placeholder</td>
+						<td>placeholder</td>
+						<td>placeholder</td>
+					</tr>
+					<tr>
+						<td>placeholder</td>
+						<td>placeholder</td>
+						<td>placeholder</td>
+					</tr>
+					<tr>
+						<td>placeholder</td>
+						<td>placeholder</td>
+						<td>placeholder</td>
+					</tr>
+					<tr>
+						<td>placeholder</td>
+						<td>placeholder</td>
+						<td>placeholder</td>
+					</tr>
 					<tr>
 						<td>placeholder</td>
 						<td>placeholder</td>
@@ -131,7 +141,7 @@ if ($userAC == '0'){
 							<div class="card">
 							<div class="card-body">
 								<div class="card-title"><b>Target Pemasukan Bulanan</b></div>
-								<div class="card-text"><h4>100.000 RB</h4></div>
+								<div class="card-text"><h4>Rp.100.000 </h4></div>
 							</div>
 							</div>
 						</div>
@@ -140,7 +150,7 @@ if ($userAC == '0'){
 							<div class="card">
 							<div class="card-body">
 								<div class="card-title"><b>Rata-Rata Pemasukan Seminggu</b></div>
-								<div class="card-text"><h4>100.000 RB</h4></div>
+								<div class="card-text"><h4>Rp.100.000</h4></div>
 							</div>
 							</div>
 						</div>
@@ -149,7 +159,7 @@ if ($userAC == '0'){
 							<div class="card">
 							<div class="card-body">
 								<div class="card-title"><b>Total Pembelian Bulanan</b></div>
-								<div class="card-text"><h4>100.000 RB</h4></div>
+								<div class="card-text"><h4>Rp.100.000</h4></div>
 							</div>
 							</div>
 						</div>
