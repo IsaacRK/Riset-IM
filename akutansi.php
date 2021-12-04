@@ -16,7 +16,6 @@ if(isset($_POST['reset'])){
 		$sqlIsi = "insert into harga (stock_id, input, beli, jual) values ('$sid', '0', '0', '0')";
 		mysqli_query($servConnQuery, $sqlIsi);
 	}
-}
 
 if(isset($_POST['editBtn'])){
 	$newVal = $_POST['edit'];
@@ -24,6 +23,7 @@ if(isset($_POST['editBtn'])){
 	
 	$sql = "update harga set jual = '$newVal' where id = '$hargId'";
 	mysqli_query($servConnQuery, $sql);
+}
 }
 
 ?>
@@ -45,7 +45,6 @@ if(isset($_POST['editBtn'])){
 
 <div class="content">
  <div class="container mr-0">
-
     <div class="p-1 mb-3">
 		<div class="row">
 			<div class="col juk">

@@ -3,7 +3,21 @@ include'backend/conn.php';
 include'backend/usersession.php';
 if(isset($_GET['checkbox'])){
 }
-
+function rupiah($x){
+	$hasil_rupiah = "Rp " . number_format($x,2,',','.');
+	return $hasil_rupiah;
+}
+function kategori($x){
+	if($x == '001'){
+		return 'Elektronik';
+	}
+	if($x == '011'){
+		return 'Peralatan';
+	}
+	if($x == '100'){
+		return 'Lain-Lain';
+	}
+}	
 //invoice check
 //invoice Generator
 //cek invoice serialNum
@@ -237,13 +251,14 @@ while($rowFind = mysqli_fetch_assoc($runFind)){
 				<main>
 					<div class="row contacts">
 						<div class="col invoice-to">
-							<div class="text-gray-light">INVOICE TO:</div>
-							<h2 class="to">Nama Pembeli</h2>
-							<div class="email"><a href="mailto:john@example.com">Email Pembeli</a></div>
+							<!--<div class="text-gray-light">INVOICE TO:</div>-->
+							<h2 class="to"><input class="border-0" type="text" placeholder="nama pembeli"></h2>
+							<!--<div class="email"><a href="mailto:john@example.com">Email Pembeli</a></div>-->
+							<div class="email"><input class="border-0" type="text" placeholder="alamat pembeli"></div>
 						</div>
 						<div class="col invoice-details">
-							<h1 class="invoice-id">Tanggal Pembuatan Invoice</h1>
-							<div class="date">Tenggat Waktu Invoice</div>
+							<h1 class="invoice-id"><?php echo date('d-m-Y'); ?></h1>
+							<!--<div class="date">Tenggat Waktu Invoice</div>-->
 						</div>
 					</div>
 					<table border="0" cellspacing="0" cellpadding="0">
@@ -259,25 +274,30 @@ while($rowFind = mysqli_fetch_assoc($runFind)){
 						<tbody>
 							<?php
 							$no =  1;
+							$jumTotal = 0;
 							foreach($cartIdArr as $data){
+								//ambil & tampilkan data dari barang dari invoice_no yang sama
 								$cid = $data['cart_id'];
 								$sql = "
-									SELECT cart.* , stock.stock_name , harga.jual 
+									SELECT cart.* , stock.stock_name , stock.category , harga.jual , invoice.total_harga
 									from cart 
 									join stock on cart.stock_id = stock.stock_id 
 									join harga on cart.stock_id = harga.stock_id 
-									where cart.cart_id = $cid";
+									join invoice on cart.cart_id = invoice.cart_id
+									where cart.cart_id = $cid and invoice.invoice_no = '$inv'";
 								$run = mysqli_query($servConnQuery, $sql);
 								$row = mysqli_fetch_assoc($run);
 								echo'
 								<tr>
 									<td class="no">'.$no.'</td>
-									<td class="text-left"><h3>'.$row['stock_name'].'</h3>Keperluan</td>
-									<td class="unit">'.$row['jual'].'</td>
+									<td class="text-left"><h3>'.$row['stock_name'].'</h3>'.kategori($row['category']).'</td>
+									<td class="unit">'.rupiah($row['jual']).'</td>
 									<td class="qty">'.$row['take_amount'].'</td>
-									<td class="total">harga total</td>
+									<td class="total">'.rupiah($row['total_harga']).'</td>
 								</tr>
 								';
+								//jumlah total dari barang barang di keranjang
+								$jumTotal = $jumTotal + $row['total_harga'];
 								$no++;
 							}
 							
@@ -288,7 +308,7 @@ while($rowFind = mysqli_fetch_assoc($runFind)){
 							<tr>
 								<td colspan="2"></td>
 								<td colspan="2">JUMLAH TOTAL</td>
-								<td>$6,500.00</td>
+								<td><?php echo rupiah($jumTotal); ?></td>
 							</tr>
 						</tfoot>
 					</table>
