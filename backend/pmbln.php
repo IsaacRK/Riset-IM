@@ -24,8 +24,9 @@ if(isset($_POST['submit'])){
     $stckid = $SUS['stock_id'];
 
     $pmbln = "INSERT into pembelian (id, stock_id, link, jumlah, harga, Ongkir, totalhrg, RAB) 
-    value (default,'.$stckid.','$link','.$jumlah.','.$harga.','.$ONG.','0' ,default)";
+    value (default,'$stckid','$link','$jumlah','$harga','$ONG','0' ,default)";
     $inpmb = mysqli_query($servConnQuery, $pmbln);
+
 
     $total = "SELECT jumlah * harga + Ongkir from pembelian where stock_id = '$stckid'";
     $run = mysqli_query($servConnQuery, $total);
@@ -33,7 +34,7 @@ if(isset($_POST['submit'])){
     $jumTot = $row['jumlah * harga + Ongkir'];
     $hrgttl = "UPDATE pembelian SET totalhrg = '$jumTot' WHERE stock_id = '$stckid'";
     $frttl = mysqli_query($servConnQuery, $hrgttl);
-
+	
     $hrg = "UPDATE harga SET beli='$harga' WHERE stock_id = '$stckid'";
     $inhr= mysqli_query($servConnQuery, $hrg);
 

@@ -67,9 +67,6 @@ if ($userAC == '0'){
         .tableFixHead td {
         width: 200px;
         }
-	ul.ui-autocomplete.ui-menu {
-        z-index: 1600;
-        }  
         @page {
         margin: 20mm
         }
@@ -98,32 +95,23 @@ if ($userAC == '0'){
     </head>
 
     <body>
-        <?php include 'layout/sidebar-old.php';?>
+        <?php include 'sidebar.php';?>
         <div class="content">
          <div class="container mr-0">
 
-          <div class="p-1">
+         <div class="p-1">
     		<div class="mb-3">
-			<h1>Pembelian</h1>
+			    <h1>Pembelian</h1>
 	    	</div>
-	  </div>		 
-		 
+	     </div>
+
             <div class="row">
-                <div class="col">
+                <div class="col-sm-4">
                  <form action="" method="post">   
                     <div class="card shadow-sm mb-2">
-                        <div class="card-body">
-			    <p class="text"><big>Daftar Kebutuhan</big> &nbsp; <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambahkan</button> 
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				    
-<form action="" method="post">				   
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Registrasi Data</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
+                     <div class="card-body">
+                        <h3 class="text-center">Registrasi Data</h3>
+                        <h3 class="text-center">Pembelian</h3>
 
                         <div class="row mb-3 mt-3">
                             <div class="col-4">
@@ -168,32 +156,39 @@ if ($userAC == '0'){
                             <div class="col-5">
                                 <input class="form-control" type="number" name="JMLH" id="" style="width:150%;"/>
                             </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col text-center">
+                                <Button class="btn btn-primary" type="submit" name="submit" value="tambahkan">Tambahkan</button>
+                            </div>
                         </div>                        
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
-        <Button class="btn btn-primary" type="submit" name="submit" value="tambahkan">Tambahkan</button>
-                            
-      </div>
-    </div>
-  </div>
-</div>
-</form>
-				    
-                         <div class="table-responsive tableFixHead" id="tblee">
+
+                     </div>
+                    </div>
+                 </form>    
+                </div>
+
+                <div class="col-sm-8">
+
+                    <div class="card shadow-sm mb-2" style="max-height:630px;">
+                        <div class="card-body">
+                            <h3 class="text-center card-title">Rencana Pembelian</h3>
+
+                            <div class="table-responsive tableFixHead" id="tblee">
                                 <table class="table table-striped table-sm" id="Rncn">
                                     <thead>
                                     <tr>
-                                        <th scope="col">No</th>
-                                        <th scope="col">Nama</th>
-                                        <th scope="col">Link</th>
-                                        <th scope="col">Harga beli</th>
-                                        <th scope="col">Jumlah</th>
-                                        <th scope="col">Harga total</th>
+                                        <th>No</th>
+                                        <th>Nama</th>
+                                        <th>Link</th>
+                                        <th>Harga beli</th>
+                                        <th>Jumlah</th>
+                                        <th>Harga total</th>
                                     </tr>
                                     </thead>
-                                   <div style="max-height:500px;">
+                                   <div>
                                     <tbody>
                                         <?php
                                            $Rncn = "SELECT pembelian.* , stock.stock_name , harga.beli, harga.jual
@@ -292,7 +287,7 @@ if ($userAC == '0'){
                         <div class="page">
 
                             <p class="text-center fs-4 fw-bold mt-3">Rencana Anggaran Belanja</p>
-                            <div class="row mt-3 mb-3">
+                            <div class="row mt-3">
                                 <div class="col-2">
                                 <span>Akun Pengambil </br></span>
                                 <span>Peran </br></span>
