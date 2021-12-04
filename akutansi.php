@@ -31,7 +31,7 @@ if(isset($_POST['editBtn'])){
 <!DOCTYPE html>
 <html>
 <head>
-<title>Akunting proto</title>
+<title>Akuntasi</title>
 <?php include "layout/header.php"?>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -48,7 +48,7 @@ if(isset($_POST['editBtn'])){
     <div class="p-1 mb-3">
 		<div class="row">
 			<div class="col juk">
-				<h1>Akunting</h1>
+				<h1>Akuntansi</h1>
 			</div>
         </div>
     </div>
