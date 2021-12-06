@@ -1,5 +1,13 @@
 <?php
 include "../backend/conn.php";
+include "../backend/usersession.php";
+
+if($userlvl == 'staff'){
+	header('location:../dashboard.php');
+}else if($userlvl == 'operator'){
+	header('location:../dashboard.php');
+}else{
+
 
 $sql = "
 SELECT history.* , stock.stock_name, pengguna.user
@@ -134,3 +142,4 @@ foreach($arrItm as $item) {
 <?php } ?>
 </table>
 </body>
+<?php } ?>
