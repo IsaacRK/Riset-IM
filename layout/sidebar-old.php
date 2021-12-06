@@ -1,4 +1,5 @@
 <?php
+include 'loader.html';
 require 'backend/conn.php';
 require 'backend/usersession.php';
 $Foto_ID = $_SESSION["uid"];
@@ -46,7 +47,9 @@ $Foto_05 = $Foto_03['filename'];
             </svg> Beranda
     </a>
     <?php
-	if($userlvl != 'supervisor'){
+	if($userlvl == 'supervisor'){}
+	else if($userlvl == 'procurement'){}
+	else{
 	?>
 	<a href="stockInput.php" id="masuk" class="list-group-item-action ripple text-light" aria-current="true">
 		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
@@ -55,7 +58,9 @@ $Foto_05 = $Foto_03['filename'];
 	</a>
 	 <?php
 	}
-	if($userlvl != 'supervisor'){
+	if($userlvl == 'supervisor'){}
+	else if($userlvl == 'procurement'){}
+	else{
 	?>
 	<a href="stockoutput.php" id="keluar" class="list-group-item-action ripple text-light" aria-current="true">
 		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
