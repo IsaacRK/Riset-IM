@@ -31,7 +31,7 @@ if(mysqli_num_rows($cekRun)>0){
 	$x 		= substr($cekRow['invoice_no'] , strrpos($cekRow['invoice_no'], "/") + 1);
 	$inv 	= $inv.$x;
 }else{
-	$inv 	= $inv.$x;
+	$inv 	= $inv.$serNum;
 }
 
 $sqlFind = "select * from invoice where invoice_no = '$inv'";

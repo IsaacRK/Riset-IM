@@ -144,6 +144,20 @@ if(@$_SESSION['uid']!=null){
         </div>
         
         <div class="row mb-3">
+            <div class="col">
+             <p class="kin spc">Verifikasi Captcha : </p>
+            </div>
+            </br>
+  </br></br>
+  </br></br>
+            <div class="col-md-auto">
+                <canvas id="captcha" class="" width="215" height="70">captcha text</canvas></br>
+                <input id="textBox" type="text" class="form-control" style="width:150px" name="text">
+            </div>
+            <div class="col col-lg-2">
+            <input type="button" value = "Ganti" onclick="history.go(0)"></button>
+            </div>
+        <div class="row mb-3">
             <div class="col text-center">
                 <Button class="btn btn-primary" type="submit" name="submit" value="register">Daftar</button>
             </div>
@@ -155,18 +169,8 @@ if(@$_SESSION['uid']!=null){
     </div>		
   </form>
 
-<div class="row mb-3">
-            <div class="col">
-             <p class="kin spc">Verifikasi Captcha : </p>
-            </div>
-            <div class="col-md-auto">
-                <canvas id="captcha" class="" width="215" height="70">captcha text</canvas></br>
-                <input id="textBox" type="text" class="form-control" style="width:150px" name="text">
-            </div>
-            <div class="col col-lg-2">
-                <button class="btn border border-secondary" id="refreshButton" type="refreshbutton">Ganti</button>
-            </div>
-        </div>
+
+   
 
   </div>
   </div>
