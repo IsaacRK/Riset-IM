@@ -4,7 +4,14 @@ require 'backend/usersession.php';
 if ($userAC == '0'){
 	header('location:Verifyno.php');
 }else{}
-?>
+
+if($userlvl == 'staff'){
+	header('location:dashboard.php');
+}else if($userlvl == 'operator'){
+	header('location:dashboard.php');
+}else if($userlvl == 'procurement'){
+	header('location:dashboard.php');
+}else{	?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -260,3 +267,4 @@ $(document).ready(function(){
 
 </body>
 </html>
+<?php }?>
