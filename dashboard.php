@@ -43,11 +43,15 @@ if ($userAC == '0'){
 			<div class="col">
 				<h1>Beranda</h1>
 			</div>
-			<div class="col-3 mt-1 p-1 d-flex justify-content-end hun">
-			<div class="d-grid gap-2 w-100">
-				<a href="backend/report.php" class="btn btn-primary">Unduh laporan</a>
-			</div>
-			</div>
+			<?php 	if($userlvl == 'staff'){
+			}else if($userlvl == 'operator'){
+			}else{	?>
+				<div class="col-3 mt-1 p-1 d-flex justify-content-end hun">
+				<div class="d-grid gap-2 w-100">
+					<a href="backend/report.php" class="btn btn-primary">Unduh laporan</a>
+				</div>
+				</div>
+		        <?php } ?>
 		</div>
 	</div>
 
