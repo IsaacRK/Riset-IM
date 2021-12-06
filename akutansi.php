@@ -16,14 +16,13 @@ if(isset($_POST['reset'])){
 		$sqlIsi = "insert into harga (stock_id, input, beli, jual) values ('$sid', '0', '0', '0')";
 		mysqli_query($servConnQuery, $sqlIsi);
 	}
-
+}
 if(isset($_POST['editBtn'])){
 	$newVal = $_POST['edit'];
 	$hargId = $_POST['editId'];
 	
-	$sql = "update harga set jual = '$newVal' where id = '$hargId'";
+	$sql = "update harga set jual = '$newVal' where stock_id = '$hargId'";
 	mysqli_query($servConnQuery, $sql);
-}
 }
 
 ?>
@@ -127,19 +126,20 @@ if(isset($_POST['editBtn'])){
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			  </div>
 			  <div class="modal-body">
-				<form method="post"; >
+				<form action="" method="post"; >
 					<fieldset disabled>
 				<label for="disabledTextInput" class="form-label" >Nama</label>
-                <input type="Text" class="form-control" id="disabledTextInput" placeholeder="disabled input">	
+                <input type="Text" class="form-control" id="disabledTextInput" placeholeder="disabled input" value="<?php echo$data['stock_name'];?>">	
 				<label for="disabledTextInput" class="form-label" >Jumlah</label>
-                <input type="Text" class="form-control" id="disabledTextInput" placeholeder="disabled input">
+                <input type="Text" class="form-control" id="disabledTextInput" placeholeder="disabled input" value="<?php echo$data['amount'];?>">
 				<label for="disabledTextInput" class="form-label">Tanggal Input</label>
-                <input type="Text" class="form-control" id="disabledTextInput" placeholeder="disabled input">
-				</fieldset disabled>
+                <input type="Text" class="form-control" id="disabledTextInput" placeholeder="disabled input" value="<?php echo$tgl;?>">
 				<label for="exampleInputHargaBeli" class="form-label">Harga Beli</label>
-                <input type="HargaBeli" class="form-control" id="exampleInputHargaBeli" >
+                <input type="HargaBeli" class="form-control" id="exampleInputHargaBeli" value="<?php echo$data['beli']?>">
+				</fieldset disabled>
 				<label for="exampleInputHargaJual" class="form-label">Harga Jual</label>
-                <input type="HargaJual" class="form-control" id="exampleInputHargaJual" >
+                <input type="HargaJual" name="edit" class="form-control" id="exampleInputHargaJual" >
+				<input type="hidden" name="editId" value="<?php echo$sid; ?>" >
 			</div>
 			  <div class="modal-footer">
 				<input type="submit"  class="btn btn-primary" name="editBtn" value="Submit">

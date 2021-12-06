@@ -2,27 +2,17 @@
 
 	//prioritas		|-------------
 	
-	Tambahan dari pak Dwiky:
-		-[done]DIahalaman Beranda, yang di carousel digantikan dengan susunan rak.
-		-[done]Dikasih gambar rak dibackgroundnya
-		-[done]Penyusunan bahasa
-		-[done]Di halaman stok input, petunjuk menghilang setelah tombol cek di tekan.
-		-[done]Dibawah form control nama, diberikan keterangan apakah barang itu barang lama atau baru.
-		-[done?]Card kiri butuh keterangan
-				
-		-[done?]Pada stok output, Masih bisa ngambil lebih banyak dari pada stok
-		-[done]Tombol Edit pada kerajangan diganti seperti di shopee
+	-resiiiiiii
+	-[done]harga barang
+	-halaman erp
+	-[done]pembelian barang
+
+	|-----------------------------
+	
+Tambahan dari pak Dwiky:
 		-Pada tombol laporan, apabila bisa, dokumen yang didownload sudah berdada dalam sebuah format
 		-Berikan tombol ganti kamera pada barcode scanner dan di bahasa indonesiakan
-		-[done]Bahaasa Indoesiakan semua kecuali Barcode scanner
-		-[done]Carousel di halaman login diganti fitur-fitur dan keuntungan. Per-slide per-fitur
 		-Pas pertama kali masuk, terdapat tutorial menggunakan halaman
-
-		-[done]ubah fitur, jika barang yang diambil lebih banyak, tidak bisa menaruh di rak
-		
-		
-		-[done]halaman penjualan, modal keluar sesuai dengan data yang di checkout
-	|-----------------------------
 	
 -fitur erp
 	-[done]hanya bisa diakses admin & supervervisor
@@ -99,3 +89,9 @@ kendala (poin)
 
 Acounting
 | nama | input | harga beli | harga jual | edit? |
+
+    __
+   / /___
+  / / ___/
+ / /__  )
+/_/____/

@@ -1,0 +1,22 @@
+{
+    "name": "walangkaji/gtrack",
+    "description": "API Cek Resi | Resi Tracker API",
+    "type": "library",
+    "keywords": ["json", "php", "array"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "walangkaji",
+            "email": "walangkaji@globaltesla.com"
+        }
+    ],
+    "require": {
+        "php-curl-class/php-curl-class": "^8.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "GTrack\\": "src/"
+        },
+        "classmap": ["src/"]
+    }
+}

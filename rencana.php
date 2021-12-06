@@ -71,7 +71,7 @@ if($userlvl == 'staff'){
 	<div class="card shadow-sm">
 		<div class="card-body">
 			<h3>Peringatan Stok Minim</h3>
-			<table class="table table-striped table-sm">
+			<table id="tbStock" class="table table-striped table-sm">
 				<thead>
 					<tr>
 						<th>Nama Barang</th>
@@ -80,51 +80,27 @@ if($userlvl == 'staff'){
 					</tr>
 				</thead>
 				<tbody>
+					<?php
+						$sqlStock = "
+							select stock.*, penyimpanan.*
+							from stock
+							join penyimpanan on stock.storage_id = penyimpanan.storage_id
+							where stock.amount <= 10
+							";
+						$runStock = mysqli_query($servConnQuery, $sqlStock);
+						$data = array();
+						while($rowStock = mysqli_fetch_assoc($runStock)){
+							$data[] = $rowStock;
+						}
+						foreach($data as $stock){
+							$tempat = 'L'.$stock['lantai'].' B'.$stock['baris'].' C'.$stock['kolom'];
+					?>
 					<tr>
-						<td>placeholder</td>
-						<td>placeholder</td>
-						<td>placeholder</td>
+						<td><?php echo $stock['stock_name']; ?></td>
+						<td><?php echo $stock['amount']; ?></td>
+						<td><?php echo $tempat; ?></td>
 					</tr>
-					<tr>
-						<td>placeholder</td>
-						<td>placeholder</td>
-						<td>placeholder</td>
-					</tr>
-					<tr>
-						<td>placeholder</td>
-						<td>placeholder</td>
-						<td>placeholder</td>
-					</tr>
-					<tr>
-						<td>placeholder</td>
-						<td>placeholder</td>
-						<td>placeholder</td>
-					</tr>
-					<tr>
-						<td>placeholder</td>
-						<td>placeholder</td>
-						<td>placeholder</td>
-					</tr>
-					<tr>
-						<td>placeholder</td>
-						<td>placeholder</td>
-						<td>placeholder</td>
-					</tr>
-					<tr>
-						<td>placeholder</td>
-						<td>placeholder</td>
-						<td>placeholder</td>
-					</tr>
-					<tr>
-						<td>placeholder</td>
-						<td>placeholder</td>
-						<td>placeholder</td>
-					</tr>
-					<tr>
-						<td>placeholder</td>
-						<td>placeholder</td>
-						<td>placeholder</td>
-					</tr>
+						<?php } ?>
 				</tbody>
 			</table>
 			<div class="d-grid d-md-flex justify-content-md-end">
@@ -262,6 +238,17 @@ $(document).ready(function(){
 		type: 'line',
 		data: dataHarga
 	});
+});
+
+$(function(){
+	$('#tbStock').DataTable({
+		"scrollY": "25vh",
+		"scrollCollapse": true,
+		language:{
+			url: 'js/id.json'
+		}
+	});
+	$('.dataTables_length').addClass('bs-select');
 });
 </script>
 
