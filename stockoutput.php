@@ -4,6 +4,12 @@ require 'backend/conn.php';
 require 'backend/usersession.php';
 require 'backend/editcarthandler.php';
 
+if($userlvl == 'supervisor'){
+	header('location:dashboard.php');
+}else if($userlvl == 'procurement'){
+	header('location:dashboard.php');
+}else{}
+
 if ($userAC == '0'){
 	header('location:Verifyno.php');
 }
