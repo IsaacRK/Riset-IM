@@ -3,6 +3,12 @@
 require 'backend/conn.php';
 require 'backend/usersession.php';
 
+if($userlvl == 'supervisor'){
+	header('location:dashboard.php');
+}else if($userlvl == 'procurement'){
+	header('location:dashboard.php');
+}else{}
+
 function xpercent_of_y($x, $y){
 	return $x * ($y / 100);
 }
