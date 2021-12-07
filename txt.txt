@@ -89,9 +89,3 @@ kendala (poin)
 
 Acounting
 | nama | input | harga beli | harga jual | edit? |
-
-    __
-   / /___
-  / / ___/
- / /__  )
-/_/____/
