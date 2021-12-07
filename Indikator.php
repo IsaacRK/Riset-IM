@@ -8,7 +8,7 @@ if ($userAC == '0'){
 <!DOCTYPE html>
 <html>
     <head>
-        <title>PROTO : Performance Indikator</title>
+        <title>Indikator Peforma</title>
         <?php include 'layout/header.php';?>
     </head>
     <body>
