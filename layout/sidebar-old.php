@@ -127,6 +127,9 @@ function closeNav() {
 	if(urlTxt == "rencana.php"){
 		document.getElementById("rencana").className = "currentPage";
 	}
+	if(urlTxt == "akutansi.php"){
+	document.getElementById("Akutansi").className = "currentPage";
+	}
 	if(urlTxt == "pengaturan.php"){
 		document.getElementById("pengaturan").className = "currentPage";
 	}
