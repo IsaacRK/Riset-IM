@@ -48,7 +48,12 @@ if ($userAC == '0'){
                         <input class="form-control" type="text" name="" id=""/>
                     </div>
                 </div>
-
+		<div class="row text-center">
+                    <div class="col">
+                        <button class="btn btn-primary mb-3 mt-3" type="submit" name="" value="">Ubah</button>
+                    </div>
+                </div>
+			
             </div>
             </div>
 
