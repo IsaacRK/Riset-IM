@@ -8,7 +8,7 @@ if ($userAC == '0'){
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Indikator Peforma</title>
+        <title>Indikator Performa</title>
         <?php include 'layout/header.php';?>
     </head>
     <body>
