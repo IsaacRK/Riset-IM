@@ -8,9 +8,6 @@
 	<meta name="author" content="" />
 	<link rel="shortcut icon" href="images/favicon.png" type="">
 	
-	<title>Dashboard</title>
-	
-	
 	<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/personal.css" />
