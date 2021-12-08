@@ -174,12 +174,23 @@ if($userlvl == 'staff'){
 		<div class="card shadow-sm px-0">
 			<div class="card-body">
 				<h3>Status Pengiriman</h3>
-				
+				<?php include'backend/cekresi.php'; ?>
 				<div class="w-50">
 				<form method="post" action="">
 					<div class="input-group mb-3">
-					  <input type="text" class="form-control" placeholder="Kode Resi" aria-label="Example text with button addon" aria-describedby="Form Resi">
-					  <input class="btn btn-outline-secondary" type="submit" id="" value="+">
+						<select class="form-select form-select-sm" name="exped" aria-label=".select-expedisi">
+							<option selected>Pilih Expedisi</option>
+							<option value="1">JNE</option>
+							<option value="2">JNT</option>
+							<option value="3">TIKI</option>
+							<option value="4">POS</option>
+							<option value="5">WAHANA</option>
+							<option value="6">siCepat</option>
+							<option value="7">Ninja Xpress</option>
+							<option value="8">Jet Express</option>
+						</select>
+						<input type="number" class="form-control" name="kodeResi" placeholder="Kode Resi" aria-label="Form Resi" aria-describedby="Form Resi">
+						<input class="btn btn-outline-secondary" name="kirimKR" type="submit" id="" value="+">
 					</div>
 				</form>
 				</div>
@@ -195,14 +206,19 @@ if($userlvl == 'staff'){
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>placeholder</td>
-							<td>placeholder</td>
-							<td>placeholder</td>
-							<td>placeholder</td>
-							<td></td>
-							<td>placeholder</td>
-						</tr>
+					<?php
+						foreach($arr as $data){
+							?>
+							<tr>
+							<td><?php echo$data['tanggal']; ?></td>
+							<td><?php echo$data['pengirim']; ?></td>
+							<td><?php echo$data['alamat'].'</br>'.$data['pesan']; ?></td>
+							<td><?php echo$data['lokasi']; ?></td>
+							<td><?php echo$data['resi']; ?></td>
+							</tr>
+							<?php
+						}
+					?>
 					</tbody>
 				</table>
 			</div>

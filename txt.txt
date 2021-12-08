@@ -6,6 +6,13 @@
 	-[done]harga barang
 	-halaman erp
 	-[done]pembelian barang
+	
+	-indikator performance
+		-di klik ke halaman pengaturan target
+		-di halaman target bisa setting target
+		-sebelum input harus masukkan password dulu
+		-bisa edit terget lagi di bulan yang sama
+		-ada chart dari 7 atau 30 hari dan prediksi di 1 hari berikutnya
 
 	|-----------------------------
 	
@@ -51,9 +58,6 @@ Tambahan dari pak Dwiky:
 	-bisa pilih report dari 1 minggu / 1 bulan terakhir
 		-[done] report berupa pdf atau exel
 	-hapus report dari 1 bulan terakhir ketika bulan baru
-
--lantai 1 rak 1 tidak ada kolom & rak
--buat rak ground
 
 -buat halaman pengaturan tempat penyimpanan
 	-membuat form untuk penyimpanan barang dinamis mengikuti perubahan dari database/pengaturan penyimpanan
