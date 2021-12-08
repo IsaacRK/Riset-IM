@@ -95,16 +95,25 @@ if ($userAC == '0'){
         }
         }
         #signaturetitle {
-  text-align: center;
   font-size: 100%;
   text-align: left
 }
 
 #signature {
-  text-align: center;
   height: 30px;
   word-spacing: 1px;
   text-align: left
+}
+
+        #signaturetitlea {
+  font-size: 100%;
+  text-align: right;
+}
+
+#signaturea {
+  height: 30px;
+  word-spacing: 1px;
+  text-align: right;    
 }
     </style>
     </head>
@@ -394,13 +403,36 @@ if ($userAC == '0'){
                 </tfoot>
 
             </table>
-            
-<div id="signature">
+            <div class="container">
+  <div class="row">
+    <div class="col">
+    <div id="signature">
+                                        Disiapkan Oleh
+                                        </br>
+                                        </br>
+                                        </br>
+                                        </br>
   ______________________________
+                                        </br>
+                                        Admin 
 </div>
-<div id="signaturetitle">
-  Admin
+    </div>
+    <div class="col">
+      
+<div id="signaturea">
+Disetujui Oleh                                                                                  aa
+</br>
+</br>
+</br>
+</br>
+_____________________________________
+</br>
+Kepala Perusahaan                                                                               aaa
 </div>
+    </div>
+  </div>
+</div>            
+
                                         
         </div>
 
