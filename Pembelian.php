@@ -94,6 +94,18 @@ if ($userAC == '0'){
             display:block;
         }
         }
+        #signaturetitle {
+  text-align: center;
+  font-size: 100%;
+  text-align: left
+}
+
+#signature {
+  text-align: center;
+  height: 30px;
+  word-spacing: 1px;
+  text-align: left
+}
     </style>
     </head>
 
@@ -136,7 +148,7 @@ if ($userAC == '0'){
 
                         <div class="row mb-3">
                             <div class="col-4">
-                                <p class="text-end">Link : </p>
+                                <p class="text-end">Keterangan Pembelian : </p>
                             </div>
                             <div class="col-5">
                                 <input class="form-control" type="text" name="link" id="" style="width:150%;"/>
@@ -158,6 +170,14 @@ if ($userAC == '0'){
                             </div>
                             <div class="col-5">
                                 <input class="form-control" type="number" name="ongkir" id="" style="width:150%;"/>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-4">
+                                <p class="text-end">PPN : </p>
+                            </div>
+                            <div class="col-5">
+                                <input class="form-control" type="number" name="PPN" id="" style="width:150%;"/>
                             </div>
                         </div>
         
@@ -187,8 +207,10 @@ if ($userAC == '0'){
                                     <tr>
                                         <th scope="col">No</th>
                                         <th scope="col">Nama</th>
-                                        <th scope="col">Link</th>
+                                        <th scope="col">Keterangan Pembelian</th>
                                         <th scope="col">Harga beli</th>
+                                        <th scope="col">Ongkos Kirim</th>
+                                        <th scope="col">PPN</th>
                                         <th scope="col">Jumlah</th>
                                         <th scope="col">Harga total</th>
                                     </tr>
@@ -310,8 +332,10 @@ if ($userAC == '0'){
                                                     <tr>
                                                         <th scope="col">No</th>
                                                         <th scope="col">Nama</th>
-                                                        <th scope="col">Link</th>
+                                                        <th scope="col">Keterangan Pembelian</th>
                                                         <th scope="col">Harga beli</th>
+                                                        <th scope="col">Ongkos Kirim</th>
+                                                        <th scope="col">PPN</th>
                                                         <th scope="col">Jumlah</th>
                                                         <th scope="col">Harga total</th>
                                                     </tr>
@@ -344,6 +368,7 @@ if ($userAC == '0'){
                                                     </tbody>
                                                 </div>
                                                 </table>
+
                                         <?php
                                             if(mysqli_num_rows($RNCNRUN)== 0){
                                                 echo'
@@ -369,6 +394,14 @@ if ($userAC == '0'){
                 </tfoot>
 
             </table>
+            
+<div id="signature">
+  ______________________________
+</div>
+<div id="signaturetitle">
+  Admin
+</div>
+                                        
         </div>
 
 
