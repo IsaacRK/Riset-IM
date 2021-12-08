@@ -1,9 +1,13 @@
 <?php
-
 require 'backend/conn.php';
 require 'backend/usersession.php';
 if ($userAC == '0'){
 			header('location:Verifyno.php');
+}else{}
+if($userlvl == 'supervisor'){
+	header('location:rencana.php');
+}else if($userlvl == 'procurement'){
+	header('location:rencana.php');
 }else{}
 ?>
 <!DOCTYPE html>
