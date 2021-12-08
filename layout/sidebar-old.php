@@ -89,7 +89,6 @@ $Foto_05 = $Foto_03['filename'];
 	<?php
 	}
 	?>
-		?>
 	<?php
 	if($userlvl == 'staff'){
 	}else if($userlvl == 'operator'){
