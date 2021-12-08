@@ -94,20 +94,12 @@ if ($userAC == '0'){
             display:block;
         }
         }
-        #signaturetitle {
-  font-size: 100%;
-  text-align: left
-}
 
 #signature {
   height: 30px;
   word-spacing: 1px;
   text-align: left
 }
-
-        #signaturetitlea {
-  font-size: 100%;
-  text-align: right;
 }
 
 #signaturea {
