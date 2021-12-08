@@ -104,7 +104,7 @@ if($userlvl == 'staff'){
 				</tbody>
 			</table>
 			<div class="d-grid d-md-flex justify-content-md-end">
-				<a href="pembelian.php" class="btn btn-primary float-right">Pembelian</a>
+				<a href="Pembelian.php" class="btn btn-primary float-right">Pembelian</a>
 			</div>
 		</div>
 	</div>
