@@ -291,9 +291,9 @@ if ($userAC == '0'){
                         <!--*** CONTENT GOES HERE ***-->
                         <div class="page">
 
-                            <p class="text-center fs-4 fw-bold mt-3">Rencana Anggaran Belanja</p>
-                            <div class="row mt-3 mb-3">
-                                <div class="col-2">
+                            <p class="text-center fs-1 fw-bold mt-3">Rencana Anggaran Belanja</p>
+                            <div class="row mt-3 mb-3 fs-4">
+                                <div class="col-3">
                                 <span>Akun Pengambil </br></span>
                                 <span>Peran </br></span>
                                 <span>Tanggal </br></span>
