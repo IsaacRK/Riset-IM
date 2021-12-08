@@ -98,7 +98,7 @@ if ($userAC == '0'){
 #signature {
   height: 30px;
   word-spacing: 1px;
-  text-align: left
+  text-align: right;
 }
 }
 
@@ -399,27 +399,27 @@ if ($userAC == '0'){
   <div class="row">
     <div class="col">
     <div id="signature">
-                                        Disiapkan Oleh
+                                        Disiapkan Oleh &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         </br>
                                         </br>
                                         </br>
                                         </br>
   ______________________________
                                         </br>
-                                        Admin 
+                                        Admin &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </div>
     </div>
     <div class="col">
       
 <div id="signaturea">
-Disetujui Oleh                                                                                  aa
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Disetujui Oleh
 </br>
 </br>
 </br>
 </br>
-_____________________________________
+  ______________________________
 </br>
-Kepala Perusahaan                                                                               aaa
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kepala Perusahaan
 </div>
     </div>
   </div>
