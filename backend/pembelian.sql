@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Des 2021 pada 04.00
+-- Waktu pembuatan: 08 Des 2021 pada 08.24
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 8.0.10
 
@@ -34,6 +34,7 @@ CREATE TABLE `pembelian` (
   `jumlah` int(11) NOT NULL,
   `harga` int(100) NOT NULL,
   `Ongkir` int(100) NOT NULL,
+  `ppn` int(100) NOT NULL DEFAULT 0,
   `totalhrg` int(20) NOT NULL,
   `RAB` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

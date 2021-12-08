@@ -27,12 +27,19 @@ if(isset($_POST['submit'])){
     $pmbln = "INSERT into pembelian (id, stock_id, link, jumlah, harga, Ongkir, totalhrg, RAB) 
     value (default,'$stckid','$link','$jumlah','$harga','$ONG','0' ,default)";
     $inpmb = mysqli_query($servConnQuery, $pmbln);
+	    
+    $AMOGUS = "SELECT jumlah * harga / 10 from pembelian where stock_id = '$stckid'";
+    $BIGGUS = mysqli_query($servConnQuery, $AMOGUS);
+    $VENT = mysqli_fetch_assoc($BIGGUS);
+    $MEDBAY = $VENT['jumlah * harga / 10'];
+    $ELECTRICAL = "UPDATE pembelian SET ppn ='$MEDBAY' WHERE stock_id = '$stckid'";
+    $EMERGENCE = mysqli_query($servConnQuery, $ELECTRICAL);
 
 	//ambil stock id dari nama barang
-    $total = "SELECT jumlah * harga + Ongkir from pembelian where stock_id = '$stckid'";
+    $total = "SELECT jumlah * harga + Ongkir + ppn from pembelian where stock_id = '$stckid'";
     $run = mysqli_query($servConnQuery, $total);
     $row = mysqli_fetch_assoc($run);
-    $jumTot = $row['jumlah * harga + Ongkir'];
+    $jumTot = $row['jumlah * harga + Ongkir + ppn'];
 	
 	//update pembelian dengan stock id
     $hrgttl = "UPDATE pembelian SET totalhrg = '$jumTot' WHERE stock_id = '$stckid'";
