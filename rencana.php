@@ -124,7 +124,12 @@ if($userlvl == 'staff'){
 							<div class="card">
 							<div class="card-body">
 								<div class="card-title"><b>Target Pemasukan Bulanan</b></div>
-								<div class="card-text"><h4>Rp.100.000 </h4></div>
+								<div class="card-text">
+									<div class="row">
+										<h4>Rp.100.000</h4>
+										<a href="indikator.php" class="btn btn-primary">Edit</a>
+									</div>
+								</div>
 							</div>
 							</div>
 						</div>
@@ -175,24 +180,34 @@ if($userlvl == 'staff'){
 			<div class="card-body">
 				<h3>Status Pengiriman</h3>
 				<?php include'backend/cekresi.php'; ?>
-				<div class="w-50">
-				<form method="post" action="">
-					<div class="input-group mb-3">
-						<select class="form-select form-select-sm" name="exped" aria-label=".select-expedisi">
-							<option selected>Pilih Expedisi</option>
-							<option value="1">JNE</option>
-							<option value="2">JNT</option>
-							<option value="3">TIKI</option>
-							<option value="4">POS</option>
-							<option value="5">WAHANA</option>
-							<option value="6">siCepat</option>
-							<option value="7">Ninja Xpress</option>
-							<option value="8">Jet Express</option>
-						</select>
-						<input type="number" class="form-control" name="kodeResi" placeholder="Kode Resi" aria-label="Form Resi" aria-describedby="Form Resi">
-						<input class="btn btn-outline-secondary" name="kirimKR" type="submit" id="" value="+">
-					</div>
-				</form>
+				<div class="row">
+				
+				<div class="col">
+					<form method="post" action="">
+						<div class="input-group mb-3">
+							<select class="form-select form-select-sm" name="exped" aria-label=".select-expedisi">
+								<option selected>Pilih Expedisi</option>
+								<option value="1">JNE</option>
+								<option value="2">JNT</option>
+								<option value="3">TIKI</option>
+								<option value="4">POS</option>
+								<option value="5">WAHANA</option>
+								<option value="6">siCepat</option>
+								<option value="7">Ninja Xpress</option>
+								<option value="8">Jet Express</option>
+							</select>
+							<input type="number" class="form-control" name="kodeResi" placeholder="Kode Resi" aria-label="Form Resi" aria-describedby="Form Resi">
+							<input class="btn btn-outline-secondary" name="kirimKR" type="submit" id="" value="+">
+						</div>
+					</form>
+				</div>
+
+				<div class="col d-md-flex justify-content-md-end">
+					<form method="post" action="">
+						<input type="submit" name="refreshStruk" value="Perbarui Informasi Struk" class="btn btn-primary">
+					</form>
+				</div>
+
 				</div>
 				
 				<table class="table table-stripped">
@@ -201,7 +216,7 @@ if($userlvl == 'staff'){
 							<th>Tanggal</th>
 							<th>Pengirim</th>
 							<th>Alamat Tujuan</th>
-							<th>Lokasi Terkini<th>
+							<th>Lokasi Terkini</th>
 							<th>Nomor Resi</th>
 						</tr>
 					</thead>
@@ -212,9 +227,9 @@ if($userlvl == 'staff'){
 							<tr>
 							<td><?php echo$data['tanggal']; ?></td>
 							<td><?php echo$data['pengirim']; ?></td>
-							<td><?php echo$data['alamat'].'</br>'.$data['pesan']; ?></td>
-							<td><?php echo$data['lokasi']; ?></td>
-							<td><?php echo$data['resi']; ?></td>
+							<td><?php echo$data['alamat']; ?></td>
+							<td><?php echo$data['lokasi'].'</br>'.$data['pesan']; ?></td>
+							<td><?php echo$data['no_resi']; ?></td>
 							</tr>
 							<?php
 						}
