@@ -399,35 +399,36 @@ if ($userAC == '0'){
                 </tfoot>
 
             </table>
-            <div class="container">
-  <div class="row">
-    <div class="col">
-    <div id="signature">
-                                        Disiapkan Oleh &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </br>
-                                        </br>
-                                        </br>
-                                        </br>
-  ______________________________
-                                        </br>
-                                        Admin &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</div>
-    </div>
-    <div class="col">
-      
-<div id="signaturea">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Disetujui Oleh
-</br>
-</br>
-</br>
-</br>
-  ______________________________
-</br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kepala Perusahaan
-</div>
-    </div>
-  </div>
-</div>            
+               <div class="row d-flex justify-content-between">
+                <div class="col-3 text-center">
+                    <div class="row">                    
+                        <span>Disetujui oleh:</span>
+                    </div>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    <div class="row border-top border-secondary">
+                        <span>Kepala Perusahaan</span>
+                    </div>
+                </div>
+                <div class="col-3 text-center">
+                    <div class="row">
+                        <span>Diajukan oleh:</span>
+                    </div>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    <div class="row border-top border-secondary">
+                        <span><?php echo $userData['user'];?></span>
+                    </div>
+                </div>
+               </div>
 
                                         
         </div>
