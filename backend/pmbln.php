@@ -28,25 +28,30 @@ if(isset($_POST['submit'])){
     value (default,'$stckid','$link','$jumlah','$harga','$ONG','0' ,default)";
     $inpmb = mysqli_query($servConnQuery, $pmbln);
 	    
-    $AMOGUS = "SELECT jumlah * harga / 10 from pembelian where stock_id = '$stckid'";
+    $ENGINE = "SELECT MAX(id) from pembelian";
+    $REACTOR = mysqli_query($servConnQuery, $ENGINE);
+    $LIGHT = mysqli_fetch_assoc($REACTOR);
+    $SABOT = $LIGHT['MAX(id)'];    
+	    
+    $AMOGUS = "SELECT jumlah * harga / 10 from pembelian where id = '$SABOT'";
     $BIGGUS = mysqli_query($servConnQuery, $AMOGUS);
     $VENT = mysqli_fetch_assoc($BIGGUS);
     $MEDBAY = $VENT['jumlah * harga / 10'];
-    $ELECTRICAL = "UPDATE pembelian SET ppn ='$MEDBAY' WHERE stock_id = '$stckid'";
+    $ELECTRICAL = "UPDATE pembelian SET ppn ='$MEDBAY' WHERE id = '$SABOT'";
     $EMERGENCE = mysqli_query($servConnQuery, $ELECTRICAL);
 
 	//ambil stock id dari nama barang
-    $total = "SELECT jumlah * harga + Ongkir + ppn from pembelian where stock_id = '$stckid'";
+    $total = "SELECT jumlah * harga + Ongkir + ppn from pembelian where id = '$SABOT'";
     $run = mysqli_query($servConnQuery, $total);
     $row = mysqli_fetch_assoc($run);
     $jumTot = $row['jumlah * harga + Ongkir + ppn'];
 	
 	//update pembelian dengan stock id
-    $hrgttl = "UPDATE pembelian SET totalhrg = '$jumTot' WHERE stock_id = '$stckid'";
+    $hrgttl = "UPDATE pembelian SET totalhrg = '$jumTot' WHERE id = '$SABOT'";
     $frttl = mysqli_query($servConnQuery, $hrgttl);
 	
 	//update harga beli dari harga yang di inputkan
-    $hrg = "UPDATE harga SET beli='$harga' WHERE stock_id = '$stckid'";
+    $hrg = "UPDATE harga SET beli='$harga' WHERE id = '$SABOT'";
     $inhr= mysqli_query($servConnQuery, $hrg);
 
     header('location:Pembelian.php');
