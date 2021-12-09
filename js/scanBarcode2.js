@@ -1,43 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scan QrCode</title>
-	
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-	
-	
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-	<script src="../js/zixing-latest.js"	type="text/javascript" crossorigin="anonymous"></script>
-	-->
-	
-	<style>
-	</style>
-</head>
-<body>
 
-	<div class="card border-0" style="width:300px;height:280px;position:relative">
-		<div class="card-body p-3" style="background: #222; border-radius: 25px 25px 0px 0px;">
-			<video id="previewKamera" style="width: 100%;height: 100%;"></video>
-		</div>
-		<div class="card-footer bg-primary" style="border-radius: 0px 0px 25px 25px">
-			<select id="pilihKamera" style="max-width:400px" class="form-select">
-			</select>
-		</div>
-	</div>
-
-     <br>
-	 <br>
-	 <br>
-	 <br>
-	 <br>
-	 <br>
-	 <br>
-	 
-     <input type="text" id="hasilscan">
-	 
-	 <script>
         let selectedDeviceId = null;
         const codeReader = new ZXing.BrowserMultiFormatReader();
         const sourceSelect = $("#pilihKamera");
@@ -114,7 +75,3 @@
         } else {
             alert('Cannot access camera.');
         }
-     </script>
-	 
-</body>
-</html>

@@ -1,3 +1,4 @@
+
 var selectedDeviceId;
 var codeReader;
 
@@ -6,7 +7,7 @@ window.addEventListener('load', function () {
       console.log('ZXing code reader initialized');
       codeReader.listVideoInputDevices()
         .then((videoInputDevices) => {
-          selectedDeviceId = videoInputDevices[2].deviceId;
+          selectedDeviceId = videoInputDevices[1].deviceId;
          // barcodeScanning();
         })
         .catch((err) => {

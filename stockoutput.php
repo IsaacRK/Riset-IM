@@ -244,9 +244,22 @@ if(isset($_GET['barcode'])){
 </div>
 </div>
 
+
 <div id="modalBarcodeScn" class="modal fade" tabindex="-1">
 	<div class="modal-dialog">
 		<div class="modal-content">
+		<div class="modal-header"></div>
+			<div class="modal-body">
+				<div class="card border-0" style="width:300px;height:280px;position:relative">
+					<div class="card-body p-3" style="background: #222; border-radius: 25px 25px 0px 0px;">
+						<video id="previewKamera" style="width: 100%;height: 100%;"></video>
+					</div>
+					<div class="card-footer bg-primary" style="border-radius: 0px 0px 25px 25px">
+						<select id="pilihKamera" style="max-width:400px" class="form-select">
+						</select>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -274,7 +287,8 @@ function edit(x){
 
 $(document).ready(function(){
   $("#barcodeScnButton").click(function(){
-    $('#modalBarcodeScn').modal('show').find('.modal-content').load('layout/scanBarcode.html');
+    //$('#modalBarcodeScn').modal('show').find('.modal-content').load('layout/scanBarcode2.html');
+	$('#modalBarcodeScn').modal('show');
   });
 });
 
@@ -291,9 +305,8 @@ $('#modalInvoice').on('hidden.bs.modal', function () {
 
 </script>
 
-<script src="js/barcodeScanner.js"	type="text/javascript" crossorigin="anonymous"></script>
 <script src="js/zixing-latest.js"	type="text/javascript" crossorigin="anonymous"></script>
-
+<script src="js/scanBarcode2.js"	type="text/javascript" crossorigin="anonymous"></script>
 
 <?php
 	include"layout/js.php";
