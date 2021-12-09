@@ -51,7 +51,7 @@
                                 //hasil scan
                                 console.log(result.text)
                                 $("#hasilscan").val(result.text);
-								window.location.assign("stockoutput.php?barcode="+target)
+								window.location.assign("stockoutput.php?barcode="+result)
                                 if(codeReader){
                                     codeReader.reset()
                                 }
