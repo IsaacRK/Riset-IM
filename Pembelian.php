@@ -158,7 +158,7 @@ if ($userAC == '0'){
                 
                         <div class="row mb-3">
                             <div class="col-4">
-                                <p class="text-end">Harga : </p>
+                                <p class="text-end">Harga Satuan : </p>
                             </div>
                             <div class="col-5">
                                 <input class="form-control" type="number" name="harga" id="" style="width:150%;"/>
@@ -208,9 +208,9 @@ if ($userAC == '0'){
                                     <tr>
                                         <th scope="col">No</th>
                                         <th scope="col">Nama</th>
-                                        <th scope="col">Keterangan Pembelian</th>
-                                        <th scope="col">Harga beli</th>
-                                        <th scope="col">Ongkos Kirim</th>
+                                        <th scope="col">Keterangan pembelian</th>
+                                        <th scope="col">Harga satuan</th>
+                                        <th scope="col">Ongkos kirim</th>
                                         <th scope="col">PPN</th>
                                         <th scope="col">Jumlah</th>
                                         <th scope="col">Harga total</th>
@@ -239,6 +239,8 @@ if ($userAC == '0'){
                                                     <td><?php echo $data['link'];?></td>
                                                     <td><?php echo $data['beli'];?></td>
                                                     <td><?php echo $data['jumlah'];?></td>
+                                                    <td><?php echo $data['Ongkir'];?></td>
+                                                    <td><?php echo $data['ppn'];?></td>
                                                     <td><?php echo $data['totalhrg'];?></td>
                                                 </tr>
                                             <?php $no++;} ?>
@@ -333,9 +335,9 @@ if ($userAC == '0'){
                                                     <tr>
                                                         <th scope="col">No</th>
                                                         <th scope="col">Nama</th>
-                                                        <th scope="col">Keterangan Pembelian</th>
-                                                        <th scope="col">Harga beli</th>
-                                                        <th scope="col">Ongkos Kirim</th>
+                                                        <th scope="col">Keterangan pembelian</th>
+                                                        <th scope="col">Harga satuan</th>
+                                                        <th scope="col">Ongkos kirim</th>
                                                         <th scope="col">PPN</th>
                                                         <th scope="col">Jumlah</th>
                                                         <th scope="col">Harga total</th>
@@ -356,13 +358,15 @@ if ($userAC == '0'){
                                                         while($kol = mysqli_fetch_assoc($RNCNRUN)){
                                                             $ARG[] = $kol;
                                                             }
-                                                            foreach($ARG as $data){ ?>
+                                                            foreach($ARG as $data){ $no--; ?>
                                                                 <tr>
-                                                                    <td><?php echo $data['id']; ?></td>
+                                                                    <td><?php echo $no; ?></td>
                                                                     <td class='fw-bold'><?php echo $data['stock_name']; ?></td>
                                                                     <td><?php echo $data['link'];?></td>
                                                                     <td><?php echo $data['beli'];?></td>
                                                                     <td><?php echo $data['jumlah'];?></td>
+                                                                    <td><?php echo $data['Ongkir'];?></td>
+                                                                    <td><?php echo $data['ppn'];?></td>
                                                                     <td><?php echo $data['totalhrg'];?></td>
                                                                 </tr>
                                                             <?php } ?>
