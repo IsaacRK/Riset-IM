@@ -127,7 +127,7 @@ if($userlvl == 'staff'){
 								<div class="card-text">
 									<div class="row">
 										<h4>Rp.100.000</h4>
-										<a href="indikator.php" class="btn btn-primary">Edit</a>
+										<a href="Indikator.php" class="btn btn-primary">Edit</a>
 									</div>
 								</div>
 							</div>
