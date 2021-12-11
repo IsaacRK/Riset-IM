@@ -4,7 +4,7 @@ require '../backend/conn.php';
 //deklarasi variabel
 $arr=array();
 $inp=array();
-$day=array();
+$week=array();
 $var=0;
 
 if(isset($_GET['graphSearch'])){
@@ -33,13 +33,14 @@ if(isset($_GET['graphSearch'])){
 			}
 		}
 		
-		//mengitung hari, sekarang di kurangi $i hari
-		$now = date("Y-m-d");
-		$cut = date('m-d', strtotime($now.'-'.$i.' Days'));
+		$WNOW = "SELECT WEEK(CURDATE() - INTERVAL $i WEEK)";
+		$OWL = mysqli_query($servConnQuery, $WNOW);
+		$Sheffy = mysqli_fetch_assoc($OWL);
+		$Bell = $Sheffy["WEEK(CURDATE() - INTERVAL $i WEEK)"];
 		
 		//memasukkan data total barang masuk ke array
 		array_push($arr,$out);
-		array_push($day,$cut);
+		array_push($week,$Bell);
 	}
 }else{
 	for($i=0; $i<=4; $i++){
@@ -71,13 +72,14 @@ if(isset($_GET['graphSearch'])){
 			}
 		}
 		
-		//mengitung hari, sekarang di kurangi $i hari
-		$now = date("Y-m-d");
-		$cut = date('m-d', strtotime($now.'-'.$i.' Days'));
+		$WNOW = "SELECT WEEK(CURDATE() - INTERVAL $i WEEK)";
+		$OWL = mysqli_query($servConnQuery, $WNOW);
+		$Sheffy = mysqli_fetch_assoc($OWL);
+		$Bell = $Sheffy["WEEK(CURDATE() - INTERVAL $i WEEK)"];
 		
 		//memasukkan data total barang masuk ke array
 		array_push($arr,$out);
-		array_push($day,$cut);
+		array_push($week,$Bell);
 	}
 }
 
@@ -90,12 +92,12 @@ $(document).ready(function(){
 	var chartDisplay = $('#chartDisplay');
 	
 	var activityData = {
-	  labels: <?php echo'["'.$day[7].'","'.$day[6].'","'.$day[5].'","'.$day[4].'","'.$day[3].'","'.$day[2].'","'.$day[1].'","'.$day[0].'"]'; ?>,
+	  labels: <?php echo'["'.$day[4].'","'.$day[3].'","'.$day[2].'","'.$day[1].'","'.$day[0].'"]'; ?>,
 	  datasets: [{
 		label: "Stok keluar",
 		backgroundColor: '#FF9600',
 		borderColor: '#FF9600',
-		data: <?php echo'["'.$arr[7].'","'.$arr[6].'","'.$arr[5].'","'.$arr[4].'","'.$arr[3].'","'.$arr[2].'","'.$arr[1].'","'.$arr[0].'"]'; ?>,
+		data: <?php echo'["'.$arr[4].'","'.$arr[3].'","'.$arr[2].'","'.$arr[1].'","'.$arr[0].'"]'; ?>,
 	  }]
 	};
 
@@ -113,7 +115,7 @@ $(document).ready(function(){
 			x: {
 				title: {
 					display: true,
-					text: 'Tanggal'
+					text: 'Minggu'
 				}
 			}
 		}
