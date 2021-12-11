@@ -115,6 +115,7 @@ if($userlvl == 'staff'){
 		<div class="card-body">
 			<h3>Indikator Peforma</h3>
 			
+			<a href="Indikator.php" class="link-dark" style="text-decoration:none;">
 			<div class="card">
 				<div class="card-body">
 					
@@ -165,7 +166,7 @@ if($userlvl == 'staff'){
 					
 				</div>
 			</div>
-			
+			</a>
 			<!--<canvas class="w-100" id="harga"></canvas>-->
 			
 		</div>
