@@ -124,11 +124,10 @@ if($userlvl == 'staff'){
 							<div class="card">
 							<div class="card-body">
 								<div class="card-title"><b>Target Pemasukan Bulanan</b></div>
-								<div class="card-text">
+								<div class="card-text text-success">
 									<div class="row">
 										<?php include'testing/indikatorPerforma.php';?>
 										<h4><?php echo rupiah($target);?></h4>
-										<a href="Indikator.php" class="btn btn-primary">Edit</a>
 									</div>
 								</div>
 							</div>
@@ -148,7 +147,7 @@ if($userlvl == 'staff'){
 							<div class="card">
 							<div class="card-body">
 								<div class="card-title"><b>Total Pembelian Bulanan</b></div>
-								<div class="card-text"><h4>Rp100.000</h4></div>
+								<div class="card-text text-danger"><h4>Rp100.000</h4></div>
 							</div>
 							</div>
 						</div>
