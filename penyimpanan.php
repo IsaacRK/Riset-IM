@@ -16,6 +16,21 @@ if(isset($_POST['hapusRak'])){
 		';
 	}
 }
+
+if(isset($_POST['btnEdit'])){
+	$sid = $_POST['storageId'];
+	$cap = $_POST['maxCap'];
+	
+	$editSql = "UPDATE penyimpanan SET kapasitas='$cap' WHERE storage_id='$sid'";
+	$editRun = mysqli_query($servConnQuery, $editSql);
+	if($editRun){
+		echo'
+			<script>
+				alert("kapasitas berhasil di ubah");
+			</script>
+		';
+	}
+}
 ?>
 <html>
 <head>
@@ -186,6 +201,14 @@ if(isset($_POST['hapusRak'])){
   </div>
 </div>
 
+<div class="modal" id="modalEdit">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+    </div>
+  </div>
+</div>
+
 <div class="modal fade" id="modalHapus">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -217,6 +240,11 @@ $(function(){
 		e.preventDefault();
 	});
 });
+
+function edit(x){	
+	console.log(x);
+	$('#modalEdit').modal('show').find('.modal-content').load('layout/modalkapasitas.php?rakId='+x);
+}
 
 function hapus(x){	
 	console.log(x);

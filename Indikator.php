@@ -1,6 +1,7 @@
 <?php
 require 'backend/conn.php';
 require 'backend/usersession.php';
+require 'backend/indikatorInput.php';
 if ($userAC == '0'){
 			header('location:Verifyno.php');
 }else{}
@@ -28,10 +29,11 @@ if ($userAC == '0'){
             <div class="card shadow-sm">
 	        <div class="card-body">
 
+				<form method="post" action="">
                 <div class="row text-center mb-4">
                     <div class="col">
                         <h4>Target pemasukkan bulanan :</h4>
-                        <input class="form-control" type="text" name="" id=""/>
+                        <input class="form-control" type="number" name="targetPemasukan" id=""/>
                     </div>
                     <div class="col">
                         <h4>Total rata pemasukan :</h4>
@@ -50,9 +52,10 @@ if ($userAC == '0'){
                 </div>
 				<div class="row text-center">
                     <div class="col">
-                        <button class="btn btn-primary mb-3 mt-3" type="submit" name="" value="">Ubah</button>
+                        <input class="btn btn-primary mb-3 mt-3" type="submit" name="submitIndikator" value="Ubah">
                     </div>
                 </div>
+				</form>
 			
 				<!--chart-->
 				<div class="card">

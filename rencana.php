@@ -120,14 +120,14 @@ if($userlvl == 'staff'){
 				<div class="card-body">
 					
 					<div class="row">
-
 						<div class="col-6 mb-3">
 							<div class="card">
 							<div class="card-body">
 								<div class="card-title"><b>Target Pemasukan Bulanan</b></div>
 								<div class="card-text">
 									<div class="row">
-										<h4>Rp.100.000</h4>
+										<?php include'testing/indikatorPerforma.php';?>
+										<h4><?php echo rupiah($target);?></h4>
 										<a href="Indikator.php" class="btn btn-primary">Edit</a>
 									</div>
 								</div>
@@ -139,7 +139,7 @@ if($userlvl == 'staff'){
 							<div class="card">
 							<div class="card-body">
 								<div class="card-title"><b>Rata-Rata Pemasukan Seminggu</b></div>
-								<div class="card-text"><h4>Rp.100.000</h4></div>
+								<div class="card-text"><h4><?php echo rupiah($rata);?></h4></div>
 							</div>
 							</div>
 						</div>
@@ -148,7 +148,7 @@ if($userlvl == 'staff'){
 							<div class="card">
 							<div class="card-body">
 								<div class="card-title"><b>Total Pembelian Bulanan</b></div>
-								<div class="card-text"><h4>Rp.100.000</h4></div>
+								<div class="card-text"><h4>Rp100.000</h4></div>
 							</div>
 							</div>
 						</div>
@@ -157,7 +157,10 @@ if($userlvl == 'staff'){
 							<div class="card">
 							<div class="card-body">
 								<div class="card-title"><b>Nilai Performa</b></div>
-								<div class="card-text"><h4>100%</h4></div>
+								<div class="card-text"><h4><?php echo$persen; ?>%</h4></div>
+								<div class="progress">
+									<div class="progress-bar" style="width: <?php echo$persen; ?>%"></div>
+								</div>
 							</div>
 							</div>
 						</div>
