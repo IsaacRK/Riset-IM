@@ -333,7 +333,7 @@ $(function(){
 				url: "backend/inputhandler.php",
 				data: dataString,
 				success: function(){
-					$("#divChart").load('layout/a.php?'+dataString);
+					$("#divChart").load('layout/b.php?'+dataString);
 				}
 			});
 			e.preventDefault();
