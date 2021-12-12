@@ -99,7 +99,19 @@ if(isset($_POST['btnEdit'])){
 	
 	<div class="card shadow-sm">
 	<div class="card-body">
-	
+		<?php
+			//ambil data penyimpanan yang tersedia
+			$arrLan = array();
+			$sql = 'select * from penyimpanan where rak = $rak';
+			$run = mysqli_query($servConnQuery, $sql);
+			while($row = mysqli_fetch_assoc($run)){
+				$a=$row['lantai'];
+				if(in_array($a,$arrLan)){
+				}else{
+					array_push($arrLan,$a);
+				}
+			}
+		?>
 		<form action="" id="formRak">
 		<div class="row">
 			<div class="col">
@@ -108,7 +120,6 @@ if(isset($_POST['btnEdit'])){
 					<option value="2" class="dropdown-item">Rak 2</option>
 				</select>
 			</div>
-			
 			<div class="col">
 				<select name="lan" class="btn btn-light border dropdown-toggle m-2 form-select">
 					<option value="1" class="dropdown-item">Lantai 1</option>

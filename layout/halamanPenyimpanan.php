@@ -27,6 +27,7 @@ while($row = mysqli_fetch_assoc($run)){
 		<th>Lantai</th>
 		<th>Kolom</th>
 		<th>Baris</th>
+		<th>kapasitas</th>
 		<th>Edit</th>
 		<th>Hapus</th>
 	</tr>
@@ -39,6 +40,7 @@ while($row = mysqli_fetch_assoc($run)){
 			<td><?php echo $data['lantai']; ?></td>
 			<td><?php echo $data['kolom']; ?></td>
 			<td><?php echo $data['baris']; ?></td>
+			<td><?php echo $data['kapasitas']; ?></td>
 			<td>
 				<div class="py-2">
 					<img src="img/icons/pencil-square.svg" width="32" height="32" onclick="edit(<?php echo $data['storage_id']; ?>)"/>

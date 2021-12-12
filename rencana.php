@@ -126,7 +126,7 @@ if($userlvl == 'staff'){
 								<div class="card-title"><b>Target Pemasukan Bulanan</b></div>
 								<div class="card-text text-success">
 									<div class="row">
-										<?php include'testing/indikatorPerforma.php';?>
+										<?php include'backend/indikatorPerforma.php';?>
 										<h4><?php echo rupiah($target);?></h4>
 									</div>
 								</div>
@@ -321,12 +321,12 @@ $(function(){
 });
 	
 $(document).ready(function(){
-		$("#divChart").load('layout/a.php');
+		$("#divChart").load('layout/b.php');
 });
 $(function(){
 		$("#searchChart").on("submit", function(e){
 			var dataString = $(this).serialize();
-			//alert(dataString);
+			alert(dataString);
 			
 			$.ajax({
 				type: "POST",

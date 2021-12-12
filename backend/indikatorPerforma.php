@@ -1,5 +1,5 @@
 <?php
-require'../backend/conn.php';
+require'backend/conn.php';
 
 function rupiah($angka){
 	$hasil_rupiah = "Rp " . number_format($angka,2,',','.');
