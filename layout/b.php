@@ -105,7 +105,7 @@ $(document).ready(function(){
 	var chartDisplay = $('#chartDisplay');
 	
 	var activityData = {
-	  labels: <?php echo'["'.$day[3].'","'.$day[2].'","'.$day[1].'","'.$day[0].'"]'; ?>,
+	  labels: <?php echo'["'.$week[3].'","'.$week[2].'","'.$week[1].'","'.$week[0].'"]'; ?>,
 	  datasets: [{
 		label: "Stok keluar",
 		backgroundColor: '#FF9600',
