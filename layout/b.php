@@ -5,6 +5,7 @@ require '../backend/conn.php';
 $arr=array();
 $inp=array();
 $week=array();
+$predict=array();
 $var=0;
 
 if(isset($_GET['graphSearch'])){
@@ -42,6 +43,12 @@ if(isset($_GET['graphSearch'])){
 		array_push($arr,$out);
 		array_push($week,$Bell);
 	}
+	$PRD = "SELECT ($arr[3]+$arr[2]+$arr[1])/3";
+	$KEEN = mysqli_query($servConnQuery, $PRD);
+	$Clair = mysqli_fetch_assoc($KEEN);
+	$False = $Clair["($arr[3]+$arr[2]+$arr[1])/3"];
+
+	array_push($predict,$False);
 }else{
 	for($i=0; $i<=4; $i++){
 		/*
@@ -81,6 +88,12 @@ if(isset($_GET['graphSearch'])){
 		array_push($arr,$out);
 		array_push($week,$Bell);
 	}
+	$PRD = "SELECT ($arr[3]+$arr[2]+$arr[1])/3";
+	$KEEN = mysqli_query($servConnQuery, $PRD);
+	$Clair = mysqli_fetch_assoc($KEEN);
+	$False = $Clair["($arr[3]+$arr[2]+$arr[1])/3"];
+
+	array_push($predict,$False);
 }
 
 ?>
@@ -92,12 +105,12 @@ $(document).ready(function(){
 	var chartDisplay = $('#chartDisplay');
 	
 	var activityData = {
-	  labels: <?php echo'["'.$day[4].'","'.$day[3].'","'.$day[2].'","'.$day[1].'","'.$day[0].'"]'; ?>,
+	  labels: <?php echo'["'.$day[3].'","'.$day[2].'","'.$day[1].'","'.$day[0].'"]'; ?>,
 	  datasets: [{
 		label: "Stok keluar",
 		backgroundColor: '#FF9600',
 		borderColor: '#FF9600',
-		data: <?php echo'["'.$arr[4].'","'.$arr[3].'","'.$arr[2].'","'.$arr[1].'","'.$arr[0].'"]'; ?>,
+		data: <?php echo'["'.$arr[3].'","'.$arr[2].'","'.$arr[1].'","'.$predict[0].'"]'; ?>,
 	  }]
 	};
 
