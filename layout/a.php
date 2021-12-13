@@ -111,17 +111,17 @@ $(document).ready(function(){
 	var chartDisplay = $('#chartDisplay');
 	
 	var activityData = {
-	  labels: <?php echo'["'.$day[7].'","'.$day[6].'","'.$day[5].'","'.$day[4].'","'.$day[3].'","'.$day[2].'","'.$day[1].'","'.$day[0].'"]'; ?>,
+	  labels: [<?php for($i=7;$i>=0;$i--){ echo $day[$i].','; } ?>],
 	  datasets: [{
 		label: "Stok keluar",
 		backgroundColor: '#FF9600',
 		borderColor: '#FF9600',
-		data: <?php echo'["'.$arr[7].'","'.$arr[6].'","'.$arr[5].'","'.$arr[4].'","'.$arr[3].'","'.$arr[2].'","'.$arr[1].'","'.$arr[0].'"]'; ?>,
+		data: [<?php for($i=7;$i>=0;$i--){ echo $arr[$i].','; } ?>],
 	  },{
 		label: "Stok masuk",
 		backgroundColor: '#00A1FF',
 		borderColor: '#00A1FF',
-		data: <?php echo'["'.$inp[7].'","'.$inp[6].'","'.$inp[5].'","'.$inp[4].'","'.$inp[3].'","'.$inp[2].'","'.$inp[1].'","'.$inp[0].'"]';?>,
+		data: [<?php for($i=7;$i>=0;$i--){ echo $inp[$i].','; } ?>],
 	  }]
 	};
 
