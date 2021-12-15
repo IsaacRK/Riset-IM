@@ -267,10 +267,15 @@ if($userlvl == 'staff'){
 				</br>
 
 				<div class="card">
-					<div class="card-body" id="divChart" style="">
+					<div class="card-body" style="">
+						<div class="d-flex flex-row-reverse bd-highlight">
+							<a href="prediksi.php">Lihat Selengkapnya</a>
+						</div>
+						
+						<div  id="divChart">
 						<div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
 						
-						
+						</div>
 						</div>
 					</div>
 				</div>
@@ -285,29 +290,6 @@ if($userlvl == 'staff'){
 </div>
 
 <script>
-$(document).ready(function(){
-	var harga = $('#harga');
-	
-	var dataHarga = {
-		labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
-		datasets: [{
-			label: "pemasukan",
-			data: [2,7,2,5,2,2,2,2,2,2,2,5,2,7,2],
-			backgroundColor: 'rgb(16, 100, 174)',
-			borderColor: 'rgba(16, 100, 174, 0.3)',
-		},{
-			label: "pengeluaran",
-			data: [3,8,3,6,9,9,9,9,9,9,9,6,3,8,3],
-			backgroundColor: 'rgb(174, 16, 16)',
-			borderColor: 'rgba(174, 16, 16, 0.3)',
-		}]
-	}
-	
-	var hargaChart = new Chart(harga, {
-		type: 'line',
-		data: dataHarga
-	});
-});
 
 $(function(){
 	$('#tbStock').DataTable({

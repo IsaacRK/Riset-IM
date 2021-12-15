@@ -98,19 +98,34 @@ if(isset($_GET['graphSearch'])){
 
 ?>
 
-<canvas id="chartDisplay" style="height:100px"></canvas>
+<div class="row">
+<div class="col-6">
+<canvas id="chartDisplay1" style="height:100px"></canvas>
+</div>
+<div class="col-6">
+<canvas id="chartDisplay2" style="height:100px"></canvas>
+</div>
+</div>
 
 <script>
 $(document).ready(function(){
-	var chartDisplay = $('#chartDisplay');
+	var chartDisplay = $('#chartDisplay1');
 	
 	var activityData = {
-	  labels: <?php echo'["'.$week[3].'","'.$week[2].'","'.$week[1].'","'.$week[0].'"]'; ?>,
+	  labels: [<?php echo $week[3].','.$week[2].','.$week[1].','.$week[0]; ?>],
 	  datasets: [{
 		label: "Stok keluar",
 		backgroundColor: '#FF9600',
 		borderColor: '#FF9600',
-		data: <?php echo'["'.$arr[3].'","'.$arr[2].'","'.$arr[1].'","'.$predict[0].'"]'; ?>,
+		data: [<?php echo $arr[3].','.$arr[2].','.$arr[1]; ?>],
+		tension: 0.4,
+	  },{
+		label: "Prediksi Stok Keluar",
+		backgroundColor: '#FF9600',
+		borderColor: '#FF9600',
+		data: [<?php echo $arr[3].','.$arr[2].','.$arr[1].','.$predict[0]; ?>],
+		borderDash: [10,5],
+		tension: 0.4,
 	  }]
 	};
 
@@ -133,7 +148,7 @@ $(document).ready(function(){
 			}
 		}
 	  }
-	});
+	});	
 })
 
 </script>

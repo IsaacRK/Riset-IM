@@ -22,7 +22,10 @@ if(isset($_POST['editBtn'])){
 	$hargId = $_POST['editId'];
 	
 	$sql = "update harga set jual = '$newVal' where stock_id = '$hargId'";
-	mysqli_query($servConnQuery, $sql);
+	if(mysqli_query($servConnQuery, $sql)){
+		$sqlHist = "INSERT INTO harga_history(`stock_id`, `harga`, `date`) VALUES('$hargId', '$newVal', CURDATE())";
+		mysqli_query($servConnQuery, $sqlHist);
+	}
 }
 
 ?>
@@ -68,6 +71,11 @@ if(isset($_POST['editBtn'])){
         </thead>
         <tbody>
 		<?php
+			function rupiah($angka){
+				$hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+				return $hasil_rupiah;
+			}
+			
 			$sql = "
 				select harga.* , stock.*
 				from harga
@@ -92,12 +100,12 @@ if(isset($_POST['editBtn'])){
 				}else{
 					$tgl = $tglRow['date'];
 				}
-				$beli = $data['beli'];
-				if($beli == 0){
+				$beli = rupiah($data['beli']);
+				if($data['beli'] == 0){
 					$beli = 'data belum ada';
 				}
-				$jual = $data['jual'];
-				if($jual == 0){
+				$jual = rupiah($data['jual']);
+				if($data['jual'] == 0){
 					$jual = 'data belum ada';
 				}
 		?>
