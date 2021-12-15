@@ -38,6 +38,7 @@ if(isset($_POST['btnEdit'])){
 	<?php include'layout/header.php';?>
 	<?php
 		
+		
 		if(isset($_POST['submit'])){
 			$lan = $_POST['lantai'];
 			$rak = $_POST['rak'];
@@ -100,9 +101,18 @@ if(isset($_POST['btnEdit'])){
 	<div class="card shadow-sm">
 	<div class="card-body">
 		<?php
+			$rak=1;
+			$lan=1;
+
+			if(isset($_GET['rak'])){
+				$rak = $_GET['rak'];
+			}
+			if(isset($_GET['lan'])){
+				$lan = $_GET['lan'];
+			}
 			//ambil data penyimpanan yang tersedia
 			$arrLan = array();
-			$sql = 'select * from penyimpanan where rak = $rak';
+			$sql = 'select * from penyimpanan where rak = "$rak"';
 			$run = mysqli_query($servConnQuery, $sql);
 			while($row = mysqli_fetch_assoc($run)){
 				$a=$row['lantai'];

@@ -1,5 +1,3 @@
-<?php?>
-
 <script>
 	document.getElementById("openMenu").onclick = function() {buttonSidebarShow()};
 	document.getElementById("closeMenu").onclick = function() {sidebarHide()};

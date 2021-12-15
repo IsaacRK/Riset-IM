@@ -249,7 +249,7 @@ if ($userAC == '0'){
                             <form action="" method="post">
                             <div class='row'>
                                 <div class="col text-center mt-3">
-                                <button class="btn btn-primary" onClick="window.print(format)" type="submit" name="buat" value="buat">Buat RAB</button>
+                                <button class="btn btn-primary" onClick="window.print(format)" type="submit" name="buat" value="buat">Purchase Order</button>
                                 </div>
                             </div>
                             </form>
