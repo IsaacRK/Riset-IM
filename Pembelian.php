@@ -15,7 +15,13 @@ if ($userAC == '0'){
 	<?php include "layout/header.php"?>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <style>
-        .page-header, .page-header-space {
+        .modl{
+            width:120%;
+        }
+        .cntrl{
+            width:150%
+        }
+	.page-header, .page-header-space {
         height: 110px;
         }
         .page-footer, .page-footer-space {
@@ -69,7 +75,21 @@ if ($userAC == '0'){
         }
 	ul.ui-autocomplete.ui-menu {
         z-index: 1600;
-        }  
+        }
+	@media screen and (max-width:800px) {
+        .modl{
+	    width:100%;
+        }
+        .modal-backdrop{
+            z-index:0;
+        }
+        .cntrl{
+            width:100%
+        }
+        .text-end{
+            text-align:center!important;
+        }
+        }
         @page {
         margin: 20mm
         }
@@ -131,7 +151,7 @@ if ($userAC == '0'){
 				    
 <form action="" method="post">				   
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content mdl">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Registrasi Data</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -139,46 +159,46 @@ if ($userAC == '0'){
       <div class="modal-body">
 
                         <div class="row mb-3 mt-3">
-                            <div class="col-4">
+                            <div class="col-sm-4">
                                 <p class="text-end">Nama : </p>
                             </div>
-                            <div class="col-5">
-                                <input class="form-control" type="text" name="nmbrng" id="nmbrng" style="width:150%;"/>
+                            <div class="col-sm-5">
+                                <input class="form-control cntrl" type="text" name="nmbrng" id="nmbrng"/>
                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <div class="col-4">
+                            <div class="col-sm-4">
                                 <p class="text-end">Keterangan pembelian : </p>
                             </div>
-                            <div class="col-5">
-                                <input class="form-control" type="text" name="link" id="" style="width:150%;"/>
+                            <div class="col-sm-5">
+                                <input class="form-control cntrl" type="text" name="link" id=""/>
                             </div>
                         </div>
                 
                         <div class="row mb-3">
-                            <div class="col-4">
+                            <div class="col-sm-4">
                                 <p class="text-end">Harga satuan : </p>
                             </div>
-                            <div class="col-5">
-                                <input class="form-control" type="number" name="harga" id="" style="width:150%;"/>
+                            <div class="col-sm-5">
+                                <input class="form-control cntrl" type="number" name="harga" id=""/>
                             </div>
                         </div>
         
                         <div class="row mb-3">
-                            <div class="col-4">
+                            <div class="col-sm-4">
                                 <p class="text-end">Harga pengiriman : </p>
                             </div>
-                            <div class="col-5">
-                                <input class="form-control" type="number" name="ongkir" id="" style="width:150%;"/>
+                            <div class="col-sm-5">
+                                <input class="form-control cntrl" type="number" name="ongkir" id=""/>
                             </div>
                         </div>        
                         <div class="row mb-3">
-                            <div class="col-4">
+                            <div class="col-sm-4">
                                 <p class="text-end">Jumlah : </p>
                             </div>
-                            <div class="col-5">
-                                <input class="form-control" type="number" name="JMLH" id="" style="width:150%;"/>
+                            <div class="col-sm-5">
+                                <input class="form-control cntrl" type="number" name="JMLH" id=""/>
                             </div>
                         </div>                        
 
