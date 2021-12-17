@@ -109,7 +109,7 @@ if(isset($_GET['graphSearch'])){
 
 <script>
 $(document).ready(function(){
-	var chartDisplay = $('#chartDisplay1');
+	var chartDisplay1 = $('#chartDisplay1');
 	
 	var activityData = {
 	  labels: [<?php echo $week[3].','.$week[2].','.$week[1].','.$week[0]; ?>],
@@ -129,7 +129,7 @@ $(document).ready(function(){
 	  }]
 	};
 
-	var lineChart = new Chart(chartDisplay, {
+	var lineChart = new Chart(chartDisplay1, {
 	  type: 'line',
 	  data: activityData,
 	  options: {

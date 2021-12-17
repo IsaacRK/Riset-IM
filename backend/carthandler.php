@@ -30,7 +30,7 @@ if(mysqli_num_rows($cartQueryRun) > 0){
 			<div class="col-2">
 				<label class="checkbox">
 				  <span class="checkbox_input">
-					<input class="boxhidden" type="checkbox" name="checkbox[]" value="<?php echo$cartId;?>"/>
+					<input class="boxhidden" type="checkbox" name="checkbox[]" id="checkbox[<?php echo$cartId;?>]" value="<?php echo$cartId;?>"/>
 					<span class="checkbox_control">
 					  <svg
 						viewBox="0 0 24 24"
@@ -110,7 +110,7 @@ if(mysqli_num_rows($cartQueryRun) > 0){
 
 	<div class="row mt-2">
 		<div class="col-6 mx-auto">
-			<input class="btn btn-primary btn-block" type="submit" name="checkout" value="Checkout"/>
+			<input class="btn btn-primary btn-block" type="submit" name="checkout" id="checkout" value="Checkout"/>
 		</div>
 	</div>
 	</form>
@@ -218,7 +218,35 @@ $(".input-number").keydown(function (e) {
 });
 
 $(document).ready(function(){
+	
+	//jika tidak ada yang di centang maka timbol checkout tdk bisa di klik
+	//jika ada salah satu yang di centeng maka tombol bisa di klik
+	/*
+	var checkBoxBtn = document.getElementById('checkout')
+	if(checkBoxBtn){
+		checkBoxBtn.disabled = true;
+	}
+	
+	var chckBox = document.getElementById("checkbox[]");
+	chckBox.onchange = function(){
+		if(chckBox.checked === false){
+			checkBoxBtn.disabled = true;
+		}
+		if(chckBox.checked === true){
+			checkBoxBtn.disabled = false;
+		}
+	}
+	*/
+	
+	$(window).keydown(function(event){
+		if(event.keyCode == 13) {
+		  event.preventDefault();
+		  return false;
+		}
+	});
+	
 	$("#formCart").on("submit", function(e){
+		
 		var dataString = $(this).serialize();
 		//alert(dataString);
 		$.ajax({

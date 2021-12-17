@@ -258,7 +258,7 @@ if($userlvl == 'supervisor'){
 	$(function(){
 		$("#searchChart").on("submit", function(e){
 			var dataString = $(this).serialize();
-			alert(dataString);
+			//alert(dataString);
 			
 			$.ajax({
 				type: "POST",

@@ -104,8 +104,8 @@ div.open-menu{
 	text-decoration: none;
 }
 
-/*screen less than 767px*/
-@media screen and (max-width: 767px){
+/*screen less than 800px*/
+@media screen and (max-width: 800px){
 	.sidebar{
 		position: fixed;
 		z-index:10;

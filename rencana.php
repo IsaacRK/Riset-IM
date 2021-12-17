@@ -39,9 +39,9 @@ if($userlvl == 'staff'){
 
 	<div class="row mb-3">
 	
-	<div class="col-sm">
+	<div class="col col-lg-6">
 	<div class="card shadow-sm">
-		<div class="card-body">
+		<div class="card-body overflow-auto">
 			<h3>Peringatan Stok Minim</h3>
 			<table id="tbStock" class="table table-striped table-sm">
 				<thead>
@@ -82,7 +82,7 @@ if($userlvl == 'staff'){
 	</div>
 	</div>
 	
-	<div class="col-sm">
+	<div class="col col-lg-6">
 	<div class="card shadow-sm">
 		<div class="card-body">
 			<h3>Indikator Peforma</h3>
@@ -149,7 +149,7 @@ if($userlvl == 'staff'){
 	
 	</div>
 	
-	<div class="row my-0 mt-0 mb-3">
+	<div class="my-0 mt-0 mb-3">
 	
 		<div class="card shadow-sm px-0">
 			<div class="card-body">
@@ -185,6 +185,7 @@ if($userlvl == 'staff'){
 
 				</div>
 				
+				<div class="overflow-auto">
 				<table class="table table-stripped">
 					<thead>
 						<tr>
@@ -211,12 +212,13 @@ if($userlvl == 'staff'){
 					?>
 					</tbody>
 				</table>
+				</div>
 			</div>
 		</div>
 	
 	</div>
 	
-	<div class="row my-0 mt-0 mb-3">
+	<div class="my-0 mt-0 mb-3">
 		<div class="card shadow-sm px-0">
 			<div class="card-body">
 				<h3>Prediksi</h3>
@@ -256,8 +258,6 @@ if($userlvl == 'staff'){
 		</div>
 	</div>
 	
-</div>
-</div>
 </div>
 </div>
 

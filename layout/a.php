@@ -12,44 +12,48 @@ if(isset($_GET['graphSearch'])){
 	$stockName = $_GET['graphSearch'];
 	$stockIdQuery = "select * from stock where stock_name = '$stockName'";
 	$stockIdRun = mysqli_query($servConnQuery, $stockIdQuery);
-	$stockIdFetch = mysqli_fetch_assoc($stockIdRun);
-	$stockId = $stockIdFetch['stock_id'];
-		
-	for($i=0; $i<=7; $i++){
+	
+	if($stockIdFetch = mysqli_fetch_assoc($stockIdRun)){
+		$stockId = $stockIdFetch['stock_id'];
+	
+		for($i=0; $i<=7; $i++){
 
-		//menenentukan hari dari barang yang akan diambil
-		//hari sekarang dikurangi $i hari
-		$chartFetchInputQuery = "SELECT * FROM `history` WHERE stock_id = '$stockId' and date = date_sub(CURRENT_DATE, interval $i day) and input=1";
-		$chartFetchInputRun = mysqli_query($servConnQuery, $chartFetchInputQuery);
-		
-		$chartFetchOutputQuery = "SELECT * FROM `history` WHERE stock_id = '$stockId' and date = date_sub(CURRENT_DATE, interval $i day) and output=1";
-		$chartFetchOutputRun = mysqli_query($servConnQuery, $chartFetchOutputQuery);
-		
-		//mereset jumlah total barang setiap 1 hari menjadi 0
-		$in=0;
-		if(mysqli_num_rows($chartFetchInputRun)>0){
-			while($chartIn = mysqli_fetch_assoc($chartFetchInputRun)){
-				//hitung jumlah total barang yang masuk/keluar pada satu hari, dari hari yang di tentukan
-				$in = $in+$chartIn['amount'];
+			//menenentukan hari dari barang yang akan diambil
+			//hari sekarang dikurangi $i hari
+			$chartFetchInputQuery = "SELECT * FROM `history` WHERE stock_id = '$stockId' and date = date_sub(CURRENT_DATE, interval $i day) and input=1";
+			$chartFetchInputRun = mysqli_query($servConnQuery, $chartFetchInputQuery);
+			
+			$chartFetchOutputQuery = "SELECT * FROM `history` WHERE stock_id = '$stockId' and date = date_sub(CURRENT_DATE, interval $i day) and output=1";
+			$chartFetchOutputRun = mysqli_query($servConnQuery, $chartFetchOutputQuery);
+			
+			//mereset jumlah total barang setiap 1 hari menjadi 0
+			$in=0;
+			if(mysqli_num_rows($chartFetchInputRun)>0){
+				while($chartIn = mysqli_fetch_assoc($chartFetchInputRun)){
+					//hitung jumlah total barang yang masuk/keluar pada satu hari, dari hari yang di tentukan
+					$in = $in+$chartIn['amount'];
+				}
 			}
-		}
-		
-		$out=0;
-		if(mysqli_num_rows($chartFetchOutputRun)>0){
-			while($chartOut = mysqli_fetch_assoc($chartFetchOutputRun)){
-				//hitung jumlah total barang yang masuk/keluar pada satu hari, dari hari yang di tentukan
-				$out = $out+$chartOut['amount'];
+			
+			$out=0;
+			if(mysqli_num_rows($chartFetchOutputRun)>0){
+				while($chartOut = mysqli_fetch_assoc($chartFetchOutputRun)){
+					//hitung jumlah total barang yang masuk/keluar pada satu hari, dari hari yang di tentukan
+					$out = $out+$chartOut['amount'];
+				}
 			}
+			
+			//mengitung hari, sekarang di kurangi $i hari
+			$now = date("Y-m-d");
+			$cut = date('m-d', strtotime($now.'-'.$i.' Days'));
+			
+			//memasukkan data total barang masuk ke array
+			array_push($inp,$in);
+			array_push($arr,$out);
+			array_push($day,$cut);
 		}
-		
-		//mengitung hari, sekarang di kurangi $i hari
-		$now = date("Y-m-d");
-		$cut = date('m-d', strtotime($now.'-'.$i.' Days'));
-		
-		//memasukkan data total barang masuk ke array
-		array_push($inp,$in);
-		array_push($arr,$out);
-		array_push($day,$cut);
+	}else{
+		echo'<h5>Barang yang di cari tidak ada</h5>';
 	}
 }else{
 	for($i=0; $i<=7; $i++){
@@ -117,11 +121,13 @@ $(document).ready(function(){
 		backgroundColor: '#FF9600',
 		borderColor: '#FF9600',
 		data: [<?php for($i=7;$i>=0;$i--){ echo $arr[$i].','; } ?>],
+		tension: 0.3,
 	  },{
 		label: "Stok masuk",
 		backgroundColor: '#00A1FF',
 		borderColor: '#00A1FF',
 		data: [<?php for($i=7;$i>=0;$i--){ echo $inp[$i].','; } ?>],
+		tension: 0.3,
 	  }]
 	};
 

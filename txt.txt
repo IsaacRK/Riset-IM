@@ -2,10 +2,17 @@
 
 	//prioritas		|-------------
 	
-	-resiiiiiii
-	-[done]harga barang
-	-halaman erp
-	-[done]pembelian barang
+	-frontend
+		-halaman erp
+		-halaman prediksi
+		-tambah halaman prediksi pada sidebar
+	
+	-backend
+		-fitur cari barang dan lihat prediksi keluar & harga barang
+		-jika tabel pada halaman prediksi di tekan, tampilkan grafik dari pengeluaran & harga
+		-jika prediksi adalah lebih dari jumlah barang, maka tampilkan barang pada notifikasi
+	
+	|-----------------------------
 	
 	-indikator performance
 		-di klik ke halaman pengaturan target
@@ -14,7 +21,6 @@
 		-bisa edit terget lagi di bulan yang sama
 		-ada chart dari 7 atau 30 hari dan prediksi di 1 hari berikutnya
 
-	|-----------------------------
 	
 Tambahan dari pak Dwiky:
 		-Pada tombol laporan, apabila bisa, dokumen yang didownload sudah berdada dalam sebuah format
