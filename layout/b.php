@@ -99,12 +99,12 @@ if(isset($_GET['graphSearch'])){
 ?>
 
 <div class="row">
-<div class="col-6">
-<canvas id="chartDisplay1" style="height:100px"></canvas>
-</div>
-<div class="col-6">
-<canvas id="chartDisplay2" style="height:100px"></canvas>
-</div>
+	<div class="col-6">
+		<canvas id="chartDisplay1" style="height:100px"></canvas>
+	</div>
+	<div class="col-6">
+		<canvas id="chartDisplay2" style="height:100px"></canvas>
+	</div>
 </div>
 
 <script>

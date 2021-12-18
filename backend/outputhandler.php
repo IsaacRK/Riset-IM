@@ -33,7 +33,9 @@ if(isset($_POST['addToCart'])){
 		insert into cart (cart_id, user_id, stock_id, take_amount, necessity, checkout)
 		values (default, '$operator', '$stockId', '$amount', '$necessity', false);
 		";
-		mysqli_query($servConnQuery, $query);		
+		if(mysqli_query($servConnQuery, $query)){
+			header('location:../stockoutput.php');
+		}
 	}
 	
 	

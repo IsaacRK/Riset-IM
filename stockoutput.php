@@ -23,7 +23,7 @@ $Cklm	= '';
 $Cbar	= '';
 
 if(isset($_POST['search'])){
-	$componentNameSearch 		= $_POST['componentNameSearch'];
+	$componentNameSearch 	= $_POST['componentNameSearch'];
 	
 	if($componentNameSearch == null){
 	header('location:stockoutput.php');
@@ -92,7 +92,6 @@ if(isset($_GET['barcode'])){
 
 <?php
 	include"layout/sidebar-old.php";
-	require 'backend/outputhandler.php';
 ?>
 <div class="content">
 <div class="container mr-0">
@@ -132,7 +131,8 @@ if(isset($_GET['barcode'])){
 		<div class="col-sm">
 			<div class="card shadow-sm">
 			<div class="card-body">
-			<form action="" method="post">
+			<!--kirim ke halaman lalu kirim ke sini lagi, untuk mencegah pemasukan data 2 kali jika halaman di reload-->
+			<form action="backend/outputhandler.php" method="post">
 				<h3>Informasi komponen</h3>
 				</br>
 				<div class="row">

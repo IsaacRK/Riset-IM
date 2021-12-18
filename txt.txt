@@ -5,11 +5,12 @@
 	-frontend
 		-halaman erp
 		-halaman prediksi
-		-tambah halaman prediksi pada sidebar
+		-[done]tambah halaman prediksi pada sidebar
 	
 	-backend
 		-fitur cari barang dan lihat prediksi keluar & harga barang
-		-jika tabel pada halaman prediksi di tekan, tampilkan grafik dari pengeluaran & harga
+		-[aaaaaaaaa]jika tabel pada halaman prediksi di tekan, tampilkan grafik dari pengeluaran & harga
+			-bug pada arrayyyyyyyy
 		-jika prediksi adalah lebih dari jumlah barang, maka tampilkan barang pada notifikasi
 	
 	|-----------------------------
