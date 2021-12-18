@@ -31,7 +31,7 @@ if($userlvl == 'staff'){
 		<div class="row">
 		
 			<div class="col">
-				<h1>Enterprise Resource Planning</h1>
+				<h1>Dashboard</h1>
 			</div>
 
 		</div>
