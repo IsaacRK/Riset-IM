@@ -3,14 +3,13 @@
 	//prioritas		|-------------
 	
 	-frontend
-		-halaman erp
-		-halaman prediksi
+		-[done]halaman erp
+		-[done]halaman prediksi
 		-[done]tambah halaman prediksi pada sidebar
 	
 	-backend
-		-fitur cari barang dan lihat prediksi keluar & harga barang
-		-[aaaaaaaaa]jika tabel pada halaman prediksi di tekan, tampilkan grafik dari pengeluaran & harga
-			-bug pada arrayyyyyyyy
+		-[done]fitur cari barang dan lihat prediksi keluar & harga barang
+		-[done]jika tabel pada halaman prediksi di tekan, tampilkan grafik dari pengeluaran & harga
 		-jika prediksi adalah lebih dari jumlah barang, maka tampilkan barang pada notifikasi
 	
 	|-----------------------------

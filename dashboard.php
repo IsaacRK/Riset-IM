@@ -262,7 +262,7 @@ if($userlvl == 'supervisor'){
 			
 			$.ajax({
 				type: "POST",
-				url: "backend/inputhandler.php",
+				url: "layout/test.html",
 				data: dataString,
 				success: function(){
 					$("#divChart").load('layout/a.php?'+dataString);

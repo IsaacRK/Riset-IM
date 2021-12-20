@@ -92,7 +92,7 @@ if($userlvl == 'staff'){
 				<div class="card-body">
 					
 					<div class="row">
-						<div class="col-6 mb-3">
+						<div class="col col-sm-6 mb-3">
 							<div class="card">
 							<div class="card-body">
 								<div class="card-title"><b>Target Pemasukan Bulanan</b></div>
@@ -106,7 +106,7 @@ if($userlvl == 'staff'){
 							</div>
 						</div>
 						
-						<div class="col-6">
+						<div class="col col-sm-6">
 							<div class="card">
 							<div class="card-body">
 								<div class="card-title"><b>Rata-Rata Pemasukan Seminggu</b></div>
@@ -115,7 +115,7 @@ if($userlvl == 'staff'){
 							</div>
 						</div>
 						
-						<div class="col-6">
+						<div class="col col-sm-6">
 							<div class="card">
 							<div class="card-body">
 								<div class="card-title"><b>Total Pembelian Bulanan</b></div>
@@ -124,7 +124,7 @@ if($userlvl == 'staff'){
 							</div>
 						</div>
 							
-						<div class="col-6">
+						<div class="col col-sm-6">
 							<div class="card">
 							<div class="card-body">
 								<div class="card-title"><b>Nilai Performa</b></div>
@@ -264,6 +264,12 @@ if($userlvl == 'staff'){
 <script>
 
 $(function(){
+	$("#graphSearch").autocomplete({
+		source: 'backend/autocomplete.php'
+	});
+});
+
+$(function(){
 	$('#tbStock').DataTable({
 		"scrollY": "25vh",
 		"scrollCollapse": true,
@@ -280,11 +286,11 @@ $(document).ready(function(){
 $(function(){
 		$("#searchChart").on("submit", function(e){
 			var dataString = $(this).serialize();
-			alert(dataString);
+			//alert(dataString);
 			
 			$.ajax({
 				type: "POST",
-				url: "backend/inputhandler.php",
+				url: "layout/test.html",
 				data: dataString,
 				success: function(){
 					$("#divChart").load('layout/b.php?'+dataString);

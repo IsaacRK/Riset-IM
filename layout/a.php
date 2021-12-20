@@ -96,7 +96,7 @@ if(isset($_GET['graphSearch'])){
 		
 		//mengitung hari, sekarang di kurangi $i hari
 		$now = date("Y-m-d");
-		$cut = date('m-d', strtotime($now.'-'.$i.' Days'));
+		$cut = date('d-m', strtotime($now.'-'.$i.' Days'));
 		
 		//memasukkan data total barang masuk ke array
 		array_push($arr,$out);
@@ -115,7 +115,7 @@ $(document).ready(function(){
 	var chartDisplay = $('#chartDisplay');
 	
 	var activityData = {
-	  labels: [<?php for($i=7;$i>=0;$i--){ echo $day[$i].','; } ?>],
+	  labels: [<?php for($i=0;$i<=7;$i++){ echo '"'.$day[$i].'",'; } ?>],
 	  datasets: [{
 		label: "Stok keluar",
 		backgroundColor: '#FF9600',
