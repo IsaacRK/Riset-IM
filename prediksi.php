@@ -146,7 +146,7 @@ function rupiah($angka){
 					//pengambilan harga stok
 					//ambil harga_history 3 bulan | setiap 1 bulan
 					$hrgArr = array();
-					for($i=3;$i>=0;$i--){
+					for($i=3;$i>=1;$i--){
 						$sqlHharg = "select * from harga_history where stock_id = $sid and month(`date`) = month(now())-$i order by id desc";
 						$runHharg = mysqli_query($servConnQuery, $sqlHharg);
 						$rowHharg = mysqli_fetch_assoc($runHharg);
@@ -163,44 +163,51 @@ function rupiah($angka){
 						array_push($hrgArr, $bulan);
 					}
 					
-					//total harga
-					$a = 0;
-					if(array_sum($hrgArr)!=0){
-						$a = ceil(array_sum($hrgArr)/4);
-					}
-					
-					//tabel harga
+					//harga sekarang
 					$sqlHarg = "select * from harga where stock_id = $sid";
 					$runHarg = mysqli_query($servConnQuery, $sqlHarg);
 					$rowHarg = mysqli_fetch_assoc($runHarg);
 					$harga	 = $rowHarg['jual'];
+					array_push($hrgArr, $rowHarg['jual']);
 					
+					//harga rata rata
+					$HRata = 0;
+					if(array_sum($hrgArr)!=0){
+						$HRata = ceil(array_sum($hrgArr)/4);
+					}
+					
+					//harga sekarang = A
+					//rata rata = B
+					//hasil = B - A
+					//jika hasil = + berarti naik
+					//jika hasil = - berarti turun
+					$hasil = $HRata - $harga;
 					//penentuan style perubahan harga
 					$predHarg = '';
-					if($harga < $a){
+					if($hasil > 0){
 						$predHarg = '
 							<h5 class="text-success">
-							'.rupiah($a).'
+							'.rupiah($hasil).'
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
 								<path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
 							</svg>
 							</h5>
 						';
 					}
-					if($harga > $a){
+					if($hasil < 0){
 						$predHarg = '
 							<h5 class="text-danger">
-							'.rupiah($a).'
+							'.rupiah($hasil).'
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
 								<path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
 							</svg>
 							</h5>
 						';
 					}
-					if($harga == $a){
+					if($hasil == 0){
 						$predHarg ='
 							<h5 class="text-warning">
-							'.rupiah($a).'
+							'.rupiah($hasil).'
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
 								<path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
 							</svg>
@@ -282,13 +289,13 @@ function rupiah($angka){
 										label: "Harga",
 										backgroundColor: '#FF9600',
 										borderColor: '#FF9600',
-										data: [<?php echo $hrgArr[0].','.$hrgArr[1].','.$hrgArr[2].','.$hrgArr[3]; ?>],
+										data: [<?php echo $hrgArr[0].','.$hrgArr[1].','.$hrgArr[2].','.$harga; ?>],
 										tension: 0.3,
 									},{
 										label: "Prediksi",
 										backgroundColor: '#FF9600',
 										borderColor: '#FF9600',
-										data: [<?php echo $hrgArr[0].','.$hrgArr[1].','.$hrgArr[2].','.$hrgArr[3].','.$a; ?>],
+										data: [<?php echo $hrgArr[0].','.$hrgArr[1].','.$hrgArr[2].','.$harga.','.$HRata; ?>],
 										tension: 0.3,
 										borderDash: [10,5],
 									}]
