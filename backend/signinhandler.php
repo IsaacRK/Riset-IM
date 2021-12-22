@@ -8,6 +8,8 @@ if(isset($_POST['submit'])){
 	$email = $_POST['email'];
 	$hash = md5( rand(0,1000) );
 	$emailpattern = '/[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i';
+	$passpatternnmb = preg_match('@[0-9]@', $pass);
+	$passpatternwrd = preg_match('@[a-z]@', $pass);
 	$query = "
 	insert into pengguna (id, user, pass, email, hash)
 	values (default,'".$user."','".$pass."','".$email."','".$hash."');
@@ -18,6 +20,13 @@ if(isset($_POST['submit'])){
 			Email tidak valid
 		</div>
 		";
+	}else if(!$passpatternnmb || !$passpatternwrd || strlen($pass)<8){
+		echo "
+		<div style='width:100%;pading:5px;background-color:red;color:white;text-align:center;font-weight:bold;'>
+		Password harus memiliki satu angka atau satu huruf atau lebih dari 8 kata
+		</div>
+		";
+		header('location:../login.php');
 	}else if($pass !== $confirm){
 		echo "
 		<div style='width:100%;pading:5px;background-color:red;color:white;text-align:center;font-weight:bold;'>
