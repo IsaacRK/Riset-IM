@@ -28,6 +28,7 @@ if(isset($_POST['addToCart'])){
 				})
 			</script>
 		';
+		header('location:../stockoutput.php');
 	}else{
 		$query = "
 		insert into cart (cart_id, user_id, stock_id, take_amount, necessity, checkout)
@@ -40,4 +41,5 @@ if(isset($_POST['addToCart'])){
 	
 	
 }
+header('location:../stockoutput.php');
 ?>

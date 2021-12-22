@@ -2,6 +2,48 @@
 
 	//prioritas		|-------------
 	
+	-[done]login
+		-login
+		-register
+	-[done]beranda
+		-[done]tampilan & cari rak
+		-[done]daftar komponen
+		-[done]tampilan & cari aktifitas barang
+		-[done]riwayat
+	-[done]stock masuk
+		-[done]cari barang & input barang
+		-[done]tampilan kapasitas penyimpanan & rasio jenis stok
+	-[done]stock keluar
+		-[done]cari dan output barang
+		-[done]keranjang
+		-[done]barcode scanner
+	-dashboard
+		-peringatan stock minim
+		-indikator performa
+		-status pengiriman
+		-prediksi
+	-prediksi
+		-tampilan prediksi harga & stok keluar barang
+	-pembelian
+		-tambah daftar kebutuhan
+		-tampilan daftar kebutuhan
+		-purchase order
+	-pengaturan harga
+		-tampilan harga
+		-edit harga
+	-pengaturan
+		-tampi dan cari/ganti tak
+		-edit kapasitas rak
+		-hapus rak
+		-tambah penyimpanan
+	-profile
+		-tampil data pengguna
+		-ganti foto profil
+		-ganti data pengguna
+	-logout
+	
+	|-----------------------------
+	
 	-frontend
 		-[done]halaman erp
 		-[done]halaman prediksi
@@ -11,11 +53,6 @@
 		-[done]fitur cari barang dan lihat prediksi keluar & harga barang
 		-[done]jika tabel pada halaman prediksi di tekan, tampilkan grafik dari pengeluaran & harga
 		-jika prediksi adalah lebih dari jumlah barang, maka tampilkan barang pada notifikasi
-	
-	|-----------------------------
-	
-	
-	
 	
 	-indikator performance
 		-di klik ke halaman pengaturan target

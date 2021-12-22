@@ -5,11 +5,7 @@ require 'backend/usersession.php';
 if ($userAC == '0'){
 			header('location:Verifyno.php');
 }else{}
-if($userlvl == 'supervisor'){
-	header('location:rencana.php');
-}else if($userlvl == 'procurement'){
-	header('location:rencana.php');
-}else{}
+
 
 function rupiah($angka){
 	$hasil_rupiah = "Rp " . number_format($angka,2,',','.');

@@ -26,26 +26,35 @@ if(isset($_POST['search'])){
 	$componentNameSearch 	= $_POST['componentNameSearch'];
 	
 	if($componentNameSearch == null){
-	header('location:stockoutput.php');
+		header('location:stockoutput.php');
 	}else{
 	
-	$serachComponentQuery 		= "select * from `stock` where stock_name like '$componentNameSearch'";
-	$serachComponentQueryRun 	= mysqli_query($servConnQuery,$serachComponentQuery);
-	$componentFetch 			= mysqli_fetch_assoc($serachComponentQueryRun);
+		$serachComponentQuery 		= "select * from `stock` where stock_name like '$componentNameSearch'";
+		$serachComponentQueryRun 	= mysqli_query($servConnQuery,$serachComponentQuery);
+		$componentFetch 			= mysqli_fetch_assoc($serachComponentQueryRun);					
 	
-	$Cid	= $componentFetch['stock_id'];
-	$Cname	= $componentFetch['stock_name'];
-	$CStock	= $componentFetch['amount'];
-	$Caddrs = $componentFetch['storage_id'];
-	
-	$addrsFetchQuery	 		= "select * from `penyimpanan` where storage_id like '$Caddrs'";
-	$addrsFetchQueryRun		 	= mysqli_query($servConnQuery,$addrsFetchQuery);
-	$addrsFetch		 			= mysqli_fetch_assoc($addrsFetchQueryRun);
-	
-	$Crak	= $addrsFetch['rak'];
-	$Clan	= $addrsFetch['lantai'];
-	$Cklm	= $addrsFetch['kolom'];
-	$Cbar	= $addrsFetch['baris'];
+		if($componentFetch){
+			$Cid	= $componentFetch['stock_id'];
+			$Cname	= $componentFetch['stock_name'];
+			$CStock	= $componentFetch['amount'];
+			$Caddrs = $componentFetch['storage_id'];
+			
+			$addrsFetchQuery	 		= "select * from `penyimpanan` where storage_id like '$Caddrs'";
+			$addrsFetchQueryRun		 	= mysqli_query($servConnQuery,$addrsFetchQuery);
+			$addrsFetch		 			= mysqli_fetch_assoc($addrsFetchQueryRun);
+			
+			$Crak	= $addrsFetch['rak'];
+			$Clan	= $addrsFetch['lantai'];
+			$Cklm	= $addrsFetch['kolom'];
+			$Cbar	= $addrsFetch['baris'];
+		}else{
+			$Cname	= 'barang tidak ada pada penyimpanan';
+			$CStock	= '-';
+			$Crak	= '-';
+			$Clan	= '-';
+			$Cklm	= '-';
+			$Cbar	= '-';
+		}
 	}
 }
 
@@ -216,6 +225,7 @@ if(isset($_GET['barcode'])){
 					<div class="col-6 mx-auto">
 						<input class="btn btn-primary btn-block" type="submit" name="addToCart" value="Tambahkan ke keranjang"
 							<?php
+								//jika id barang kosong [berarti belum mengambil / barang yang di cari tidak ada] tomol akan di disabled
 								if(isset($Cid)==null){
 									echo'disabled aria-disabled="true"';
 								}

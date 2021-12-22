@@ -29,7 +29,7 @@ $sql = "select * from stock";
 $run = mysqli_query($servConnQuery, $sql);
 if(mysqli_num_rows($run)>0){
 	while($row = mysqli_fetch_assoc($run)){
-		//echo 'id: '.$row['stock_id'].' | cate: '.$row['category'].'</br>';
+		//echo 'id: '.$row['stock_id'].' | kategori: '.$row['category'].'</br>';
 		if($row['category']=='001'){
 			$elek++;
 		}
