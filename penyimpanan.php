@@ -6,12 +6,36 @@ if ($userAC == '0'){
 }else{}
 if(isset($_POST['hapusRak'])){
 	$sid = $_POST['rakId'];
-	$sqlHapus = "DELETE FROM penyimpanan WHERE storage_id='$sid'";
-	$run = mysqli_query($servConnQuery, $sqlHapus);
-	if($run){
+	$sqlcek = "select * from stock where storage_id = $sid";
+	$runcek = mysqli_query($servConnQuery, $sqlcek);
+	$x = 0;
+	while($rowcek = mysqli_fetch_assoc($runcek)){
+		if($rowcek['amount'] > 0){
+			$x++;
+		}
+		echo $x;
+	}
+	if($x == 0){
+		$sqlHapus = "DELETE FROM penyimpanan WHERE storage_id='$sid'";
+		$run = mysqli_query($servConnQuery, $sqlHapus);
+		$run = 1;
+		if($run){
+			echo'
+				<script>
+					alert("penyimpanan berhasil di hapus");
+				</script>
+			';
+		}else{
+			echo'
+				<script>
+					alert("penyimpanan gagal di hapus");
+				</script>
+			';
+		}
+	}else{
 		echo'
 			<script>
-				alert("penyimpanan berhasil di hapus");
+				alert("penyimpanan memiliki barang, gagal dihapus");
 			</script>
 		';
 	}

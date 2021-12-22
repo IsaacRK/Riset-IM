@@ -2,9 +2,10 @@
 
 	//prioritas		|-------------
 	
+	activity diagram
 	-[done]login
-		-login
-		-register
+		-[done]login
+		-[done]register
 	-[done]beranda
 		-[done]tampilan & cari rak
 		-[done]daftar komponen
@@ -17,30 +18,30 @@
 		-[done]cari dan output barang
 		-[done]keranjang
 		-[done]barcode scanner
-	-dashboard
-		-peringatan stock minim
-		-indikator performa
-		-status pengiriman
-		-prediksi
-	-prediksi
-		-tampilan prediksi harga & stok keluar barang
-	-pembelian
-		-tambah daftar kebutuhan
-		-tampilan daftar kebutuhan
-		-purchase order
-	-pengaturan harga
-		-tampilan harga
-		-edit harga
-	-pengaturan
-		-tampi dan cari/ganti tak
-		-edit kapasitas rak
-		-hapus rak
-		-tambah penyimpanan
-	-profile
-		-tampil data pengguna
-		-ganti foto profil
-		-ganti data pengguna
-	-logout
+	-[done]dashboard
+		-[done]peringatan stock minim
+		-[done]indikator performa
+		-[done]status pengiriman
+		-[done]prediksi
+	-[done]prediksi
+		-[done]tampilan prediksi harga & stok keluar barang
+	-[done]pembelian
+		-[done]tampil & tambah daftar kebutuhan
+		-[done]purchase order
+	-[done]pengaturan harga
+		-[done]tampilan harga
+		-[done]edit harga
+	-[done]pengaturan
+		-[done]tampi dan cari/ganti tak
+		-[done]edit kapasitas rak
+		-[done]hapus rak
+		-[done]tambah penyimpanan
+	-[done]profile
+		-[done]ganti foto profil
+		-[done]ganti data pengguna
+	-[done]indikator
+		-[done]input & tampilkan indikator performa
+		-[done]tampilkan grafik barang keluar 7/30 hari
 	
 	|-----------------------------
 	
