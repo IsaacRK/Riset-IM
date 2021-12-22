@@ -152,6 +152,9 @@ function closeNav() {
 	if(urlTxt == "rencana.php"){
 		document.getElementById("rencana").className = "currentPage";
 	}
+	if(urlTxt == "prediksi.php"){
+		document.getElementById("prediksi").className = "currentPage";
+	}
 	if(urlTxt == "akutansi.php"){
 	document.getElementById("Akutansi").className = "currentPage";
 	}
