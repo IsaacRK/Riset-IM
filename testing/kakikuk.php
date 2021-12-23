@@ -127,6 +127,8 @@ $(function(){
 	});
 	$('.dataTables_length').addClass('bs-select');
 });
+var nama = <?php echo'"'.'nama'.'"'; ?>;
+console.log(nama);
 </script>
 
 </body>

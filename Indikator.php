@@ -28,35 +28,43 @@ if ($userAC == '0'){
 
             <div class="card shadow-sm">
 	        <div class="card-body">
-
-				<form method="post" action="">
+				<?php
+					require'backend/indikatorPerforma.php';
+				?>
                 <div class="row text-center mb-4">
                     <div class="col">
                         <h4>Target pemasukkan bulanan :</h4>
-                        <input class="form-control" type="number" name="targetPemasukan" id=""/>
+						<form method="post" action="">
+						
+						<div class="row">
+							<div class="col-sm-9">
+								<input class="form-control" type="number" placeholder="<?php echo rupiah($target);?>" name="targetPemasukan" id="">
+							</div>
+							<div class="col-sm-3">
+								<input class="btn btn-primary" type="submit" name="submitIndikator" value="Ubah">
+							</div>
+						</div>
+						</form>
                     </div>
                     <div class="col">
-                        <h4>Total rata pemasukan :</h4>
-                        <input class="form-control" type="text" name="" id=""/>
+                        <h4>Rata rata pemasukan Seminggu :</h4>
+                        <div><h4><?php echo rupiah($rata);?></h4></div>
                     </div>
                 </div>
                 <div class="row text-center">
                     <div class="col">
                         <h4>Total pengeluaran bulan :</h4>
-                        <input class="form-control" type="text" name="" id=""/>
+                        <div><h4>RP 100.000</h4></div>
                     </div>
                     <div class="col">
                         <h4>Indikator performa :</h4>
-                        <input class="form-control" type="text" name="" id=""/>
+                        <div class="card-text"><h4><?php echo$persen; ?>%</h4></div>
+						<div class="progress">
+							<div class="progress-bar" style="width: <?php echo$persen; ?>%"></div>
+						</div>
                     </div>
                 </div>
-				<div class="row text-center">
-                    <div class="col">
-                        <input class="btn btn-primary mb-3 mt-3" type="submit" name="submitIndikator" value="Ubah">
-                    </div>
-                </div>
-				</form>
-			
+				</br>
 				<!--chart-->
 				<div class="card">
 					<div class="card-body" id="indikatorChart" style="">
