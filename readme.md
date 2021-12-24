@@ -1,7 +1,7 @@
 # Instalasi
 #### Download
 1. Download file dengan menekan tombol "Download ZIP" pada repository Riset IM https://github.com/IsaacRK/Riset-IM
-![[download1.PNG]]
+![download1.PNG](https://github.com/IsaacRK/Riset-IM/blob/main/Dokumentasi/readme/download1.PNG?raw=true)
 2. Ekstrak folder dari file ZIP pada:
 	- Untuk Pengguna XAMPP
 		1. buka folder C: \ xampp \ htdocs
