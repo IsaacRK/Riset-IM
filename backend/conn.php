@@ -1,5 +1,9 @@
 <?php
-$servConnQuery = mysqli_connect('localhost', 'root', '', 'pblwamsy');
+$server 	= 'localhost';
+$userNM 	= 'root';
+$pass 		= '';
+$database 	= 'pblwamsy';
+$servConnQuery = mysqli_connect($server, $userNM, $pass, $database);
 
 if (mysqli_connect_errno()){
     echo "DATABASE ERROR : " . mysqli_connect_error();
