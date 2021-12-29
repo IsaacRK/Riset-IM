@@ -16,11 +16,11 @@ $Foto_05 = $Foto_03['filename'];
 
 ?>
 
-<div class="row">
-		<div class="col-sm-1 mt-2">
-				<button class="openbtn" onclick="openNav()">☰</button>
-		</div>
+
+<div class="mt-2">
+		<button class="openbtn" onclick="openNav()">☰</button>
 </div>
+
 
 <div id="mySidepanel" class="sidepanel">
   

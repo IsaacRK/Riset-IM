@@ -185,14 +185,14 @@ if($userlvl == 'staff'){
 
 				</div>
 				
-				<div class="overflow-auto">
+				<div class="table-responsive-sm">
 				<table class="table table-stripped">
 					<thead>
 						<tr>
 							<th>Tanggal</th>
 							<th>Pengirim</th>
-							<th>Alamat Tujuan</th>
-							<th>Lokasi Terkini</th>
+							<th style="min-width:150px">Alamat Tujuan</th>
+							<th style="min-width:200px">Lokasi Terkini</th>
 							<th>Nomor Resi</th>
 						</tr>
 					</thead>

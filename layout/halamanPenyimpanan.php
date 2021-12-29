@@ -12,7 +12,7 @@ if(isset($_GET['lan'])){
 
 $arr = array();
 
-$sql = "select * from penyimpanan where rak=$rak and lantai = $lan";
+$sql = "select * from penyimpanan where rak=$rak and lantai = $lan order by kolom asc";
 $run = mysqli_query($servConnQuery, $sql);
 
 while($row = mysqli_fetch_assoc($run)){

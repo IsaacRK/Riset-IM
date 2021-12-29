@@ -1,71 +1,22 @@
 //todo   |---
 
 	//prioritas		|-------------
-	
-	activity diagram
-	-[done]login
-		-[done]login
-		-[done]register
-	-[done]beranda
-		-[done]tampilan & cari rak
-		-[done]daftar komponen
-		-[done]tampilan & cari aktifitas barang
-		-[done]riwayat
-	-[done]stock masuk
-		-[done]cari barang & input barang
-		-[done]tampilan kapasitas penyimpanan & rasio jenis stok
-	-[done]stock keluar
-		-[done]cari dan output barang
-		-[done]keranjang
-		-[done]barcode scanner
-	-[done]dashboard
-		-[done]peringatan stock minim
-		-[done]indikator performa
-		-[done]status pengiriman
-		-[done]prediksi
-	-[done]prediksi
-		-[done]tampilan prediksi harga & stok keluar barang
-	-[done]pembelian
-		-[done]tampil & tambah daftar kebutuhan
-		-[done]purchase order
-	-[done]pengaturan harga
-		-[done]tampilan harga
-		-[done]edit harga
-	-[done]pengaturan
-		-[done]tampi dan cari/ganti tak
-		-[done]edit kapasitas rak
-		-[done]hapus rak
-		-[done]tambah penyimpanan
-	-[done]profile
-		-[done]ganti foto profil
-		-[done]ganti data pengguna
-	-[done]indikator
-		-[done]input & tampilkan indikator performa
-		-[done]tampilkan grafik barang keluar 7/30 hari
-	
-	|-----------------------------
-	
-	-frontend
-		-[done]halaman erp
-		-[done]halaman prediksi
-		-[done]tambah halaman prediksi pada sidebar
-	
 	-backend
 		-[done]fitur cari barang dan lihat prediksi keluar & harga barang
 		-[done]jika tabel pada halaman prediksi di tekan, tampilkan grafik dari pengeluaran & harga
 		-jika prediksi adalah lebih dari jumlah barang, maka tampilkan barang pada notifikasi
+		-[done]prediksi (rata rata) tidak menghitung data bernilai 0.	
 	
 	-indikator performance
-		-di klik ke halaman pengaturan target
-		-di halaman target bisa setting target
+		-[done]di klik ke halaman pengaturan target
+		-[done]di halaman target bisa setting target
 		-sebelum input harus masukkan password dulu
-		-bisa edit terget lagi di bulan yang sama
-		-ada chart dari 7 atau 30 hari dan prediksi di 1 hari berikutnya
+		-[done]bisa edit terget lagi di bulan yang sama
+		-[done]ada chart dari 7 atau 30 hari dan prediksi di 1 hari berikutnya
 
 	
 Tambahan dari pak Dwiky:
 		-Pada tombol laporan, apabila bisa, dokumen yang didownload sudah berdada dalam sebuah format
-		-Berikan tombol ganti kamera pada barcode scanner dan di bahasa indonesiakan
 		-Pas pertama kali masuk, terdapat tutorial menggunakan halaman
 	
 -fitur erp
@@ -93,22 +44,18 @@ Tambahan dari pak Dwiky:
 	-pengeturan kapasitas kolom dan baris
 		-[done]dapat mengubah kapasitas penyimpanan
 		-maksimal dari penyimpanan tersebut, jika hampir atau melebihi dari yang di tentukan maka mapping akan berubah
-	-pengaturan rentang indikator kinerja
-		-total pemasukan
-		-total pengeluaran
-		-target pemasukan
-		-3hari, 7hari, 30hari
+	-[done]pengaturan rentang indikator kinerja
+		-[done]total pemasukan
+		-[done]total pengeluaran
+		-[done]target pemasukan
+		-[done]3hari, 7hari, 30hari
 
--button pilih kamera di stock output barcode scanner
+-[done]button pilih kamera di stock output barcode scanner
 
 -[done] buat tombol report
 	-bisa pilih report dari 1 minggu / 1 bulan terakhir
 		-[done] report berupa pdf atau exel
 	-hapus report dari 1 bulan terakhir ketika bulan baru
-
--buat halaman pengaturan tempat penyimpanan
-	-membuat form untuk penyimpanan barang dinamis mengikuti perubahan dari database/pengaturan penyimpanan
-	- input barang ground
 	
 -crop gambar
 	-implementasi ke halaman profil & pasang backend
@@ -117,26 +64,3 @@ Tambahan dari pak Dwiky:
 //fix   |---
 -mapping barang menjadi lebih akurat pada database
 	-ketika mengambil barang dari suatu rak, dan rak masih memiliki barang, tidak membuat rak tersebut terlihat kosong pada display mapping.
-
--crop foto porfil
-
-//planning   |---
--halaman production planning/rencana produksi
--halaman setting/pengaturan
-
-
-
-//aa 109
-progress (poin)
-(barang yang belum selesai)
-	pengujian
-	bagain selesai
-	suatu rinci
-	(sedetail mungkin)
-kendala (poin)
-(suatu yang belum selesai)
-	dari suatu yang belum selesai baru di dapat masalah dan dapat di fokuskan.
-	(sedetail mungkin)
-
-Acounting
-| nama | input | harga beli | harga jual | edit? |

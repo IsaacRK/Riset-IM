@@ -101,9 +101,23 @@ function rupiah($angka){
 					//nilai akhir = pembandingan nilai akhir dan rata rata
 					//nilai keluaran dari bulan ini dibandingkan dengan rata rata
 					//jika lebih dari rata rata maka + dan sebaliknya
+					/*
 					$x = 0;
 					if(array_sum($brngKel)!=0){
 						$x = ceil(array_sum($brngKel)/3);
+					}*/
+					
+					//array index barang
+					$x = 0;
+					$arInBrg = count($brngKel);
+					$count = 0;
+					for($i=0;$i<$arInBrg;$i++){
+						if($brngKel[$i]!=0){
+							$count++;
+						}
+					}
+					if(array_sum($brngKel)!=0){
+						$x = ceil(array_sum($brngKel)/$count);
 					}
 					
 					//penentuan style stok keluar
@@ -166,10 +180,22 @@ function rupiah($angka){
 					$harga	 = $rowHarg['jual'];
 					array_push($hrgArr, $rowHarg['jual']);
 					
-					//harga rata rata
+					//hitung harga rata rata
 					$HRata = 0;
+					/*
 					if(array_sum($hrgArr)!=0){
 						$HRata = ceil(array_sum($hrgArr)/4);
+					}*/
+						//array index harga
+					$arInHrg = count($hrgArr);
+					$count = 0;
+					for($i=0;$i<$arInHrg;$i++){
+						if($hrgArr[$i]!=0){
+							$count++;
+						}
+					}
+					if(array_sum($hrgArr)!=0){
+						$HRata = ceil(array_sum($hrgArr)/$count);
 					}
 					
 					//harga sekarang = A

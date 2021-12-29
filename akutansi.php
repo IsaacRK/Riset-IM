@@ -58,7 +58,7 @@ if(isset($_POST['editBtn'])){
 
     <div class="card shadow-sm">
 	<div class="card-body">
-    <table class="table table-striped table-sm" id="tableAcc">
+    <table class="table table-striped table-sm display nowrap" id="tableAcc">
         <thead>
             <tr class="table-info">
                 <th scope="col">Nama</th>
@@ -116,7 +116,7 @@ if(isset($_POST['editBtn'])){
 			<td><?php echo$beli;?></td>
 			<td><?php echo$jual;?></td>
 			<td>
-				<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal<?php echo$id;?>">
+				<button class="btn btn-primary" onclick="edit(<?php echo$id;?>)">
 					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
 					  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
 					  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
@@ -124,40 +124,6 @@ if(isset($_POST['editBtn'])){
 				</button>
 			</td>
 		</tr>
-
-		<!-- Modal -->
-		<div class="modal fade" id="editModal<?php echo$id;?>" tabindex="-1" aria-labelledby="modalEditHarga" aria-hidden="true">
-		  <div class="modal-dialog">
-			<div class="modal-content">
-			  <div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Edit Harga</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			  </div>
-			  <div class="modal-body">
-				<form action="" method="post"; >
-					<fieldset disabled>
-				<label for="disabledTextInput" class="form-label" >Nama</label>
-                <input type="Text" class="form-control" id="disabledTextInput" placeholeder="disabled input" value="<?php echo$data['stock_name'];?>">	
-				<label for="disabledTextInput" class="form-label" >Jumlah</label>
-                <input type="Text" class="form-control" id="disabledTextInput" placeholeder="disabled input" value="<?php echo$data['amount'];?>">
-				<label for="disabledTextInput" class="form-label">Tanggal Input</label>
-                <input type="Text" class="form-control" id="disabledTextInput" placeholeder="disabled input" value="<?php echo$tgl;?>">
-				<label for="exampleInputHargaBeli" class="form-label">Harga Beli</label>
-                <input type="HargaBeli" class="form-control" id="exampleInputHargaBeli" value="<?php echo$data['beli']?>">
-				</fieldset disabled>
-				<label for="exampleInputHargaJual" class="form-label">Harga Jual</label>
-                <input type="HargaJual" name="edit" class="form-control" id="exampleInputHargaJual" >
-				<input type="hidden" name="editId" value="<?php echo$sid; ?>" >
-			</div>
-			  <div class="modal-footer">
-				<input type="submit"  class="btn btn-primary" name="editBtn" value="Submit">
-				</form>
-				<button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-			  </div>
-			</div>
-		  </div>
-		</div>
-		
 			<?php } ?>
         </tbody>
     </table>
@@ -167,18 +133,34 @@ if(isset($_POST['editBtn'])){
  </div>
 </div>
 
+<script src="js/dataTables.responsive.min.js"></script>
+<script src="js/dataTables.rowReorder.min.js"></script>
 <script>
-$(function(){
+$(document).ready(function(){
 	$('#tableAcc').DataTable({
 		"scrollY": "50vh",
-		"scrollCollapse": true,
+		responsive: true,
 		language:{
 			url: 'js/id.json'
 		}
 	});
 	$('.dataTables_length').addClass('bs-select');
 });
+
+function edit(x){	
+	console.log(x);
+	$('#modalEdit').modal('show').find('.modal-content').load('layout/modalEditHarga.php?id='+x);
+}
 </script>
+
+
+<div class="modal fade" id="modalEdit">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

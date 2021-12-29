@@ -173,7 +173,7 @@ if(isset($_POST['btnEdit'])){
 		</form>
 	
 	<!--tabel rak start-->
-		<div id="divPenyimpanan"></div>
+		<div id="divPenyimpanan" class="table-responsive"></div>
 	<!--tabel rak end---->
 	
 	</div>
