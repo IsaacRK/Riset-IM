@@ -52,7 +52,9 @@ if($userlvl == 'supervisor'){
 			}else{	?>
 				<div class="col-3 mt-1 p-1 d-flex justify-content-end hun">
 				<div class="d-grid gap-2 w-100">
-					<a href="backend/report.php" class="btn btn-primary">Unduh laporan</a>
+					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSetReport">
+					  Unduh Laporan
+					</button>
 				</div>
 				</div>
 		        <?php } ?>
@@ -203,6 +205,36 @@ if($userlvl == 'supervisor'){
   </div>
 </div>
 
+<div class="modal fade" id="modalSetReport">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+		<div class="modal-header">
+			<button class="border border-0" type="" data-bs-dismiss="modal">
+				<img src="img/icons/x-lg.svg"/>
+			</button>
+		</div>
+		<div class="modal-body">
+			<h3>Unduh Data Laporan</h3>
+			<form method="post" action="backend/report.php">
+				<div class="input-group mb-3">
+					<label class="input-group-text" for="hariX">Ambil Data:</label>
+					<select class="form-select" name="hari" aria-label="Default select example">
+						<option selected>Pilih Hari</option>
+						<option value="1">7 hari</option>
+						<option value="2">1 Bulan</option>
+						<option value="3">3 Bulan</option>
+						<option value="4">Seluruh Data</option>
+					</select>
+				</div>
+				<input type="submit" name="submit" class="btn btn-primary" value="Unduh Data">
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
+		</div>
+    </div>
+  </div>
+</div>
 
 <?php
 	include"layout/js.php";

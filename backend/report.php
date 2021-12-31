@@ -8,15 +8,33 @@ if($userlvl == 'staff'){
 	header('location:../dashboard.php');
 }else{
 
+$hari = '';
+if(isset($_POST["submit"])){
+	if($_POST['hari']==1){
+		// ambil 7 hari
+		$hari = "where history.date > CURRENT_DATE - INTERVAL 7 day order by date(date)";
+	}
+	if($_POST['hari']==2){
+		// ambil 1 bulan
+		$hari = "where history.date > CURRENT_DATE - INTERVAL 1 month order by date(date)";
+	}
+	if($_POST['hari']==3){
+		// ambil 3 bulan
+		$hari = "where history.date > CURRENT_DATE - INTERVAL 3 month order by date(date)";
+	}
+	if($_POST['hari']==4){
+		// ambil sluruh data
+		$hari = "";
+	}
+}
 
-$sql = "
-SELECT history.* , stock.stock_name, pengguna.user
-FROM history
-JOIN stock
-ON history.stock_id = stock.stock_id
-JOIN pengguna
-ON history.user_id = pengguna.id
-";
+$sql ="SELECT history.* , stock.stock_name, pengguna.user
+			FROM history
+			JOIN stock
+			ON history.stock_id = stock.stock_id
+			JOIN pengguna
+			ON history.user_id = pengguna.id ".$hari;
+
 $run = mysqli_query($servConnQuery, $sql);
 $arrDat = array();
 

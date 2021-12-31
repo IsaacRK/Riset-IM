@@ -129,7 +129,7 @@ if(isset($_GET['itemNameUpdate'])){
 				</div>
 				
 			</div>
-						<div class="modal-footer d-flex justify-content-center">
+			<div class="modal-footer d-flex justify-content-center">
 				<button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick="printContent('barcode')">Print</button>
 			</div>
 			<script>

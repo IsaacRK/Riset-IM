@@ -7,6 +7,7 @@
 		-jika prediksi adalah lebih dari jumlah barang, maka tampilkan barang pada notifikasi
 		-[done]prediksi (rata rata) tidak menghitung data bernilai 0.	
 	
+		-input harga, error ketika masukkan titik dan koma
 	-indikator performance
 		-[done]di klik ke halaman pengaturan target
 		-[done]di halaman target bisa setting target
