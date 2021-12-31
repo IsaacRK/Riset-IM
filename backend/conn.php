@@ -1,8 +1,9 @@
 <?php
+
 $server 	= 'localhost';
-$userNM 	= 'root';
-$pass 		= '';
-$database 	= 'pblwamsy';
+$userNM 	= 'root';		//cypr9718
+$pass 		= '';			//pq6SPaHWYiKe38
+$database 	= 'pblwamsy';	//cypr9718_pblwamsy
 $servConnQuery = mysqli_connect($server, $userNM, $pass, $database);
 
 if (mysqli_connect_errno()){
