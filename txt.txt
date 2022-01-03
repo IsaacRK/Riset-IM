@@ -39,9 +39,9 @@ Tambahan dari pak Dwiky:
 
 -pengaturan
 	-[done]pengaturan penyimpanan
-	-pengaturan rentang report
-		-atur rantang tanggal awal dan akhir / durasi hari
-		-30 hari, 7hari
+	-[done]pengaturan rentang report
+		-[done]atur rantang tanggal awal dan akhir / durasi hari
+		-[done]30 hari, 7hari
 	-pengeturan kapasitas kolom dan baris
 		-[done]dapat mengubah kapasitas penyimpanan
 		-maksimal dari penyimpanan tersebut, jika hampir atau melebihi dari yang di tentukan maka mapping akan berubah
@@ -54,7 +54,7 @@ Tambahan dari pak Dwiky:
 -[done]button pilih kamera di stock output barcode scanner
 
 -[done] buat tombol report
-	-bisa pilih report dari 1 minggu / 1 bulan terakhir
+	-[done]bisa pilih report dari 1 minggu / 1 bulan terakhir
 		-[done] report berupa pdf atau exel
 	-hapus report dari 1 bulan terakhir ketika bulan baru
 	
