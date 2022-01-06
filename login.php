@@ -1,6 +1,7 @@
 <?php
 require 'backend/conn.php';
-
+$salah = 0;
+require 'backend/loginhandler.php';
 if(@$_SESSION['uid']!=null){
 	header('location:dashboard.php');
 }
@@ -37,16 +38,31 @@ if(@$_SESSION['uid']!=null){
 <body class="bg-light bg-gradient">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient">
-  <div class="container-fluid">
+	<div class="container">
     <a class="navbar-brand">Inventory Management</a>
-	
-    <form action="backend/loginhandler.php" method="post" class="d-flex">
-	  <input class="form-control" required type="text" name="user" id="" placeholder="Nama pengguna"/>
-	  <input class="form-control ms-2" required type="password" name="pass" id="" placeholder="Kata sandi"/>      
-	  <button class="btn btn-light btn-outline-primary ms-2" type="submit" name="submit" value="Login">Masuk</button>
-    </form>
+		<form action="" method="post" class="d-flex flex-wrap">
+			<div class="row m-0 p-0">
+			<?php
+				if($salah == 1){
+					echo'
+						<div class="col-sm-4 m-0 p-0">
+						<div class="form-control alert alert-danger mb-0" style="padding-top:6px!important;padding-bottom:6px!important" role="alert">Nama atau Sandi salah</div>
+						</div>
+					';
+				}
+			?>
+			<div class="col-sm">
+			<input class="form-control" required type="text" name="user" id="" placeholder="Nama pengguna"/>
+			</div>
+			<div class="col-sm">
+			<input class="form-control" required type="password" name="pass" id="" placeholder="Kata sandi"/>      
+			</div>
+			<div class="col-sm-1">
+			<button class="btn btn-light btn-outline-primary ms-2" type="submit" name="submit" value="Login">Masuk</button>
+			</div>
+			</div>
+		</form>
     </div>
-  </div>
 </nav>
 
 <div class="row" style="width:100%">

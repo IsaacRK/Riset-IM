@@ -45,7 +45,14 @@ if($userlvl == 'supervisor'){
 	<div class="p-1">
 		<div class="row">
 			<div class="col">
-				<h1>Beranda</h1>
+				<h1>Beranda
+					<span style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#infoPage">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+							<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+							<path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+						</svg>
+					</span>
+				</h1>
 			</div>
 			<?php 	if($userlvl == 'staff'){
 			}else if($userlvl == 'operator'){
@@ -234,6 +241,30 @@ if($userlvl == 'supervisor'){
 		</div>
     </div>
   </div>
+</div>
+
+
+<div class="modal fade" id="infoPage">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h4 class="modal-title">Penggunaan Website</h4>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+			</div>
+
+			<!-- Modal body -->
+			<div class="modal-body">
+				<h4>Rak</h4>
+					<p>menampilkan daftar dari rak yang telah di </p>
+				<h4>Daftar Komponen</h4>
+				<h4>Aktifitas Barang</h4>
+				<h4>Riwayat Aktifitas</h4>
+				<h4>Unduh Laporan</h4>
+			</div>
+		</div>
+	</div>
 </div>
 
 <?php

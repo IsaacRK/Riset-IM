@@ -15,11 +15,32 @@
 		-[done]bisa edit terget lagi di bulan yang sama
 		-[done]ada chart dari 7 atau 30 hari dan prediksi di 1 hari berikutnya
 
-	
-Tambahan dari pak Dwiky:
+	-info pada halaman
+		-beranda
+			rak/ganti rak
+				untuk penampilan dari rak yang telah memiliki barang / kosong
+			daftar komponen
+				menampilkan daftar barang pada rak di pilih, tekan tombol untuk melihat barang secara lengkap
+			aktifitas barang & riwayat aktifitas
+				menampilkan aktifitas barang selama 7 hari terakhir
+			unduh laporan
+				untuk mengunduh laporan pada rentang hari yang di pilih
+			info
+				untuk penjelasan lebih lengkapnya dari fungsi halaman, dapat di lihat di sini
+		-stok masuk
+			
+		-stok keluar
+			
+		-dashboard
+		-prediksi
+		-pembelian
+		-pengeturan harga
+		-pengaturan
+
+	Tambahan dari pak Dwiky:
 		-Pada tombol laporan, apabila bisa, dokumen yang didownload sudah berdada dalam sebuah format
 		-Pas pertama kali masuk, terdapat tutorial menggunakan halaman
-	
+	|-------------
 -fitur erp
 	-[done]hanya bisa diakses admin & supervervisor
 	Fitur
