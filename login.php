@@ -121,20 +121,20 @@ if(@$_SESSION['uid']!=null){
   <form action="backend/signinhandler.php" method="post" novalidate>
     <div class="row border-0">
 
-     <div class="col border-0">
+    <div class="col border-0">
 
         <div class="row mb-3 mt-3">
             <div class="col">
-             <p class="kin">Nama : </p>
+				<p class="kin">Nama : </p>
             </div>
             <div class="col">
-             <input class="form-control inp" required type="text" name="user" id=""/>
+				<input class="form-control inp" required type="text" name="user" id=""/>
             </div>
         </div>
 
         <div class="row mb-3">
             <div class="col">
-             <p class="kin">Email : </p>
+				<p class="kin">Email : </p>
             </div>
             <div class="col">
               <input class="form-control inp" required type="text" name="email" id=""/>
@@ -143,10 +143,10 @@ if(@$_SESSION['uid']!=null){
                 
         <div class="row mb-3">
             <div class="col">
-             <p class="kin">Kata Sandi : </p>
+				<p class="kin">Kata Sandi : </p>
             </div>
             <div class="col">
-               <input class="form-control inp" required type="password" name="pass" id=""/>
+				<input class="form-control inp" required type="password" name="pass" id=""/>
             </div>
         </div>
         
@@ -161,26 +161,24 @@ if(@$_SESSION['uid']!=null){
         
         <div class="row mb-3">
             <div class="col">
-             <p class="kin spc">Verifikasi Captcha : </p>
+				<p class="kin spc">Verifikasi Captcha : </p>
             </div>
-            </br>
-  </br></br>
-  </br></br>
+			
+			</br></br>
+			</br></br>
             <div class="col-md-auto">
                 <canvas id="captcha" class="" width="215" height="70">captcha text</canvas></br>
                 <input id="textBox" type="text" class="form-control" style="width:150px" name="text">
             </div>
             <div class="col col-lg-2">
-            <input type="button" value = "Ganti" onclick="history.go(0)"></button>
+				<button type="button" value = "Ganti" onclick="history.go(0)"></button>
             </div>
-        <div class="row mb-3">
-            <div class="col text-center">
-                <Button class="btn btn-primary" type="submit" name="submit" value="register">Daftar</button>
-            </div>
-        </div>
-
-
-    </div>
+			<div class="row mb-3">
+				<div class="col text-center">
+					<input class="btn btn-primary" type="submit" name="submit" value="Daftar">
+				</div>
+			</div>
+		</div>
 
     </div>		
   </form>

@@ -14,9 +14,10 @@ if(isset($_POST['submit'])){
 	//Membuat format Kata Sandi	
 	$passpatternnmb = preg_match('@[0-9]@', $pass);
 	$passpatternwrd = preg_match('@[a-z]@', $pass);
+	
 	$query = "
-	insert into pengguna (id, user, pass, email, hash)
-	values (default,'".$user."','".$pass."','".$email."','".$hash."');
+	insert into pengguna (id, user, pass, email, telp, tingkat, hash)
+	values (default,'".$user."','".$pass."','".$email."','0', 'staff','".$hash."');
 	";
 	//Melihat apakah email sudah memiliki format yang benar	
 	if(!preg_match($emailpattern, $email)){
@@ -32,7 +33,7 @@ if(isset($_POST['submit'])){
 		Password harus memiliki satu angka atau satu huruf atau lebih dari 8 kata
 		</div>
 		";
-		header('location:../login.php');
+		//header('location:../login.php');
 	//Melihat apakah Kata Sandi sama dengan Konfirmasi Kata Sandi		
 	}else if($pass !== $confirm){
 		echo "
@@ -42,6 +43,7 @@ if(isset($_POST['submit'])){
 		";
 	}else{
 		$run = mysqli_query($servConnQuery, $query);
+		echo $query.'</br>';
 		if($run){
 		//Membuat format surel			
 		$from = "csinventory@cypiral.org";
@@ -52,14 +54,15 @@ if(isset($_POST['submit'])){
 		Your account has been created, you can login with the following credentials after you have activated your account by pressing the url below.
 		 
 		------------------------
-		Username: '.$name.'
-		Password: '.$password.'
+		Username: '.$user.'
+		Password: '.$pass.'
 		------------------------
 		 
 		Please click this link to activate your account:
 		http://inventory.cypiral.org/backend/verify.php?email='.$email.'&hash='.$hash.'';
 		$headers = 'From:noreply' . $from;
 		//Mengirim surel			
+		//masih masalah, untuk local machine harus diatur secara manual untuk bisa mengirim surel
 		mail($to, $subject, $message, $headers);
 		//Mengambil data pengguna
 		$query = "select * from pengguna where user = '$user' and pass = '$pass'";
@@ -78,6 +81,8 @@ if(isset($_POST['submit'])){
 		";
 		}
 	}
+}else{
+	echo'testing';
 }
 
 ?>
