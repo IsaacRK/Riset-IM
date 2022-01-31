@@ -43,8 +43,8 @@ if(mysqli_num_rows($run)>0){
 	}
 }
 
-$totalStorage='';
-$storageCheck='';
+$totalStorage='0';
+$storageCheck='0';
 $storageQuery = "select * from penyimpanan";
 $storageRun = mysqli_query($servConnQuery, $storageQuery);
 if(mysqli_num_rows($storageRun)>0){
@@ -56,12 +56,17 @@ if(mysqli_num_rows($storageRun)>0){
 	}
 }
 
-$x = $totalStorage - $storageCheck;
+$x=0;
+$e=0;
+$p=0;
+$l=0;
+if($totalStorage!=0 && $totalBarang!=0){
+	$x = $totalStorage - $storageCheck;
 
-$e = xpercent_of_y(x_aspercent_of_y($elek,$totalBarang),$storageCheck);
-$p = xpercent_of_y(x_aspercent_of_y($pera,$totalBarang),$storageCheck);
-$l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
-
+	$e = xpercent_of_y(x_aspercent_of_y($elek,$totalBarang),$storageCheck);
+	$p = xpercent_of_y(x_aspercent_of_y($pera,$totalBarang),$storageCheck);
+	$l = xpercent_of_y(x_aspercent_of_y($lain,$totalBarang),$storageCheck);
+}
 ?>
 <!DOCTYPE html>
 <html>
