@@ -3,23 +3,28 @@ require 'conn.php';
 require 'usersession.php';
 
 if(isset($_POST['submit'])){
-	
     //Mengambil data yang dimasukkan dari form
     $BRNG   = $_POST['nmbrng'];
     $link   = $_POST['link'];
+	$toko	= $_POST['toko'];
+	$alamat	= $_POST['alamat'];
     $harga  = $_POST['harga'];
     $ONG    = $_POST['ongkir'];
     $jumlah = $_POST['JMLH'];
 
     //Melihat apakah ada data yang belum diisi
     if($BRNG == null){
-        header('location:Pembelian.php');
+        //header('location:Pembelian.php');
+		echo'barang kosong';
     }else if($link == null){
-        header('location:Pembelian.php');
+        //header('location:Pembelian.php');
+		echo'link kosong';
     }else if($harga == null){
-        header('location:Pembelian.php');
+        //header('location:Pembelian.php');
+		echo'harga kosong';
     }else if($jumlah == null){
-        header('location:Pembelian.php');
+        //header('location:Pembelian.php');
+		echo'jumlah kosong';
     }else{
     
     //Mencari barang yang memiliki nama yang sama pada database
@@ -29,8 +34,8 @@ if(isset($_POST['submit'])){
     $stckid = $SUS['stock_id'];
 	
     //Memasukkan data ke database
-    $pmbln = "INSERT into pembelian (id, stock_id, link, jumlah, harga, Ongkir, totalhrg, RAB) 
-    value (default,'$stckid','$link','$jumlah','$harga','$ONG','0' ,default)";
+    $pmbln = "INSERT into pembelian (id, stock_id, link, toko, alamat, jumlah, harga, Ongkir, totalhrg, RAB) 
+    value (default,'$stckid','$link', '$toko', '$alamat', '$jumlah','$harga','$ONG','0' ,default)";
     $inpmb = mysqli_query($servConnQuery, $pmbln);
 
     //Mengambil id terakhir dari tabel pembelian
@@ -63,7 +68,7 @@ if(isset($_POST['submit'])){
     $hrg = "UPDATE harga SET beli='$harga' WHERE id = '$SABOT'";
     $inhr= mysqli_query($servConnQuery, $hrg);
 
-    header('location:Pembelian.php');
+    //header('location:Pembelian.php');
     }
 
 }

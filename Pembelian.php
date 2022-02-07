@@ -131,7 +131,7 @@ if ($userAC == '0'){
     </head>
 
     <body>
-        <?php include 'layout/sidebar-old.php';?>
+		<?php include 'layout/sidebar-old.php';?>
         <div class="content">
          <div class="container mr-0">
 
@@ -146,10 +146,10 @@ if ($userAC == '0'){
                  <form action="" method="post">   
                     <div class="card shadow-sm mb-2">
                         <div class="card-body">
-			    <p class="text"><big>Daftar Kebutuhan</big> &nbsp; <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambahkan</button> 
+							<p class="text"><big>Daftar Kebutuhan</big> &nbsp; <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambahkan</button> 
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				    
-<form action="" method="post">				   
+
   <div class="modal-dialog">
     <div class="modal-content mdl">
       <div class="modal-header">
@@ -157,10 +157,11 @@ if ($userAC == '0'){
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-
+	  
+					<form action="" method="post">
                         <div class="row mb-3 mt-3">
                             <div class="col-sm-4">
-                                <p class="text-end">Nama : </p>
+                                <p class="text-end">Nama Barang : </p>
                             </div>
                             <div class="col-sm-5">
                                 <input class="form-control cntrl" type="text" name="nmbrng" id="nmbrng"/>
@@ -176,6 +177,24 @@ if ($userAC == '0'){
                             </div>
                         </div>
                 
+						<div class="row mb-3">
+                            <div class="col-sm-4">
+                                <p class="text-end">Toko : </p>
+                            </div>
+                            <div class="col-sm-5">
+                                <input class="form-control cntrl" type="text" name="toko" id=""/>
+                            </div>
+                        </div>
+				
+						<div class="row mb-3">
+                            <div class="col-sm-4">
+                                <p class="text-end">Alamat Toko : </p>
+                            </div>
+                            <div class="col-sm-5">
+                                <input class="form-control cntrl" type="text" name="alamat" id=""/>
+                            </div>
+                        </div>
+				
                         <div class="row mb-3">
                             <div class="col-sm-4">
                                 <p class="text-end">Harga satuan : </p>
@@ -192,7 +211,8 @@ if ($userAC == '0'){
                             <div class="col-sm-5">
                                 <input class="form-control cntrl" type="number" name="ongkir" id=""/>
                             </div>
-                        </div>        
+                        </div>    
+						
                         <div class="row mb-3">
                             <div class="col-sm-4">
                                 <p class="text-end">Jumlah : </p>
@@ -204,22 +224,30 @@ if ($userAC == '0'){
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
-        <Button class="btn btn-primary" type="submit" name="submit" value="tambahkan">Tambahkan</button>
-                            
+		<div class="d-flex flex-row-reverse">
+			<div class="bd-highlight p-2">
+				<input class="btn btn-primary" type="submit" name="submit" value="tambahkan">
+			</div>
+			</form>
+			<div class="bd-highlight p-2">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan</button>
+			</div>
+		</div>
       </div>
     </div>
   </div>
 </div>
-</form>
 				    
                          <div class="table-responsive tableFixHead" id="tblee">
                                 <table class="table table-striped table-sm" id="Rncn">
                                     <thead>
                                     <tr>
+									<!--tabel display/tampilan-->
                                         <th scope="col">No</th>
-                                        <th scope="col">Nama</th>
+                                        <th scope="col">Nama Barang</th>
                                         <th scope="col">Keterangan pembelian</th>
+										<th scope="col">Toko</th>
+										<th scope="col">Alamat Toko</th>
                                         <th scope="col">Harga satuan</th>
                                         <th scope="col">Harga pengiriman</th>
                                         <th scope="col">PPN</th>
@@ -248,10 +276,12 @@ if ($userAC == '0'){
                                                     <td><?php echo $no; ?></td>
                                                     <td class='fw-bold'><?php echo $data['stock_name']; ?></td>
                                                     <td><?php echo $data['link'];?></td>
-                                                    <td><?php echo $data['harga'];?></td>
+                                                    <td><?php echo $data['toko'];?></td>
+													<td><?php echo $data['alamat'];?></td>
+													<td><?php echo $data['harga'];?></td>
                                                     <td><?php echo $data['Ongkir'];?></td>
                                                     <td><?php echo $data['ppn'];?></td>
-						    <td><?php echo $data['jumlah'];?></td>
+													<td><?php echo $data['jumlah'];?></td>
                                                     <td><?php echo $data['totalhrg'];?></td>
                                                 </tr>
                                             <?php $no++;} ?>
@@ -344,9 +374,12 @@ if ($userAC == '0'){
                                                 <table class="tblw table table-striped table-sm" id="Rncn">
                                                     <thead>
                                                     <tr>
+													<!--tabel print purchase order-->
                                                         <th scope="col">No</th>
-                                                        <th scope="col">Nama</th>
+                                                        <th scope="col">Nama Barang</th>
                                                         <th scope="col">Keterangan pembelian</th>
+														<th scope="col">Toko</th>
+														<th scope="col">Alamat Toko</th>
                                                         <th scope="col">Harga satuan</th>
                                                         <th scope="col">Harga pengiriman</th>
                                                         <th scope="col">PPN</th>
@@ -374,6 +407,8 @@ if ($userAC == '0'){
                                                                     <td><?php echo $no; ?></td>
                                                                     <td class='fw-bold'><?php echo $data['stock_name']; ?></td>
                                                                     <td><?php echo $data['link'];?></td>
+																	<td><?php echo $data['toko'];?></td>
+																	<td><?php echo $data['alamat'];?></td>
                                                                     <td><?php echo $data['harga'];?></td>
                                                                     <td><?php echo $data['Ongkir'];?></td>
                                                                     <td><?php echo $data['ppn'];?></td>

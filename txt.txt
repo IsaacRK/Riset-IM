@@ -40,6 +40,11 @@
 	Tambahan dari pak Dwiky:
 		-Pada tombol laporan, apabila bisa, dokumen yang didownload sudah berdada dalam sebuah format
 		-Pas pertama kali masuk, terdapat tutorial menggunakan halaman
+		
+
+	Tambahan:
+		-iki sak, aku ape nambahi, ndek bagian pembelian iku ditambah nama toko dan alamat
+			dadi mben lek bedo uwong iku ben ngerti tuku barange ndek ndi
 	|-------------
 -fitur erp
 	-[done]hanya bisa diakses admin & supervervisor
