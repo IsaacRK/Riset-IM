@@ -164,7 +164,7 @@ if ($userAC == '0'){
                                 <p class="text-end">Nama Barang : </p>
                             </div>
                             <div class="col-sm-5">
-                                <input class="form-control cntrl" type="text" name="nmbrng" id="nmbrng"/>
+                                <input class="form-control cntrl" type="text" name="nmbrng" id="nmbrng" required/>
                             </div>
                         </div>
 
@@ -200,7 +200,7 @@ if ($userAC == '0'){
                                 <p class="text-end">Harga satuan : </p>
                             </div>
                             <div class="col-sm-5">
-                                <input class="form-control cntrl" type="number" name="harga" id=""/>
+                                <input class="form-control cntrl" type="number" name="harga" id="" required/>
                             </div>
                         </div>
         
@@ -218,7 +218,7 @@ if ($userAC == '0'){
                                 <p class="text-end">Jumlah : </p>
                             </div>
                             <div class="col-sm-5">
-                                <input class="form-control cntrl" type="number" name="JMLH" id=""/>
+                                <input class="form-control cntrl" type="number" name="JMLH" id="" required/>
                             </div>
                         </div>                        
 

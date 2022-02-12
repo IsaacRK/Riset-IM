@@ -12,20 +12,39 @@ if(isset($_POST['submit'])){
     $ONG    = $_POST['ongkir'];
     $jumlah = $_POST['JMLH'];
 
+	$err = 0;
+
     //Melihat apakah ada data yang belum diisi
     if($BRNG == null){
         //header('location:Pembelian.php');
 		echo'barang kosong';
-    }else if($link == null){
+		$err++;
+    }
+	if($link == null){
         //header('location:Pembelian.php');
-		echo'link kosong';
-    }else if($harga == null){
+		$link = '-';
+    }
+	if($harga == null){
         //header('location:Pembelian.php');
 		echo'harga kosong';
-    }else if($jumlah == null){
+		$err++;
+    }
+	if($ONG == null){
+		$ONG = 0;
+	}
+	if($toko == null){
+		$toko = '-';
+	}
+	if($alamat == null){
+		$alamat = '-';
+	}
+	if($jumlah == null){
         //header('location:Pembelian.php');
 		echo'jumlah kosong';
-    }else{
+		$err++;
+    }
+	
+	if($err==0){
     
     //Mencari barang yang memiliki nama yang sama pada database
     $stid = "SELECT * FROM stock WHERE stock_name = '$BRNG'";
@@ -69,7 +88,9 @@ if(isset($_POST['submit'])){
     $inhr= mysqli_query($servConnQuery, $hrg);
 
     //header('location:Pembelian.php');
-    }
+    }else{
+		echo'terdapat error: backend/pmbln.php baris 83';
+	}
 
 }
 
