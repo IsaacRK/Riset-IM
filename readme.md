@@ -1,7 +1,9 @@
 # Instalasi
 #### Download
 1. Download file dengan menekan tombol "Download ZIP" pada repository Riset IM https://github.com/IsaacRK/Riset-IM
+
 ![download1.PNG](https://github.com/IsaacRK/Riset-IM/blob/main/Dokumentasi/readme/download1.PNG?raw=true)
+
 2. Ekstrak folder dari file ZIP pada:
 	- Untuk Pengguna XAMPP
 		1. buka folder C: \ xampp \ htdocs
@@ -16,17 +18,21 @@
 3. Pilih database yang telah di buat.
 4. Import tabel ke databse dengan file "dataTabel.sql" pada folder Dokumentasi.
 5. Ubah koneksi kepada database pada file conn.php pada folder backend.
-	- Ubah $server dengan server anda.
-	- Ubah $userNM dengan useraname server database anda.
-	- Ubah $pass dengan password server database anda.
-	- Ubah $database dengan nama database yang telah anda buat pada langkan no3.
+	- Ubah `$server` dengan server anda.
+	- Ubah `$userNM` dengan useraname server database anda.
+	- Ubah `$pass` dengan password server database anda.
+	- Ubah `$database` dengan nama database yang telah anda buat pada langkah no3.
 
 #### Cara penggunaan
 1. kunjungi halaman pada browser.
 2. Jika sudah memiliki akun ketik nama pengguna dan kata sandi di sebelah kanan atas lalu tekan Masuk.
+
 ![loginInput.png](https://github.com/IsaacRK/Riset-IM/blob/main/Dokumentasi/readme/loginInput.png?raw=true)
+
 3. Jika belum memiliki akun daftar pada form registrasi yang dengan menuliskan nama, email, kata sandi, dan chapta lalu tekan daftar.
+
 ![Dokumentasi/readme/registrasi.png](https://github.com/IsaacRK/Riset-IM/blob/main/Dokumentasi/readme/registrasi.png?raw=true)
+
 4. Pada halaman pengaturan foto profil upload file dengan ekstensi PNG atau JPG yang diinginkan sebagai foto profil, jika ingin tidak mengisi foto dapat langsung melewati halaman tersebut.
 
 ![ikonAkun.png](https://github.com/IsaacRK/Riset-IM/blob/main/Dokumentasi/readme/ikonAkun.png?raw=true)
@@ -37,9 +43,11 @@
 
 6. Setelah verifikasi atau masuk akan terbuka halaman beranda.
 7. Pada halaman beranda terdapat beberapa data yang ditampilkan meliputi pemetaan dari komponen, Riwayat aktivitas dalam 7 hari terakhir, serta jumlah stok dari masing-masing barang yang disimpan pada aplikasi. Pada halaman ini juga terdapat fitur unduh laporan yang berfungsi untuk mengunduh data aktifitas 30 hari terakhir dan barang barang pada penyimpanan.
+
 ![aktivitasBarang.png](https://github.com/IsaacRK/Riset-IM/blob/main/Dokumentasi/readme/aktivitasBarang.png?raw=true)
 
 8. Pada menu stok masuk untuk memasukan barang langkah awal yang perlu dilakukan adalah mengisi nama barang dan tekan cek.
+
 ![inputBarang.png](https://github.com/IsaacRK/Riset-IM/blob/main/Dokumentasi/readme/inputBarang.png?raw=true)
 
 9. Apabila nama barang yang tertulis belum terdaftar pada database, maka barang tersebut akan dianggap sebagai barang baru.
